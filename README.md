@@ -21,6 +21,7 @@ These projects will be automatically added into [https://projects.ce.pdn.ac.lk](
   "title": "Smart Pet Feeder",
   "team": [
     {
+
       "name": "Gunathilaka R.M.S.M.",
       "email": "e17100@eng.pdn.ac.lk",
       "eNumber": "E/17/100"
