@@ -1,5 +1,5 @@
 ___
-# DELETE THIS INSTRUCTIONS AND ADD AN INTRODUCTION ABOUT YOUR PROJECT
+# Smart Pet Feeder
 ___
 
 # eYY-3yp-project-template
@@ -18,22 +18,22 @@ These projects will be automatically added into [https://projects.ce.pdn.ac.lk](
 
 ```
 {
-  "title": "This is the title of the project",
+  "title": "Smart Pet Feeder",
   "team": [
     {
-      "name": "Team Member Name 1",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Rathnayaka R.L.D.A.S.",
+      "email": "e17284@eng.pdn.ac.lk",
+      "eNumber": "E/17/284"
     },
     {
-      "name": "Team Member Name 2",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Gunathilaka R.M.S.M.",
+      "email": "e17100@eng.pdn.ac.lk",
+      "eNumber": "E/17/100"
     },
     {
-      "name": "Team Member Name 3",
-      "email": "email@eng.pdn.ac.lk",
-      "eNumber": "E/yy/xxx"
+      "name": "Perera K.S.D.",
+      "email": "246@eng.pdn.ac.lk",
+      "eNumber": "E/17/246"
     }
   ],
   "supervisors": [
