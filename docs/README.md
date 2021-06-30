@@ -4,7 +4,7 @@ permalink: index.html
 
 # Please update this with your repository name and project title
 repository-name: eYY-3yp-project-template
-title: Project Template
+title:Smart Pet Feder
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
@@ -14,9 +14,9 @@ title: Project Template
 ---
 
 ## Team
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
+-  E/17/284, Rathnayaka R.L.D.A.S., [email](mailto:e17284@eng.pdn.ac.lk)
+-  E/17/100, Gunathilaka R.M.S.M., [email](mailto:e17284@eng.pdn.ac.lk)
+-  E/17/284, Perera K.S.D., [email](mailto:e17284@eng.pdn.ac.lk)
 
 <!-- Image (photo/drawing of the final hardware) should be here -->
 
