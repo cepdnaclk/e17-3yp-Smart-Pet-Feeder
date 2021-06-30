@@ -2,7 +2,7 @@ ___
 # Smart Pet Feeder
 ___
 
-# eYY-3yp-project-template
+# e17-3yp-project-Smart-Pet-Feeder
 
 This is a sample repository you can use for your Embedded Systems project. Once you followed these instructions, remove the text and add a brief introduction to here.
 
@@ -21,6 +21,7 @@ These projects will be automatically added into [https://projects.ce.pdn.ac.lk](
   "title": "Smart Pet Feeder",
   "team": [
     {
+
       "name": "Rathnayaka R.L.D.A.S.",
       "email": "e17284@eng.pdn.ac.lk",
       "eNumber": "E/17/284"
@@ -34,6 +35,9 @@ These projects will be automatically added into [https://projects.ce.pdn.ac.lk](
       "name": "Perera K.S.D.",
       "email": "246@eng.pdn.ac.lk",
       "eNumber": "E/17/246"
+
+  
+
     }
   ],
   "supervisors": [
