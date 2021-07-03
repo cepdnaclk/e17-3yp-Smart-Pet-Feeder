@@ -1,0 +1,25 @@
+/* Style the links inside the navigation bar */
+.nav-link {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Change the color of links on hover */
+.nav-link:hover {
+  color: #bbc4bf;
+}
+
+/* Add a color to the active/current link */
+.active-nav-link {
+  color: #bbc4bf;
+}
+
+.signup-form {
+  width: 600px;
+  margin: 0 auto;
+  font-size: 15px;
+}
