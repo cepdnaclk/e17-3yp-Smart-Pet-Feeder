@@ -1,20 +1,30 @@
 ___
-# Smart Pet Feeder
+# **Smart Pet Feeder**
 ___
+> _Saving one pet won't change the world_ , 
+> _but for that one pet the world will change forever_
 
-# e17-3yp-project-Smart-Pet-Feeder
+## Table Of Contents
+-   [Overview](#overview)
+-   [Introduction](#introduction)
+-   [Team](#team)
 
-This is a sample repository you can use for your Embedded Systems project. Once you followed these instructions, remove the text and add a brief introduction to here.
 
-### Enable GitHub Pages
 
-You can put the things to be shown in GitHub pages into the _docs/_ folder. Both html and md file formats are supported. You need to go to settings and enable GitHub pages and select _main_ branch and _docs_ folder from the dropdowns, as shown in the below image.
+## Overview
+**Smart Pet Feeder**  is a product that helps you to take care of your pets. It will help you to build the relationship with your pet better and better even you are not in the home. Have you ever been worried about your pet's meals when you are away from your pet? Smart pet feeder provide the platform to come up with this problem
 
-![image](https://user-images.githubusercontent.com/11540782/98789936-028d3600-2429-11eb-84be-aaba665fdc75.png)
+## **Introduction**
+When people are getting busy, they forget to take care of their pets even though they love their pets. Taking care of pet's diet can be hard if they want to take good care of pet's health. Smart pet feeder is one of the best solutions for that. It is capable of feeding a pet, in absence of his master. So, though the master is not at home, his pet will not miss his foods.
 
-### Special Configurations
+**Smart pet feeder** can be controlled by using a mobile app or a website. A small camera, which is mounted on the pet feeder, allows the master to see the machine's surrounding and observe the pet's behavior. Master can move the machine remotely while watching through the camera, to find the pet and deliver his foods on time.
 
-These projects will be automatically added into [https://projects.ce.pdn.ac.lk](). If you like to show more details about your project on this site, you can fill the parameters in the file, _/docs/index.json_
+If the master is too busy, even to operate it remotely throgh the mobile app or the website, he can switch on the automatic mode and schedule when to give foods. A container that is placed on the machine can be used to store the foods and when the pet is being fed, right amount can be passed to the plate
+
+## Team
+- GUNATHILAKA R.M.S.M. , e17100@eng.pdn.ac.lk
+- PERERA K.S.D., e17246@eng.pdn.ac.lk
+- RATHNAYAKA R.L.D.A.S. ,e17284@eng.pdn.ac.lk
 
 ```
 {
