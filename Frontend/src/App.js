@@ -6,7 +6,6 @@ import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
-import {homepage_path} from "./util/homepage_path";
 
 // import AuthContext from "./Store/auth-context";
 function App() {
@@ -15,19 +14,19 @@ function App() {
   return (
     <Layout>
       <Switch>
-        <Route path={homepage_path + "/"} exact>
+        <Route path="/" exact>
           <HomePage />
         </Route>
 
-        <Route path={homepage_path + "/about"} exact>
+        <Route path="/about" exact>
           <AboutPage />
         </Route>
 
-        <Route path={homepage_path + "/login"} exact>
+        <Route path="/login" exact>
           <LoginPage />
         </Route>
 
-        <Route path={homepage_path + "/signup"} exact>
+        <Route path="/signup" exact>
           <SignupPage />
         </Route>
 
