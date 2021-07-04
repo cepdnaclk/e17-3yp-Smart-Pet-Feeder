@@ -1,7 +1,6 @@
 {
-
-  "homepage": "/",
-  "main" : "src/index.js",
+  "homepage": "https://cepdnaclk.github.io/e17-3yp-Smart-Pet-Feeder/",
+  "main": "index.js",
   "name": "smart-pet-feeder",
   "version": "0.1.0",
   "private": true,
