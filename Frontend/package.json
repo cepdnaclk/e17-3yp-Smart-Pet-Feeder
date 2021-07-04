@@ -1,6 +1,7 @@
 {
 
   "homepage": "/",
+  "main" : "src/index.js",
   "name": "smart-pet-feeder",
   "version": "0.1.0",
   "private": true,
