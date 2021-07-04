@@ -6,28 +6,28 @@ import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
+import {homepage_path} from "./util/homepage_path";
 
 // import AuthContext from "./Store/auth-context";
-
 function App() {
   // const authCtx = useContext(AuthContext);
 
   return (
     <Layout>
       <Switch>
-        <Route path="/" exact>
+        <Route path={homepage_path + "/"} exact>
           <HomePage />
         </Route>
 
-        <Route path="/about" exact>
+        <Route path={homepage_path + "/about"} exact>
           <AboutPage />
         </Route>
 
-        <Route path="/login" exact>
+        <Route path={homepage_path + "/login"} exact>
           <LoginPage />
         </Route>
 
-        <Route path="/signup" exact>
+        <Route path={homepage_path + "/signup"} exact>
           <SignupPage />
         </Route>
 

@@ -4,14 +4,14 @@ import { NavLink } from "react-router-dom";
 import styles from "../Styles.module.css";
 
 // import AuthContext from '../Store/auth-context';
-
+import {homepage_path} from "../util/homepage_path";
 const MainNavigation = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
       <Col md={{ span: 1, offset: 1 }}>
         <NavLink
           exact
-          to="/"
+          to={homepage_path + "/"}
           className={styles["nav-link"]}
           activeClassName={styles["active-nav-link"]}
         >
@@ -25,7 +25,7 @@ const MainNavigation = () => {
           <Row>
             <Col md={{ span: 1 }}>
               <NavLink
-                to="/about"
+                to={homepage_path + "/about"}
                 className={styles["nav-link"]}
                 activeClassName={styles["active-nav-link"]}
               >
@@ -35,7 +35,7 @@ const MainNavigation = () => {
 
             <Col md={{ span: 2, offset: 7 }}>
               <NavLink
-                to="/login"
+                to={homepage_path + "/login"}
                 className={styles["nav-link"]}
                 activeClassName={styles["active-nav-link"]}
               >
@@ -45,7 +45,7 @@ const MainNavigation = () => {
 
             <Col md={{ span: 2 }}>
               <NavLink
-                to="/signup"
+                to={homepage_path + "/signup"}
                 className={styles["nav-link"]}
                 activeClassName={styles["active-nav-link"]}
               >
