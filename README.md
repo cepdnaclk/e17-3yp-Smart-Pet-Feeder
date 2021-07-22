@@ -21,6 +21,11 @@ When people are getting busy, they forget to take care of their pets even though
 
 If the master is too busy, even to operate it remotely throgh the mobile app or the website, he can switch on the automatic mode and schedule when to give foods. A container that is placed on the machine can be used to store the foods and when the pet is being fed, right amount can be passed to the plate
 
+### Budget
+
+According to the estimated budget the total cost is Rs. 15,390.00
+![Budged](https://user-images.githubusercontent.com/73440714/126665870-d93332be-ee99-4224-983c-de4a4441b03a.JPG)
+
 ## Team
 - GUNATHILAKA R.M.S.M. , e17100@eng.pdn.ac.lk
 - PERERA K.S.D., e17246@eng.pdn.ac.lk
