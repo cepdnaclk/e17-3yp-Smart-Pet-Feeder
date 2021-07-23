@@ -7,8 +7,9 @@ ___
 ## Table Of Contents
 -   [Overview](#overview)
 -   [Introduction](#introduction)
+-   [Budget](#budget)
+-   [Timeline](#timeline)
 -   [Team](#team)
-
 
 
 ## Overview
@@ -21,49 +22,21 @@ When people are getting busy, they forget to take care of their pets even though
 
 If the master is too busy, even to operate it remotely throgh the mobile app or the website, he can switch on the automatic mode and schedule when to give foods. A container that is placed on the machine can be used to store the foods and when the pet is being fed, right amount can be passed to the plate
 
-### Budget
+## Budget
 
 According to the estimated budget the total cost is Rs. 15,390.00
 ![Budged](https://user-images.githubusercontent.com/73440714/126665870-d93332be-ee99-4224-983c-de4a4441b03a.JPG)
+
+## Timeline
+![Timeline](https://user-images.githubusercontent.com/73387610/126746475-0e0ca3b4-7402-459c-b9f5-30f6185ac373.png)
 
 ## Team
 - GUNATHILAKA R.M.S.M. , e17100@eng.pdn.ac.lk
 - PERERA K.S.D., e17246@eng.pdn.ac.lk
 - RATHNAYAKA R.L.D.A.S. ,e17284@eng.pdn.ac.lk
 
-```
-{
-  "title": "Smart Pet Feeder",
-  "team": [
-    {
-      "name": "Gunathilaka R.M.S.M.",
-      "email": "e17100@eng.pdn.ac.lk",
-      "eNumber": "E/17/100"
-    },
-    {
-      "name": "Perera K.S.D",
-      "email": "e17246@eng.pdn.ac.lk",
-      "eNumber": "E/17/246"
-    },
-    {
-      "name": "Rathnayaka R.L.D.A.S",
-      "email": "e284@eng.pdn.ac.lk",
-      "eNumber": "E/17/284"
-    }
-  ],
-  "supervisors": [
-    {
-      "name": "Dr. Supervisor 1",
-      "email": "email@eng.pdn.ac.lk"
-    },
-    {
-      "name": "Supervisor 2",
-      "email": "email@eng.pdn.ac.lk"
-    }
-  ],
-  "tags": ["Web", "Embedded Systems"]
-}
-```
+![](https://user-images.githubusercontent.com/73387610/126747165-2ed4a261-1063-4e21-985c-71d638d70ffb.jpg)
+
 
 Once you filled this _index.json_ file, please verify the syntax is correct. (You can use [this](https://jsonlint.com/) tool).
 
