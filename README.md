@@ -35,7 +35,7 @@ According to the estimated budget the total cost is Rs. 15,390.00
 - PERERA K.S.D., e17246@eng.pdn.ac.lk
 - RATHNAYAKA R.L.D.A.S. ,e17284@eng.pdn.ac.lk
 
-![](https://user-images.githubusercontent.com/73387610/126747165-2ed4a261-1063-4e21-985c-71d638d70ffb.jpg)
+![Team](https://user-images.githubusercontent.com/73387610/126747165-2ed4a261-1063-4e21-985c-71d638d70ffb.jpg)
 
 
 Once you filled this _index.json_ file, please verify the syntax is correct. (You can use [this](https://jsonlint.com/) tool).
