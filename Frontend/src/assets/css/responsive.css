@@ -1,0 +1,141 @@
+@media (min-width:1024px) and (max-width:1200px){
+	.product .product-detail h4 {font-size: 14px;}
+	.product .product-detail p {font-size: 12px;}
+	.check-btns .btn + .btn {margin-left: 5px;}
+	.banner-box h2{font-size:33px;}
+	.many-btns .btn{margin-bottom:20px;}
+	.schedule-wrap .nav-tabs li a{padding: 12px 12px;margin-right: 5px;}
+}
+
+
+@media (max-width:768px){
+	.countdown-container-white .countdown li {margin-right: 10px;}
+	.summary-cart{border-right:0;}
+	.form-coupon {padding-left: 25px !important;}
+	.check-btns .btn + .btn {margin-left: 5px;}
+	.banner-box h2{font-size:24px;}
+	.banner-box p{font-size:14px;}
+	.widget-btns .btn{margin-bottom:20px;display: block;}
+	.widget-btns .btn.btn-lg, .btn.btn-group-lg{height: 46px;line-height:46px;}
+	.first-ico-box .feature-box{float:none;}
+	.app-btns .btn + .btn {margin-left: 0px; margin-top:10px;}
+	.feature-box-right{width:100%;}
+	ul.cart-list{left: -280px !important;border-top: 0 !important;}
+	ul.cart-list > li.total > .btn {line-height: 30px;}
+	.attr-nav-two{display:none;}
+	.schedule-wrap {padding: 30px 15px;}
+	.schedule-wrap .nav-tabs li a{padding: 12px 11px;margin-right: 5px;}
+}
+
+@media (max-width:991px){
+	nav.navbar.bootsnav.navbar-fixed{height:auto;}
+	nav.navbar.bootsnav.navbar-transparent .logo, .logo{text-align: center;display: inline-block;height: 60px;}
+	nav .logo > a{padding-top: 12px;padding-bottom: 10px;}
+	.footer-height {display: none;}
+	.testimonial .slick-arrow {display: none;visibility: hidden;}
+	[class*="col-"] > .team-member-container {margin-top: 20px;margin-bottom: 20px;}
+}
+
+
+@media (max-width:767px){
+	.schedule-tab ul li {width: 100%;text-align: center;}
+	.schedule-tab ul li:nth-child(1) {padding-left: 0;}
+	.schedule-tab ul li:nth-child(4) {text-align: center;margin-top: 20px;margin-bottom: 10px;}
+	.attr-nav-two{display:none;}
+	.testimonial-item .testimonial-content {padding: 100px 50px 50px;}
+	.testimonial-item{padding-left: 15px;padding-right: 15px;}
+	ul.social-top li a{padding-right:10px;}
+	.col-inner.spacer {padding: 50px 20px;}
+	.four-zero-four-bg h1{font-size:60px;font-weight: 700;}
+}
+
+
+
+@media (min-width:767px) and (max-width:991px){
+	.slider-bg .hero-text h1, .hero-text h1, .error-cover-bg h1, .coming-cover-bg h1 {font-size: 70px;}
+	.feature-box, .counter, .copy-right, .post{margin-bottom:20px;}
+	.embed-container, .contact-us h3{margin-top:20px;}
+	.copy-right, .footer-copyright ul.social-media{text-align:center;}
+	.footer-copyright ul.social-media{float: none;}
+	.flex-direction-nav a:before{font-size:35px;}
+	h4{line-height:30px;}
+	.countdown-container .countdown li {min-width: 110px;padding: 20px 10px;width: 110px;margin-right: 20px;}
+	.countdown li span {font-size: 30px;}
+	.countdown li p {font-size: 14px;margin-bottom: 0;}
+	.error-cover-bg p, .coming-cover-bg p{font-size: 18px;line-height: 32px;}
+	.col-about-right, .widget-list ul, ol {padding-left: 30px;}
+	.right-col-rv{margin-top:50px;}
+}
+
+@media (min-width:481px) and (max-width:766px){
+	.slider-bg .hero-text h1, .hero-text h1, .error-cover-bg h1, .coming-cover-bg h1 {font-size: 70px!important;}
+	.feature-box, .counter, .copy-right, .post{margin-bottom:20px;}
+	.embed-container, .contact-us h3{margin-top:20px;}
+	.copy-right, .footer-copyright ul.social-media{text-align:center;}
+	.footer-copyright ul.social-media{float: none;}
+	.flex-direction-nav a:before{font-size:35px;}
+	h4{line-height:30px;}
+	.error-cover-bg p, .coming-cover-bg p{font-size: 18px;line-height: 32px;}
+	.countdown-container .countdown li, .countdown-container-white .countdown li {min-width: 70px;padding: 10px 10px;width: 30px;margin-right: 0px;}
+	.countdown li span, .countdown-container-white .countdown li span {font-size: 14px;}
+	.countdown li p {font-size: 11px;margin-bottom: 0;}
+	.error-cover-bg{min-height: 600px;}
+	.icon-view {margin-left:0;margin-right:0;}
+	.widget-list ul, ol{padding-left:30px;}
+	.right-col-rv{margin-top:50px;}
+}
+
+@media (min-width:320px) and (max-width:480px){
+	.slider-bg .hero-text h1, .hero-text h1, .error-cover-bg h1, .coming-cover-bg h1 {font-size: 40px!important;}
+	.slider-bg .hero-text h2, .hero-text h2, .error-cover-bg h2, .coming-cover-bg h2 {font-size: 30px!important;}
+	.slider-bg .hero-text h3, .hero-text h3, .error-cover-bg h3, .coming-cover-bg h3 {font-size: 20px!important;}
+	.feature-box, .counter, .copy-right, .post{margin-bottom:20px;}
+	.embed-container, .contact-us h3{margin-top:20px;}
+	.copy-right, .footer-copyright ul.social-media{text-align:center;}
+	.footer-copyright ul.social-media{float: none;}
+	.flex-direction-nav a:before, .error-cover-bg h2, .coming-cover-bg h2{font-size:30px;}
+	.error-cover-bg p, .coming-cover-bg p{font-size: 18px;line-height: 32px;}
+	.error-cover-bg h2, .coming-cover-bg h2{margin-top:20px;margin-bottom:20px;}
+	.title-error-bg, .title-cover-bg{min-height: 600px;}
+	.countdown-container .countdown li, .countdown-container-white .countdown li {min-width: 70px;padding: 10px 10px;width: 30px;margin-right: 0px;}
+	.countdown li span, .countdown-container-white .countdown li span {font-size: 14px;}
+	.countdown li p {font-size: 11px;margin-bottom: 0;}
+	.countdown-container, .countdown-container-white {margin-top: 20px;margin-bottom: 20px;}
+	h4{line-height:30px;}
+	.login-cover-bg{min-height: 800px;}
+	.icon-view {margin-left:0;margin-right:0;}
+	.check-btns .btn + .btn{margin-left:3px;}
+	.banner-box{margin-bottom:40px;}
+	h2{font-size:30px;}
+	.date-section h1, .fashion-section h1, .fitness-section h1{font-size:30px;}
+	.date-section h2, .fitness-section h2{font-size:20px;}
+	.progress-ring{display:block;}
+	.widget-list ul, ol{padding-left:20px;}
+	.right-col-rv{margin-top:50px;}
+	.hero-text-sm h3{font-size:14px!important;}
+	.hero-text-sm h5{font-size:12px!important;}
+	.app-btns .btn + .btn {margin-left: 10px;margin-top: 0px;}
+	.attr-nav > ul > li > a.btn{display:none;}
+    .schedule-wrap .nav-tabs li a { width: 118px;height: 50px;line-height: 50px;margin-bottom: 10px;}
+    .schedule-tab ul { padding-left: 0;}
+	.col-about-right {padding-left: 20px;}
+	.col-about-left {padding-right: 20px;}
+	.icon-tabs .nav-tabs > li {width:49%;}
+
+}
+
+@media (max-width:320px){
+	.slider-bg .hero-text h2, .hero-text h2, .error-cover-bg h2, .coming-cover-bg h2 {font-size: 30px!important;}
+	.slider-bg .hero-text h3, .hero-text h3, .error-cover-bg h3, .coming-cover-bg h3 {font-size: 20px!important;}
+	.countdown-container .countdown li, .countdown-container-white .countdown li {min-width: 70px;padding: 10px 10px;width: 30px;margin-right: 0px;}
+	.countdown li span, .countdown-container-white .countdown li span {font-size: 14px;}
+	.countdown li p {font-size: 11px;margin-bottom: 0;}
+	.signup-box{max-width: 295px;}
+	.btn + .btn, .check-btns .btn + .btn{margin-left:0!important;margin-top:10px!important;}
+	.icon-view {margin-left:0;margin-right:0;}
+	.banner-box{margin-bottom:40px;}
+	.banner-box h2{font-size:20px;}
+	.banner-box p{font-size:12px;}
+	h2{font-size:30px;}
+	.date-section h1, .fashion-section h1{font-size:30px;}
+}

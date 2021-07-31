@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "title": "Home",
+    "to": "home"
+  },
+
+  {
+    "id": 2,
+    "title": "About",
+    "to": "about"
+  },
+
+  {
+    "id": 3,
+    "title": "Portfolio",
+    "to": "portfolio"
+  },
+
+  {
+    "id": 4,
+    "title": "Team",
+    "to": "team"
+  },
+
+  {
+    "id": 5,
+    "title": "Services",
+    "to": "services"
+  },
+
+  {
+    "id": 6,
+    "title": "Testimonials",
+    "to": "testimonials"
+  },
+
+  {
+    "id": 7,
+    "title": "Blogs",
+    "to": "blogs"
+  }
+]

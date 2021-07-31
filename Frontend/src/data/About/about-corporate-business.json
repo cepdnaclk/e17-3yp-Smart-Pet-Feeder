@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "BRAND DESIGN",
+    "text": "Designing a good website that accommodates a lot of content is a tricky balancing act to pull off.",
+    "icon": "light-bulb"
+  },
+  {
+    "id": 2,
+    "title": "APP DEVELOPMENT",
+    "text": "We build mobile apps for the conference, integrating unique content and branding to create.",
+    "icon": "rocket-alt-2"
+  },
+  {
+    "id": 3,
+    "title": "DIGITAL MARKETING",
+    "text": "Google has made this important since 1998 when it launched. Content became, and still is king since websites.",
+    "icon": "paint"
+  },
+  {
+    "id": 4,
+    "title": "UNIQUE IDEAS",
+    "text": "Designing a good website that accommodates a lot of content is a tricky balancing act to pull off.",
+    "icon": "lightning-ray"
+  },
+  {
+    "id": 5,
+    "title": "EASY CUSTOMIZATION",
+    "text": "We build mobile apps for the conference, integrating unique content and branding to create.",
+    "icon": "gears"
+  },
+  {
+    "id": 6,
+    "title": "FULLY RESPONSIVE",
+    "text": "Google has made this important since 1998 when it launched. Content became, and still is king since websites.",
+    "icon": "responsive"
+  }
+]
