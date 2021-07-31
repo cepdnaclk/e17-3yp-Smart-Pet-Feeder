@@ -23,13 +23,13 @@ const SmartPetFeeder = () => {
       <Header />
       <Home data={HomeDate} />
       <About />
-      <Portfolio
-        filter="true"
-        layout="wide"
-        columns="2"
-        items="6"
-        classAppend="pt-0"
-      />
+      {/*<Portfolio*/}
+      {/*  filter="true"*/}
+      {/*  layout="wide"*/}
+      {/*  columns="2"*/}
+      {/*  items="6"*/}
+      {/*  classAppend="pt-0"*/}
+      {/*/>*/}
       <Team />
       <Services title="What We Offer" tagline="We Turn Heads" />
       <Testimonials title="TESTIMONIALS" tagline="Happy clients" />
