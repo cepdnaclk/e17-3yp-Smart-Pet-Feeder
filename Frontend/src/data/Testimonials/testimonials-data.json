@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "avatar": "team/avatar-1.jpg",
+    "name": "Michael Hans",
+    "role": "Founder & CEO of Scoda",
+    "text": "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat."
+  },
+  {
+    "id": 2,
+    "avatar": "team/avatar-2.jpg",
+    "name": "Jane Beck",
+    "role": "CEO of Scoda",
+    "text": "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat."
+  },
+  {
+    "id": 3,
+    "avatar": "team/avatar-3.jpg",
+    "name": "Kevin Hall",
+    "role": "CEO of Scoda",
+    "text": "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat."
+  }
+]
