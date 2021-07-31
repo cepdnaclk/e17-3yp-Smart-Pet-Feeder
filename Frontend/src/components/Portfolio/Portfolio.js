@@ -20,7 +20,7 @@ const Portfolio = forwardRef(
           })
         );
       }
-      
+
     }, []);
 
     const filterElements = (evt) => {

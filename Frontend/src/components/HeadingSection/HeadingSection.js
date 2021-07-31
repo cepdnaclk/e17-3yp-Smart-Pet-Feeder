@@ -14,14 +14,14 @@ const HeadingSection = ({ title, tagline, classAppend, font, children }) => {
         {title}
       </h2>
       {tagline && (
-        <h4
+        <h3
           className={"text-uppercase " + (font ? font : "")}
           data-aos-delay={200}
           data-aos={"fade-up"}
           data-aos-duration={700}
         >
           {`- ${tagline} -`}
-        </h4>
+        </h3>
       )}
       {children ? (
         <p
