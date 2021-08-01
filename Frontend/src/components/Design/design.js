@@ -13,7 +13,6 @@ const Design = () => (
 
       <div className="row">
         <HeadingSection title="UI Design" tagline="">
-          Details of the pet feeder
           <div className="pb-5">
             <img src={ui_design} />
           </div>

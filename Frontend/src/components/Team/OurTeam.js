@@ -1,7 +1,7 @@
 import React from "react";
 import Icofont from "react-icofont";
 
-const TeamMemberTwo = ({ name, role, image, social, delay }) => {
+const OurTeam = ({ name, role, image, social, delay }) => {
   return (
     <div
       className="col-md-4 col-sm-4 col-xs-12"
@@ -39,4 +39,4 @@ const TeamMemberTwo = ({ name, role, image, social, delay }) => {
   );
 };
 
-export default TeamMemberTwo;
+export default OurTeam;
