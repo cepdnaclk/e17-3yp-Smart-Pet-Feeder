@@ -16,6 +16,7 @@ import FooterOne from "../../components/Footer/FooterOne";
 import Portfolio from "../../components/Portfolio/Portfolio";
 import DataFlow from "../../components/DataFlow/DataFlow";
 import Budget from "../../components/Budget/Budget";
+import SecurityAscpects from "../../components/SecurityAspects/SecurityAscpects";
 
 const SmartPetFeeder = () => {
   useEffect(() => {
@@ -30,6 +31,7 @@ const SmartPetFeeder = () => {
       <Architecture />
       <Design />
       <DataFlow />
+      <SecurityAscpects />
       <Budget/>
       {/*<Portfolio*/}
       {/*  filter="true"*/}
