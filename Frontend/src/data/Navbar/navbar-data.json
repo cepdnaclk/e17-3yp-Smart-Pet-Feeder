@@ -18,15 +18,9 @@
   },
 
   {
-    "id": 8,
+    "id": 4,
     "title": "Design",
     "to": "design"
-  },
-
-  {
-    "id": 4,
-    "title": "Team",
-    "to": "team"
   },
 
   {
@@ -37,12 +31,18 @@
 
   {
     "id": 6,
+    "title": "Team",
+    "to": "team"
+  },
+
+  {
+    "id": 7,
     "title": "Testimonials",
     "to": "testimonials"
   },
 
   {
-    "id": 7,
+    "id": 8,
     "title": "Blogs",
     "to": "blogs"
   }
