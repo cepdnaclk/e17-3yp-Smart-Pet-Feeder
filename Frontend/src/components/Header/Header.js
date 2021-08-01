@@ -2,9 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Icofont from "react-icofont";
 import DropdownMenu from "../Navs/DropdownMenu";
 import SearchOverlay from "../../elements/SearchOverlay";
-import AttributeNav from "../Navs/AttributeNav";
 import MainLogo from "../MainLogo";
-import CartSearchTop from "../Navs/CartSearchTop";
 import "../../assets/css/style.css";
 
 const Header = ({ type }) => {
