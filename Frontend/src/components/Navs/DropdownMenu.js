@@ -18,7 +18,7 @@ const DropdownMenu = (props) => {
             activeClassName={"active"}
             to={dropdown.to}
             spy={true}
-            duration={800}
+            duration={200}
             delay={0}
             smooth={"easeInOutQuart"}
           >

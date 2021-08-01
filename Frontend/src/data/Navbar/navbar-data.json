@@ -31,19 +31,25 @@
 
   {
     "id": 6,
-    "title": "Team",
-    "to": "team"
+    "title": "Security",
+    "to": "security_aspects"
   },
 
   {
     "id": 7,
-    "title": "Testimonials",
-    "to": "testimonials"
+    "title": "Budget",
+    "to": "budget"
   },
 
   {
     "id": 8,
-    "title": "Others",
-    "to": "others"
+    "title": "Timeline",
+    "to": "timeline"
+  },
+
+  {
+    "id": 9,
+    "title": "Team",
+    "to": "team"
   }
 ]
