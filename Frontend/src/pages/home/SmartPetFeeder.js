@@ -17,6 +17,7 @@ import Portfolio from "../../components/Portfolio/Portfolio";
 import DataFlow from "../../components/DataFlow/DataFlow";
 import Budget from "../../components/Budget/Budget";
 import SecurityAscpects from "../../components/SecurityAspects/SecurityAscpects";
+import Timeline from "../../components/Timeline/Timeline";
 
 const SmartPetFeeder = () => {
   useEffect(() => {
@@ -32,7 +33,8 @@ const SmartPetFeeder = () => {
       <Design />
       <DataFlow />
       <SecurityAscpects />
-      <Budget/>
+      <Budget />
+      <Timeline />
       {/*<Portfolio*/}
       {/*  filter="true"*/}
       {/*  layout="wide"*/}
