@@ -13,7 +13,11 @@
   --secondary-color: #ce1500;
 }
 
-.paragraph_{
+.timeline_bg {
+  background: rgba(64, 0, 128, 0.985);
+}
+
+.paragraph_ {
   margin: 0;
   text-align: justify;
 }
