@@ -61,15 +61,15 @@ const FooterOne = () => (
                   <li>
                     <a href={process.env.PUBLIC_URL}>Contact Us</a>
                   </li>
-                  <li>
-                    <a href={process.env.PUBLIC_URL}>Our Services</a>
-                  </li>
-                  <li>
-                    <a href={process.env.PUBLIC_URL}>Terms &amp; Conditions</a>
-                  </li>
-                  <li>
-                    <a href={process.env.PUBLIC_URL}>Careers</a>
-                  </li>
+                  {/*<li>*/}
+                  {/*  <a href={process.env.PUBLIC_URL}>Our Services</a>*/}
+                  {/*</li>*/}
+                  {/*<li>*/}
+                  {/*  <a href={process.env.PUBLIC_URL}>Terms &amp; Conditions</a>*/}
+                  {/*</li>*/}
+                  {/*<li>*/}
+                  {/*  <a href={process.env.PUBLIC_URL}>Careers</a>*/}
+                  {/*</li>*/}
                 </ul>
               </div>
             </div>
@@ -85,7 +85,11 @@ const FooterOne = () => (
                   </li>
                   <li>
                     <i className="icofont icofont-iphone"></i>
-                    <a href="tel:441632960290">+766812877</a>
+                    <a href="tel:441632960290">+94 76 869 9448</a>
+                  </li>
+                  <li>
+                    <i className="icofont icofont-iphone"></i>
+                    <a href="tel:441632960290">+94 76 682 1877</a>
                   </li>
                   <li>
                     <i className="icofont icofont-mail"></i>

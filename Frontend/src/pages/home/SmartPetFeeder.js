@@ -15,6 +15,7 @@ import Blogs from "../../components/Blog/Blogs";
 import FooterOne from "../../components/Footer/FooterOne";
 import Portfolio from "../../components/Portfolio/Portfolio";
 import DataFlow from "../../components/DataFlow/DataFlow";
+import Budget from "../../components/Budget/Budget";
 
 const SmartPetFeeder = () => {
   useEffect(() => {
@@ -29,6 +30,7 @@ const SmartPetFeeder = () => {
       <Architecture />
       <Design />
       <DataFlow />
+      <Budget/>
       {/*<Portfolio*/}
       {/*  filter="true"*/}
       {/*  layout="wide"*/}
@@ -38,9 +40,9 @@ const SmartPetFeeder = () => {
       {/*/>*/}
 
       <Team />
-      <Services title="What We Offer" tagline="We Turn Heads" />
-      <Testimonials title="TESTIMONIALS" tagline="Happy clients" />
-      <Blogs />
+      {/*<Services title="What We Offer" tagline="We Turn Heads" />*/}
+      {/*<Testimonials title="TESTIMONIALS" tagline="Happy clients" />*/}
+      {/*<Blogs />*/}
       <FooterOne />
     </Loader>
   );
