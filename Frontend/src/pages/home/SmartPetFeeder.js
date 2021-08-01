@@ -14,6 +14,7 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import Blogs from "../../components/Blog/Blogs";
 import FooterOne from "../../components/Footer/FooterOne";
 import Portfolio from "../../components/Portfolio/Portfolio";
+import DataFlow from "../../components/DataFlow/DataFlow";
 
 const SmartPetFeeder = () => {
   useEffect(() => {
@@ -27,7 +28,7 @@ const SmartPetFeeder = () => {
       <About />
       <Architecture />
       <Design />
-
+      <DataFlow />
       {/*<Portfolio*/}
       {/*  filter="true"*/}
       {/*  layout="wide"*/}
