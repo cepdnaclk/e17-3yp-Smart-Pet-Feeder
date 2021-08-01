@@ -13,6 +13,11 @@
   --secondary-color: #ce1500;
 }
 
+.paragraph_{
+  margin: 0;
+  text-align: justify;
+}
+
 .login_button {
   color: yellow;
   background-color: transparent;

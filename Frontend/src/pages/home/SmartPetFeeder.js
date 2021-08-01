@@ -6,6 +6,8 @@ import HomeDate from "../../data/Home/home.json";
 import Header from "../../components/Header/Header";
 import Home from "../../components/Home/Home";
 import About from "../../components/About/About";
+import Architecture from "../../components/Architecture/Architecture";
+import Design from "../../components/Design/Design";
 import Team from "../../components/Team/Team";
 import Services from "../../components/Services/Services";
 import Testimonials from "../../components/Testimonials/Testimonials";
@@ -23,6 +25,9 @@ const SmartPetFeeder = () => {
       <Header />
       <Home data={HomeDate} />
       <About />
+      <Architecture />
+      <Design />
+
       {/*<Portfolio*/}
       {/*  filter="true"*/}
       {/*  layout="wide"*/}
@@ -30,6 +35,7 @@ const SmartPetFeeder = () => {
       {/*  items="6"*/}
       {/*  classAppend="pt-0"*/}
       {/*/>*/}
+
       <Team />
       <Services title="What We Offer" tagline="We Turn Heads" />
       <Testimonials title="TESTIMONIALS" tagline="Happy clients" />

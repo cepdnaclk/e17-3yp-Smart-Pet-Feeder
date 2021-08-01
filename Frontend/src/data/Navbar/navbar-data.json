@@ -11,7 +11,17 @@
     "to": "about"
   },
 
+  {
+    "id": 3,
+    "title": "Architecture",
+    "to": "architecture"
+  },
 
+  {
+    "id": 8,
+    "title": "Design",
+    "to": "design"
+  },
 
   {
     "id": 4,
