@@ -28,7 +28,7 @@ const HeadingSection = ({ title, tagline, classAppend, font, children }) => {
           data-aos-delay={300}
           data-aos={"fade-up"}
           data-aos-duration={700}
-          className="mt-30"
+          className="mt-30 paragraph_"
         >
           {children}
         </p>
