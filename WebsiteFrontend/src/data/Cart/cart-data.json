@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "photo": "thumb01.jpg",
+    "name": "Delica omtantur",
+    "qty": "2",
+    "currency": "$",
+    "price": "99.99"
+  },
+  {
+    "id": 2,
+    "photo": "thumb02.jpg",
+    "name": "Omnes ocurreret",
+    "qty": "1",
+    "currency": "$",
+    "price": "33.33"
+  },
+  {
+    "id": 3,
+    "photo": "thumb03.jpg",
+    "name": "Agam facilisis",
+    "qty": "2",
+    "currency": "$",
+    "price": "99.99"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Isuru Nawinne",
+    "role": "Advisor",
+    "image": "team/Dr_Isuru.jpg",
+    "social": [
+      {
+        "id": 1,
+        "icon": "linkedin",
+        "link": "https://www.linkedin.com/in/isuru-nawinne-73302833"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Dr. Mahanama Wickramasinghe",
+    "role": "Advisor",
+    "image": "team/Dr_Mahanama.jfif",
+    "social": [
+      {
+        "id": 1,
+        "icon": "linkedin",
+        "link": "https://www.linkedin.com/in/mahanama/"
+      }
+    ]
+  }
+]

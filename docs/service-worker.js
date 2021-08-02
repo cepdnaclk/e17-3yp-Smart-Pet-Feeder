@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/e17-3yp-Smart-Pet-Feeder/precache-manifest.2bb18e55136827e554a422d3dc77e750.js"
+  "/e17-3yp-Smart-Pet-Feeder/precache-manifest.918714d4650a9c79809a005d727c1ef5.js"
 );
 
 workbox.clientsClaim();

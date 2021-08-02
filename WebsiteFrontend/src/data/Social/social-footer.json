@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "icon": "facebook",
+    "portfolio": 1,
+    "footer": 1,
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "icon": "dribbble",
+    "portfolio": 0,
+    "footer": 1,
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "icon": "behance",
+    "portfolio": 1,
+    "footer": 1,
+    "link": "#"
+  },
+  {
+    "id": 4,
+    "icon": "instagram",
+    "portfolio": 0,
+    "footer": 1,
+    "link": "#"
+  },
+  {
+    "id": 5,
+    "icon": "linkedin",
+    "portfolio": 1,
+    "footer": 1,
+    "link": "#"
+  },
+  {
+    "id": 6,
+    "icon": "pinterest",
+    "portfolio": 1,
+    "footer": 0,
+    "link": "#"
+  },
+  {
+    "id": 7,
+    "icon": "twitter",
+    "portfolio": 1,
+    "footer": 0,
+    "link": "#"
+  }
+]
