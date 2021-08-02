@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "R M S M Gunathilaka",
+    "role": "E/17/100",
+    "image": "team/sachintha.jpg",
+    "social": [
+      {
+        "id": 1,
+        "icon": "facebook",
+        "link": "https://www.facebook.com/sachintha.madhushanka.1"
+      },
+      {
+        "id": 2,
+        "icon": "linkedin",
+        "link": "www.linkedin.com/in/sachintha-madhushanka-91ab9b16a"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "K S D Perera",
+    "role": "E/17/246",
+    "image": "team/shenal.jpg",
+    "social": [
+      {
+        "id": 1,
+        "icon": "facebook",
+        "link": "https://www.facebook.com/shenal.perera.12764"
+      },
+      {
+        "id": 2,
+        "icon": "linkedin",
+        "link": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "R L D A S Rathnayake",
+    "role": "E/17/284",
+    "image": "team/achintha.jpg",
+    "social": [
+      {
+        "id": 1,
+        "icon": "facebook",
+        "link": ""
+      },
+      {
+        "id": 2,
+        "icon": "linkedin",
+        "link": ""
+      }
+    ]
+  }
+]
