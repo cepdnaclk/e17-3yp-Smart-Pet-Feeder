@@ -3,11 +3,11 @@ import HeadingSection from "../HeadingSection/HeadingSection";
 import architecture from "../../assets/images/architecture/architecture.png";
 
 const Architecture = () => (
-  <section id="architecture">
+  <section id="architecture" className="dark_bg">
     <div className="container">
       <div className="row">
         <div>
-          <HeadingSection title="Solution Architecture" tagline="">
+          <HeadingSection title="Solution Architecture" tagline="" classAppend="text-white">
             <div className="pb-5">
               <img src={architecture} />
             </div>
