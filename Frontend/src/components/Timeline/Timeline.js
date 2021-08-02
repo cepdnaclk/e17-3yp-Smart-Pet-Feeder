@@ -7,7 +7,7 @@ import HeadingSection from "../HeadingSection/HeadingSection";
 import React from "react";
 
 const Timeline = () => (
-  <section id="timeline" className="timeline_bg">
+  <section id="timeline" className="dark_bg">
     <HeadingSection title="Timeline" tagline="" classAppend="text-white" />
     <VerticalTimeline>
       <VerticalTimelineElement

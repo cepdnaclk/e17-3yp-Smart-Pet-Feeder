@@ -7,7 +7,7 @@ import Header from "../../components/Header/Header";
 import Home from "../../components/Home/Home";
 import About from "../../components/About/About";
 import Architecture from "../../components/Architecture/Architecture";
-import Design from "../../components/Design/Design";
+import ThreeDDesign from "../../components/Design/ThreeDDesign";
 import Team from "../../components/Team/Team";
 import Services from "../../components/Services/Services";
 import Testimonials from "../../components/Testimonials/Testimonials";
@@ -18,6 +18,8 @@ import DataFlow from "../../components/DataFlow/DataFlow";
 import Budget from "../../components/Budget/Budget";
 import SecurityAscpects from "../../components/SecurityAspects/SecurityAscpects";
 import Timeline from "../../components/Timeline/Timeline";
+import Hardware from "../../components/Hardware/Hardware";
+import UIDesign from "../../components/Design/UIDesign";
 
 const SmartPetFeeder = () => {
   useEffect(() => {
@@ -30,8 +32,10 @@ const SmartPetFeeder = () => {
       <Home data={HomeDate} />
       <About />
       <Architecture />
-      <Design />
+      <ThreeDDesign />
+      <UIDesign />
       <DataFlow />
+      <Hardware />
       <SecurityAscpects />
       <Budget />
       <Timeline />

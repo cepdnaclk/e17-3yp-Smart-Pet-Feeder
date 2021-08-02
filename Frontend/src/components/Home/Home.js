@@ -30,9 +30,10 @@ const Home = ({ data }) => (
                   <h1 className="white-color text-uppercase font-700">
                     {data.title}
                   </h1>
-                  <h3 className="white-color font-400">
+                  <h3 className="white-color font-400 fst-italic">
                     {data.text ? parse(data.text) : ""}
                   </h3>
+
                   {data.buttons.length !== 0 ? (
                     <p className="text-center mt-30">
                       <SliderButtons buttons={data.buttons} />

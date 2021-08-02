@@ -3,10 +3,10 @@ import HeadingSection from "../../components/HeadingSection/HeadingSection";
 import data_flow from "../../assets/images/dataFlow/data_flow.jpeg";
 
 const DataFlow = () => (
-  <section id="data_flow">
+  <section id="data_flow" className="dark_bg">
     <div className="container">
       <div className="row">
-        <HeadingSection title="Data Flow">
+        <HeadingSection title="Data Flow" classAppend="text-white">
           <div className="pb-5 pt-3">
             <img src={data_flow} />
           </div>
