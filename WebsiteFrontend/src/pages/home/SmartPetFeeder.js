@@ -13,6 +13,8 @@ import Blogs from "../../components/Blog/Blogs";
 import FooterOne from "../../components/Footer/FooterOne";
 import Portfolio from "../../components/Portfolio/Portfolio";
 
+import dataNav from "../../data/Navbar/homepage-navbar-data.json";
+
 const SmartPetFeeder = () => {
   useEffect(() => {
     AOS.init();
@@ -20,7 +22,7 @@ const SmartPetFeeder = () => {
   }, []);
   return (
     <Loader>
-      <Header />
+      <Header data={dataNav} />
       <Home data={HomeDate} />
       <About />
       <Portfolio

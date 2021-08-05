@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import SmartPetFeeder from "./pages/home/SmartPetFeeder";
+import UserHomePage from "./pages/user_home_page/UserHomePage";
 import ScrollToTop from "./helpers/ScrollToTop";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
@@ -13,6 +15,12 @@ function App() {
             exact
             path={`${process.env.PUBLIC_URL}/`}
             component={SmartPetFeeder}
+          />
+
+          <Route
+            exact
+            path={`${process.env.PUBLIC_URL}/user`}
+            component={UserHomePage}
           />
         </Switch>
       </ScrollToTop>
