@@ -72,14 +72,12 @@
 }
 html,
 body {
-  position: relative;
-  height: 100%;
-}
-body {
   color: #888;
   background: #f1f1f1;
   font-size: 15px;
   font-family: "Hind", sans-serif;
+  position: relative;
+  height: 100%;
 }
 
 .wrapper {
