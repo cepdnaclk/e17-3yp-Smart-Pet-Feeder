@@ -25,6 +25,7 @@ const DropdownMenu = (props) => {
               spy={true}
               duration={200}
               delay={0}
+              key={i}
               smooth={"easeInOutQuart"}
             >
               {dropdown.title}

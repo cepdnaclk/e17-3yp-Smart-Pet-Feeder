@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SmartPetFeeder from "./pages/home/SmartPetFeeder";
 import UserHomePage from "./pages/user_home_page/UserHomePage";
 import ScrollToTop from "./helpers/ScrollToTop";
-import Header from "./components/Header/Header";
 
 function App() {
   return (

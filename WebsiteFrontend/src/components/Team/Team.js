@@ -1,6 +1,5 @@
 import React from "react";
 import teamData from "../../data/Team/team-data.json";
-import advisorData from "../../data/Team/advisor-data.json";
 import HeadingSection from "../../components/HeadingSection/HeadingSection";
 import OurTeam from "./OurTeam";
 
