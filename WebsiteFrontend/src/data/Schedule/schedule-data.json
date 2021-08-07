@@ -1,74 +1,36 @@
 [
   {
     "id": 1,
-    "icon": "dog",
     "title": "Feeding Time 1",
-    "remaining_time": "05:35",
-    "featured": "false",
-
-    "details": [
-      {
-        "id": 1,
-        "title": "2021/08/15"
-      },
-      {
-        "id": 2,
-        "title": "08:15 PM"
-      }
-    ]
+    "date": "2021-08-07",
+    "time": "08:15",
+    "featured": false,
+    "status": true
   },
   {
     "id": 2,
-    "icon": "dog",
     "title": "Feeding Time 2",
-    "remaining_time": "12:36",
-    "featured": "false",
-
-    "details": [
-      {
-        "id": 1,
-        "title": "2021/09/15"
-      },
-      {
-        "id": 2,
-        "title": "10:15 PM"
-      }
-    ]
+    "date": "2021-08-16",
+    "time": "09:15",
+    "featured": false,
+    "status": true
   },
+
   {
-    "id": 1,
-    "icon": "dog",
+    "id": 3,
     "title": "Feeding Time 3",
-    "remaining_time": "20:35",
-    "featured": "false",
-
-    "details": [
-      {
-        "id": 1,
-        "title": "2021/08/16"
-      },
-      {
-        "id": 2,
-        "title": "08:15 PM"
-      }
-    ]
+    "date": "2021-08-16",
+    "time": "08:15",
+    "featured": false,
+    "status": true
   },
-  {
-    "id": 1,
-    "icon": "dog",
-    "title": "Feeding Time 4",
-    "remaining_time": "27:30",
-    "featured": "false",
 
-    "details": [
-      {
-        "id": 1,
-        "title": "2021/08/17"
-      },
-      {
-        "id": 2,
-        "title": "08:15 PM"
-      }
-    ]
+  {
+    "id": 4,
+    "title": "Feeding Time 4",
+    "date": "2021-08-17",
+    "time": "22:15",
+    "featured": false,
+    "status": true
   }
 ]

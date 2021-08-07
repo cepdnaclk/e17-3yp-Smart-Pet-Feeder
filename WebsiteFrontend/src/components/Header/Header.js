@@ -36,11 +36,11 @@ const Header = ({ type, data }) => {
     searchForm.style.top = wHeight / 2 + "px";
   }, []);
 
-  const showSearchForm = (e) => {
-    e.preventDefault();
-    setShow(true);
-    resizeForm();
-  };
+  // const showSearchForm = (e) => {
+  //   e.preventDefault();
+  //   setShow(true);
+  //   resizeForm();
+  // };
 
   const hideSearchForm = (e) => {
     e.preventDefault();

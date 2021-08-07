@@ -26,7 +26,7 @@ const Status = ({ bg, type }) => {
             >
               {i === 0 && (
                 <Icofont
-                  icon={counter.value == 1 ? "wifi" : "ban"}
+                  icon={counter.value === 1 ? "wifi" : "ban"}
                   className="light-icon font-30px"
                 />
               )}
