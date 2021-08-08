@@ -12,7 +12,6 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import Blogs from "../../components/Blog/Blogs";
 import FooterOne from "../../components/Footer/FooterOne";
 import Portfolio from "../../components/Portfolio/Portfolio";
-
 import dataNav from "../../data/Navbar/homepage-navbar-data.json";
 
 const SmartPetFeeder = () => {
