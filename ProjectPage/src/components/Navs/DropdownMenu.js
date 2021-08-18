@@ -21,6 +21,7 @@ const DropdownMenu = (props) => {
             duration={200}
             delay={0}
             smooth={"easeInOutQuart"}
+            key={dropdown.id}
           >
             {dropdown.title}
           </Link>

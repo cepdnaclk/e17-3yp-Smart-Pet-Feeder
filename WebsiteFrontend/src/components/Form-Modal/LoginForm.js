@@ -76,11 +76,11 @@ export default function LoginForm(props) {
     const validateData = (event)=>{
         let url,redirect;
         if (props.isLogin){
-            url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB55pQ6FYkMZNqdOwwd-Gmoin8lezD6w8A";
+            url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg";
             redirect = "/user";
         }
         else {
-            url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB55pQ6FYkMZNqdOwwd-Gmoin8lezD6w8A";
+            url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg";
             redirect ="/";
         }
         event.preventDefault();
