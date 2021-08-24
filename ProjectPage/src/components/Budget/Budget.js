@@ -1,6 +1,6 @@
 import React from "react";
 import HeadingSection from "../../components/HeadingSection/HeadingSection";
-import budget from "../../assets/images/budget/budget.jpeg";
+import budget from "../../assets/images/budget/budget.JPG";
 
 const Budget = () => (
   <section id="budget">
