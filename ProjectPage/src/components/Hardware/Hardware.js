@@ -3,6 +3,7 @@ import HeadingSection from "../HeadingSection/HeadingSection";
 import Core from "../../assets/images/design/Core.jpg";
 import other from "../../assets/images/design/other.jpg";
 import power from "../../assets/images/design/power.jpg";
+import circuit from "../../assets/images/design/Circuit_Diagram.jpg";
 
 const Hardware = () => (
   <section id="hardware">
@@ -35,6 +36,13 @@ const Hardware = () => (
             3000mAh. Its Good capacity, lightweight, and rechargeability are
             very helpful to reduce the total weight and keep the machine active
             for a long time using battery current.
+          </HeadingSection>
+        </div>
+        <div>
+          <HeadingSection title="Circuit Diagram" tagline="">
+            <div className="pb-5">
+              <img src={circuit} />
+            </div>
           </HeadingSection>
         </div>
       </div>
