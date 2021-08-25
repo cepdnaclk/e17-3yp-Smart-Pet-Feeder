@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState, forwardRef } from "react";
-import dataPortfolio from "../../data/Portfolio/creative-agency-data.json";
-import PortfolioFilter from "../../elements/Portfolio/PortfolioFilter";
-import PortfolioItem from "./PortfolioItem";
+import dataPortfolio from "../../../data/UIDesign/ui-design-data.json";
+import UICatogories from "./UICategories";
+import UIDesignItem from "./UIDesignItem";
 import Shuffle from "shufflejs";
 import "react-image-lightbox/style.css";
 import Lightbox from "react-image-lightbox";
 
 const Portfolio = forwardRef(
   ({ filter, layout, columns, space, items, classAppend, children }, ref) => {
-    const categories = ["all", "design", "web", "branding", "print"];
+    const categories = ["all", "home", "user", "admin"];
     const element = useRef();
     const [shuffle, setShuffle] = useState();
 
@@ -20,7 +20,6 @@ const Portfolio = forwardRef(
           })
         );
       }
-
     }, []);
 
     const filterElements = (evt) => {
@@ -49,7 +48,7 @@ const Portfolio = forwardRef(
 
     return (
       <section
-          id="portfolio"
+        id="portfolio"
         className={"pb-0 " + (classAppend ? classAppend : "")}
         ref={ref}
       >
@@ -60,27 +59,28 @@ const Portfolio = forwardRef(
         ) : null}
         <div className={"container" + (layout === "wide" ? "-fluid" : "")}>
           <div className="row">
-            <div className={"container" + (layout === "wide" ? "-fluid" : "") + " text-center"}>
+            <div
+              className={
+                "container" +
+                (layout === "wide" ? "-fluid" : "") +
+                " text-center"
+              }
+            >
               {filter === "true" ? (
-                <PortfolioFilter
+                <UICatogories
                   categories={categories}
                   handleClick={filterElements}
                 />
               ) : null}
 
-              <div
-                id="portfolio-grid"
-                ref={element}
-                className="hover-two row"
-              >
+              <div id="portfolio-grid" ref={element} className="hover-two row">
                 {items
                   ? dataPortfolio
                       .filter((v, i) => i < items)
                       .map((item, i) => (
-                        <PortfolioItem
+                        <UIDesignItem
                           key={item.id}
                           title={item.title}
-                          category={item.category}
                           image={item.image}
                           groups={item.groups}
                           space={space ? "true" : "false"}
@@ -89,10 +89,9 @@ const Portfolio = forwardRef(
                         />
                       ))
                   : dataPortfolio.map((item, i) => (
-                      <PortfolioItem
+                      <UIDesignItem
                         key={item.id}
                         title={item.title}
-                        category={item.category}
                         image={item.image}
                         groups={item.groups}
                         space={space ? "true" : "false"}
@@ -103,7 +102,7 @@ const Portfolio = forwardRef(
               </div>
               {isOpen && (
                 <Lightbox
-                  mainSrc={require("../../assets/images/" + photo)}
+                  mainSrc={require("../../../assets/images/" + photo)}
                   onCloseRequest={() => closeLightbox()}
                 />
               )}
