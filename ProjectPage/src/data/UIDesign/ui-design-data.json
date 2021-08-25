@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Home",
+    "image": "uidesign/home.jpg",
+    "groups": ["all", "home"]
+  },
+  {
+    "id": 2,
+    "title": "Sign Up",
+    "image": "uidesign/Register.jpg",
+    "groups": ["all", "home"]
+  },
+  {
+    "id": 3,
+    "title": "Login",
+    "image": "uidesign/login.jpg",
+    "groups": ["all", "home"]
+  },
+  {
+    "id": 4,
+    "title": "User Status",
+    "image": "uidesign/user_status.jpg",
+    "groups": ["all", "user"]
+  },
+  {
+    "id": 5,
+    "title": "User History",
+    "image": "uidesign/user_history.jpg",
+    "groups": ["all", "user"]
+  },
+  {
+    "id": 6,
+    "title": "User Feedback",
+    "image": "uidesign/user_feedback.jpg",
+    "groups": ["all", "user"]
+  },
+  {
+    "id": 7,
+    "title": "User Notifications",
+    "image": "uidesign/user_notification.jpg",
+    "groups": ["all", "user"]
+  },
+  {
+    "id": 8,
+    "title": "Admin Users",
+    "image": "uidesign/admin_users.jpg",
+    "groups": ["all", "admin"]
+  },
+  {
+    "id": 9,
+    "title": "Admin Feedback",
+    "image": "uidesign/admin_feedback.jpg",
+    "groups": ["all", "admin"]
+  },
+  {
+    "id": 10,
+    "title": "Admin Broadcast",
+    "image": "uidesign/admin_broadcast.jpg",
+    "groups": ["all", "admin"]
+  }
+]

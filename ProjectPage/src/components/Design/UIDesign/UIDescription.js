@@ -1,8 +1,8 @@
 import React from "react";
-import HeadingSection from "../HeadingSection/HeadingSection";
-import ui_design from "../../assets/images/design/ui_design.png";
+import HeadingSection from "../../HeadingSection/HeadingSection";
+import ui_design from "../../../assets/images/design/ui_design.png";
 
-const UIDesign = () => (
+const UIDescription = () => (
   <section>
     <div className="container">
       <div className="row">
@@ -26,4 +26,4 @@ const UIDesign = () => (
   </section>
 );
 
-export default UIDesign;
+export default UIDescription;
