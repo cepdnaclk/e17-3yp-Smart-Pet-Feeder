@@ -13,13 +13,13 @@ import Services from "../../components/Services/Services";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Blogs from "../../components/Blog/Blogs";
 import FooterOne from "../../components/Footer/FooterOne";
-import Portfolio from "../../components/Portfolio/Portfolio";
 import DataFlow from "../../components/DataFlow/DataFlow";
 import Budget from "../../components/Budget/Budget";
 import SecurityAscpects from "../../components/SecurityAspects/SecurityAscpects";
 import Timeline from "../../components/Timeline/Timeline";
 import Hardware from "../../components/Hardware/Hardware";
-import UIDesign from "../../components/Design/UIDesign";
+import UIDescription from "../../components/Design/UIDesign/UIDescription";
+import UIDesign from "../../components/Design/UIDesign/UIDesign";
 
 const SmartPetFeeder = () => {
   useEffect(() => {
@@ -33,7 +33,14 @@ const SmartPetFeeder = () => {
       <About />
       <Architecture />
       <ThreeDDesign />
-      <UIDesign />
+      <UIDescription />
+      <UIDesign
+        filter="true"
+        layout="wide"
+        columns="2"
+        items="10"
+        classAppend="pt-0"
+      />
       <DataFlow />
       <Hardware />
       <SecurityAscpects />
