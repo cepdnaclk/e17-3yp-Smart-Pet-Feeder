@@ -59,22 +59,25 @@ Users can log into the system using the mobile application or web application by
 
 # Data Flow
 ---
-The users of the pet feeder can schedule a plan or control it manually using the website or a mobile app. Then From the UI, data will get into the Web server and the microcontroller in the Node Mcu will receive the data from the server. And also the users of the pet feeder can see their pet using the camera, which is in the feeding machine. That camera can be rotated remotely, and the live stream data will be sent to the UI through the AWS cloud.
+![Data flow](https://user-images.githubusercontent.com/73387610/130917205-e96c3c7d-8985-4590-acd6-1cc7581faa59.png)
+
+
+The users of the pet feeder can schedule a plan or control it manually using the website or a mobile app. Then From the UI, data will get into the Web server and the microcontroller in the controller (Rasapberry Pi) receive the data from the server. And also the users of the pet feeder can see their pet using the camera, which is in the feeding machine. Live stream data will be sent to the UI through the AWS cloud.
 
 Mainly there are two different control units in the feeding machine.
 * Food serving unit
 * Visualizing unit
 
-Food serving unit is responsible for food serving. This unit contains a stepper motor and a motor controller. In the machine there is a food container which has a cylindrical shape and it has divided in to four partitions. To serve the foods, the food container in the pet feeder should be rotated to a certain angle. That is done by using the stepper motor. The node Mcu will send the relevant control signals to the motor controller and the motor controller will control the rotation of the motor according to that signals.
+Food serving unit is responsible for food serving. This unit contains a stepper motor and a motor controller. In the machine there is a food container which has a cylindrical shape and it has divided in to four partitions. To serve the foods, the food container in the pet feeder should be rotated to a certain angle. That is done by using the stepper motor. The Raspberry Pi send the relevant control signals to the motor controller and the motor controller will control the rotation of the motor according to that signals.
 
-Visualizing unit is responsible for live streaming. There is a OV7670 Camera Module in this unit. When user wants to get a real time visualization of his/her pet, he/she will be able to get the live stream data to the UI through this camera. Also a 0.91 Inch LCD Display has included to this unit, and it will be used to display the data such as battery level or feeding times etc.
+Visualizing unit is responsible for live streaming. There is a 5MP Omnivision 5647 Camera Module in this unit. When user wants to get a real time visualization of his/her pet, he/she will be able to get the live stream data to the UI through this camera. Also a 0.91 Inch LCD Display has included to this unit, and it will be used to display the data such as battery level or feeding times etc.
 # Hardware Components
 ---
 ![image](https://user-images.githubusercontent.com/73387610/127871675-f357bbb9-ee97-4680-8138-3d47a356655f.png)
 An ESP8266 Node Mcu module, which includes an ESP-12E microcontroller has used as the core hardware component in the Pet feeder. It has many advantages such as; Integrated support for WIFI network, low energy consumption, and low cost, etc.Also, its high processing power with in-built WIFI features make it ideal for IoT projects such as this feeding machine.
 
 ![image](https://user-images.githubusercontent.com/73387610/127871720-4a9434a7-f93b-4c84-b308-2a650384edd7.png)
-As the other hardware components, Is has included an OV7670 Camera module, 0.91 Inch LCD Display, L298N Dual Bridge DC Motor Controllers and 12v Stepper motor. There are some main reasons to use the OV7670 camera module such as its automatic UV adjustment, High sensitivity for low-light, low operating voltage, and ability to get the output as 8-bit RAW RGB data.
+As the other hardware components, Is has included an 5MP Omnivision 5647 Camera Module, 0.91 Inch LCD Display, L298N Dual Bridge DC Motor Controllers and 12v Stepper motor. There are some main reasons to use the 5MP Omnivision 5647 Camera Module such as its automatic UV adjustment, High sensitivity for low-light, low operating voltage, and ability to get the output as 8-bit RAW RGB data.
 ![image](https://user-images.githubusercontent.com/73387610/127871736-4185829d-020c-4e7f-824a-a3d1b0356e24.png)
 As the power supply component, It has used a 12V Lithium battery of 3000mAh. Its Good capacity, lightweight, and rechargeability are very helpful to reduce the total weight and keep the machine active for a long time using battery current.
 # Security Aspects
