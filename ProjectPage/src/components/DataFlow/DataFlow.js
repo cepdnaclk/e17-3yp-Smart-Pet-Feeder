@@ -1,6 +1,6 @@
 import React from "react";
 import HeadingSection from "../../components/HeadingSection/HeadingSection";
-import data_flow from "../../assets/images/dataFlow/data_flow.jpeg";
+import data_flow from "../../assets/images/dataFlow/data_flow.jpg";
 
 const DataFlow = () => (
   <section id="data_flow" className="dark_bg">
@@ -12,7 +12,7 @@ const DataFlow = () => (
           </div>
           The users of the pet feeder can schedule a plan or control it manually
           using the website or a mobile app. Then From the UI, data will get
-          into the Web server and the microcontroller in the Node Mcu will
+          into the Web server and the microprocessor in the Raspberry pi 3 will
           receive the data from the server. And also the users of the pet feeder
           can see their pet using the camera, which is in the feeding machine.
           That camera can be rotated remotely, and the live stream data will be
