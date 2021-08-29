@@ -8,6 +8,10 @@ import AOS from "aos";
 import ActiveSchedules from "../../components/ActiveSchedules/ActiveSchedules";
 import ScheduleForm from "../../components/ScheduleForm/ScheduleForm";
 import ConfirmationBox from "../../components/ConfirmationBox/ConfirmationBox";
+import { Redirect, Route, Switch } from "react-router-dom";
+import SmartPetFeeder from "../home/SmartPetFeeder";
+import UserStatusPage from "./UserStatusPage";
+import UserHistoryPage from "./UserHistoryPage";
 
 const userHomePage = () => {
   useEffect(() => {
@@ -20,9 +24,23 @@ const userHomePage = () => {
         <div className="content">
           <Header type={"white"} dropdown={false} />
 
-          <Status />
+          <Switch>
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/user/status`}
+              component={UserStatusPage}
+            />
 
-          <ActiveSchedules />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/user/history`}
+              component={UserHistoryPage}
+            />
+
+            <Route path="*">
+              <Redirect to={`${process.env.PUBLIC_URL}/user/status`} />
+            </Route>
+          </Switch>
         </div>
 
         <FooterCopyright classname="userpage_footer" />

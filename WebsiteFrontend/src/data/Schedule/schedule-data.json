@@ -1,36 +1,35 @@
 [
   {
     "id": 1,
-    "title": "Feeding Time 1",
-    "date": "2021-08-07",
-    "time": "08:15",
+    "title": "",
+    "date": "",
+    "time": "",
     "featured": false,
-    "status": true
+    "status": false
   },
   {
     "id": 2,
-    "title": "Feeding Time 2",
-    "date": "2021-08-16",
-    "time": "09:15",
+    "title": "",
+    "date": "",
+    "time": "",
     "featured": false,
-    "status": true
+    "status": false
   },
 
   {
     "id": 3,
-    "title": "Feeding Time 3",
-    "date": "2021-08-16",
-    "time": "08:15",
+    "title": "",
+    "date": "",
+    "time": "",
     "featured": false,
-    "status": true
+    "status": false
   },
-
   {
     "id": 4,
-    "title": "Feeding Time 4",
-    "date": "2021-08-17",
-    "time": "22:15",
+    "title": "",
+    "date": "",
+    "time": "",
     "featured": false,
-    "status": true
+    "status": false
   }
 ]

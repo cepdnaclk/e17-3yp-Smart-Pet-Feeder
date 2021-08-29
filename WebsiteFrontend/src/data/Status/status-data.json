@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "value": 0,
+    "value": 1,
     "title": "Status",
     "icon": ""
   },
@@ -19,8 +19,8 @@
   },
   {
     "id": 3,
-    "value": 6,
-    "title": "Next Feed After",
+    "value": 0,
+    "title": "Last Feed Before",
     "icon": "clock-time"
   }
 ]

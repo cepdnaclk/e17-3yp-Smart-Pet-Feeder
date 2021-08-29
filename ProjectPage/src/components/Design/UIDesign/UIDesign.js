@@ -74,8 +74,9 @@ const Portfolio = forwardRef(
               ) : null}
 
               <div id="portfolio-grid" ref={element} className="hover-two row">
-                {items
-                  ? dataPortfolio
+                {
+                  items &&
+                    dataPortfolio
                       .filter((v, i) => i < items)
                       .map((item, i) => (
                         <UIDesignItem
@@ -88,17 +89,18 @@ const Portfolio = forwardRef(
                           openLightbox={openLightbox}
                         />
                       ))
-                  : dataPortfolio.map((item, i) => (
-                      <UIDesignItem
-                        key={item.id}
-                        title={item.title}
-                        image={item.image}
-                        groups={item.groups}
-                        space={space ? "true" : "false"}
-                        columns={columns}
-                        openLightbox={openLightbox}
-                      />
-                    ))}
+                  // : dataPortfolio.map((item, i) => (
+                  //     <UIDesignItem
+                  //       key={item.id}
+                  //       title={item.title}
+                  //       image={item.image}
+                  //       groups={item.groups}
+                  //       space={space ? "true" : "false"}
+                  //       columns={columns}
+                  //       openLightbox={openLightbox}
+                  //     />
+                  //   ))
+                }
               </div>
               {isOpen && (
                 <Lightbox

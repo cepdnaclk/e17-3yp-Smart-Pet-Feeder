@@ -47,6 +47,7 @@ const Status = ({ bg, type }) => {
 
                 {i === 0 && (counter.value === 1 ? "ON" : "OFF")}
                 {i === 1 && "%"}
+
                 {i === 3 && "h"}
               </h2>
               <h3 className={bg === "white-bg" ? "dark-color" : ""}>

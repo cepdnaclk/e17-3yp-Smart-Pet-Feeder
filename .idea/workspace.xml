@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/ProgressVideo.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/components/Progress/Progress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebsiteFrontend/src/helpers/validators.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/user_home_page/UserHistoryPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/user_home_page/UserStatusPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/e17-3yp-Smart-Pet-Feeder.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/About/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/About/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Design/UIDesign/UIDesign.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Design/UIDesign/UIDesign.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/About/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/About/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/SignUpForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Navs/DropdownMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Navs/DropdownMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Status/Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Status/Status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Home/home.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Home/home.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Schedule/schedule-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Schedule/schedule-data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Status/status-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Status/status-data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/elements/SliderButtons/SliderButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/elements/SliderButtons/SliderButtons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/home/SmartPetFeeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/pages/user_home_page/UserHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/user_home_page/UserHomePage.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1w8jcRss4nNimw7Q2tbxsoQFxLN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/ProjectPage/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ProjectPage/src/assets/video" />
+      <recent name="$PROJECT_DIR$/ProjectPage/src/components/Design/UIDesign" />
+      <recent name="$PROJECT_DIR$/ProjectPage/src/components/Portfolio" />
+      <recent name="$PROJECT_DIR$/ProjectPage/src/components/Design" />
+      <recent name="$PROJECT_DIR$/WebsiteFrontend/src/components/Card" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="" />
+      <created>1627847213354</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627847213354</updated>
+      <workItem from="1627847220202" duration="504000" />
+      <workItem from="1627908924510" duration="16206000" />
+      <workItem from="1628092695675" duration="1286000" />
+      <workItem from="1628099607567" duration="213000" />
+      <workItem from="1628103996346" duration="8481000" />
+      <workItem from="1628154841325" duration="15148000" />
+      <workItem from="1609459440287" duration="14190000" />
+      <workItem from="1628254852764" duration="5240000" />
+      <workItem from="1628264540381" duration="4600000" />
+      <workItem from="1628280997538" duration="5378000" />
+      <workItem from="1628288443894" duration="3791000" />
+      <workItem from="1609459350644" duration="4600000" />
+      <workItem from="1609459480818" duration="569000" />
+      <workItem from="1628439906462" duration="3688000" />
+      <workItem from="1629912843705" duration="7229000" />
+      <workItem from="1630227172475" duration="283000" />
+      <workItem from="1630227503756" duration="16936000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
