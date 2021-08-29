@@ -20,7 +20,11 @@ import Timeline from "../../components/Timeline/Timeline";
 import Hardware from "../../components/Hardware/Hardware";
 import UIDescription from "../../components/Design/UIDesign/UIDescription";
 import UIDesign from "../../components/Design/UIDesign/UIDesign";
+
 import Progress from "../../components/Progress/Progress";
+
+import AwsArchitecture from "../../components/AWSdesign/AwsArchitecture";
+
 
 const SmartPetFeeder = () => {
   useEffect(() => {
@@ -33,6 +37,8 @@ const SmartPetFeeder = () => {
       <Home data={HomeDate} />
       <About />
       <Architecture />
+      <DataFlow />
+      <AwsArchitecture/>
       <ThreeDDesign />
       <UIDescription />
       <UIDesign
@@ -42,7 +48,7 @@ const SmartPetFeeder = () => {
         items="9"
         classAppend="pt-0"
       />
-      <DataFlow />
+
       <Hardware />
       <SecurityAscpects />
       <Progress />
