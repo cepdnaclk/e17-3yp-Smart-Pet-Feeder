@@ -1,8 +1,8 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { Link } from "react-scroll";
-import { Link as DomLink } from "react-router-dom";
+import { Link as DomLink, useHistory } from "react-router-dom";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import ScheduleIcon from "@material-ui/icons/Schedule";
+import HistoryIcon from "@material-ui/icons/History";
 import InfoIcon from "@material-ui/icons/Info";
 
 import useWindowResizeListener from "../../helpers/useWindowResizeListener";
@@ -11,12 +11,13 @@ import AuthContext from "../../stores/auth-context";
 let isLoggedIn = false;
 const DropdownMenu = (props) => {
   useWindowResizeListener();
-    const authCtx = useContext(AuthContext);
-    isLoggedIn = authCtx.isLoggedIn;
+  const authCtx = useContext(AuthContext);
+  isLoggedIn = authCtx.isLoggedIn;
 
-    const logoutClickHandler = ()=>{
-        authCtx.logout();
-    }
+  const logoutClickHandler = () => {
+    authCtx.logout();
+  };
+  const history = useHistory();
 
   return (
     <div className="collapse navbar-collapse" id="navbar-menu">
@@ -70,6 +71,9 @@ const DropdownMenu = (props) => {
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
+            onClick={() => {
+              history.push(`${process.env.PUBLIC_URL}/user/status`);
+            }}
           >
             Status
             <InfoIcon className="pb-1" />
@@ -81,9 +85,12 @@ const DropdownMenu = (props) => {
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
+            onClick={() => {
+              history.push(`${process.env.PUBLIC_URL}/user/history`);
+            }}
           >
-            Schedule
-            <ScheduleIcon className="pb-1" />
+            History
+            <HistoryIcon className="pb-1" />
           </DomLink>
         )}
 
