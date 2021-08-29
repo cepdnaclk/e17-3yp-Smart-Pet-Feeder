@@ -49,7 +49,6 @@ Initially the user needs to log into the mobile application or web application b
 This is the 3D Design of the pet feeder. Mainly it includes a food container and a camera.
 * #### The Food Container
 
-
 ![Food_container](https://user-images.githubusercontent.com/73440714/127188367-7809dffb-1f09-4929-b3b9-efee0b81eabb.jpg)
 This is a cylindrical shaped food container, which has diveded in to four partitions and it is rotatable through its axis. Every partition has a opening at the bottom, and there is a path to the food plate from the bottom of the cylinder. To serve foods the relevent partition should be coincided its opening with the path.
 ### UI Design
@@ -71,7 +70,6 @@ For the Back end database MongoDB is used. These are main four collections.Key-V
 ![data flow](https://user-images.githubusercontent.com/73387610/131223497-3ff93289-8bf3-4632-8c4a-38b50f87209e.jpeg)
 
 
-
 The users of the pet feeder can schedule a plan or control it manually using the website or a mobile app. Then From the UI, data will get into the Web server and the microconprocessor in the controller (Rasapberry Pi) receive the data from the server. And also the users of the pet feeder can see their pet using the camera, which is in the feeding machine. Live stream data will be sent to the UI through the AWS cloud.
 
 Mainly there are two different control units in the feeding machine.
@@ -83,7 +81,7 @@ Food serving unit is responsible for food serving. This unit contains a stepper 
 Visualizing unit is responsible for live streaming. There is a 5MP Omnivision 5647 Camera Module in this unit. When user wants to get a real time visualization of his/her pet, he/she will be able to get the live stream data to the UI through this camera. Also a 0.91 Inch LCD Display has included to this unit, and it will be used to display the data such as battery level or feeding times etc.
 # Circuit Diagram
 ---
-![Screenshot (1091)](https://user-images.githubusercontent.com/73387610/130919125-d5edf435-0a33-4155-82da-e6bc050358bb.png)
+![Circuit_Diagram_New](https://user-images.githubusercontent.com/73440714/131257844-64bc7bcb-8284-49a5-908a-127cac080c0b.JPG)
 
 # Hardware Components
 ---
@@ -94,7 +92,15 @@ As the main Controller Platform Raspberry Pi 3 Model B is used. It comes with pr
 
 ![othercomponents](https://user-images.githubusercontent.com/73387610/131223561-d6a85053-e4c5-4eb4-9111-32143a79b316.jpeg)
 
-As the other hardware components, Is has included an 5MP Omnivision 5647 Camera Module, 0.91 Inch LCD Display, L298N Dual Bridge DC Motor Controllers and 12v Stepper motor. There are some main reasons to use the 5MP Omnivision 5647 Camera Module such as its automatic UV adjustment, High sensitivity for low-light, low operating voltage, and ability to get the output as 8-bit RAW RGB data.
+![Hardware2](https://user-images.githubusercontent.com/73440714/131258073-6d634aec-4450-4303-9d2e-db268356d532.jpg)
+
+As the other hardware components,It has included an 5MP Omnivision Camera Module, 0.91 Inch LCD Display, L298N Dual Bridge DC Motor Controllers, 12v Stepper motor, Infrared IR Sensor and 5V Realy Module. When considering the actuators the 12v bipolar junction stepper motor has 200 step per revelution and it is capable of giving a high-torque up to 40 N.cm. Next the raspberry pi camera mocdule will give a Full HD video quality of 1080p with 30fps and if it reduced the quality to 720p the frame rate can be increased to 60fps.
+
+Then the IR Sensor will be used to ste the food container to its initial position and that Sensor shoulbe given a input voltage 3-5V.
+
+Also a motor controller has used to control the speed, direction and rotating angle of the stepper motor. A 5V relay module has used to supply the 5V input to the Raspberry PI from the 12V battery.
+
+
 ![image](https://user-images.githubusercontent.com/73387610/127871736-4185829d-020c-4e7f-824a-a3d1b0356e24.png)
 As the power supply component, It has used a 12V Lithium battery of 3000mAh. Its Good capacity, lightweight, and rechargeability are very helpful to reduce the total weight and keep the machine active for a long time using battery current.
 # Security Aspects
