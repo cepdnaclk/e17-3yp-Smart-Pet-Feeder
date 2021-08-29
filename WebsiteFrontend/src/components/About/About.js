@@ -3,14 +3,17 @@ import dataFeatures from "../../data/About/about-corporate-business.json";
 import HeadingSection from "../../components/HeadingSection/HeadingSection";
 import FeatureBoxTwo from "../../elements/FeatureBox/FeatureBoxTwo";
 import video from "../../assets/video/PetFeeder.mp4";
+import "../../../node_modules/video-react/dist/video-react.css";
+import { Player } from "video-react";
 
 const About = () => (
   <section id="about">
     <div className="container">
+      <div className="row pb-5">
+        <Player playsInline poster="" src={video} />
+      </div>
+
       <div className="row">
-        <video width="750" height="500" controls>
-          <source src={video} type="video/mp4" />
-        </video>
         <HeadingSection title="Smart Pet Feeder" tagline="Overview">
           Smart Pet Feeder is a product that helps you to take care of your
           pets. It will help you to build the relationship with your pet better
