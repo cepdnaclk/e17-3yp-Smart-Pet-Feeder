@@ -1,6 +1,6 @@
 import React from "react";
 import HeadingSection from "../HeadingSection/HeadingSection";
-import Core from "../../assets/images/design/Core.JPG";
+import Core from "../../assets/images/design/Core.jpg";
 import other from "../../assets/images/design/other.jpg";
 import power from "../../assets/images/design/power.jpg";
 import circuit from "../../assets/images/design/Circuit_Diagram.jpg";
@@ -21,7 +21,11 @@ const Hardware = () => (
             <p>End nodes  are connected to  hardware interfaces.</p>
             <p>4GB SD card is used as memory</p>
             <p>5V main power supply</p>
-
+            As the main Controller Platform Raspberry Pi 3 Model B is used.
+            It comes with pre loaded python programming language.
+            It has 4 x ARM Cortex-A53 CPU which have 1.2GHz processing speed.
+            Has a seperate Camera Serial Interface. Also 40 GPIO pins.
+            Raspberry Pi 3 Model B comes with onboard Wi-Fi network interface which has about 38Mbps bandwith.
             <div className="pb-5">
               <img src={other} />
             </div>

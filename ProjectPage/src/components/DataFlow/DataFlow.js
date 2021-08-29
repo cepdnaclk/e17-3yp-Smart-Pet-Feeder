@@ -31,13 +31,13 @@ const DataFlow = () => (
           is a food container which has a cylindrical shape and it has divided
           in to four partitions. To serve the foods, the food container in the
           pet feeder should be rotated to a certain angle. That is done by using
-          the stepper motor. The node Mcu will send the relevant control signals
+          the stepper motor. The raspberry pi will send the relevant control signals
           to the motor controller and the motor controller will control the
           rotation of the motor according to that signals.
           <br />
           <br />
           <b>Visualizing unit</b> is responsible for live streaming. There is a
-          OV7670 Camera Module in this unit. When user wants to get a real time
+          5MP Omnivision 5647 Camera Module in this unit. When user wants to get a real time
           visualization of his/her pet, he/she will be able to get the live
           stream data to the UI through this camera. Also a 0.91 Inch LCD
           Display has included to this unit, and it will be used to display the
