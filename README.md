@@ -81,7 +81,7 @@ Food serving unit is responsible for food serving. This unit contains a stepper 
 Visualizing unit is responsible for live streaming. There is a 5MP Omnivision 5647 Camera Module in this unit. When user wants to get a real time visualization of his/her pet, he/she will be able to get the live stream data to the UI through this camera. Also a 0.91 Inch LCD Display has included to this unit, and it will be used to display the data such as battery level or feeding times etc.
 # Circuit Diagram
 ---
-![Circuit_Diagram_New](https://user-images.githubusercontent.com/73440714/131257844-64bc7bcb-8284-49a5-908a-127cac080c0b.JPG)
+![Circuit_Diagram](https://user-images.githubusercontent.com/73440714/131258588-2a059858-b5bb-4e77-ab00-85f09a351b38.jpg)
 
 # Hardware Components
 ---
@@ -114,8 +114,7 @@ As the power supply component, It has used a 12V Lithium battery of 3000mAh. Its
 
 # Budget
 ---
-![budget](https://user-images.githubusercontent.com/73387610/131223653-19988831-98a0-4517-9a16-6e67a009170a.jpeg)
-
+![Budget](https://user-images.githubusercontent.com/73440714/131258794-abb39328-8f87-4e3b-9a4e-37d461669921.JPG)
 
 # Timeline
 ---
