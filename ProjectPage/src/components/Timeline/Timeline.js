@@ -33,7 +33,7 @@ const Timeline = () => (
         className="vertical-timeline-element--work"
         contentStyle={{ background: "rgb(0, 204, 0)", color: "#fff" }}
         contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
-        date={"19th July, 2021"}
+        date={"25th July, 2021"}
         iconStyle={{ background: "rgb(0, 204, 0)", color: "#fff" }}
         // icon={<WorkIcon />}
       >
@@ -46,10 +46,10 @@ const Timeline = () => (
 
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
-        contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+        contentStyle={{ background: "rgb(0, 204, 0)", color: "#fff" }}
         contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
-        date={"19th July, 2021"}
-        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+        date={"10th August, 2021"}
+        iconStyle={{ background: "rgb(0, 204, 0)", color: "#fff" }}
         // icon={<WorkIcon />}
       >
         <h3 className="vertical-timeline-element-title text-white">
@@ -64,13 +64,19 @@ const Timeline = () => (
 
       <VerticalTimelineElement
         className="vertical-timeline-element--education"
-        date="16th August, 2021"
-        iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+        contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+        contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
+        date="30th August, 2021"
+        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
         // icon={<WorkIcon />}
       >
-        <h3 className="vertical-timeline-element-title">Progress Review</h3>
-        <h4 className="vertical-timeline-element-subtitle">(Milestone 2)</h4>
-        <p>
+        <h3 className="vertical-timeline-element-title text-white">
+          Progress Review
+        </h3>
+        <h4 className="vertical-timeline-element-subtitle text-white">
+          (Milestone 2)
+        </h4>
+        <p className="text-white">
           Tentative evaluation criteria
           <br />
           <div className="offset-1">
@@ -106,45 +112,53 @@ const Timeline = () => (
       </VerticalTimelineElement>
 
       <VerticalTimelineElement
+        contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+        contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
         className="vertical-timeline-element--education"
-        date="Not Started Yet"
-        iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+        date="Not Finished Yet"
+        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
         // icon={<SchoolIcon />}
       >
-        <h3 className="vertical-timeline-element-title">
+        <h3 className="vertical-timeline-element-title text-white">
           Front-End Of The Web Application
         </h3>
-        <h4 className="vertical-timeline-element-subtitle"></h4>
-        <p>
+        <h4 className="vertical-timeline-element-subtitle text-white"></h4>
+        <p className="text-white">
           Design and implement front end of the web application using React JS
         </p>
       </VerticalTimelineElement>
 
       <VerticalTimelineElement
+        contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+        contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
         className="vertical-timeline-element--education"
-        date="Not Started Yet"
-        iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+        date="Not Finished Yet"
+        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
         // icon={<SchoolIcon />}
       >
-        <h3 className="vertical-timeline-element-title">
+        <h3 className="vertical-timeline-element-title text-white">
           Front-End Of The Mobile Application
         </h3>
-        <h4 className="vertical-timeline-element-subtitle"></h4>
-        <p>
+        <h4 className="vertical-timeline-element-subtitle text-white"></h4>
+        <p className="text-white">
           Design and implement front end of the mobile application using React
           Native
         </p>
       </VerticalTimelineElement>
 
       <VerticalTimelineElement
+        contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+        contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
         className="vertical-timeline-element--education"
-        date="Not Started Yet"
-        iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
+        date="Not Finished Yet"
+        iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
         // icon={<SchoolIcon />}
       >
-        <h3 className="vertical-timeline-element-title">Develop Back-End</h3>
-        <h4 className="vertical-timeline-element-subtitle"></h4>
-        <p>
+        <h3 className="vertical-timeline-element-title text-white">
+          Develop Back-End
+        </h3>
+        <h4 className="vertical-timeline-element-subtitle text-white"></h4>
+        <p className="text-white">
           Implement the database and the back-end of the smart pet feeder using
           Node.js And MongoDB
         </p>
