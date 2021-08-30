@@ -4,7 +4,6 @@ import ui_design from "../../assets/images/design/ui_design.png";
 import Pet_feeder from "../../assets/images/design/Pet_feeder.jpg";
 import pet_feeder_2 from "../../assets/images/design/pet_feeder_2.jpg";
 import Food_container from "../../assets/images/design/Food_container.jpg";
-import Core from "../../assets/images/design/Core.jpg";
 import other from "../../assets/images/design/other.jpg";
 import power from "../../assets/images/design/power.jpg";
 

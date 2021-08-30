@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/AWSdesign/AwsArchitecture.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/AWSdesign/AwsArchitecture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Design/ThreeDDesign.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Design/ThreeDDesign.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/SecurityAspects/SecurityAscpects.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/SecurityAspects/SecurityAscpects.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/About/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/About/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Timeline/Timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Timeline/Timeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/data/Navbar/navbar-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/data/Navbar/navbar-data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +27,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1w8jcRss4nNimw7Q2tbxsoQFxLN" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -83,7 +83,9 @@
       <workItem from="1628439906462" duration="3688000" />
       <workItem from="1629912843705" duration="7229000" />
       <workItem from="1630227172475" duration="283000" />
-      <workItem from="1630227503756" duration="19638000" />
+      <workItem from="1630227503756" duration="20678000" />
+      <workItem from="1630331437360" duration="576000" />
+      <workItem from="1630332086242" duration="618000" />
     </task>
     <servers />
   </component>
