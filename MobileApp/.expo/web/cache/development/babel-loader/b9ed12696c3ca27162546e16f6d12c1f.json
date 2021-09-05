@@ -1,0 +1,1 @@
+{"ast":null,"code":"import HTMLView from \"./HTMLView\";\nexport default HTMLView;","map":{"version":3,"sources":["/Users/sachi/Desktop/Mobile App/node_modules/react-native-htmlview/index.js"],"names":["HTMLView"],"mappings":"AAAA,OAAOA,QAAP;AAEA,eAAeA,QAAf","sourcesContent":["import HTMLView from './HTMLView';\n\nexport default HTMLView;\n"]},"metadata":{},"sourceType":"module"}
