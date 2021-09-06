@@ -130,13 +130,15 @@ export default function LoginForm(props) {
     let url, redirect;
 
     url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg";
+      "http://localhost:8080/auth/signup";
     event.preventDefault();
     fetch(url, {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify({
         email: email,
         password: password,
+        confirmPassword:confirmPassword,
+        name:name,
         returnSecureToken: true,
       }),
       headers: {
@@ -148,12 +150,10 @@ export default function LoginForm(props) {
           return res.json();
         } else {
           return res.json().then((data) => {
-            let errorMessage = "Authentication failed!";
-            // if (data && data.error && data.error.message) {
-            //   errorMessage = data.error.message;
-            // }
-
-            throw new Error(errorMessage);
+          let errorMessage = data.message;
+          
+          console.log(data.data);
+          throw new Error(errorMessage);
           });
         }
       })
@@ -166,6 +166,7 @@ export default function LoginForm(props) {
       })
       .catch((err) => {
         alert(err.message);
+        
       });
   };
 
