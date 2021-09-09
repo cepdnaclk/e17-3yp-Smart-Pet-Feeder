@@ -1,24 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
-import { Dimensions } from "react-native";
 import { IconButton } from "react-native-paper";
-// import Login from "../screens/Login";
-// import Register from '../screens/Register';
-// import ForgotPass from '../screens/ForgotPass';
-// import Terms from '../screens/Terms';
-// import About from '../screens/About';
-// import Comments from '../screens/Comments';
-// import Comment from '../screens/Comment';
-import ColorsApp from "../config/ColorsApp";
 import StackNavigation from "./StackNavigation";
-import Strings from "../config/Strings";
+import AuthNavigation from "./AuthNavigation";
 
-const RootStack = createStackNavigator();
-
+const Stack = createStackNavigator();
 export default function ModalNavigation(props) {
+  const [isSignedIn, setIsSignedIn] = useState(true);
   const { navigation } = props;
 
   const navigatorOptions = {
@@ -35,8 +26,8 @@ export default function ModalNavigation(props) {
     },
     headerTitleAlign: "center",
     gestureEnabled: true,
-    /*cardOverlayEnabled: true,
-		...TransitionPresets.ModalPresentationIOS*/
+    cardOverlayEnabled: true,
+    ...TransitionPresets.ModalPresentationIOS,
   };
 
   const buttonBack = () => {
@@ -57,64 +48,82 @@ export default function ModalNavigation(props) {
   };
 
   return (
-    <RootStack.Navigator
+    <Stack.Navigator
       mode="modal"
       screenOptions={(route) => {
         return navigatorOptions;
       }}
     >
-      <RootStack.Screen
-        name="Main"
-        component={StackNavigation}
-        options={{ headerShown: false }}
-      />
-      {/*<RootStack.Screen*/}
-      {/*  name="login"*/}
-      {/*  component={Login}*/}
+      {isSignedIn ? (
+        <>
+          <Stack.Screen
+            name="Main"
+            component={StackNavigation}
+            options={{ headerShown: false }}
+          />
+        </>
+      ) : (
+        <>
+          <Stack.Screen
+            name="Auth"
+            component={AuthNavigation}
+            options={{
+              // title: "Register",
+              headerShown: false,
+              // headerLeft: () => buttonBack(),
+            }}
+          />
+
+          {/*<Stack.Screen*/}
+          {/*  name="Login"*/}
+          {/*  component={Login}*/}
+          {/*  options={{*/}
+          {/*    title: "Login",*/}
+          {/*    headerTransparent: true,*/}
+          {/*    // headerLeft: () => buttonBack(),*/}
+          {/*  }}*/}
+          {/*/>*/}
+        </>
+      )}
+
+      {/*<Stack.Screen*/}
+      {/*  name="History"*/}
+      {/*  component={History}*/}
       {/*  options={{*/}
-      {/*    title: Strings.ST10,*/}
+      {/*    title: "History",*/}
       {/*    headerTransparent: true,*/}
       {/*    headerLeft: () => buttonBack(),*/}
       {/*  }}*/}
       {/*/>*/}
-      {/*<RootStack.Screen*/}
-      {/*  name="register"*/}
-      {/*  component={Register}*/}
+      {/*<Stack.Screen*/}
+      {/*  name="History"*/}
+      {/*  component={History}*/}
       {/*  options={{*/}
-      {/*    title: Strings.ST11,*/}
+      {/*    title: "History",*/}
       {/*    headerTransparent: true,*/}
       {/*    headerLeft: () => buttonBack(),*/}
       {/*  }}*/}
       {/*/>*/}
-      {/*<RootStack.Screen*/}
-      {/*  name="forgot"*/}
-      {/*  component={ForgotPass}*/}
-      {/*  options={{*/}
-      {/*    title: Strings.ST43,*/}
-      {/*    headerTransparent: true,*/}
-      {/*    headerLeft: () => buttonBack(),*/}
-      {/*  }}*/}
-      {/*/>*/}
-      {/*<RootStack.Screen*/}
+      {/*<Stack.Screen*/}
       {/*  name="comments"*/}
       {/*  component={Comments}*/}
       {/*  options={{ title: Strings.ST88, headerLeft: () => buttonBack() }}*/}
       {/*/>*/}
-      {/*<RootStack.Screen*/}
+      {/*<Stack.Screen*/}
       {/*  name="comment"*/}
       {/*  component={Comment}*/}
       {/*  options={{ title: Strings.ST91, headerLeft: () => buttonBack() }}*/}
       {/*/>*/}
-      {/*<RootStack.Screen*/}
+      {/*<Stack.Screen*/}
       {/*  name="aboutus"*/}
       {/*  component={About}*/}
       {/*  options={{ title: Strings.ST110, headerLeft: () => buttonBack() }}*/}
       {/*/>*/}
-      {/*<RootStack.Screen*/}
+      {/*<Stack.Screen*/}
       {/*  name="terms"*/}
       {/*  component={Terms}*/}
       {/*  options={{ title: Strings.ST8, headerLeft: () => buttonBack() }}*/}
       {/*/>*/}
-    </RootStack.Navigator>
+    </Stack.Navigator>
   );
 }

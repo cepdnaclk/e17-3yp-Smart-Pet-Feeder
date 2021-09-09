@@ -15,7 +15,7 @@ import Strings from "../config/Strings";
 
 export default function Login(props) {
   // const contextState = useContext(UserContext);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,48 +25,41 @@ export default function Login(props) {
 
   // const updateValue = (user) => {
   //   setUser(user);
-  // }
-
-  // const login = async () => {
+  // };
   //
+  // const login = async () => {
   //   setLoading(true);
   //
-  //   if (email, password) {
-  //
-  //       signInApi(email, password).then(response => {
-  //
-  //             if (response != 'error' && response != 'incomplete') {
-  //               setUserData(response);
-  //               contextState.updateValue(response[0]);
-  //               setLoading(false);
-  //               setLogged(true);
-  //               props.navigation.navigate('home');
-  //
-  //             }else if(response === 'error'){
-  //
-  //               setUserData([]);
-  //               setLoading(false);
-  //               setLogged(false);
-  //               Alert.alert(Strings.ST104, Strings.ST32);
-  //
-  //             }else if(response === 'incomplete'){
-  //               setLoading(false);
-  //               Alert.alert(Strings.ST104, Strings.ST33);
-  //             }
-  //
-  //       });
-  //
-  //     }else{
-  //           setLoading(false);
-  //           Alert.alert(Strings.ST104, Strings.ST33);
-  //         }
-  //     }
+  //   if ((email, password)) {
+  //     signInApi(email, password).then((response) => {
+  //       if (response !== "error" && response !== "incomplete") {
+  //         // setUserData(response);
+  //         contextState.updateValue(response[0]);
+  //         // setLoading(false);
+  //         // setLogged(true);
+  //         props.navigation.navigate("home");
+  //       } else if (response === "error") {
+  //         //
+  //         // setUserData([]);
+  //         // setLoading(false);
+  //         // setLogged(false);
+  //         Alert.alert(Strings.ST104, Strings.ST32);
+  //       } else if (response === "incomplete") {
+  //         setLoading(false);
+  //         Alert.alert(Strings.ST104, Strings.ST33);
+  //       }
+  //     });
+  //   } else {
+  //     setLoading(false);
+  //     Alert.alert(Strings.ST104, Strings.ST33);
+  //   }
+  // };
 
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
       <View style={Styles.AuthPage}>
         <Image
-          source={require("../../assets/logo.png")}
+          source={require("../assets/images/logo.png")}
           resizeMode={"contain"}
           style={Styles.AuthLogo}
         />
@@ -74,14 +67,14 @@ export default function Login(props) {
         <View style={Styles.AuthContent}>
           <TextInput
             label={Strings.ST19}
-            onChangeText={(text) => setEmail(text)}
+            // onChangeText={(text) => setEmail(text)}
             mode="flat"
             autoCapitalize="none"
             style={Styles.AuthInput}
           />
           <TextInput
             label={Strings.ST20}
-            onChangeText={(text) => setPassword(text)}
+            // onChangeText={(text) => setPassword(text)}
             mode="flat"
             secureTextEntry={true}
             style={Styles.AuthInput}
@@ -99,13 +92,13 @@ export default function Login(props) {
             contentStyle={Styles.AuthButtonContent}
             labelStyle={Styles.AuthButtonLabel}
           >
-            {!loading ? Strings.ST17 : Strings.ST31}
+            {/*{!loading ? Strings.ST17 : Strings.ST31}*/}
           </Button>
 
           <View style={Styles.AuthBottomContent}>
             <TouchableOpacity
               activeOpacity={0.9}
-              onPress={() => onChangeScreen("register")}
+              onPress={() => onChangeScreen("Register")}
             >
               <Text style={Styles.AuthBottomText}>
                 {Strings.ST12}{" "}

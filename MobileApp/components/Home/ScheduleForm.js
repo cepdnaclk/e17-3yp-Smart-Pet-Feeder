@@ -4,6 +4,7 @@ import {
   Image,
   Keyboard,
   SafeAreaView,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -15,47 +16,31 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import useInput from "../../hooks/use-input";
 import * as Validators from "../../helpers/validators";
 import * as ScheduleActions from "../../store/actions/schedules";
-
-import Strings from "../../config/Strings";
 import Icon from "react-native-dynamic-vector-icons/lib/Icon";
-import { useSelector, dispatch } from "react-redux";
-import { isValidString } from "../../helpers/validators";
+import { useSelector, useDispatch } from "react-redux";
 
-const extractDate = (date) => {
-  let d = new Date(date),
-    month = "" + (d.getMonth() + 1),
-    day = "" + d.getDate(),
-    year = d.getFullYear();
-
-  if (month.length < 2) month = "0" + month;
-  if (day.length < 2) day = "0" + day;
-
-  return [year, month, day].join("-");
-};
-
-const extractTime = (time) => {
-  let hour = time.getHours();
-  let min = time.getMinutes();
-
-  if (min < 10) min = "0" + min;
-  if (hour < 10) hour = "0" + hour;
-  //
-  return hour + ":" + min;
-};
+import * as Functions from "../../helpers/functions";
 
 const ScheduleForm = (props) => {
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
 
-  const schedule = useSelector((state) =>
-    state.schedules.schedules.find((schedule) => schedule.id === props.id)
-  );
+  const dispatch = useDispatch();
 
+  let schedule = null;
+  if (props.isUpdate) {
+    schedule = useSelector((state) => {
+      return state.schedules.schedules.find((prod) => prod.id === props.id);
+    });
+  }
+
+  const currentDate = new Date();
   const [dateOrTime, setDateOrTime] = useState(
-    new Date(Date.parse(schedule.date_time))
+    new Date(schedule ? new Date(schedule.date_time) : currentDate.setHours(23))
   );
-  console.log(new Date().toString());
-  const [isValidDateTime, setIsValidDateTime] = useState(!!schedule);
+  const [isValidDateTime, setIsValidDateTime] = useState(
+    Validators.isValidDateTime(dateOrTime)
+  );
   const {
     value: title,
     isValid: titleIsValid,
@@ -65,7 +50,7 @@ const ScheduleForm = (props) => {
     reset: resetTitle,
   } = useInput(schedule ? schedule.title : "", Validators.isNotEmpty);
 
-  const isFormValid = !titleHasError && isValidDateTime;
+  const isFormValid = titleIsValid && isValidDateTime;
   const submitHandler = () => {
     if (!isFormValid) {
       return;
@@ -76,6 +61,8 @@ const ScheduleForm = (props) => {
     } else {
       dispatch(ScheduleActions.createSchedule(title, dateOrTime));
     }
+
+    props.hideModal();
   };
 
   const onChangeDateOrTime = (event, selectedDate) => {
@@ -86,10 +73,10 @@ const ScheduleForm = (props) => {
     const currentDate = selectedDate || dateOrTime;
     setShow(Platform.OS === "ios");
     setDateOrTime(currentDate);
-    if (currentDate < Date.now()) {
-      setIsValidDateTime(false);
-    } else {
+    if (Validators.isValidDateTime(currentDate)) {
       setIsValidDateTime(true);
+    } else {
+      setIsValidDateTime(false);
     }
   };
 
@@ -112,6 +99,12 @@ const ScheduleForm = (props) => {
         isVisible={props.isModalVisible}
         backdropOpacity={0.8}
         onBackdropPress={props.hideModal}
+        animationInTiming={1}
+        animationOutTiming={1}
+        // coverScreen={true}
+        hasBackdrop={true}
+        backdropTransitionInTiming={1}
+        backdropTransitionOutTiming={1}
       >
         <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
           <View style={Styles.Container}>
@@ -147,7 +140,7 @@ const ScheduleForm = (props) => {
                     mode="flat"
                     autoCapitalize="none"
                     style={Styles.Input}
-                    value={extractDate(dateOrTime)}
+                    value={Functions.extractDate(dateOrTime)}
                     editable={false}
                   />
                 </View>
@@ -163,7 +156,7 @@ const ScheduleForm = (props) => {
                       type="AntDesign"
                       size={26}
                       color="purple"
-                      onPress={() => {}}
+                      onPress={showDatepicker}
                     />
                   </Button>
                 </View>
@@ -173,13 +166,10 @@ const ScheduleForm = (props) => {
                 <View style={{ flex: 10 }}>
                   <TextInput
                     label="Time"
-                    // onChangeText={(text) => setEmail(text)}
                     mode="flat"
                     autoCapitalize="none"
                     style={Styles.Input}
-                    value={extractTime(dateOrTime)}
-                    // value={title}
-
+                    value={Functions.extractTime(dateOrTime)}
                     editable={false}
                   />
                 </View>
@@ -195,7 +185,7 @@ const ScheduleForm = (props) => {
                       type="AntDesign"
                       size={26}
                       color="purple"
-                      onPress={() => {}}
+                      onPress={showTimepicker}
                     />
                   </Button>
                 </View>
@@ -213,7 +203,13 @@ const ScheduleForm = (props) => {
                   value={dateOrTime}
                   mode={mode}
                   is24Hour={true}
-                  display="default"
+                  // display="default"
+                  display={Platform.OS === "ios" ? "spinner" : "default"}
+                  style={{
+                    width: 250,
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                   onChange={onChangeDateOrTime}
                 />
               )}
@@ -223,11 +219,14 @@ const ScheduleForm = (props) => {
                   <Avatar.Icon icon="close" size={40} backgroundColor={"red"} />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={submitHandler}>
+                <TouchableOpacity
+                  onPress={submitHandler}
+                  disabled={!isFormValid}
+                >
                   <Avatar.Icon
                     icon="check"
                     size={40}
-                    backgroundColor={"green"}
+                    backgroundColor={!isFormValid ? "grey" : "green"}
                   />
                 </TouchableOpacity>
               </View>
@@ -241,11 +240,13 @@ const ScheduleForm = (props) => {
 
 const Styles = StyleSheet.create({
   Container: {
-    marginLeft: "5%",
-    width: "90%",
-    height: 400,
+    marginLeft: Platform.OS === "ios" ? "2.5%" : "5%",
+    width: Platform.OS === "ios" ? "95%" : "90%",
+    height: "auto",
     justifyContent: "center",
     backgroundColor: "#fff",
+    paddingTop: 30,
+    paddingBottom: 50,
   },
 
   Details: {
@@ -272,7 +273,7 @@ const Styles = StyleSheet.create({
   },
 
   Button: {
-    height: 30,
+    height: 50,
     width: 30,
   },
 

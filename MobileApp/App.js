@@ -19,6 +19,8 @@ import Navigation from "./navigation/Navigation";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import scheduleReducer from "./store/reducer/schedules";
+import statusReducer from "./store/reducer/status";
+import historyReducer from "./store/reducer/history";
 
 // Before rendering any navigation stack
 import { enableScreens } from "react-native-screens";
@@ -28,6 +30,8 @@ enableScreens();
 
 const rootReducer = combineReducers({
   schedules: scheduleReducer,
+  status: statusReducer,
+  history: historyReducer,
 });
 const store = createStore(rootReducer);
 
@@ -60,6 +64,7 @@ const fetchFonts = () => {
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
     "bebas-neue": require("./assets/fonts/BebasNeue-Regular.ttf"),
     galio: require("./assets/fonts/galioExtra.ttf"),
+    loobster: require("./assets/fonts/Lobster-Regular.ttf"),
   });
 };
 
@@ -79,22 +84,22 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <NavigationContainer>
-          <GalioProvider theme={materialTheme}>
-            {/*<Block flex>*/}
-            {/*  {Platform.OS === "ios" && <StatusBar barStyle="default" />}*/}
-            {/*</Block>*/}
-            <StatusBar
-              translucent
-              backgroundColor="transparent"
-              barStyle={"light-content"}
-            />
+        <Provider store={store}>
+          <NavigationContainer>
+            <GalioProvider theme={materialTheme}>
+              {/*<Block flex>*/}
+              {/*  {Platform.OS === "ios" && <StatusBar barStyle="default" />}*/}
+              {/*</Block>*/}
+              <StatusBar
+                translucent
+                backgroundColor="transparent"
+                barStyle={"light-content"}
+              />
 
-            <Provider store={store}>
               <Navigation />
-            </Provider>
-          </GalioProvider>
-        </NavigationContainer>
+            </GalioProvider>
+          </NavigationContainer>
+        </Provider>
       );
     }
   }

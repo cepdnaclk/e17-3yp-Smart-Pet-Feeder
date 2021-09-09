@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   I18nManager,
 } from "react-native";
-import { List, Text, Button } from "react-native-paper";
+import { List, Text, Button, Avatar } from "react-native-paper";
 import Styles from "../config/Styles";
 import ColorsApp from "../config/ColorsApp";
 import Strings from "../config/Strings";
@@ -47,10 +47,16 @@ export default function DrawerContent(props) {
               style={Styles.DrawerMenuItem}
               title="Home"
               left={(props) => (
-                <Icon
-                  {...props}
-                  style={Styles.DrawerIconMenu}
-                  name="home-outline"
+                // <Icon
+                //   {...props}
+                //   style={Styles.DrawerIconMenu}
+                //   name="home-outline"
+                // />
+                <Avatar.Icon
+                  size={34}
+                  icon="home"
+                  backgroundColor="grey"
+                  style={{ marginRight: 15 }}
                 />
               )}
               right={(props) => (
@@ -64,7 +70,7 @@ export default function DrawerContent(props) {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => onChangeScreen("feed")}
+            onPress={() => onChangeScreen("Status")}
             activeOpacity={0.8}
           >
             <List.Item
@@ -72,10 +78,16 @@ export default function DrawerContent(props) {
               style={Styles.DrawerMenuItem}
               title="Status"
               left={(props) => (
-                <Icon
-                  {...props}
-                  style={Styles.DrawerIconMenu}
-                  name="card-text-outline"
+                // <Icon
+                //   {...props}
+                //   style={Styles.DrawerIconMenu}
+                //   name="card-text-outline"
+                // />
+                <Avatar.Icon
+                  size={34}
+                  icon="shield-star"
+                  backgroundColor="grey"
+                  style={{ marginRight: 15 }}
                 />
               )}
               right={(props) => (
@@ -89,7 +101,7 @@ export default function DrawerContent(props) {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => onChangeScreen("search")}
+            onPress={() => onChangeScreen("History")}
             activeOpacity={0.8}
           >
             <List.Item
@@ -97,7 +109,13 @@ export default function DrawerContent(props) {
               style={Styles.DrawerMenuItem}
               title="History"
               left={(props) => (
-                <Icon {...props} style={Styles.DrawerIconMenu} name="magnify" />
+                // <Icon {...props} style={Styles.DrawerIconMenu} name="magnify" />
+                <Avatar.Icon
+                  size={34}
+                  icon="history"
+                  backgroundColor="grey"
+                  style={{ marginRight: 15 }}
+                />
               )}
               right={(props) => (
                 <Icon
@@ -110,7 +128,7 @@ export default function DrawerContent(props) {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => onChangeScreen("favorites")}
+            onPress={() => onChangeScreen("Video")}
             activeOpacity={0.8}
           >
             <List.Item
@@ -118,10 +136,16 @@ export default function DrawerContent(props) {
               style={Styles.DrawerMenuItem}
               title="Video"
               left={(props) => (
-                <Icon
-                  {...props}
-                  style={Styles.DrawerIconMenu}
-                  name="heart-outline"
+                // <Icon
+                //   {...props}
+                //   style={Styles.DrawerIconMenu}
+                //   name="heart-outline"
+                // />
+                <Avatar.Icon
+                  size={34}
+                  icon="video"
+                  backgroundColor="grey"
+                  style={{ marginRight: 15 }}
                 />
               )}
               right={(props) => (
@@ -135,7 +159,7 @@ export default function DrawerContent(props) {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => onChangeScreen("profile")}
+            onPress={() => onChangeScreen("Profile")}
             activeOpacity={0.8}
           >
             <List.Item
@@ -143,10 +167,16 @@ export default function DrawerContent(props) {
               style={Styles.DrawerMenuItem}
               title={Strings.ST6}
               left={(props) => (
-                <Icon
-                  {...props}
-                  style={Styles.DrawerIconMenu}
-                  name="account-outline"
+                // <Icon
+                //   {...props}
+                //   style={Styles.DrawerIconMenu}
+                //   name="account-outline"
+                // />
+                <Avatar.Icon
+                  size={34}
+                  icon="account"
+                  backgroundColor="grey"
+                  style={{ marginRight: 15 }}
                 />
               )}
               right={(props) => (
