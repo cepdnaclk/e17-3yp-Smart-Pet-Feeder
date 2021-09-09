@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -6,7 +6,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import useInput from "../../hooks/use-input";
-import AuthContext from "../../stores/auth-context";
+
 import Button from "@material-ui/core/Button";
 
 import * as Validators from "../../helpers/validators";
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LoginForm(props) {
   const classes = useStyles();
-  const authCtx = useContext(AuthContext);
+  
 
   const history = useHistory();
 
@@ -112,7 +112,7 @@ export default function LoginForm(props) {
     hasError: confirmPasswordHasError,
     valueChangeHandler: confirmPasswordChangeHandler,
     inputBlurHandler: confirmPasswordBlurHandler,
-    reset: reset,
+    reset: resetConfirmPassword,
   } = useInput(Validators.isConfirmPassword.bind(null, password));
 
   let formIsValid = false;
@@ -127,7 +127,7 @@ export default function LoginForm(props) {
   }
 
   const validateData = (event) => {
-    let url, redirect;
+    let url;
 
     url =
       "http://localhost:8080/auth/signup";
@@ -139,6 +139,7 @@ export default function LoginForm(props) {
         password: password,
         confirmPassword:confirmPassword,
         name:name,
+        phoneNumber:mobileNumber,
         returnSecureToken: true,
       }),
       headers: {
@@ -173,6 +174,10 @@ export default function LoginForm(props) {
   const closeFormHandler = () => {
     resetEmail();
     resetPassword();
+    resetMobileNumber();
+    resetPassword();
+    resetName();
+    resetConfirmPassword();
     props.handleClose();
   };
   return (

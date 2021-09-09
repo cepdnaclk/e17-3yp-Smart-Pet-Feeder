@@ -6,6 +6,8 @@ const authControllers = require('../controllers/auth');
 
 const User = require('../models/user');
 
+const isAuth = require('../middleware/is-auth');
+
 const router = express.Router();
 
 router.put('/signup',
@@ -24,15 +26,28 @@ router.put('/signup',
             .normalizeEmail(),
         body('password').trim()
             .isLength({min: 6}).withMessage('Password is too short'),
-        body('name').trim().not().isEmpty().withMessage('name field cannot be empty'),
+        body('name').trim()
+            .not().isEmpty().withMessage('name field cannot be empty'),
         body('confirmPassword').trim()
             .custom((value,{req})=>{
                 if (value !== req.body.password){
                     throw new Error('Passwords has to match');
                 }
                 return true;
+            }),
+        body('phoneNumber')
+            .custom((value,{req}) =>{
+                const mobile_regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                if(!value.match(mobile_regex)){
+                    throw new Error('Incorrect phone number!')
+                }
+                return true;
             })
 
 ],authControllers.signUp);
+
+router.post('/login',authControllers.login);
+
+router.get('/user/get_data',isAuth,authControllers.getData);
 
 module.exports = router;

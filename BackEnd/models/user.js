@@ -10,13 +10,23 @@ const userSchema = new Schema({
         type :String,
         required: true
     },
-    firstName:{
+    name:{
         type:String,
-        required:false
+        required:true
     },
-    lastName:{
+    mobileNumber:{
         type: String,
-        required:false
+        required: true
+    },
+    isActive:{
+        type:Boolean,
+        default:true,
+        required:true
+    },
+    petFeeder:{
+        type:Schema.Types.ObjectId,
+        ref:'PetFeeder',
+
     }
 });
 

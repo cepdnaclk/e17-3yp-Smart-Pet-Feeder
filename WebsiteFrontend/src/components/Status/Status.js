@@ -1,19 +1,87 @@
-import React, { useState } from "react";
+import React, { useState,useContext,useEffect,useCallback } from "react";
 import Icofont from "react-icofont";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
-import statusData from "../../data/Status/status-data.json";
+
+import Loader from 'react-loader-spinner';
+import AuthContext from "../../stores/auth-context";
 
 const Status = ({ bg, type }) => {
   const [viewed, setViewed] = useState(true);
+  const [statusData,setStatusData] = useState([]);
+  const [isLoading,setIsLoading] = useState(false);
+  const authCtx = useContext(AuthContext);
+  
+ 
 
   const viewChangeHandler = (isVisible) => {
     if (isVisible) setViewed(true);
   };
 
+  const fetchData =useCallback(()=>{
+    setIsLoading(true);
+    fetch('http://localhost:8080/auth/user/get_data',{
+      method:'GET',
+      headers:{
+        Authorization: 'Bearer ' + authCtx.token
+      }
+    })
+    .then(response=>{
+      console.log(response);
+        return response.json();
+        
+    })
+    .then(data=>{
+        const fetchedData = [
+          {
+            "id": 0,
+            "value": data.status,
+            "title": "Status",
+            "icon": ""
+          },
+          {
+            "id": 1,
+            "value": data.battery,
+            "title": "Battery",
+            "icon": "battery-full"
+          },
+          {
+            "id": 2,
+            "value": data.remainingRounds,
+            "title": "Remaining Rounds",
+            "icon": "spinner"
+          },
+          {
+            "id": 3,
+            "value": 0,
+            "title": "Last Feed Before",
+            "icon": "clock-time"
+          }
+        ]
+        setStatusData(fetchedData);
+        setIsLoading(false);
+    }).catch(err=>{console.log(err);})
+  },[]);
+
+  useEffect(()=>{
+    fetchData();
+  },[fetchData]);
+
   return (
+  
     <section className={"pt-120 pb-80 " + (bg ? bg : "dark-bg")}>
-      <div className={"container" + (type === "wide" ? "-fluid" : "")}>
+      {isLoading && 
+      <div align= 'center'>
+        <Loader
+        type="ThreeDots"
+        color="#d42e22"
+        height={100}
+        width={100}
+        
+      />
+      </div>
+      }
+     {!isLoading && <div className={"container" + (type === "wide" ? "-fluid" : "")}>
         <div className="row">
           {statusData.map((counter, i) => (
             <div
@@ -45,7 +113,7 @@ const Status = ({ bg, type }) => {
                   </VisibilitySensor>
                 )}
 
-                {i === 0 && (counter.value === 1 ? "ON" : "OFF")}
+                {i === 0 && (counter.value === true ? "ON" : "OFF")}
                 {i === 1 && "%"}
 
                 {i === 3 && "h"}
@@ -56,7 +124,8 @@ const Status = ({ bg, type }) => {
             </div>
           ))}
         </div>
-      </div>
+      
+      </div>}
     </section>
   );
 };
