@@ -4,15 +4,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Strings from "../config/Strings";
 import { IconButton } from "react-native-paper";
 import Home from "../screens/Home";
-// import RecipeDetails from '../screens/RecipeDetails';
-// import Profile from '../screens/Profile';
-// import Search from '../screens/Search';
-// import Members from '../screens/Members';
-// import SingleMember from '../screens/SingleMember';
-// import SingleCategory from '../screens/SingleCategory';
-// import Submit from '../screens/Submit';
-// import Favorites from '../screens/Favorites';
-// import Feed from '../screens/Feed';
+import History from "../screens/History";
+import Status from "../screens/Status";
+import Video from "../screens/Video";
+import Profile from "../screens/Profile";
 import ColorsApp from "../config/ColorsApp";
 
 const Stack = createStackNavigator();
@@ -106,7 +101,46 @@ export default function StackNavigation(props) {
           headerLeft: () => buttonMenu(),
         }}
       />
-      {/*<Stack.Screen name="recipe" component={RecipeDetails} options={({ navigation }) => ({title: null, headerTransparent: true, headerLeft: () => buttonBack()})} />*/}
+
+      <Stack.Screen
+        name="Status"
+        component={Status}
+        options={({ navigation }) => ({
+          title: "Status",
+          headerTransparent: false,
+          headerLeft: () => buttonBack(),
+        })}
+      />
+
+      <Stack.Screen
+        name="History"
+        component={History}
+        options={({ navigation }) => ({
+          title: "History",
+          headerTransparent: false,
+          headerLeft: () => buttonBack(),
+        })}
+      />
+
+      <Stack.Screen
+        name="Video"
+        component={Video}
+        options={({ navigation }) => ({
+          title: "Video",
+          headerTransparent: false,
+          headerLeft: () => buttonBack(),
+        })}
+      />
+
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={({ navigation }) => ({
+          title: "Profile",
+          headerTransparent: false,
+          headerLeft: () => buttonBack(),
+        })}
+      />
       {/*<Stack.Screen name="singlemember" component={SingleMember} options={({ navigation }) => ({title: null, headerTransparent: true, headerLeft: () => buttonBackDark()})} />*/}
       {/*<Stack.Screen name="singlecategory" component={SingleCategory} options={({ navigation }) => ({title: null, headerLeft: () => buttonBack()})} />*/}
       {/*<Stack.Screen name="profile" component={Profile} options={{title: Strings.ST6, headerLeft: () => buttonBack()}} />*/}

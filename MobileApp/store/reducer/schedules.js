@@ -25,17 +25,21 @@ const scheduleReducer = (state = initialState, action) => {
       };
 
     case UPDATE_SCHEDULE:
+      console.log("Action id ", action.scheduleData.id);
       const index = state.schedules.findIndex(
-        (schedule) => schedule.id === action.id
+        (schedule) => schedule.id === action.scheduleData.id
       );
+      console.log("Index ", index);
       const updatedSchedule = new Schedule(
         1,
-        action.id,
+        action.scheduleData.id,
         action.scheduleData.title,
         action.scheduleData.date_time
       );
+      // console.log("Updated :", updatedSchedule);
       const updatedSchedules = [...state.schedules];
       updatedSchedules[index] = updatedSchedule;
+      console.log(updatedSchedules[0]);
 
       return {
         schedules: updatedSchedules,
@@ -44,7 +48,7 @@ const scheduleReducer = (state = initialState, action) => {
     case DELETE_SCHEDULE:
       return {
         schedules: state.schedules.filter(
-          (schedule) => schedule.id !== schedule.id
+          (schedule) => schedule.id !== action.id
         ),
       };
   }

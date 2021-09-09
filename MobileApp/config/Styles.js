@@ -42,6 +42,7 @@ module.exports = StyleSheet.create({
   AuthButton: {
     marginTop: 15,
     borderRadius: 100,
+    backgroundColor: ColorsApp.PRIMARY,
   },
 
   AuthButtonContent: {
@@ -150,9 +151,9 @@ module.exports = StyleSheet.create({
 
   DrawerImage: {
     width: "100%",
-    height: screenHeight / 13,
+    height: screenHeight / 12,
     maxHeight: "100%",
-    marginVertical: 10,
+    // marginVertical: 2,
   },
 
   DrawerMenuItem: {
@@ -811,12 +812,21 @@ module.exports = StyleSheet.create({
     position: "relative",
     marginLeft: screenWidth * 0.05,
     width: screenWidth * 0.9,
+    // shadowColor: "#000",
+    // shadowOffset: { width: 1, height: 1 },
+    // shadowOpacity: 0.8,
+    // shadowRadius: 2,
+    // elevation: 10,
+
     shadowColor: "#000",
-    shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 10,
-    // backgroundColor: PrimaryColor,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+
+    elevation: 6,
   },
 
   cardButtons: {

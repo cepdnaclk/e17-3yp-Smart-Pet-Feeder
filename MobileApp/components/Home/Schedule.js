@@ -12,32 +12,46 @@ import {
 import { StyleSheet, View } from "react-native";
 import Styles from "../../config/Styles";
 
-const msToTime = (duration) => {
-  let minutes = Math.floor((duration / (1000 * 60)) % 60),
-    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-
-  hours = hours < 10 ? "0" + hours : hours;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-
-  return hours + ":" + minutes;
-};
+import * as Functions from "../../helpers/functions";
+import {
+  getNumberOfDays,
+  getNumberOfHours,
+  isExceedDay,
+} from "../../helpers/functions";
 
 const Schedule = (props) => {
+  // console.log(props.schedule.date_time);
+  // console.log(new Date(Date.now()));
+
   return (
     <Card style={Styles.card6}>
       <View style={Styles.cardTitle}>
-        <Title style={{ paddingLeft: 15, fontSize: 20, fontWeight: "bold" }}>
-          {props.schedule.title}
+        <Title
+          style={{
+            fontSize: 22,
+            fontWeight: "bold",
+            // fontFamily: "loobster",
+            // capitalize: true,
+          }}
+        >
+          {props.schedule.title.toUpperCase()}
         </Title>
       </View>
 
       <View style={Styles.cardContent}>
-        <Text style={{ fontSize: 20, color: "red", fontWeight: "bold" }}>
-          {msToTime(
-            Date.parse(props.schedule.date + "T" + props.schedule.time) -
-              Date.now()
-          )}{" "}
-          h
+        <Text
+          style={{
+            fontSize: 28,
+            color: "red",
+            fontWeight: "bold",
+            fontFamily: "bebas-neue",
+          }}
+        >
+          AFTER{" "}
+          {!Functions.isExceedDay(props.schedule.date_time) &&
+            Functions.getNumberOfHours(props.schedule.date_time)}
+          {Functions.isExceedDay(props.schedule.date_time) &&
+            Functions.getNumberOfDays(props.schedule.date_time)}
         </Text>
       </View>
 
@@ -47,7 +61,7 @@ const Schedule = (props) => {
           <Text
             style={{ paddingLeft: 15, fontFamily: "bebas-neue", fontSize: 20 }}
           >
-            {props.schedule.date}
+            {Functions.extractDate(new Date(props.schedule.date_time))}
           </Text>
         </View>
 
@@ -56,14 +70,18 @@ const Schedule = (props) => {
           <Text
             style={{ paddingLeft: 15, fontFamily: "bebas-neue", fontSize: 20 }}
           >
-            {props.schedule.time}
+            {Functions.extractTime(new Date(props.schedule.date_time))}
           </Text>
         </View>
       </View>
 
       <View style={Styles.cardButtons}>
-        <Button>EDIT</Button>
-        <Button>DELETE</Button>
+        <Button onPress={props.onEditSchedule.bind(null, props.schedule.id)}>
+          EDIT
+        </Button>
+        <Button onPress={props.onDeleteSchedule.bind(null, props.schedule.id)}>
+          DELETE
+        </Button>
       </View>
     </Card>
   );
