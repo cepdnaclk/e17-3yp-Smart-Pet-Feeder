@@ -4,7 +4,7 @@ module.exports.isPassword = (value) => {
 };
 
 module.exports.isEmail = (value) => {
-  const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const email_regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   return !!value.match(email_regex);
 };
 

@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, {useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import Icofont from "react-icofont";
-import Fab from "@material-ui/core/Fab";
+// import Icofont from "react-icofont";
+// import Fab from "@material-ui/core/Fab";
 import useInput from "../../hooks/use-input";
 import AuthContext from "../../stores/auth-context";
 import Button from "@material-ui/core/Button";
@@ -56,15 +56,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   disabled: {},
-  // paper: {
-  //   backgroundColor: theme.palette.background.paper,
-  //   border: '2px solid #000',
-  //   boxShadow: theme.shadows[5],
-  //   padding: theme.spacing(2, 4, 3),
-  // },
+
 }));
-// const isPassword = (value) => value.trim() !== "";
-// const isEmail = (value) => value.includes("@");
+
 
 export default function LoginForm(props) {
   const classes = useStyles();
@@ -96,12 +90,12 @@ export default function LoginForm(props) {
   }
 
   const validateData = (event) => {
-    let url, redirect;
+    let url;
     url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg";
-    redirect = "/user";
+      "http://localhost:8080/auth/login";
+ 
     event.preventDefault();
-
+    
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -132,6 +126,7 @@ export default function LoginForm(props) {
         const expirationTime = new Date(
           new Date().getTime() + +data.expiresIn * 1000
         );
+        console.log(data.expiresIn);
         authCtx.login(data.idToken, expirationTime.toISOString());
         history.replace("/user");
       })
