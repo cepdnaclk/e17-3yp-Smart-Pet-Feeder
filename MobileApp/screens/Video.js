@@ -4,6 +4,7 @@ import { Video, AVPlaybackStatus } from "expo-av";
 import VideoPlayer from "expo-video-player";
 
 export default function App() {
+  console.log("video");
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   return (
