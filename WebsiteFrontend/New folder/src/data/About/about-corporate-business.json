@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Real-time visualization",
+    "text": "Get the real-time activities of your pet, through the camera .",
+    "icon": "eye-alt"
+  },
+  {
+    "id": 2,
+    "title": "Scheduling",
+    "text": "Schedule a feeding plan when you do not have time to control it manually",
+    "icon": "clock-time"
+  },
+  {
+    "id": 3,
+    "title": "ROTATABLE CAMERA",
+    "text": "Rotate the camera of the pet feeder remotely, using the UI to see real-time activities around.",
+    "icon": "cc-camera"
+  },
+  {
+    "id": 4,
+    "title": "UPTO 4 TIMES",
+    "text": "Feed your pet 4 times per a day",
+    "icon": "listing-number"
+  },
+  {
+    "id": 5,
+    "title": "EASY INSTALLATION",
+    "text": "Setup the pet feeder and connect to the UI easily",
+    "icon": "tools-alt-2"
+  },
+  {
+    "id": 6,
+    "title": "STATUS VISUALIZATION",
+    "text": "See the remaining rounds, battery percentage and scheduling plan through the UI or the in-build display",
+    "icon": "monitor"
+  }
+]

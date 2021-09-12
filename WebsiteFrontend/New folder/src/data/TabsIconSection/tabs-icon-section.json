@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "icon": "multimedia",
+    "title": "MEDIA",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt consequat nunc, ultrices vehicula mauris mollis et. Sed pharetra ultrices quam in laoreet. Donec laoreet eu mi nec sagittis. Curabitur nunc velit, egestas vel aliquet ac, tempus quis dolor."
+  },
+  {
+    "id": 2,
+    "icon": "brainstorming",
+    "title": "WEB MARKETING",
+    "text": "Duis pulvinar mattis turpis in mollis. Suspendisse eu eros id dolor efficitur tincidunt quis id tellus. In lacinia laoreet auctor. Mauris a consequat magna, in tempus urna laoreet eu mi nec sagittis. Curabitur nunc velit, egestas vel aliquet ac, tempus quis dolor."
+  },
+  {
+    "id": 3,
+    "icon": "pen-alt-4",
+    "title": "BRANDING",
+    "text": "Nam nisi sapien, varius non aliquet vel, vestibulum at lacus. Nulla leo neque, mattis id risus id, imperdiet finibus risus. Curabitur laoreet sit amet lacus vel semper. Vivamus in risus magna. Nulla eu metus congue, condimentum mi et, tristique arcu."
+  },
+  {
+    "id": 4,
+    "icon": "globe-alt",
+    "title": "DEVELOPMENT",
+    "text": "Proin rutrum facilisis porta. Aenean hendrerit, leo vel luctus porttitor, mauris metus finibus massa, eu luctus nisi ligula ac urna. Maecenas elementum nulla quis erat ultrices lobortis. Donec eget placerat magna egestas vel aliquet ac, tempus quis dolor."
+  }
+]

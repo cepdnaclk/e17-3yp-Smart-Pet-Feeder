@@ -56,7 +56,7 @@ const SmartPetFeeder = () => {
 
         <Services title="What We Offer" tagline="We Turn Heads" />
         <Testimonials title="TESTIMONIALS" tagline="Happy clients" />
-        <Blogs />
+    
 
         <Team />
 

@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "title": "Status",
+    "to": "status"
+  },
+
+  {
+    "id": 2,
+    "title": "Schedule",
+    "to": "schedule"
+  }
+]

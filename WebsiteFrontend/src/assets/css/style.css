@@ -67,6 +67,19 @@
   padding: 20px 20px;
 }
 
+.white_bg2 {
+  color: rgb(235, 226, 226);
+  background-color: transparent;
+  outline: none;
+  margin-bottom: -2px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 20px 20px;
+}
+
 .white_bg:hover {
   cursor: pointer;
   color: deeppink;
