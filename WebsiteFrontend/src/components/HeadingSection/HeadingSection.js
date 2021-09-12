@@ -6,7 +6,7 @@ const HeadingSection = ({ title, tagline, classAppend, font, children }) => {
       className={"col-sm-8 section-heading " + (classAppend ? classAppend : "")}
     >
       <h2
-        className={font ? font : "" + " " + (classAppend ? classAppend : "")}
+        className={font ? font : + " " + (classAppend ? classAppend : "")}
         data-aos-delay={100}
         data-aos={"fade-up"}
         data-aos-duration={700}

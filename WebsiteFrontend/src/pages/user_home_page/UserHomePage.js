@@ -3,13 +3,13 @@ import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import FooterCopyright from "../../components/Footer/FooterCopyright";
-import Status from "../../components/Status/Status";
+// import Status from "../../components/Status/Status";
 import AOS from "aos";
-import ActiveSchedules from "../../components/ActiveSchedules/ActiveSchedules";
-import ScheduleForm from "../../components/ScheduleForm/ScheduleForm";
-import ConfirmationBox from "../../components/ConfirmationBox/ConfirmationBox";
+// import ActiveSchedules from "../../components/ActiveSchedules/ActiveSchedules";
+// import ScheduleForm from "../../components/ScheduleForm/ScheduleForm";
+// import ConfirmationBox from "../../components/ConfirmationBox/ConfirmationBox";
 import { Redirect, Route, Switch } from "react-router-dom";
-import SmartPetFeeder from "../home/SmartPetFeeder";
+// import SmartPetFeeder from "../home/SmartPetFeeder";
 import UserStatusPage from "./UserStatusPage";
 import UserHistoryPage from "./UserHistoryPage";
 

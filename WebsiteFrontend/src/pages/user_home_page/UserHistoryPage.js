@@ -1,8 +1,8 @@
 import React from "react";
 
-import Status from "../../components/Status/Status";
-import ActiveSchedules from "../../components/ActiveSchedules/ActiveSchedules";
-import Schedule from "../../components/ActiveSchedules/Schedule";
+// import Status from "../../components/Status/Status";
+// import ActiveSchedules from "../../components/ActiveSchedules/ActiveSchedules";
+// import Schedule from "../../components/ActiveSchedules/Schedule";
 
 const UserHistoryPage = () => {
   return (

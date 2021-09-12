@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -6,7 +6,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import useInput from "../../hooks/use-input";
-import AuthContext from "../../stores/auth-context";
+
 import Button from "@material-ui/core/Button";
 
 import * as Validators from "../../helpers/validators";
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LoginForm(props) {
   const classes = useStyles();
-  const authCtx = useContext(AuthContext);
+  
 
   const history = useHistory();
 
@@ -112,7 +112,7 @@ export default function LoginForm(props) {
     hasError: confirmPasswordHasError,
     valueChangeHandler: confirmPasswordChangeHandler,
     inputBlurHandler: confirmPasswordBlurHandler,
-    reset: reset,
+    reset: resetConfirmPassword,
   } = useInput(Validators.isConfirmPassword.bind(null, password));
 
   let formIsValid = false;
@@ -127,16 +127,19 @@ export default function LoginForm(props) {
   }
 
   const validateData = (event) => {
-    let url, redirect;
+    let url;
 
-    url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBrt2e7MTBO1uUPNgOmhQcHSAl7Oth-Yyo";
+    url = "http://localhost:8080/auth/signup";
+
     event.preventDefault();
     fetch(url, {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify({
         email: email,
         password: password,
+        confirmPassword:confirmPassword,
+        name:name,
+        phoneNumber:mobileNumber,
         returnSecureToken: true,
       }),
       headers: {
@@ -148,12 +151,10 @@ export default function LoginForm(props) {
           return res.json();
         } else {
           return res.json().then((data) => {
-            let errorMessage = "Authentication failed!";
-            // if (data && data.error && data.error.message) {
-            //   errorMessage = data.error.message;
-            // }
-
-            throw new Error(errorMessage);
+          let errorMessage = data.message;
+          
+          console.log(data.data);
+          throw new Error(errorMessage);
           });
         }
       })
@@ -166,12 +167,17 @@ export default function LoginForm(props) {
       })
       .catch((err) => {
         alert(err.message);
+        
       });
   };
 
   const closeFormHandler = () => {
     resetEmail();
     resetPassword();
+    resetMobileNumber();
+    resetPassword();
+    resetName();
+    resetConfirmPassword();
     props.handleClose();
   };
   return (
