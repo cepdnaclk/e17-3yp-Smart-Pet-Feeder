@@ -4,7 +4,7 @@ import React from "react";
 // import ActiveSchedules from "../../components/ActiveSchedules/ActiveSchedules";
 // import Schedule from "../../components/ActiveSchedules/Schedule";
 
-const UserStatusPage = () => {
+const UserHistoryPage = () => {
   return (
     <section className="">
       <div className="container">
@@ -33,4 +33,4 @@ const UserStatusPage = () => {
   );
 };
 
-export default UserStatusPage;
+export default UserHistoryPage;

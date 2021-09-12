@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "title": "Smart Pet Feeder",
+  "tagline": "WELCOME TO",
+  "text": "saving one pet won't change the world, but for that one pet the world will change forever",
+  "image": "background/home.jpg",
+  "buttons": [
+    {
+      "id": 1,
+      "text": "Get Started",
+      "link": "/signup",
+      "type": "btn-circle btn-color"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "value": 1,
+    "title": "Status",
+    "icon": ""
+  },
+  {
+    "id": 1,
+    "value": 80,
+    "title": "Battery",
+    "icon": "battery-full"
+  },
+  {
+    "id": 2,
+    "value": 3,
+    "title": "Remaining Rounds",
+    "icon": "spinner"
+  },
+  {
+    "id": 3,
+    "value": 0,
+    "title": "Last Feed Before",
+    "icon": "clock-time"
+  }
+]

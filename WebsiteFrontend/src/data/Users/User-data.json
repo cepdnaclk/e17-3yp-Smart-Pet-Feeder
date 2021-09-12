@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name":"A",
+    "email":"a@gmail.com",
+    "connect":true
+  },
+  {
+    "id": 2,
+    "name":"B",
+    "email":"b@gmail.com",
+    "connect":true
+  },
+
+  {
+    "id": 3,
+    "name":"C",
+    "email":"c@gmail.com",
+    "connect":false
+  },
+
+  {
+    "id": 4,
+    "name":"D",
+    "email":"d@gmail.com",
+    "connect":true
+  
+  },
+  {
+    "id": 5,
+    "name":"A",
+    "email":"a@gmail.com",
+    "connect":true
+  },
+  {
+    "id": 6,
+    "name":"B",
+    "email":"b@gmail.com",
+    "connect":true
+  },
+
+  {
+    "id": 7,
+    "name":"C",
+    "email":"c@gmail.com",
+    "connect":false
+  },
+  {
+    "id": 8,
+    "name":"D",
+    "email":"d@gmail.com",
+    "connect":true
+  }
+]
