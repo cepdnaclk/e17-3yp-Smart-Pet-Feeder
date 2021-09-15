@@ -46,7 +46,6 @@ export const extractTime = (date) => {
 };
 
 export const dateCompare = (date1, date2) => {
-  console.log();
   if (new Date(date1.date_time) > new Date(date2.date_time)) {
     return -1;
   }
@@ -62,11 +61,8 @@ export const isSameDate = (date1, date2) => {
     date1.getMonth() === date2.getMonth() &&
     date1.getDate() === date2.getDate()
   ) {
-    console.log(1);
     return true;
   } else {
-    console.log(0);
-
     return false;
   }
 };

@@ -14,6 +14,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import Icon from "react-native-dynamic-vector-icons/lib/Icon";
 
 import * as Validators from "../helpers/functions";
+import ColorsApp from "../config/ColorsApp";
 
 const renderListItem = (itemData) => {
   return <PastSchedule pastSchedule={itemData} />;
@@ -89,7 +90,7 @@ export default function History(props) {
           <Switch
             value={showLatest}
             onValueChange={onToggleSwitch}
-            color="black"
+            color={ColorsApp.PRIMARY}
           />
         </View>
 
@@ -104,13 +105,23 @@ export default function History(props) {
           </Text>
 
           <Button onPress={showDatePicker}>
-            <Icon name="calendar" type="AntDesign" size={26} color="purple" />
+            <Icon
+              name="calendar"
+              type="AntDesign"
+              size={26}
+              color={ColorsApp.PRIMARY}
+            />
           </Button>
         </View>
       </View>
 
       <View style={{ ...styles.Inline, paddingBottom: 10, paddingTop: 10 }}>
-        <Button icon="refresh" mode="contained" onPress={clearFilters}>
+        <Button
+          icon="refresh"
+          mode="contained"
+          onPress={clearFilters}
+          style={{ backgroundColor: ColorsApp.PRIMARY }}
+        >
           Clear Filters
         </Button>
       </View>

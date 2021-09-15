@@ -12,6 +12,10 @@ module.exports.isValidString = (value) => {
   return value.trim().length >= 5;
 };
 
+module.exports.isValidMessage = (value) => {
+  return value.trim().length >= 20;
+};
+
 module.exports.isNotEmpty = (value) => {
   return value.trim().length >= 1;
 };

@@ -9,6 +9,8 @@ import Status from "../screens/Status";
 import Video from "../screens/Video";
 import Profile from "../screens/Profile";
 import ColorsApp from "../config/ColorsApp";
+import Notifications from "../screens/Notifications";
+import ContactUs from "../screens/Contact Us";
 
 const Stack = createStackNavigator();
 
@@ -127,6 +129,26 @@ export default function StackNavigation(props) {
         component={Video}
         options={({ navigation }) => ({
           title: "Video",
+          headerTransparent: false,
+          headerLeft: () => buttonBack(),
+        })}
+      />
+
+      <Stack.Screen
+        name="Notifications"
+        component={Notifications}
+        options={({ navigation }) => ({
+          title: "Notifications",
+          headerTransparent: false,
+          headerLeft: () => buttonBack(),
+        })}
+      />
+
+      <Stack.Screen
+        name="ContactUs"
+        component={ContactUs}
+        options={({ navigation }) => ({
+          title: "ContactUs",
           headerTransparent: false,
           headerLeft: () => buttonBack(),
         })}

@@ -1,0 +1,24 @@
+import { AUTHENTICATE, LOGOUT } from "../actions/auth";
+
+const initialState = {
+  token: null,
+  userId: null,
+};
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case AUTHENTICATE:
+      // console.log("Reducer ", action.token);
+
+      return {
+        token: action.token,
+        userId: action.userId,
+      };
+    // Log out
+    case LOGOUT:
+      return initialState; // return initial state
+
+    default:
+      return state;
+  }
+};

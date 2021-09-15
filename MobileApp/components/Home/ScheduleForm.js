@@ -20,6 +20,7 @@ import Icon from "react-native-dynamic-vector-icons/lib/Icon";
 import { useSelector, useDispatch } from "react-redux";
 
 import * as Functions from "../../helpers/functions";
+import ColorsApp from "../../config/ColorsApp";
 
 const ScheduleForm = (props) => {
   const [mode, setMode] = useState("date");
@@ -155,7 +156,7 @@ const ScheduleForm = (props) => {
                       name="calendar"
                       type="AntDesign"
                       size={26}
-                      color="purple"
+                      color={ColorsApp.PRIMARY}
                       onPress={showDatepicker}
                     />
                   </Button>
@@ -184,7 +185,7 @@ const ScheduleForm = (props) => {
                       name="clockcircleo"
                       type="AntDesign"
                       size={26}
-                      color="purple"
+                      color={ColorsApp.PRIMARY}
                       onPress={showTimepicker}
                     />
                   </Button>

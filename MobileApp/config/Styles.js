@@ -27,7 +27,6 @@ module.exports = StyleSheet.create({
     width: "100%",
     height: screenHeight / 12,
     maxHeight: "100%",
-    marginBottom: 50,
   },
 
   AuthContent: {
@@ -42,7 +41,6 @@ module.exports = StyleSheet.create({
   AuthButton: {
     marginTop: 15,
     borderRadius: 100,
-    backgroundColor: ColorsApp.PRIMARY,
   },
 
   AuthButtonContent: {
@@ -77,10 +75,12 @@ module.exports = StyleSheet.create({
   },
 
   ForgotPass: {
-    fontSize: 16,
+    fontWeight: "bold",
+    fontSize: 15,
     marginVertical: 10,
     alignSelf: "flex-end",
     marginHorizontal: 4,
+    color: ColorsApp.PRIMARY,
   },
 
   textArea: {
@@ -150,7 +150,7 @@ module.exports = StyleSheet.create({
   },
 
   DrawerImage: {
-    width: "100%",
+    width: "70%",
     height: screenHeight / 12,
     maxHeight: "100%",
     // marginVertical: 2,
@@ -164,7 +164,7 @@ module.exports = StyleSheet.create({
 
   DrawerTitleMenu: {
     fontSize: 16,
-    fontWeight: "600",
+    // fontWeight: "bold",
   },
 
   DrawerIconMenu: {
@@ -175,6 +175,7 @@ module.exports = StyleSheet.create({
   DrawerIconRightMenu: {
     fontSize: 25,
     opacity: 0.3,
+    color: ColorsApp.PRIMARY,
   },
 
   DrawerButton: {
@@ -863,6 +864,7 @@ module.exports = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     marginRight: 20,
+    backgroundColor: PrimaryColor,
     // marginTop: 10,
     right: 0,
     // bottom: 0,

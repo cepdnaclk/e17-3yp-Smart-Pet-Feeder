@@ -18,11 +18,9 @@ import {
   getNumberOfHours,
   isExceedDay,
 } from "../../helpers/functions";
+import ColorsApp from "../../config/ColorsApp";
 
 const Schedule = (props) => {
-  // console.log(props.schedule.date_time);
-  // console.log(new Date(Date.now()));
-
   return (
     <Card style={Styles.card6}>
       <View style={Styles.cardTitle}>
@@ -42,7 +40,7 @@ const Schedule = (props) => {
         <Text
           style={{
             fontSize: 28,
-            color: "red",
+            color: ColorsApp.PRIMARY,
             fontWeight: "bold",
             fontFamily: "bebas-neue",
           }}
@@ -57,7 +55,11 @@ const Schedule = (props) => {
 
       <View style={Styles.cardContent}>
         <View style={Styles.cardContent}>
-          <Avatar.Icon size={26} icon="calendar" />
+          <Avatar.Icon
+            size={26}
+            icon="calendar"
+            backgroundColor={ColorsApp.PRIMARY}
+          />
           <Text
             style={{ paddingLeft: 15, fontFamily: "bebas-neue", fontSize: 20 }}
           >
@@ -66,7 +68,11 @@ const Schedule = (props) => {
         </View>
 
         <View style={Styles.cardContent}>
-          <Avatar.Icon size={26} icon="clock-time-nine-outline" />
+          <Avatar.Icon
+            size={26}
+            icon="clock-time-nine-outline"
+            backgroundColor={ColorsApp.PRIMARY}
+          />
           <Text
             style={{ paddingLeft: 15, fontFamily: "bebas-neue", fontSize: 20 }}
           >
@@ -76,10 +82,18 @@ const Schedule = (props) => {
       </View>
 
       <View style={Styles.cardButtons}>
-        <Button onPress={props.onEditSchedule.bind(null, props.schedule.id)}>
+        <Button
+          onPress={props.onEditSchedule.bind(null, props.schedule.id)}
+          // color="blue"
+          color={ColorsApp.PRIMARY}
+        >
           EDIT
         </Button>
-        <Button onPress={props.onDeleteSchedule.bind(null, props.schedule.id)}>
+        <Button
+          onPress={props.onDeleteSchedule.bind(null, props.schedule.id)}
+          // color="blue"
+          color={ColorsApp.PRIMARY}
+        >
           DELETE
         </Button>
       </View>

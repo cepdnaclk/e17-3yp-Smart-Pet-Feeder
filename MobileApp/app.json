@@ -1,29 +1,36 @@
 {
   "expo": {
-    "name": "rn-material-kit-free",
-    "description": "React Native - Material Kit Free",
-    "slug": "rn-material-kit-free",
-    "privacy": "unlisted",
-    "platforms": [
-      "ios",
-      "android"
-    ],
-    "version": "1.8.0",
+    "name": "Smart Pet Feeder",
+    "description": "Smart Pet Feeder is a product that helps you to take care of your pets.",
+    "slug": "smart-pet-feeder",
+    "privacy": "public",
+    "platforms": ["ios", "android"],
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "cover",
-      "backgroundColor": "#6C24AA"
+      "backgroundColor": "#FFFFFF"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "userInterfaceStyle": "light",
+
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.smart-pet-feeder.uop",
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "userInterfaceStyle": "light"
+    },
+    "android": {
+      "package": "com.smart_pet_feeder.uop",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png"
+      },
+      "userInterfaceStyle": "light"
     }
   }
 }

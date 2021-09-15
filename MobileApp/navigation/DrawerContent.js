@@ -11,11 +11,18 @@ import Styles from "../config/Styles";
 import ColorsApp from "../config/ColorsApp";
 import Strings from "../config/Strings";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useSelector } from "react-redux";
 
 export default function DrawerContent(props) {
   const { navigation } = props;
   const [string, setString] = useState("");
   const rightIcon = I18nManager.isRTL ? "chevron-left" : "chevron-right";
+
+  const isActive = useSelector((state) => state.notifications.active);
+
+  // const unread_notification = notifications.find(
+  //   (notification) => notification.status === 1
+  // );
 
   const onChangeScreen = (screen) => {
     navigation.navigate(screen);
@@ -55,7 +62,7 @@ export default function DrawerContent(props) {
                 <Avatar.Icon
                   size={34}
                   icon="home"
-                  backgroundColor="grey"
+                  backgroundColor={ColorsApp.PRIMARY}
                   style={{ marginRight: 15 }}
                 />
               )}
@@ -86,7 +93,7 @@ export default function DrawerContent(props) {
                 <Avatar.Icon
                   size={34}
                   icon="shield-star"
-                  backgroundColor="grey"
+                  backgroundColor={ColorsApp.PRIMARY}
                   style={{ marginRight: 15 }}
                 />
               )}
@@ -113,7 +120,7 @@ export default function DrawerContent(props) {
                 <Avatar.Icon
                   size={34}
                   icon="history"
-                  backgroundColor="grey"
+                  backgroundColor={ColorsApp.PRIMARY}
                   style={{ marginRight: 15 }}
                 />
               )}
@@ -136,15 +143,62 @@ export default function DrawerContent(props) {
               style={Styles.DrawerMenuItem}
               title="Video"
               left={(props) => (
-                // <Icon
-                //   {...props}
-                //   style={Styles.DrawerIconMenu}
-                //   name="heart-outline"
-                // />
                 <Avatar.Icon
                   size={34}
                   icon="video"
-                  backgroundColor="grey"
+                  backgroundColor={ColorsApp.PRIMARY}
+                  style={{ marginRight: 15 }}
+                />
+              )}
+              right={(props) => (
+                <Icon
+                  {...props}
+                  style={Styles.DrawerIconRightMenu}
+                  name={rightIcon}
+                />
+              )}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => onChangeScreen("Notifications")}
+            activeOpacity={0.8}
+          >
+            <List.Item
+              titleStyle={Styles.DrawerTitleMenu}
+              style={Styles.DrawerMenuItem}
+              title="Notifications"
+              left={(props) => (
+                <Avatar.Icon
+                  size={34}
+                  icon={isActive ? "bell-plus" : "bell"}
+                  backgroundColor={isActive ? "red" : ColorsApp.PRIMARY}
+                  style={{ marginRight: 15 }}
+                />
+              )}
+              right={(props) => (
+                <Icon
+                  {...props}
+                  style={Styles.DrawerIconRightMenu}
+                  name={rightIcon}
+                />
+              )}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => onChangeScreen("ContactUs")}
+            activeOpacity={0.8}
+          >
+            <List.Item
+              titleStyle={Styles.DrawerTitleMenu}
+              style={Styles.DrawerMenuItem}
+              title="Contact Us"
+              left={(props) => (
+                <Avatar.Icon
+                  size={34}
+                  icon="message"
+                  backgroundColor={ColorsApp.PRIMARY}
                   style={{ marginRight: 15 }}
                 />
               )}
@@ -175,7 +229,7 @@ export default function DrawerContent(props) {
                 <Avatar.Icon
                   size={34}
                   icon="account"
-                  backgroundColor="grey"
+                  backgroundColor={ColorsApp.PRIMARY}
                   style={{ marginRight: 15 }}
                 />
               )}

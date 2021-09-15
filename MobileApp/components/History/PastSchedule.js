@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { Avatar, Card, Text, Title } from "react-native-paper";
 import * as Functions from "../../helpers/functions";
 import React from "react";
+import ColorsApp from "../../config/ColorsApp";
 
 const PastSchedule = (props) => {
   return (
@@ -22,7 +23,11 @@ const PastSchedule = (props) => {
 
       <View style={Styles.cardContent}>
         <View style={Styles.cardContent}>
-          <Avatar.Icon size={26} icon="calendar" />
+          <Avatar.Icon
+            size={26}
+            icon="calendar"
+            backgroundColor={ColorsApp.PRIMARY}
+          />
           <Text
             style={{
               paddingLeft: 15,
@@ -35,7 +40,11 @@ const PastSchedule = (props) => {
         </View>
 
         <View style={{ ...Styles.cardContent, paddingBottom: 20 }}>
-          <Avatar.Icon size={26} icon="clock-time-nine-outline" />
+          <Avatar.Icon
+            size={26}
+            icon="clock-time-nine-outline"
+            backgroundColor={ColorsApp.PRIMARY}
+          />
           <Text
             style={{
               paddingLeft: 15,

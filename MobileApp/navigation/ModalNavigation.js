@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   createStackNavigator,
   TransitionPresets,
@@ -6,10 +6,17 @@ import {
 import { IconButton } from "react-native-paper";
 import StackNavigation from "./StackNavigation";
 import AuthNavigation from "./AuthNavigation";
+import { useSelector } from "react-redux";
 
 const Stack = createStackNavigator();
 export default function ModalNavigation(props) {
-  const [isSignedIn, setIsSignedIn] = useState(true);
+  const isSignedIn = useSelector((state) => {
+    return !!state.auth.token;
+  });
+  // const isSignedIn = true;
+
+  useEffect(() => {}, [isSignedIn]);
+
   const { navigation } = props;
 
   const navigatorOptions = {

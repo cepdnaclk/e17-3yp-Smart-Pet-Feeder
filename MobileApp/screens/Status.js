@@ -15,12 +15,22 @@ import { Card, Button, Text } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import statusDate from "../data/status-data.json";
 import { useSelector } from "react-redux";
+import { DotIndicator } from "react-native-indicators";
+import ColorsApp from "../config/ColorsApp";
 
 export default function Home(props) {
-  console.log("Status");
-
   const yOffset = useRef(new Animated.Value(0)).current;
   const status = useSelector((state) => state.status.status);
+
+  const [isPageLoading, setIsPageLoaded] = useState(true);
+
+  useEffect(() => {
+    setIsPageLoaded(false);
+  }, []);
+
+  if (isPageLoading) {
+    return <DotIndicator color={ColorsApp.PRIMARY} />;
+  }
 
   return (
     <Animated.ScrollView

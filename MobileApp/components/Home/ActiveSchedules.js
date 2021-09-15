@@ -6,10 +6,9 @@ import Styles from "../../config/Styles";
 import { Avatar, FAB, Text } from "react-native-paper";
 import { View } from "react-native";
 import { useSelector } from "react-redux";
+import ColorsApp from "../../config/ColorsApp";
 
 const ActiveSchedule = (props) => {
-  console.log("activeSchedules");
-
   const schedules = useSelector((state) => state.schedules.schedules);
 
   const filteredSchedules = schedules.sort((schedule1, schedule2) => {
@@ -31,6 +30,7 @@ const ActiveSchedule = (props) => {
           small
           icon="plus"
           onPress={props.onPressPlusButton}
+          color="white"
         />
       )}
     </React.Fragment>
