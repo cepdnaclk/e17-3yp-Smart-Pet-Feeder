@@ -5,8 +5,7 @@ import Container from "@material-ui/core/Container";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-// import Icofont from "react-icofont";
-// import Fab from "@material-ui/core/Fab";
+
 import useInput from "../../hooks/use-input";
 import AuthContext from "../../stores/auth-context";
 import Button from "@material-ui/core/Button";
@@ -16,7 +15,7 @@ import * as Validators from "../../helpers/validators";
 const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
-    // border: "2px solid #000",
+
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },

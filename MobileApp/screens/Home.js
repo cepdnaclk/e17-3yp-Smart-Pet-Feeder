@@ -6,6 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   SafeAreaView,
+  AsyncStorage,
 } from "react-native";
 import AppLoading from "../components/AppLoading";
 import { LinearGradient } from "expo-linear-gradient";
@@ -14,10 +15,10 @@ import Strings from "../config/Strings";
 import ColorsApp from "../config/ColorsApp";
 import { Title, Text, Divider, FAB } from "react-native-paper";
 import SchedulePart from "../components/Home/SchedulePart";
+import { DotIndicator } from "react-native-indicators";
+import * as authActions from "../store/actions/auth";
 
-export default function Home(props) {
-  console.log("home");
-
+const Home = (props) => {
   const yOffset = useRef(new Animated.Value(0)).current;
   const headerOpacity = yOffset.interpolate({
     inputRange: [0, 200],
@@ -25,7 +26,11 @@ export default function Home(props) {
     extrapolate: "clamp",
   });
 
-  const [isLoaded, setIsLoaded] = useState(true);
+  // const [isPageLoading, setIsPageLoaded] = useState(false);
+
+  // useEffect(() => {
+  //   setIsPageLoaded(true);
+  // }, []);
 
   const onChangeScreen = (screen) => {
     props.navigation.navigate(screen);
@@ -49,56 +54,54 @@ export default function Home(props) {
     });
   }, [headerOpacity]);
 
-  if (isLoaded) {
-    return (
-      <Animated.ScrollView
-        onScroll={Animated.event(
-          [
-            {
-              nativeEvent: {
-                contentOffset: {
-                  y: yOffset,
-                },
+  return (
+    <Animated.ScrollView
+      onScroll={Animated.event(
+        [
+          {
+            nativeEvent: {
+              contentOffset: {
+                y: yOffset,
               },
             },
-          ],
-          { useNativeDriver: true }
-        )}
-        scrollEventThrottle={16}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
+          },
+        ],
+        { useNativeDriver: true }
+      )}
+      scrollEventThrottle={16}
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
+    >
+      <LinearGradient
+        colors={["rgba(0,0,0,0.8)", "transparent"]}
+        style={Styles.homeOverlay}
+      />
+
+      <ImageBackground
+        source={require("../assets/images/header.jpg")}
+        resizeMode={"cover"}
+        style={Styles.headerBackground}
       >
-        <LinearGradient
-          colors={["rgba(0,0,0,0.8)", "transparent"]}
-          style={Styles.homeOverlay}
-        />
+        <View style={Styles.headerOverlay}>
+          <Title style={Styles.headerTitle}>SMART PET FEEDER</Title>
+          <TouchableOpacity
+            onPress={() => onChangeScreen("Video")}
+            activeOpacity={0.9}
+          >
+            <View style={Styles.headerButton}>
+              <Text style={Styles.headerButtonText}>Watch Pet</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
 
-        <ImageBackground
-          source={require("../assets/images/header.jpg")}
-          resizeMode={"cover"}
-          style={Styles.headerBackground}
-        >
-          <View style={Styles.headerOverlay}>
-            <Title style={Styles.headerTitle}>SMART PET FEEDER</Title>
-            <TouchableOpacity
-              onPress={() => onChangeScreen("Video")}
-              activeOpacity={0.9}
-            >
-              <View style={Styles.headerButton}>
-                <Text style={Styles.headerButtonText}>Watch Pet</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </ImageBackground>
+      <SafeAreaView>
+        <View style={Styles.HomeScreen}>
+          <SchedulePart />
+        </View>
+      </SafeAreaView>
+    </Animated.ScrollView>
+  );
+};
 
-        <SafeAreaView>
-          <View style={Styles.HomeScreen}>
-            <SchedulePart />
-          </View>
-        </SafeAreaView>
-      </Animated.ScrollView>
-    );
-  } else {
-    return <AppLoading />;
-  }
-}
+export default Home;

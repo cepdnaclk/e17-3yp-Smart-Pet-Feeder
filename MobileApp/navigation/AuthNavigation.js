@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
+import StartupScreen from "../screens/StartupScreen";
 import ColorsApp from "../config/ColorsApp";
 
 const Stack = createStackNavigator();
@@ -25,6 +26,15 @@ export default function AuthNavigation(props) {
 
   return (
     <Stack.Navigator screenOptions={navigatorOptions}>
+      <Stack.Screen
+        name="StartUp"
+        component={StartupScreen}
+        options={{
+          title: "",
+          headerTransparent: true,
+        }}
+      />
+
       <Stack.Screen
         name="Register"
         component={Register}

@@ -33,12 +33,14 @@
     "react": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-native-androw": "0.0.34",
+    "react-native-appearance": "^0.3.4",
     "react-native-date-picker": "^4.0.0",
     "react-native-dialog": "^9.1.0",
     "react-native-dynamic-vector-icons": "^1.1.6",
     "react-native-easy-grid": "^0.2.2",
     "react-native-gesture-handler": "~1.8.0",
     "react-native-imaged-card-view": "0.0.11",
+    "react-native-indicators": "^0.17.0",
     "react-native-modal": "^13.0.0",
     "react-native-modal-dropdown": "git+https://github.com/siemiatj/react-native-modal-dropdown.git",
     "react-native-music-control": "^1.4.0",
@@ -55,9 +57,11 @@
     "react-navigation": "^4.4.4",
     "react-number-format": "^4.7.3",
     "react-redux": "^7.2.5",
-    "redux": "^4.1.1"
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@nativescript/core": "^8.1.1",
     "babel-preset-expo": "8.3.0",
     "cross-env": "~7.0.0",
     "expo-cli": "~4.11.0",

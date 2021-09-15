@@ -1,98 +1,343 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   SafeAreaView,
   View,
-  Alert,
   TouchableOpacity,
   Image,
+  StyleSheet,
+  Platform,
+  ScrollView,
+  Alert,
+  Dimensions,
 } from "react-native";
 import { Text, TextInput, Button, Checkbox } from "react-native-paper";
 import Styles from "../config/Styles";
-// import { size } from "lodash";
-// import { signUpApi, checkUserApi, setUserData, setLogged } from "../config/DataApp";
 import ColorsApp from "../config/ColorsApp";
-import Strings from "../config/Strings";
-// import UserContext from '../context/UserContext';
+import useInput from "../hooks/use-input";
+import * as Validators from "../helpers/validators";
+import { useDispatch } from "react-redux";
+import * as authActions from "../store/actions/auth";
+import { DotIndicator } from "react-native-indicators";
 
 export default function Register(props) {
-  // const contextState = useContext(UserContext);
-  const [loading, setLoading] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [checked, setChecked] = useState(false);
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+
+  const [isPageLoading, setIsPageLoaded] = useState(true);
+
+  useEffect(() => {
+    setIsPageLoaded(false);
+  }, []);
 
   const onChangeScreen = (screen) => {
     props.navigation.navigate(screen);
   };
 
+  useEffect(() => {
+    if (error) {
+      Alert.alert("Authentication Failed!", error, [{ text: "Okay" }]);
+    }
+  }, [error]);
+
+  const {
+    value: name,
+    isValid: nameIsValid,
+    hasError: nameHasError,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    reset: resetName,
+  } = useInput("", Validators.isValidString);
+
+  const {
+    value: email,
+    isValid: emailIsValid,
+    hasError: emailHasError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetEmail,
+  } = useInput("", Validators.isEmail);
+
+  const {
+    value: mobileNumber,
+    isValid: mobileNumberIsValid,
+    hasError: mobileNumberHasError,
+    valueChangeHandler: mobileNumberChangeHandler,
+    inputBlurHandler: mobileNumberBlurHandler,
+    reset: resetMobileNumber,
+  } = useInput("", Validators.isMobileNumber);
+
+  const {
+    value: password,
+    isValid: passwordIsValid,
+    hasError: passwordHasError,
+    valueChangeHandler: passwordChangeHandler,
+    inputBlurHandler: passwordBlurHandler,
+    reset: resetPassword,
+  } = useInput("", Validators.isPassword);
+
+  const {
+    value: confirmPassword,
+    isValid: confirmPasswordIsValid,
+    hasError: confirmPasswordHasError,
+    valueChangeHandler: confirmPasswordChangeHandler,
+    inputBlurHandler: confirmPasswordBlurHandler,
+    reset: resetConfirmPassword,
+  } = useInput("", Validators.isConfirmPassword.bind(null, password));
+
+  let formIsValid = false;
+  if (
+    nameIsValid &&
+    emailIsValid &&
+    mobileNumberIsValid &&
+    passwordIsValid &&
+    confirmPasswordIsValid
+  ) {
+    formIsValid = true;
+  }
+
+  const submitForm = async () => {
+    setError(null);
+    setIsLoading(true);
+    try {
+      await dispatch(
+        authActions.signup(name, email, mobileNumber, password, confirmPassword)
+      );
+      // props.navigation.navigate("Shop");
+    } catch (err) {
+      setError(err.message);
+      setIsLoading(false);
+    }
+  };
+
+  // const submitForm = (event) => {
+  //   let url;
+  //
+  //   url =
+  //     "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg";
+  //   event.preventDefault();
+  //   fetch(url, {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: email,
+  //       password: password,
+  //       confirmPassword: confirmPassword,
+  //       name: name,
+  //       phoneNumber: mobileNumber,
+  //       returnSecureToken: true,
+  //     }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((res) => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       } else {
+  //         return res.json().then((data) => {
+  //           let errorMessage = data.error.message;
+  //
+  //           if (errorMessage === "EMAIL_EXISTS") {
+  //             errorMessage = "Email Already Exists.";
+  //           }
+  //           throw new Error(errorMessage);
+  //         });
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((err) => {
+  //       alert(err.message);
+  //     });
+  // };
+
+  if (isPageLoading) {
+    return <DotIndicator color={ColorsApp.PRIMARY} />;
+  }
   return (
     <SafeAreaView style={Styles.AuthPage}>
-      <Image
-        source={require("../assets/images/logo.png")}
-        resizeMode={"contain"}
-        style={Styles.AuthLogo}
-      />
-
-      <View style={Styles.AuthContent}>
-        <TextInput label={Strings.ST18} mode="flat" style={Styles.AuthInput} />
-        <TextInput
-          label={Strings.ST19}
-          mode="flat"
-          autoCapitalize="none"
-          style={Styles.AuthInput}
-        />
-        <TextInput
-          label={Strings.ST20}
-          mode="flat"
-          secureTextEntry={true}
-          style={Styles.AuthInput}
-        />
-        <View
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "center",
+          paddingBottom: 30,
+          paddingTop: 30,
+        }}
+      >
+        <Image
+          source={require("../assets/images/logo.png")}
+          resizeMode={"contain"}
           style={{
-            justifyContent: "flex-start",
-            flexDirection: "row",
-            alignItems: "center",
-            marginTop: 10,
+            ...Styles.AuthLogo,
+            marginBottom: 50,
           }}
-        >
-          <Checkbox.Android
-            color={ColorsApp.PRIMARY}
-            uncheckedColor={"#b9b9b9"}
-            status={checked ? "checked" : "unchecked"}
-            // onPress={() => {
-            //   setChecked(!checked);
-            // }}
-          />
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={() => onChangeScreen("terms")}
-          >
-            <Text style={Styles.AuthCheckBoxLabel}>{Strings.ST14}</Text>
-          </TouchableOpacity>
-        </View>
-        <Button
-          mode="contained"
-          onPress={() => onChangeScreen("Main")}
-          style={Styles.AuthButton}
-          contentStyle={Styles.AuthButtonContent}
-          labelStyle={Styles.AuthButtonLabel}
-        >
-          {!loading ? Strings.ST17 : Strings.ST31}
-        </Button>
+        />
 
-        <View style={Styles.AuthBottomContent}>
-          <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => onChangeScreen("Login")}
-          >
-            <Text style={Styles.AuthBottomText}>
-              {Strings.ST13}{" "}
-              <Text style={{ fontWeight: "bold" }}>{Strings.ST34}</Text>
-            </Text>
-          </TouchableOpacity>
+        <View style={Styles.AuthContent}>
+          <TextInput
+            label="Name"
+            mode="flat"
+            style={Styles.AuthInput}
+            onChangeText={nameChangeHandler}
+            onBlur={nameBlurHandler}
+            value={name}
+            theme={{
+              colors: {
+                primary: ColorsApp.PRIMARY,
+                underlineColor: "transparent",
+              },
+            }}
+          />
+
+          {nameHasError && (
+            <View style={styles.Error}>
+              <Text style={styles.ErrorMessage}>
+                * Name should contain at least 5 characters.
+              </Text>
+            </View>
+          )}
+          <TextInput
+            label="Email"
+            mode="flat"
+            autoCapitalize="none"
+            style={Styles.AuthInput}
+            onChangeText={emailChangeHandler}
+            onBlur={emailBlurHandler}
+            value={email}
+            keyboardType="email-address"
+            theme={{
+              colors: {
+                primary: ColorsApp.PRIMARY,
+                underlineColor: "transparent",
+              },
+            }}
+          />
+
+          {emailHasError && (
+            <View style={styles.Error}>
+              <Text style={styles.ErrorMessage}>* Incorrect Email </Text>
+            </View>
+          )}
+
+          <TextInput
+            label="Mobile Number"
+            mode="flat"
+            style={Styles.AuthInput}
+            onChangeText={mobileNumberChangeHandler}
+            onBlur={mobileNumberBlurHandler}
+            value={mobileNumber}
+            theme={{
+              colors: {
+                primary: ColorsApp.PRIMARY,
+                underlineColor: "transparent",
+              },
+            }}
+            keyboardType="phone-pad"
+          />
+
+          {mobileNumberHasError && (
+            <View style={styles.Error}>
+              <Text style={styles.ErrorMessage}>* Invalid mobile number </Text>
+            </View>
+          )}
+          <TextInput
+            label="Password"
+            mode="flat"
+            secureTextEntry={true}
+            style={Styles.AuthInput}
+            onChangeText={passwordChangeHandler}
+            onBlur={passwordBlurHandler}
+            value={password}
+            theme={{
+              colors: {
+                primary: ColorsApp.PRIMARY,
+                underlineColor: "transparent",
+              },
+            }}
+          />
+
+          {passwordHasError && (
+            <View style={styles.Error}>
+              <Text style={styles.ErrorMessage}>
+                * 6 minimum characters with uppercase & number
+              </Text>
+            </View>
+          )}
+          <TextInput
+            label="Confirm Password"
+            mode="flat"
+            secureTextEntry={true}
+            style={Styles.AuthInput}
+            onChangeText={confirmPasswordChangeHandler}
+            onBlur={confirmPasswordBlurHandler}
+            value={confirmPassword}
+            theme={{
+              colors: {
+                primary: ColorsApp.PRIMARY,
+                underlineColor: "transparent",
+              },
+            }}
+          />
+
+          {confirmPasswordHasError && (
+            <View style={styles.Error}>
+              <Text style={styles.ErrorMessage}>
+                * Password does not match{" "}
+              </Text>
+            </View>
+          )}
+
+          {isLoading ? (
+            <View style={{ height: 72 }}>
+              <DotIndicator color={ColorsApp.PRIMARY} />
+            </View>
+          ) : (
+            <Button
+              mode="contained"
+              onPress={submitForm}
+              style={{
+                ...Styles.AuthButton,
+                backgroundColor: formIsValid ? ColorsApp.PRIMARY : "grey",
+              }}
+              contentStyle={Styles.AuthButtonContent}
+              labelStyle={Styles.AuthButtonLabel}
+              disabled={!formIsValid}
+            >
+              Register
+            </Button>
+          )}
+
+          <View style={Styles.AuthBottomContent}>
+            <TouchableOpacity
+              activeOpacity={0.9}
+              onPress={() => onChangeScreen("Login")}
+            >
+              <Text style={Styles.AuthBottomText}>
+                Already have an account?{"  "}
+                <Text style={{ fontWeight: "bold", color: ColorsApp.PRIMARY }}>
+                  Sign In
+                </Text>
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  Error: {
+    paddingBottom: 10,
+    flexDirection: "row",
+    // alignItems: "center",
+    // justifyContent: "center",
+  },
+
+  ErrorMessage: {
+    color: "red",
+    fontSize: 12,
+    textAlign: "left",
+  },
+});

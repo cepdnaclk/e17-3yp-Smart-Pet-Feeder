@@ -1,59 +1,117 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   SafeAreaView,
   View,
   Alert,
   TouchableOpacity,
   Image,
-  ScrollView,
+  StyleSheet,
 } from "react-native";
+
+import { DotIndicator } from "react-native-indicators";
 import { Text, TextInput, Button } from "react-native-paper";
 import Styles from "../config/Styles";
-import Strings from "../config/Strings";
-// import { signInApi, setUserData, setLogged } from "../config/DataApp";
-// import UserContext from '../context/UserContext';
+import ColorsApp from "../config/ColorsApp";
+import useInput from "../hooks/use-input";
+import * as Validators from "../helpers/validators";
+import * as authActions from "../store/actions/auth";
+import { useDispatch } from "react-redux";
+import { login } from "../store/actions/auth";
 
 export default function Login(props) {
-  // const contextState = useContext(UserContext);
-  // const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+
+  const {
+    value: email,
+    isValid: emailIsValid,
+    hasError: emailHasError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetEmail,
+  } = useInput("", Validators.isEmail);
+
+  const {
+    value: password,
+    isValid: passwordIsValid,
+    hasError: passwordHasError,
+    valueChangeHandler: passwordChangeHandler,
+    inputBlurHandler: passwordBlurHandler,
+    reset: resetPassword,
+  } = useInput("", Validators.isNotEmpty);
+
+  let formIsValid = false;
+  if (emailIsValid && passwordIsValid) {
+    formIsValid = true;
+  }
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert("Authentication Failed!", error, [{ text: "Okay" }]);
+    }
+  }, [error]);
+
+  const submitForm = async () => {
+    setError(null);
+    setIsLoading(true);
+    try {
+      await dispatch(authActions.login(email, password));
+      // props.navigation.navigate("Shop");
+    } catch (err) {
+      setError(err.message);
+      setIsLoading(false);
+    }
+  };
+
+  // const submitForm = (event) => {
+  //   let url;
+  //   url =
+  //     "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg";
+  //
+  //   event.preventDefault();
+  //
+  //   fetch(url, {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: email,
+  //       password: password,
+  //       returnSecureToken: true,
+  //     }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((res) => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       } else {
+  //         return res.json().then((data) => {
+  //           let errorMessage = "Invalid Email or Password!";
+  //           // if (data && data.error && data.error.message) {
+  //           //   errorMessage = data.error.message;
+  //           // }
+  //
+  //           throw new Error(errorMessage);
+  //         });
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //       const expirationTime = new Date(
+  //         new Date().getTime() + +data.expiresIn * 1000
+  //       );
+  //       console.log(data.expiresIn);
+  //       // authCtx.login(data.idToken, expirationTime.toISOString());
+  //     })
+  //     .catch((err) => {
+  //       alert(err.message);
+  //     });
+  // };
 
   const onChangeScreen = (screen) => {
     props.navigation.navigate(screen);
   };
-
-  // const updateValue = (user) => {
-  //   setUser(user);
-  // };
-  //
-  // const login = async () => {
-  //   setLoading(true);
-  //
-  //   if ((email, password)) {
-  //     signInApi(email, password).then((response) => {
-  //       if (response !== "error" && response !== "incomplete") {
-  //         // setUserData(response);
-  //         contextState.updateValue(response[0]);
-  //         // setLoading(false);
-  //         // setLogged(true);
-  //         props.navigation.navigate("home");
-  //       } else if (response === "error") {
-  //         //
-  //         // setUserData([]);
-  //         // setLoading(false);
-  //         // setLogged(false);
-  //         Alert.alert(Strings.ST104, Strings.ST32);
-  //       } else if (response === "incomplete") {
-  //         setLoading(false);
-  //         Alert.alert(Strings.ST104, Strings.ST33);
-  //       }
-  //     });
-  //   } else {
-  //     setLoading(false);
-  //     Alert.alert(Strings.ST104, Strings.ST33);
-  //   }
-  // };
 
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
@@ -61,39 +119,75 @@ export default function Login(props) {
         <Image
           source={require("../assets/images/logo.png")}
           resizeMode={"contain"}
-          style={Styles.AuthLogo}
+          style={{ ...Styles.AuthLogo, marginBottom: 50 }}
         />
 
         <View style={Styles.AuthContent}>
           <TextInput
-            label={Strings.ST19}
-            // onChangeText={(text) => setEmail(text)}
+            // outlineColor={ColorsApp.PRIMARY}
+            // underlineColor={ColorsApp.PRIMARY}
+            // selectionColor={ColorsApp.PRIMARY}
+
+            theme={{
+              colors: {
+                primary: ColorsApp.PRIMARY,
+                underlineColor: "transparent",
+              },
+            }}
+            label="Email"
             mode="flat"
             autoCapitalize="none"
             style={Styles.AuthInput}
+            onChangeText={emailChangeHandler}
+            onBlur={emailBlurHandler}
+            value={email}
           />
+
+          {emailHasError && (
+            <View style={styles.Error}>
+              <Text style={styles.ErrorMessage}>* Invalid Email </Text>
+            </View>
+          )}
+
           <TextInput
-            label={Strings.ST20}
-            // onChangeText={(text) => setPassword(text)}
+            theme={{
+              colors: {
+                primary: ColorsApp.PRIMARY,
+                underlineColor: "transparent",
+              },
+            }}
+            label="Password"
             mode="flat"
             secureTextEntry={true}
             style={Styles.AuthInput}
+            onChangeText={passwordChangeHandler}
+            onBlur={passwordBlurHandler}
+            value={password}
           />
-          <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => onChangeScreen("forgot")}
-          >
-            <Text style={Styles.ForgotPass}>{Strings.ST15}</Text>
+
+          <TouchableOpacity activeOpacity={0.9}>
+            <Text style={Styles.ForgotPass}>Forgot Password?</Text>
           </TouchableOpacity>
-          <Button
-            mode="contained"
-            onPress={() => null}
-            style={Styles.AuthButton}
-            contentStyle={Styles.AuthButtonContent}
-            labelStyle={Styles.AuthButtonLabel}
-          >
-            {/*{!loading ? Strings.ST17 : Strings.ST31}*/}
-          </Button>
+
+          {isLoading ? (
+            <View style={{ height: 72 }}>
+              <DotIndicator color={ColorsApp.PRIMARY} />
+            </View>
+          ) : (
+            <Button
+              mode="contained"
+              onPress={submitForm}
+              style={{
+                ...Styles.AuthButton,
+                backgroundColor: formIsValid ? ColorsApp.PRIMARY : "grey",
+              }}
+              contentStyle={Styles.AuthButtonContent}
+              labelStyle={Styles.AuthButtonLabel}
+              disabled={!formIsValid}
+            >
+              Login
+            </Button>
+          )}
 
           <View style={Styles.AuthBottomContent}>
             <TouchableOpacity
@@ -101,8 +195,10 @@ export default function Login(props) {
               onPress={() => onChangeScreen("Register")}
             >
               <Text style={Styles.AuthBottomText}>
-                {Strings.ST12}{" "}
-                <Text style={{ fontWeight: "bold" }}>{Strings.ST35}</Text>
+                Don't have an account?{"  "}
+                <Text style={{ fontWeight: "bold", color: ColorsApp.PRIMARY }}>
+                  Register
+                </Text>
               </Text>
             </TouchableOpacity>
           </View>
@@ -111,3 +207,18 @@ export default function Login(props) {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  Error: {
+    flexDirection: "row",
+    paddingBottom: 10,
+    // alignItems: "center",
+    // justifyContent: "center",
+  },
+
+  ErrorMessage: {
+    color: "red",
+    fontSize: 12,
+    textAlign: "left",
+  },
+});
