@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useCallback ,useEffect,useContext} from "react";
 import Schedule from "./Schedule";
 import scheduleData from "../../data/Schedule/schedule-data.json";
 import ScheduleForm from "../ScheduleForm/ScheduleForm";
 import ConfirmationBox from "../ConfirmationBox/ConfirmationBox";
+import AuthContext  from "../../stores/auth-context";
 
-const ActiveSchedules = () => {
+const ActiveSchedules = (props) => {
+  // const [scheduleData,setScheduleData] = useState({});
   const [schedules, setSchedules] = useState(scheduleData);
+  const authCtx = useContext(AuthContext);
+  const [isLoading,setIsLoading] = useState(false);
 
   const [scheduleEditData, setScheduleEditData] = React.useState({
     open: false,
@@ -39,20 +43,107 @@ const ActiveSchedules = () => {
     });
   };
 
+
+
+  const fetchSchedules=useCallback(()=>{
+    setIsLoading(true);
+    fetch('http://localhost:8080/auth/user/get_schedules',{
+      method:'GET',
+      headers:{
+        Authorization: 'Bearer ' + authCtx.token
+      }
+    })
+    .then(response=>{
+      console.log(response);
+        return response.json();
+        
+    })
+    .then(data=>{
+        const fetchedSchedules = [
+          {
+            "id": 1,
+            "title": data[0].title,
+            "date": data[0].date,
+            "time": data[0].time,
+            "featured": data[0].featured,
+            "status": data[0].status
+          },
+          {
+            "id": 2,
+            "title": "",
+            "date": "",
+            "time": "",
+            "featured": false,
+            "status": false
+          },
+        
+          {
+            "id": 3,
+            "title": "",
+            "date": "",
+            "time": "",
+            "featured": false,
+            "status": false
+          },
+          {
+            "id": 4,
+            "title": "",
+            "date": "",
+            "time": "",
+            "featured": false,
+            "status": false
+          }
+        ]
+        setSchedules(fetchedSchedules);
+        setIsLoading(false);
+
+    })
+    .catch(err=>{console.log(err);})
+  },[]);
+
+  useEffect(()=>{
+    fetchSchedules();
+  },[fetchSchedules]);
+
   const submitSchedule = (scheduleData) => {
     let currentSchedules = [...schedules];
     console.log("submit Schedule = " + scheduleData.id);
     const index = currentSchedules.findIndex(
       (schedule) => schedule.id === scheduleData.id
     );
-    currentSchedules[index].title = scheduleData.title;
-    currentSchedules[index].date = scheduleData.date;
-    currentSchedules[index].time = scheduleData.time;
-    currentSchedules[index].status = true;
 
-    setSchedules(currentSchedules);
+    fetch('http://localhost:8080/auth/user/post_schedules',{
+      method:'POST',
+      body: JSON.stringify({
+        position_id:scheduleData.id,
+        title:scheduleData.title,
+        date:scheduleData.date,
+        time:scheduleData.time,
+        featured:scheduleData.featured,
+        status:scheduleData.status
+      }),
+      headers:{
+        Authorization: 'Bearer ' + authCtx.token,
+        "Content-Type": "application/json",
+      }
+    })
+    .then(response =>{
+      if(response.ok){
+        
+        currentSchedules[index].title = scheduleData.title;
+        currentSchedules[index].date = scheduleData.date;
+        currentSchedules[index].time = scheduleData.time;
+        currentSchedules[index].status = true;
+        
+        setSchedules(currentSchedules);
+    
+        editHandleClose();
+      }
 
-    editHandleClose();
+    })
+    .catch(err=>{console.log("err");})  
+
+    
   };
 
   const deleteSchedule = (id) => {

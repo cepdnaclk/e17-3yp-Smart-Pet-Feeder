@@ -48,6 +48,8 @@ router.put('/signup',
 
 router.post('/login',authControllers.login);
 
-router.get('/user/get_data',isAuth,authControllers.getData);
+router.get('/user/get_status',isAuth,authControllers.getStatus);
+
+router.post('/user/post_schedules' , isAuth, authControllers.postSchedule);
 
 module.exports = router;
