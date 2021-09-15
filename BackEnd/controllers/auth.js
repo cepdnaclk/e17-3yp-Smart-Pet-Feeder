@@ -8,6 +8,8 @@ const User = require('../models/user');
 
 const PetFeeder = require('../models/pet-feeder');
 
+const ActiveSchedule = require('../models/active-schedules');
+
 exports.signUp = (req,res,next) =>{
     const errors = validationResult(req);
 
@@ -104,15 +106,18 @@ exports.login = (req,res,next) =>{
         })
 }
 
-exports.getData = (req,res,next) =>{
+exports.getStatus = (req,res,next) =>{
     let feederId;
     User.findById(req.userId)
         .then(user=>{
-            console.log(user)
-            if (user){
-                feederId = user.petFeeder;
-                return PetFeeder.findById(feederId);
+
+            if (!user){
+                const error = new Error("Something went wrong!")
+                error.statusCode = 500
+                throw error
             }
+            feederId = user.petFeeder;
+            return PetFeeder.findById(feederId);
         })
         .then(feeder=>{
             res.status(200).json({
@@ -121,5 +126,49 @@ exports.getData = (req,res,next) =>{
                 remainingRounds: feeder.remainingRounds
             })
         })
-        .catch(err=>{console.log(err)})
+        .catch(err=>{
+            console.log(err);
+            next(err);
+        })
+}
+
+// exports.getActiveSchedules = (req,res,next) =>{
+//     let activeSchedules;
+//     User.findById(req.userId)
+//         .then(user =>{
+//             if (!user){
+//                 const error = new Error("Something went wrong!")
+//                 error.statusCode = 500
+//                 throw error
+//             }
+//
+//         })
+// }
+
+exports.postSchedule = (req,res,next) =>{
+    let user;
+
+    const schedule = new ActiveSchedule({
+        position_id : req.body.position_id,
+        title : req.body.title,
+        date : req.body.date,
+        time : req.body.time,
+        featured : req.body.featured,
+        status : req.body.status
+    })
+
+    User.findById(req.userId)
+        .then(owner =>{
+            user = owner;
+            user.ActiveSchedules.push(schedule);
+            return user.save();
+        })
+        .then(result =>{
+
+            res.status(201).json({message:'Scheduled Created!',scheduleId:result._id});
+        })
+        .catch(err =>{
+            console.log(err);
+            next(err);
+        })
 }
