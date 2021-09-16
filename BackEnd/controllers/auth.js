@@ -132,22 +132,25 @@ exports.getStatus = (req,res,next) =>{
         })
 }
 
-// exports.getActiveSchedules = (req,res,next) =>{
-//     let activeSchedules;
-//     User.findById(req.userId)
-//         .then(user =>{
-//             if (!user){
-//                 const error = new Error("Something went wrong!")
-//                 error.statusCode = 500
-//                 throw error
-//             }
-//
-//         })
-// }
+exports.getActiveSchedules = (req,res,next) =>{
+    let activeSchedules;
+    User.findById(req.userId)
+        .then(user =>{
+            if (!user){
+                const error = new Error("Something went wrong!")
+                error.statusCode = 500
+                throw error
+            }
+
+            res.status(200).json(user.ActiveSchedules);
+
+        })
+        .catch(err => next(err))
+}
 
 exports.postSchedule = (req,res,next) =>{
     let user;
-
+    let index = req.body.position_id;
     const schedule = new ActiveSchedule({
         position_id : req.body.position_id,
         title : req.body.title,
@@ -160,7 +163,14 @@ exports.postSchedule = (req,res,next) =>{
     User.findById(req.userId)
         .then(owner =>{
             user = owner;
-            user.ActiveSchedules.push(schedule);
+            if(owner.ActiveSchedules.length ===0 || owner.ActiveSchedules.length <= 4){
+                owner.ActiveSchedules[index-1] = schedule;
+            }
+            else{
+                const error = new Error("Something went wrong! cannot submit this schedule");
+                error.statusCode = 422;
+                throw error;
+            }
             return user.save();
         })
         .then(result =>{
