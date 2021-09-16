@@ -46,10 +46,14 @@ router.put('/signup',
 
 ],authControllers.signUp);
 
+
 router.post('/login',authControllers.login);
+
+router.post('/user/post_schedules' , isAuth, authControllers.postSchedule);
 
 router.get('/user/get_status',isAuth,authControllers.getStatus);
 
-router.post('/user/post_schedules' , isAuth, authControllers.postSchedule);
+router.get('/user/get_schedules',isAuth,authControllers.getActiveSchedules)
+
 
 module.exports = router;
