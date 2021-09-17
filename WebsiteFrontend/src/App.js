@@ -28,8 +28,8 @@ function App() {
 
           {authCtx.isLoggedIn && (
             <Route
-              path={`${process.env.PUBLIC_URL}/admin/`}
-              component={AdminHomePage}
+              path={`${process.env.PUBLIC_URL}/user/`}
+              component={UserHomePage}
             />
           )}
            

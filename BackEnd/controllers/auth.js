@@ -131,44 +131,55 @@ exports.getStatus = (req, res, next) => {
     });
 };
 
-// exports.getActiveSchedules = (req,res,next) =>{
-//     let activeSchedules;
-//     User.findById(req.userId)
-//         .then(user =>{
-//             if (!user){
-//                 const error = new Error("Something went wrong!")
-//                 error.statusCode = 500
-//                 throw error
-//             }
-//
-//         })
-// }
+exports.getActiveSchedules = (req,res,next) =>{
+    let activeSchedules;
+    User.findById(req.userId)
+        .then(user =>{
+            if (!user){
+                const error = new Error("Something went wrong!")
+                error.statusCode = 500
+                throw error
+            }
 
-exports.postSchedule = (req, res, next) => {
-  let user;
+            res.status(200).json(user.ActiveSchedules);
 
-  const schedule = new ActiveSchedule({
-    position_id: req.body.position_id,
-    title: req.body.title,
-    date: req.body.date,
-    time: req.body.time,
-    featured: req.body.featured,
-    status: req.body.status,
-  });
+        })
+        .catch(err => next(err))
+}
 
-  User.findById(req.userId)
-    .then((owner) => {
-      user = owner;
-      user.ActiveSchedules.push(schedule);
-      return user.save();
+
+exports.postSchedule = (req,res,next) =>{
+    let user;
+    let index = req.body.position_id;
+    const schedule = new ActiveSchedule({
+        position_id : req.body.position_id,
+        title : req.body.title,
+        date : req.body.date,
+        time : req.body.time,
+        featured : req.body.featured,
+        status : req.body.status
     })
-    .then((result) => {
-      res
-        .status(201)
-        .json({ message: "Scheduled Created!", scheduleId: result._id });
-    })
-    .catch((err) => {
-      console.log(err);
-      next(err);
-    });
-};
+
+    User.findById(req.userId)
+        .then(owner =>{
+            user = owner;
+            if(owner.ActiveSchedules.length ===0 || owner.ActiveSchedules.length <= 4){
+                owner.ActiveSchedules[index-1] = schedule;
+            }
+            else{
+                const error = new Error("Something went wrong! cannot submit this schedule");
+                error.statusCode = 422;
+                throw error;
+            }
+            return user.save();
+        })
+        .then(result =>{
+
+            res.status(201).json({message:'Scheduled Created!',scheduleId:result._id});
+        })
+        .catch(err =>{
+            console.log(err);
+            next(err);
+        })
+}
+

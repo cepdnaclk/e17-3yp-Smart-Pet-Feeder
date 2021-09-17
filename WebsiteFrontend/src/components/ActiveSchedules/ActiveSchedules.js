@@ -4,6 +4,7 @@ import scheduleData from "../../data/Schedule/schedule-data.json";
 import ScheduleForm from "../ScheduleForm/ScheduleForm";
 import ConfirmationBox from "../ConfirmationBox/ConfirmationBox";
 import AuthContext  from "../../stores/auth-context";
+import Loader from 'react-loader-spinner';
 
 const ActiveSchedules = (props) => {
   // const [scheduleData,setScheduleData] = useState({});
@@ -59,6 +60,8 @@ const ActiveSchedules = (props) => {
         
     })
     .then(data=>{
+        console.log(data);
+        
         const fetchedSchedules = [
           {
             "id": 1,
@@ -70,30 +73,32 @@ const ActiveSchedules = (props) => {
           },
           {
             "id": 2,
-            "title": "",
-            "date": "",
-            "time": "",
-            "featured": false,
-            "status": false
+            "title": data[1].title,
+            "date": data[1].date,
+            "time": data[1].time,
+            "featured": data[1].featured,
+            "status": data[1].status
           },
         
           {
             "id": 3,
-            "title": "",
-            "date": "",
-            "time": "",
-            "featured": false,
-            "status": false
+            "title": data[2].title,
+            "date": data[2].date,
+            "time": data[2].time,
+            "featured": data[2].featured,
+            "status": data[2].status
           },
           {
             "id": 4,
-            "title": "",
-            "date": "",
-            "time": "",
-            "featured": false,
-            "status": false
+            "title": data[3].title,
+            "date": data[3].date,
+            "time": data[3].time,
+            "featured": data[3].featured,
+            "status": data[3].status
           }
         ]
+
+        
         setSchedules(fetchedSchedules);
         setIsLoading(false);
 
@@ -141,7 +146,7 @@ const ActiveSchedules = (props) => {
       }
 
     })
-    .catch(err=>{console.log("err");})  
+    .catch(err=>{console.log(err);})  
 
     
   };
@@ -155,14 +160,37 @@ const ActiveSchedules = (props) => {
     });
     console.log(index);
 
-    currentSchedules[index].title = "";
-    currentSchedules[index].date = "";
-    currentSchedules[index].time = "";
-    currentSchedules[index].status = false;
+    fetch('http://localhost:8080/auth/user/delete_schedule',{
+      method:'PUT',
+      body: JSON.stringify({
+        position_id:id
+        
+      }),
+      headers:{
+        Authorization: 'Bearer ' + authCtx.token,
+        "Content-Type": "application/json",
+      }
+    })
+    .then(response =>{
+      if(response.ok){
+        
+        currentSchedules[index].title = "";
+        currentSchedules[index].date = "";
+        currentSchedules[index].time = "";
+        currentSchedules[index].status = false;
 
-    setSchedules(currentSchedules);
+        
+        setSchedules(currentSchedules);
 
-    deleteHandleClose();
+        deleteHandleClose();
+      }
+
+    })
+    .catch(err=>{console.log(err);})  
+
+    
+
+    
   };
 
   const editHandleClose = () => {
@@ -215,7 +243,17 @@ const ActiveSchedules = (props) => {
               </h4>
             </div>
           </div>
-          <div className="row mt-50">
+          {isLoading && <div align= 'center'>
+              <Loader
+              type="ThreeDots"
+              color="#d42e22"
+              height={100}
+              width={100}
+        
+              />
+          </div>
+          }
+          {!isLoading && <div className="row mt-50">
             {schedules.map((schedule, i) => (
               <Schedule
                 schedule={schedule}
@@ -225,7 +263,7 @@ const ActiveSchedules = (props) => {
                 key={i}
               />
             ))}
-          </div>
+          </div>}
         </div>
       </section>
     </React.Fragment>

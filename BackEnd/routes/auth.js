@@ -10,52 +10,52 @@ const isAuth = require("../middleware/is-auth");
 
 const router = express.Router();
 
-router.put(
-  "/signup",
-  [
-    body("email")
-      .isEmail()
-      .withMessage("Please enter a valid email!")
-      .custom((value, { req }) => {
-        return User.findOne({ email: value }).then((userDoc) => {
-          if (userDoc) {
-            return Promise.reject("E-mail already in use");
-          }
-        });
-      })
-      .normalizeEmail(),
-    body("password")
-      .trim()
-      .isLength({ min: 6 })
-      .withMessage("Password is too short"),
-    body("name")
-      .trim()
-      .not()
-      .isEmpty()
-      .withMessage("name field cannot be empty"),
-    body("confirmPassword")
-      .trim()
-      .custom((value, { req }) => {
-        if (value !== req.body.password) {
-          throw new Error("Passwords has to match");
-        }
-        return true;
-      }),
-    body("phoneNumber").custom((value, { req }) => {
-      const mobile_regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-      if (!value.match(mobile_regex)) {
-        throw new Error("Incorrect phone number!");
-      }
-      return true;
-    }),
-  ],
-  authControllers.signUp
-);
 
-router.post("/login", authControllers.login);
+router.put('/signup',
+    [
+        body('email')
+            .isEmail()
+            .withMessage('Please enter a valid email!')
+            .custom((value,{req}) =>{
+                   return  User.findOne({email:value})
+                        .then(userDoc =>{
+                                if (userDoc){
+                                        return Promise.reject('E-mail already in use')
+                                }
+                        })
+            })
+            .normalizeEmail(),
+        body('password').trim()
+            .isLength({min: 6}).withMessage('Password is too short'),
+        body('name').trim()
+            .not().isEmpty().withMessage('name field cannot be empty'),
+        body('confirmPassword').trim()
+            .custom((value,{req})=>{
+                if (value !== req.body.password){
+                    throw new Error('Passwords has to match');
+                }
+                return true;
+            }),
+        body('phoneNumber')
+            .custom((value,{req}) =>{
+                const mobile_regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                if(!value.match(mobile_regex)){
+                    throw new Error('Incorrect phone number!')
+                }
+                return true;
+            })
 
-router.get("/user/get_status", isAuth, authControllers.getStatus);
+],authControllers.signUp);
 
-router.post("/user/post_schedules", isAuth, authControllers.postSchedule);
+
+router.post('/login',authControllers.login);
+
+router.post('/user/post_schedules' , isAuth, authControllers.postSchedule);
+
+router.get('/user/get_status',isAuth,authControllers.getStatus);
+
+router.get('/user/get_schedules',isAuth,authControllers.getActiveSchedules)
+
 
 module.exports = router;
+
