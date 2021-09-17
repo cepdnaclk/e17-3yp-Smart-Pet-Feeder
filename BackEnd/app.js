@@ -4,26 +4,21 @@ const mongoose = require("mongoose");
 
 const bodyParser = require("body-parser");
 
-
 const authRoutes = require("./routes/auth");
-
 
 const app = express();
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
 
+  next();
+});
 
-app.use((req,res,next)=>{
-    res.setHeader('Access-Control-Allow-Origin',"*");
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,DELETE');
-    res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization');
-
-    next();
-})
-
-app.use('/auth',authRoutes);
-
+app.use("/auth", authRoutes);
 
 app.use("/auth", authRoutes);
 
@@ -34,7 +29,7 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message });
 });
 
-const port = process.env.port || 8080;
+const port = process.env.port || 8000;
 mongoose
   .connect(
     "mongodb+srv://Shenal:SmartPetFeeder2021@cluster0.y3bkj.mongodb.net/Smart-Pet-Feeder?retryWrites=true&w=majority"

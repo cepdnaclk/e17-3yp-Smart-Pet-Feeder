@@ -1,4 +1,4 @@
-import scheduleData from "../../data/schedule-data.json";
+// import scheduleData from "../../data/schedule-data.json";
 import {
   DELETE_SCHEDULE,
   CREATE_SCHEDULE,
@@ -8,7 +8,7 @@ import {
 import Schedule from "../../models/Schedule";
 
 const initialState = {
-  schedules: scheduleData,
+  schedules: [],
 };
 
 const scheduleReducer = (state = initialState, action) => {
