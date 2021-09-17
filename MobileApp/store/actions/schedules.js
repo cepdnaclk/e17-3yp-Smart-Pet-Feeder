@@ -17,18 +17,43 @@ export const fetchSchedules = () => {
 
     const resData = await response.json();
     console.log(resData);
-    // dispatch({ type: SET_SCHEDULES, status: resData });
+    dispatch({ type: SET_SCHEDULES, schedules: resData });
   };
 };
 
 export const createSchedule = (title, date_time) => {
-  return {
-    type: CREATE_SCHEDULE,
-    scheduleData: {
-      title,
-      date_time,
-    },
+  return async (dispatch, getState) => {
+    const token = getState().auth.token;
+    console.log(title);
+
+    const response = await fetch(API_URL + "/auth/user/post_schedules", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        position_id: 1,
+        title: title,
+        date: "2018/04/07",
+        time: "08:25",
+        featured: false,
+        status: true,
+      }),
+    });
+
+    const resData = await response.json();
+    console.log(resData);
+    // dispatch({ type: SET_SCHEDULES, schedules: resData });
   };
+
+  // return {
+  //   type: CREATE_SCHEDULE,
+  //   scheduleData: {
+  //     title,
+  //     date_time,
+  //   },
+  // };
 };
 
 export const updateSchedule = (id, title, date_time) => {

@@ -28,7 +28,7 @@ const DropdownMenu = (props) => {
               className={
                 props.fixed || props.type === "white" ? "white_bg" : "black_bg"
               }
-              activeClassName={"active"}
+              activeclassname={"active"}
               to={dropdown.to}
               spy={true}
               duration={200}
@@ -44,6 +44,7 @@ const DropdownMenu = (props) => {
       <ul className="nav navbar-nav" data-in="fadeIn" data-out="fadeOut">
         {!isLoggedIn && (
           <DomLink
+            to={""}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
@@ -56,6 +57,7 @@ const DropdownMenu = (props) => {
 
         {!isLoggedIn && (
           <DomLink
+            to={""}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
@@ -68,6 +70,7 @@ const DropdownMenu = (props) => {
 
         {isLoggedIn && (
           <DomLink
+            to={""}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
@@ -82,6 +85,7 @@ const DropdownMenu = (props) => {
 
         {isLoggedIn && (
           <DomLink
+            to={""}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
@@ -96,6 +100,7 @@ const DropdownMenu = (props) => {
 
         {isLoggedIn && (
           <DomLink
+            to={""}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }

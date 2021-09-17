@@ -1,4 +1,4 @@
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -11,6 +11,7 @@ import AuthContext from "../../stores/auth-context";
 import Button from "@material-ui/core/Button";
 
 import * as Validators from "../../helpers/validators";
+import { API_URL } from "../../configs/Configs";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -55,9 +56,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   disabled: {},
-
 }));
-
 
 export default function LoginForm(props) {
   const classes = useStyles();
@@ -90,11 +89,10 @@ export default function LoginForm(props) {
 
   const validateData = (event) => {
     let url;
-    url = "http://localhost:8080/auth/login";
- 
+    url = API_URL + "/auth/login";
 
     event.preventDefault();
-    
+
     fetch(url, {
       method: "POST",
       body: JSON.stringify({

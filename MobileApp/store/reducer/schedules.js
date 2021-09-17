@@ -3,6 +3,7 @@ import {
   DELETE_SCHEDULE,
   CREATE_SCHEDULE,
   UPDATE_SCHEDULE,
+  SET_SCHEDULES,
 } from "../actions/schedules";
 
 import Schedule from "../../models/Schedule";
@@ -13,6 +14,11 @@ const initialState = {
 
 const scheduleReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_SCHEDULES:
+      return {
+        schedules: action.schedules,
+      };
+
     case CREATE_SCHEDULE:
       const newSchedule = new Schedule(
         1,
