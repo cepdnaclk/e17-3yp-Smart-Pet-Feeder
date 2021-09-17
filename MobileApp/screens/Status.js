@@ -1,39 +1,67 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   Animated,
   View,
-  ScrollView,
   StyleSheet,
   ImageBackground,
-  TouchableOpacity,
   SafeAreaView,
   Dimensions,
+  RefreshControl,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Styles from "../config/Styles";
-import { Card, Button, Text } from "react-native-paper";
+import { Card, Button, Text, Title } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import statusDate from "../data/status-data.json";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { DotIndicator } from "react-native-indicators";
 import ColorsApp from "../config/ColorsApp";
+import * as statusActions from "../store/actions/status";
+import Maintainance from "../components/Error/Maintainance";
 
 export default function Home(props) {
   const yOffset = useRef(new Animated.Value(0)).current;
   const status = useSelector((state) => state.status.status);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const [isPageLoading, setIsPageLoaded] = useState(true);
+  const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+
+  const loadStatus = useCallback(() => {
+    setError(null);
+    // setIsLoading(true);
+    setIsRefreshing(true);
+
+    return dispatch(statusActions.fetchStatus())
+      .then((response) => {
+        setIsRefreshing(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, [dispatch, setIsRefreshing, setError]);
 
   useEffect(() => {
-    setIsPageLoaded(false);
-  }, []);
+    setIsLoading(true);
+    loadStatus().then(() => {
+      setIsLoading(false);
+    });
+  }, [dispatch, loadStatus]);
 
-  if (isPageLoading) {
+  if (error) {
+    return <Maintainance loadStatus={loadStatus} />;
+  }
+
+  if (isLoading) {
     return <DotIndicator color={ColorsApp.PRIMARY} />;
   }
 
   return (
     <Animated.ScrollView
+      refreshControl={
+        <RefreshControl refreshing={isRefreshing} onRefresh={loadStatus} />
+      }
       onScroll={Animated.event(
         [
           {
@@ -61,6 +89,14 @@ export default function Home(props) {
         style={Styles.headerBackground}
       />
 
+      {/*<Button*/}
+      {/*  onPress={() => {*/}
+      {/*    dispatch(statusActions.fetchStatus());*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  fetch status*/}
+      {/*</Button>*/}
+
       <SafeAreaView>
         <View style={styles.container}>
           <Card style={styles.Card}>
@@ -68,8 +104,8 @@ export default function Home(props) {
               <View style={{ paddingTop: 10 }}>
                 <Icon
                   size={80}
-                  name={status.Status === 1 ? "wifi" : "wifi-off"}
-                  color={status.Status === 1 ? "green" : "red"}
+                  name={status.status ? "wifi" : "wifi-off"}
+                  color={status.status ? "green" : "red"}
                 />
               </View>
 
@@ -77,12 +113,12 @@ export default function Home(props) {
                 <Text
                   style={{
                     fontSize: 40,
-                    color: status.Status === 1 ? "green" : "red",
+                    color: status.status ? "green" : "red",
                     fontWeight: "bold",
                     fontFamily: "bebas-neue",
                   }}
                 >
-                  {status.Status === 1 ? "ON" : "OFF"}
+                  {status.status ? "ON" : "OFF"}
                 </Text>
               </View>
             </View>
@@ -94,13 +130,13 @@ export default function Home(props) {
                 <Icon
                   size={100}
                   name={
-                    status.Battery >= 70
+                    status.battery >= 70
                       ? "battery-high"
-                      : status.Battery >= 30
+                      : status.battery >= 30
                       ? "battery-medium"
                       : "battery-low"
                   }
-                  color={status.Battery >= 30 ? "green" : "red"}
+                  color={status.battery >= 30 ? "green" : "red"}
                 />
               </View>
 
@@ -108,12 +144,12 @@ export default function Home(props) {
                 <Text
                   style={{
                     fontSize: 40,
-                    color: status.Battery >= 30 ? "green" : "red",
+                    color: status.battery >= 30 ? "green" : "red",
                     fontWeight: "bold",
                     fontFamily: "bebas-neue",
                   }}
                 >
-                  {status.Battery}%
+                  {status.battery}%
                 </Text>
               </View>
             </View>
@@ -125,17 +161,17 @@ export default function Home(props) {
                 <Icon
                   size={80}
                   name={
-                    status.Remaining_Rounds === 0
+                    status.remainingRounds === 0
                       ? "numeric-0-circle"
-                      : status.Remaining_Rounds === 1
+                      : status.remainingRounds === 1
                       ? "numeric-1-circle"
-                      : status.Remaining_Rounds === 2
+                      : status.remainingRounds === 2
                       ? "numeric-2-circle"
-                      : status.Remaining_Rounds === 3
+                      : status.remainingRounds === 3
                       ? "numeric-3-circle"
                       : "numeric-4-circle"
                   }
-                  color={status.Remaining_Rounds !== 0 ? "green" : "red"}
+                  color={status.remainingRounds !== 0 ? "green" : "red"}
                 />
               </View>
 
@@ -143,12 +179,12 @@ export default function Home(props) {
                 <Text
                   style={{
                     fontSize: 40,
-                    color: status.Remaining_Rounds !== 0 ? "green" : "red",
+                    color: status.remainingRounds !== 0 ? "green" : "red",
                     fontWeight: "bold",
                     fontFamily: "bebas-neue",
                   }}
                 >
-                  {status.Remaining_Rounds !== 1 ? " Rounds" : " Round"}
+                  {status.remainingRounds !== 1 ? " Rounds" : " Round"}
                 </Text>
               </View>
             </View>

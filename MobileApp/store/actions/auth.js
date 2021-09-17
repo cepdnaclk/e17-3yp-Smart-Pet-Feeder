@@ -5,6 +5,7 @@
  */
 
 import { AsyncStorage } from "react-native";
+import { API_URL } from "../../config/Configs";
 
 export const AUTHENTICATE = "AUTHENTICATE";
 
@@ -13,7 +14,7 @@ export const LOGOUT = "LOGOUT";
 
 let timer; // to hold timer func
 
-export const authenticate = (userId, token, expiryTime) => {
+export const authenticate = (userId, token) => {
   // Dispatching 2 actions here. (Can we implement this without dispatch ? )
   return (dispatch) => {
     // Dispatch setLogoutTimer with expiry time
@@ -31,26 +32,26 @@ export const signup = (
   confirmPassword
 ) => {
   return async (dispatch) => {
-    const response = await fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          phoneNumber: mobileNumber,
-          password: password,
-          confirmPassword: confirmPassword,
-          returnSecureToken: true,
-        }),
-      }
-    );
+    // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
+
+    const response = await fetch(API_URL + "/auth/signup", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phoneNumber: mobileNumber,
+        password: password,
+        confirmPassword: confirmPassword,
+        // returnSecureToken: true,
+      }),
+    });
 
     if (!response.ok) {
       const errorResData = await response.json();
+
       const errorId = errorResData.error.message;
       let message = "Authentication failed!";
       if (errorId === "EMAIL_EXISTS") {
@@ -60,42 +61,35 @@ export const signup = (
     }
 
     const resData = await response.json();
-    dispatch(
-      authenticate(
-        resData.localId,
-        resData.idToken,
-        parseInt(resData.expiresIn) * 1000 // pass expiry time in ms when signup
-      )
-    );
 
-    // This is for saving expiry time (When auto login)
-    const expirationDate = new Date(
-      new Date().getTime() + parseInt(resData.expiresIn) * 1000
-    );
-    saveDataToStorage(resData.idToken, resData.localId, expirationDate);
+    // dispatch(authenticate(resData.userId, resData.idToken));
+
+    // // This is for saving expiry time (When auto login)
+    // const expirationDate = new Date(
+    //   new Date().getTime() + parseInt(resData.expiresIn) * 1000
+    // );
+    // saveDataToStorage(resData.idToken, resData.userId, expirationDate);
   };
 };
 
 export const login = (email, password) => {
+  // "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
+
   return async (dispatch) => {
-    const response = await fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-          returnSecureToken: true,
-        }),
-      }
-    );
+    const response = await fetch(API_URL + "/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        // returnSecureToken: true,
+      }),
+    });
 
     if (!response.ok) {
       const errorResData = await response.json();
-      const errorId = errorResData.error.message;
       let message = "Authentication failed!";
       if (errorId === "EMAIL_NOT_FOUND") {
         message = "This email could not be found!";
@@ -106,19 +100,14 @@ export const login = (email, password) => {
     }
 
     const resData = await response.json();
-    dispatch(
-      authenticate(
-        resData.localId,
-        resData.idToken,
-        parseInt(resData.expiresIn) * 1000 // pass expiry time when signup
-      )
-    );
+
+    dispatch(authenticate(resData.userId, resData.idToken));
     // This is for saving expiry time (When auto login)
 
     const expirationDate = new Date(
       new Date().getTime() + parseInt(resData.expiresIn) * 1000
     );
-    saveDataToStorage(resData.idToken, resData.localId, expirationDate);
+    saveDataToStorage(resData.idToken, resData.userId, expirationDate);
   };
 };
 

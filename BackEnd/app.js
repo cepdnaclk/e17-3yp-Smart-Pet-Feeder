@@ -1,14 +1,18 @@
-const express = require('express');
+const express = require("express");
 
-const mongoose =require('mongoose');
+const mongoose = require("mongoose");
 
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
-const authRoutes = require('./routes/auth')
+
+const authRoutes = require("./routes/auth");
+
 
 const app = express();
 
 app.use(bodyParser.json());
+
+
 
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin',"*");
@@ -20,19 +24,25 @@ app.use((req,res,next)=>{
 
 app.use('/auth',authRoutes);
 
-app.use((error,req,res,next)=>{
 
-   const status = error.statusCode || 500;
-   const message = error.message;
+app.use("/auth", authRoutes);
 
-   res.status(status).json({message: message});
+app.use((error, req, res, next) => {
+  const status = error.statusCode || 500;
+  const message = error.message;
+
+  res.status(status).json({ message: message });
 });
 
-mongoose.connect('mongodb+srv://Shenal:SmartPetFeeder2021@cluster0.y3bkj.mongodb.net/Smart-Pet-Feeder?retryWrites=true&w=majority')
-    .then(result=>{
-        console.log(result);
-        app.listen(8080);
-    })
-    .catch(err=>{
-        console.log(err+"\nnew error");
-    })
+const port = process.env.port || 8080;
+mongoose
+  .connect(
+    "mongodb+srv://Shenal:SmartPetFeeder2021@cluster0.y3bkj.mongodb.net/Smart-Pet-Feeder?retryWrites=true&w=majority"
+  )
+  .then((result) => {
+    console.log(result);
+    app.listen(port);
+  })
+  .catch((err) => {
+    console.log(err + "\nDatabase connection failed");
+  });
