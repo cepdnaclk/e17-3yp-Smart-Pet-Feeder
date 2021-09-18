@@ -163,8 +163,11 @@ exports.login = (req,res,next) =>{
 exports.postSchedule = (req,res,next) =>{
     let user;
     let scheduleId = req.body._id;
+    if (!scheduleId){
+        scheduleId = new mongoose.Types.ObjectId();
+    }
     const schedule = new ActiveSchedule({
-        _id : new mongoose.Types.ObjectId(req.body._id),
+        _id : scheduleId,
         title : req.body.title,
         date_time : req.body.date,
         status : req.body.status
@@ -217,9 +220,9 @@ exports.postDeleteSchedule = (req,res,next) =>{
                 });
 
                 if (index < 4 && index >=0){
-                    user.ActiveSchedules[index] = schedule;
+                    user.ActiveSchedules.splice(index, 1);
                 }
-                return user.save()
+                return user.save();
             }
         })
         .then(result =>{
