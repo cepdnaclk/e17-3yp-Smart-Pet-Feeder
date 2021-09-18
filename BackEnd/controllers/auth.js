@@ -41,7 +41,7 @@ exports.getStatus = (req,res,next) =>{
         })
 }
 
-//Get active schedule
+//Get active schedule(Get method)
 exports.getActiveSchedules = (req,res,next) =>{
 
     User.findById(req.userId)
