@@ -128,7 +128,6 @@ export default function LoginForm(props) {
         }
       })
       .then((data) => {
-        console.log(data);
         const expirationTime = new Date(
           new Date().getTime() + +data.expiresIn * 1000
         );

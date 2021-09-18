@@ -1,0 +1,19 @@
+[
+  {
+    "userId": 1,
+    "id": "1",
+    "title": "Notification1, to inform about the complain that you make",
+    "message": "We received your complain about the issue. We are currently working on it. We received your complain about the issue. We are currently working on it.We received your complain about the issue. We are currently working on it",
+    "date_time": "Sun Sep 06 2021 19:39:28 GMT+0530 (+0530)",
+    "status": 1
+  },
+
+  {
+    "userId": 1,
+    "id": "2",
+    "title": "Notification2",
+    "message": "We received your complain about the issue. We are currently working on it",
+    "date_time": "Sun Sep 06 2021 19:39:28 GMT+0530 (+0530)",
+    "status": 1
+  }
+]

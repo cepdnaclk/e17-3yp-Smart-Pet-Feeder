@@ -1,4 +1,4 @@
-import React, {useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -7,10 +7,12 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
 import useInput from "../../hooks/use-input";
-import AuthContext from "../../stores/auth-context";
 import Button from "@material-ui/core/Button";
 
 import * as Validators from "../../helpers/validators";
+import { useDispatch } from "react-redux";
+import * as authActions from "../../store/actions/auth";
+import Loader from "react-loader-spinner";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -55,15 +57,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   disabled: {},
-
 }));
-
 
 export default function LoginForm(props) {
   const classes = useStyles();
-  const authCtx = useContext(AuthContext);
-
   const history = useHistory();
+
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (error) {
+      alert("Authentication Failed!");
+    }
+  }, [error]);
 
   const {
     value: email,
@@ -88,50 +96,18 @@ export default function LoginForm(props) {
     formIsValid = true;
   }
 
-  const validateData = (event) => {
-    let url;
-    url = "http://localhost:8000/auth/login";
- 
 
-    event.preventDefault();
-    
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        returnSecureToken: true,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = "Authentication failed!";
-            // if (data && data.error && data.error.message) {
-            //   errorMessage = data.error.message;
-            // }
+  const submitForm = async () => {
+    setError(null);
+    setIsLoading(true);
+    try {
+      await dispatch(authActions.login(email, password));
+      history.replace(`${process.env.PUBLIC_URL}/user`);
+    } catch (err) {
+      setError(err.message);
+      setIsLoading(false);
+    }
 
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
-        console.log(data);
-        const expirationTime = new Date(
-          new Date().getTime() + +data.expiresIn * 1000
-        );
-        console.log(data.expiresIn);
-        authCtx.login(data.idToken, expirationTime.toISOString());
-        history.replace("/user");
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
   };
 
   const closeFormHandler = () => {
@@ -194,16 +170,27 @@ export default function LoginForm(props) {
                 )}
               </div>
               <div className="form-actions">
-                <Button
-                  classes={{
-                    root: classes.button, // class name, e.g. `root-x`
-                    disabled: classes.disabled, // class name, e.g. `disabled-x`
-                  }}
-                  disabled={!formIsValid}
-                  onClick={validateData}
-                >
-                  Submit
-                </Button>
+                {isLoading ? (
+                  <div align="center">
+                    <Loader
+                      type="ThreeDots"
+                      color="#d42e22"
+                      height={100}
+                      width={100}
+                    />
+                  </div>
+                ) : (
+                  <Button
+                    classes={{
+                      root: classes.button, // class name, e.g. `root-x`
+                      disabled: classes.disabled, // class name, e.g. `disabled-x`
+                    }}
+                    disabled={!formIsValid}
+                    onClick={submitForm}
+                  >
+                    Submit
+                  </Button>
+                )}
               </div>
             </form>
           </div>

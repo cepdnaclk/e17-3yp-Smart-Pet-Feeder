@@ -1,14 +1,15 @@
-const express = require('express');
+const express = require("express");
 
-const {body} = require('express-validator/check')
+const { body } = require("express-validator/check");
 
-const authControllers = require('../controllers/auth');
+const authControllers = require("../controllers/auth");
 
-const User = require('../models/user');
+const User = require("../models/user");
 
-const isAuth = require('../middleware/is-auth');
+const isAuth = require("../middleware/is-auth");
 
 const router = express.Router();
+
 
 router.put('/signup',
     [
@@ -64,3 +65,4 @@ router.get('/user/get_schedules',
 
 
 module.exports = router;
+

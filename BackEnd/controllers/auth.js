@@ -1,3 +1,4 @@
+
 const {validationResult} = require('express-validator/check');
 
 const bcrypt = require('bcryptjs');
@@ -160,6 +161,7 @@ exports.login = (req,res,next) =>{
 
 
 
+
 exports.postSchedule = (req,res,next) =>{
     let user;
     let scheduleId = req.body._id;
@@ -203,6 +205,7 @@ exports.postSchedule = (req,res,next) =>{
         })
 }
 
+
 exports.postDeleteSchedule = (req,res,next) =>{
     let scheduleId = req.body._id;
     const schedule = new ActiveSchedule({
@@ -232,3 +235,4 @@ exports.postDeleteSchedule = (req,res,next) =>{
             next(err);
         })
 }
+
