@@ -5175,8 +5175,8 @@ ul.footer-gallery li img {
 }
 
 .coming-cover-bg {
-  background-image: url(../images/title-bg/title-hero-8.jpg);
-  height: 100%;
+  background-image: url(../images/background/500_error.jpg);
+  height: 60vh;
 }
 
 .widget-cover-bg {
