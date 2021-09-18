@@ -61,7 +61,7 @@ exports.getActiveSchedules = (req,res,next) =>{
 
 
 
-// /auth/user [POST methods]
+// /auth/user [POST methods]/
 exports.signUp = (req,res,next) =>{
     const errors = validationResult(req);
 
