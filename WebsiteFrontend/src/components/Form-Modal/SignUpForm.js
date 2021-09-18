@@ -153,13 +153,11 @@ export default function LoginForm(props) {
           return res.json().then((data) => {
             let errorMessage = data.message;
 
-            console.log(data.data);
             throw new Error(errorMessage);
           });
         }
       })
       .then((data) => {
-        console.log(data);
         resetEmail();
         resetPassword();
         props.handleClose();

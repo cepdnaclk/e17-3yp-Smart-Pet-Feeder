@@ -22,11 +22,15 @@ const SmartPetFeeder = () => {
     AOS.refresh();
   }, []);
 
-  const logClickedHandler = () => {
+  const logClickedHandler = (e) => {
+    e.preventDefault();
+
     setLogClick(true);
   };
 
-  const signClickHandle = () => {
+  const signClickHandle = (e) => {
+    e.preventDefault();
+
     setSignClick(true);
   };
 

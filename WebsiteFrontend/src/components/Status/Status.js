@@ -4,14 +4,16 @@ import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 
 import Loader from "react-loader-spinner";
-import AuthContext from "../../stores/auth-context";
 import { API_URL } from "../../configs/Configs";
+import {useSelector} from "react-redux";
 
 const Status = ({ bg, type }) => {
   const [viewed, setViewed] = useState(true);
   const [statusData, setStatusData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const authCtx = useContext(AuthContext);
+  const token = useSelector((state) => {
+    return state.auth.token;
+  });
 
   const viewChangeHandler = (isVisible) => {
     if (isVisible) setViewed(true);
@@ -22,14 +24,13 @@ const Status = ({ bg, type }) => {
     fetch(API_URL + "/auth/user/get_status", {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + authCtx.token,
+        Authorization: "Bearer " + token,
       },
     })
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         const fetchedData = [
           {
             id: 0,

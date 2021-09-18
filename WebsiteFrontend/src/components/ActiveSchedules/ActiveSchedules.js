@@ -6,12 +6,15 @@ import ConfirmationBox from "../ConfirmationBox/ConfirmationBox";
 import AuthContext from "../../stores/auth-context";
 import Loader from "react-loader-spinner";
 import { API_URL } from "../../configs/Configs";
+import { useSelector } from "react-redux";
 
 const ActiveSchedules = (props) => {
   // const [scheduleData,setScheduleData] = useState({});
   const [schedules, setSchedules] = useState(scheduleData);
-  const authCtx = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
+  const token = useSelector((state) => {
+    return state.auth.token;
+  });
 
   const [scheduleEditData, setScheduleEditData] = React.useState({
     open: false,
@@ -50,15 +53,13 @@ const ActiveSchedules = (props) => {
     fetch(API_URL + "/auth/user/get_schedules", {
       method: "GET",
       headers: {
-        Authorization: "Bearer " + authCtx.token,
+        Authorization: "Bearer " + token,
       },
     })
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-
         const fetchedSchedules = [
           {
             id: 1,
@@ -98,9 +99,7 @@ const ActiveSchedules = (props) => {
         setSchedules(fetchedSchedules);
         setIsLoading(false);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   useEffect(() => {
@@ -109,7 +108,6 @@ const ActiveSchedules = (props) => {
 
   const submitSchedule = (scheduleData) => {
     let currentSchedules = [...schedules];
-    console.log("submit Schedule = " + scheduleData.id);
     const index = currentSchedules.findIndex(
       (schedule) => schedule.id === scheduleData.id
     );
@@ -125,7 +123,7 @@ const ActiveSchedules = (props) => {
         status: scheduleData.status,
       }),
       headers: {
-        Authorization: "Bearer " + authCtx.token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })
@@ -141,19 +139,15 @@ const ActiveSchedules = (props) => {
           editHandleClose();
         }
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   const deleteSchedule = (id) => {
-    console.log(id);
     let currentSchedules = [...schedules];
 
     let index = currentSchedules.findIndex((schedule) => {
       return schedule.id === id;
     });
-    console.log(index);
 
     fetch("http://localhost:8080/auth/user/delete_schedule", {
       method: "PUT",
@@ -161,7 +155,7 @@ const ActiveSchedules = (props) => {
         position_id: id,
       }),
       headers: {
-        Authorization: "Bearer " + authCtx.token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })
@@ -177,9 +171,7 @@ const ActiveSchedules = (props) => {
           deleteHandleClose();
         }
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   const editHandleClose = () => {
