@@ -7,7 +7,7 @@ const UserStatusPage = () => {
   return (
     <React.Fragment>
       <Status />
-      <ActiveSchedules />
+      {/*<ActiveSchedules />*/}
     </React.Fragment>
   );
 };
