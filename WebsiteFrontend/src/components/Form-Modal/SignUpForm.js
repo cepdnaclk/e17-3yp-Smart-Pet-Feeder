@@ -129,7 +129,9 @@ export default function LoginForm(props) {
   const validateData = (event) => {
     let url;
 
+
     url = API_URL + "/auth/signup";
+
 
     event.preventDefault();
     fetch(url, {

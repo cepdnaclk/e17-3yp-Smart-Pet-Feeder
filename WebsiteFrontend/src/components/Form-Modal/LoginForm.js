@@ -96,6 +96,7 @@ export default function LoginForm(props) {
     formIsValid = true;
   }
 
+
   const submitForm = async () => {
     setError(null);
     setIsLoading(true);
@@ -106,6 +107,7 @@ export default function LoginForm(props) {
       setError(err.message);
       setIsLoading(false);
     }
+
   };
 
   const closeFormHandler = () => {

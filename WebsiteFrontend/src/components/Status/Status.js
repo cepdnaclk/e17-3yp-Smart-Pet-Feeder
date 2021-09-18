@@ -21,11 +21,13 @@ const Status = ({ bg, type }) => {
 
   const fetchData = useCallback(() => {
     setIsLoading(true);
+
     fetch(API_URL + "/auth/user/get_status", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
       },
+
     })
       .then((response) => {
         return response.json();

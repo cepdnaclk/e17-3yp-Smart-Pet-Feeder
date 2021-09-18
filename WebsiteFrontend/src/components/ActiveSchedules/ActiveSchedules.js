@@ -50,11 +50,13 @@ const ActiveSchedules = (props) => {
 
   const fetchSchedules = useCallback(() => {
     setIsLoading(true);
+
     fetch(API_URL + "/auth/user/get_schedules", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
       },
+
     })
       .then((response) => {
         return response.json();
@@ -112,8 +114,10 @@ const ActiveSchedules = (props) => {
       (schedule) => schedule.id === scheduleData.id
     );
 
+
     fetch("http://localhost:8080/auth/user/post_schedules", {
       method: "POST",
+
       body: JSON.stringify({
         position_id: scheduleData.id,
         title: scheduleData.title,
@@ -149,8 +153,10 @@ const ActiveSchedules = (props) => {
       return schedule.id === id;
     });
 
+
     fetch("http://localhost:8080/auth/user/delete_schedule", {
       method: "PUT",
+
       body: JSON.stringify({
         position_id: id,
       }),

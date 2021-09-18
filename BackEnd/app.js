@@ -29,15 +29,13 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message });
 });
 
-const port = process.env.port || 8000;
-mongoose
-  .connect(
-    "mongodb+srv://Shenal:SmartPetFeeder2021@cluster0.y3bkj.mongodb.net/Smart-Pet-Feeder?retryWrites=true&w=majority"
-  )
-  .then((result) => {
-    console.log(result);
-    app.listen(port);
-  })
-  .catch((err) => {
-    console.log(err + "\nDatabase connection failed");
-  });
+
+mongoose.connect('mongodb+srv://Shenal:SmartPetFeeder2021@cluster0.y3bkj.mongodb.net/Smart-Pet-Feeder?retryWrites=true&w=majority')
+    .then(result=>{
+        console.log("Connected Successfully!");
+        app.listen(8000);
+    })
+    .catch(err=>{
+        console.log("Database Connections Failed");
+    })
+
