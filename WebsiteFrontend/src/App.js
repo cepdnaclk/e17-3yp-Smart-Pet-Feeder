@@ -8,13 +8,14 @@ import {
 
 import SmartPetFeeder from "./pages/home/SmartPetFeeder";
 import UserHomePage from "./pages/user_home_page/UserHomePage";
-import AdminHomePage from "./pages/admin_home_page/AdminHomePage";
 import ScrollToTop from "./helpers/ScrollToTop";
-import AuthContext from "./stores/auth-context";
-import adminHomePage from "./pages/admin_home_page/SmartPetFeederAdmin";
+import StartupPage from "./pages/Startup_page/StartupPage";
+import { useSelector } from "react-redux";
 
 function App() {
-  const authCtx = useContext(AuthContext);
+  const isLoggedIn = useSelector((state) => {
+    return !!state.auth.token;
+  });
 
   return (
     <Router>
@@ -23,16 +24,24 @@ function App() {
           <Route
             exact
             path={`${process.env.PUBLIC_URL}/`}
-            component={SmartPetFeeder}
+            component={StartupPage}
           />
 
-          {authCtx.isLoggedIn && (
+          {!isLoggedIn && (
             <Route
-              path={`${process.env.PUBLIC_URL}/user/`}
+              exact
+              path={`${process.env.PUBLIC_URL}/home`}
+              component={SmartPetFeeder}
+            />
+          )}
+
+          {isLoggedIn && (
+            <Route
+              path={`${process.env.PUBLIC_URL}/user`}
               component={UserHomePage}
             />
           )}
-           
+
           <Route path="*">
             <Redirect to="/" />
           </Route>

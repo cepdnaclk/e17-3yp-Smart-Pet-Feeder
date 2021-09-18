@@ -30,8 +30,8 @@ const Schedule = ({ index, schedule, editHandler, deleteHandler }) => {
         className="pricing-box"
         style={
           schedule.status
-            ? { "background-color": "#cce0ff" }
-            : { "background-color": "white" }
+            ? { backgroundColor: "#cce0ff" }
+            : { backgroundColor: "white" }
         }
       >
         <Icofont icon="dog" />
@@ -64,9 +64,9 @@ const Schedule = ({ index, schedule, editHandler, deleteHandler }) => {
               <span>Remaining Time</span>
             </h2>
             <ul>
-              <li style={{ "font-size": "20px" }}>Date</li>
+              <li>Date</li>
 
-              <li style={{ "font-size": "20px" }}>Time</li>
+              <li>Time</li>
             </ul>
           </React.Fragment>
         )}

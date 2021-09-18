@@ -6,6 +6,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import useInput from "../../hooks/use-input";
+import { API_URL } from "../../configs/Configs";
 
 import Button from "@material-ui/core/Button";
 
@@ -66,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LoginForm(props) {
   const classes = useStyles();
-  
 
   const history = useHistory();
 
@@ -129,7 +129,9 @@ export default function LoginForm(props) {
   const validateData = (event) => {
     let url;
 
-    url = "http://localhost:8000/auth/signup";
+
+    url = API_URL + "/auth/signup";
+
 
     event.preventDefault();
     fetch(url, {
@@ -137,9 +139,9 @@ export default function LoginForm(props) {
       body: JSON.stringify({
         email: email,
         password: password,
-        confirmPassword:confirmPassword,
-        name:name,
-        phoneNumber:mobileNumber,
+        confirmPassword: confirmPassword,
+        name: name,
+        phoneNumber: mobileNumber,
         returnSecureToken: true,
       }),
       headers: {
@@ -151,15 +153,13 @@ export default function LoginForm(props) {
           return res.json();
         } else {
           return res.json().then((data) => {
-          let errorMessage = data.message;
-          
-          console.log(data.data);
-          throw new Error(errorMessage);
+            let errorMessage = data.message;
+
+            throw new Error(errorMessage);
           });
         }
       })
       .then((data) => {
-        console.log(data);
         resetEmail();
         resetPassword();
         props.handleClose();
@@ -167,7 +167,6 @@ export default function LoginForm(props) {
       })
       .catch((err) => {
         alert(err.message);
-        
       });
   };
 

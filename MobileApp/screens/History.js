@@ -115,12 +115,19 @@ export default function History(props) {
         </View>
       </View>
 
-      <View style={{ ...styles.Inline, paddingBottom: 10, paddingTop: 10 }}>
+      <View
+        style={{
+          ...styles.Inline,
+          paddingBottom: 10,
+          paddingTop: 10,
+        }}
+      >
         <Button
           icon="refresh"
           mode="contained"
           onPress={clearFilters}
           style={{ backgroundColor: ColorsApp.PRIMARY }}
+          labelStyle={{}}
         >
           Clear Filters
         </Button>

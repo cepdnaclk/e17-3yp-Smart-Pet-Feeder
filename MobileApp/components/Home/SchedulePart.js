@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import Styles from "../../config/Styles";
-import { Divider, Text } from "react-native-paper";
+import { Divider, Text, Button } from "react-native-paper";
 import ScheduleForm from "./ScheduleForm";
 import ActiveSchedules from "./ActiveSchedules";
 import React, { useCallback, useState } from "react";
@@ -12,8 +12,6 @@ const SchedulePart = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isUpdate, setIsUpdate] = useState();
   const [updateId, setUpdateId] = useState();
-
-  const dispatch = useDispatch();
 
   const [isDialogShow, setIsDialogShow] = React.useState(false);
   const [deleteId, setDeleteId] = useState();

@@ -4,16 +4,16 @@ import usersData from "../../data/Feedback/Feedback-data.json";
 import SearchBar from "../Search/Search";
 
 const Feedbacks = () => {
-
   const [users, disconnectUser] = useState(usersData); //
 
   return (
     <React.Fragment>
-
-      <section className="" style={{
-                background: `url(${require("../../assets/images/background/blue.png")}) center center / cover scroll no-repeat`,
-              }}>
-      
+      <section
+        className=""
+        style={{
+          background: `url(${require("../../assets/images/background/blue.png")}) center center / cover scroll no-repeat`,
+        }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-sm-8 section-heading">
@@ -33,21 +33,13 @@ const Feedbacks = () => {
               >
                 - Search users -
               </h4>
-              <SearchBar/>
-       
+              <SearchBar />
             </div>
           </div>
           <div className="row mt-50">
             {users.map((schedule, i) => (
-  
-              <Feedback
-                schedule={schedule}
-                index={i}
-                key={i}
-                
-              />
+              <Feedback schedule={schedule} index={i} key={i} />
             ))}
-
           </div>
         </div>
       </section>
@@ -56,4 +48,3 @@ const Feedbacks = () => {
 };
 
 export default Feedbacks;
-

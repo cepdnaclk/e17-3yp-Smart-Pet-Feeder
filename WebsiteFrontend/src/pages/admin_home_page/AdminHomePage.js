@@ -5,7 +5,6 @@ import Loader from "../../components/Loader/Loader";
 import FooterCopyright from "../../components/Footer/FooterCopyright";
 import AOS from "aos";
 import { Redirect, Route, Switch } from "react-router-dom";
-import SmartPetFeeder from "../home/SmartPetFeeder";
 import AdminUsersPage from "./AdminUsersPage";
 import AdminBroadcastPage from "./AdminBroadcastPage";
 import AdminFeedbackPage from "./AdminFeedbackPage";
