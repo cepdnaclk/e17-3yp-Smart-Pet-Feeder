@@ -61,10 +61,10 @@ exports.getActiveSchedules = (req,res,next) =>{
 
 
 
-// /auth/user [POST methods]
+// /auth/user [POST methods]/
 exports.signUp = (req,res,next) =>{
     const errors = validationResult(req);
-
+    let loadUser;
     if (!errors.isEmpty()){
         const message = errors.array()[0].msg;
         console.log(errors);
@@ -102,11 +102,24 @@ exports.signUp = (req,res,next) =>{
             return User.findById(result.owner);
         })
         .then(user=>{
+            loadUser = user;
             user.petFeeder = feederId;
             return user.save();
         })
         .then(result =>{
-            res.status(201).json({message:'User Created!',userId:result._id})
+            const token = jwt.sign({
+                    email:loadUser.email,
+                    userId:loadUser._id.toString()
+                },
+                'Smart-Pet-Feeder-2021',
+                {expiresIn: '1h'}
+            );
+            res.status(201).json({
+                message:"User created",
+                idToken:token,
+                expiresIn:"3600",
+                userId: loadUser._id.toString()
+            })
         })
         .catch(err =>{
             if (!err.statusCode){
