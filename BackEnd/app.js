@@ -30,9 +30,9 @@ app.use((error,req,res,next)=>{
 
 mongoose.connect('mongodb+srv://Shenal:SmartPetFeeder2021@cluster0.y3bkj.mongodb.net/Smart-Pet-Feeder?retryWrites=true&w=majority')
     .then(result=>{
-        console.log(result);
-        app.listen(8080);
+        console.log("Connected Successfully!");
+        app.listen(8000);
     })
     .catch(err=>{
-        console.log(err+"\nnew error");
+        console.log("Database Connections Failed");
     })

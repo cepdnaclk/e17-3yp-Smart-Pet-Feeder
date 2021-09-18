@@ -4,23 +4,13 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     title:{
         type:String,
-        required : true,
+        required : false,
         default:""
     },
-    date:{
+    date_time:{
         type :Date,
         required: false,
         default:""
-    },
-    time:{
-        type:Date,
-        required:false,
-        default: ""
-    },
-    featured:{
-        type:Boolean,
-        required:false,
-        default:false
     },
     status:{
         type:Boolean,

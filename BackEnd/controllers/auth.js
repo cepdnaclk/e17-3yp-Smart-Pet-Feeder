@@ -10,6 +10,57 @@ const PetFeeder = require('../models/pet-feeder');
 
 const ActiveSchedule = require('../models/active-schedules');
 
+const mongoose = require('mongoose');
+
+// auth/user/[GET Methods]
+
+//get the current status of the pet feeder (battery, status, remaining rounds)
+exports.getStatus = (req,res,next) =>{
+    let feederId;
+    User.findById(req.userId)
+        .then(user=>{
+
+            if (!user){
+                const error = new Error("Something went wrong!")
+                error.statusCode = 500
+                throw error
+            }
+            feederId = user.petFeeder;
+            return PetFeeder.findById(feederId);
+        })
+        .then(feeder=>{
+            res.status(200).json({
+                battery:feeder.battery,
+                status:feeder.status,
+                remainingRounds: feeder.remainingRounds
+            })
+        })
+        .catch(err=>{
+            console.log(err);
+            next(err);
+        })
+}
+
+//Get active schedule
+exports.getActiveSchedules = (req,res,next) =>{
+
+    User.findById(req.userId)
+        .then(user =>{
+            if (!user){
+                const error = new Error("Something went wrong!")
+                error.statusCode = 500
+                throw error
+            }
+
+            res.status(200).json(user.ActiveSchedules);
+
+        })
+        .catch(err => next(err))
+}
+
+
+
+// /auth/user [POST methods]
 exports.signUp = (req,res,next) =>{
     const errors = validationResult(req);
 
@@ -106,70 +157,36 @@ exports.login = (req,res,next) =>{
         })
 }
 
-exports.getStatus = (req,res,next) =>{
-    let feederId;
-    User.findById(req.userId)
-        .then(user=>{
 
-            if (!user){
-                const error = new Error("Something went wrong!")
-                error.statusCode = 500
-                throw error
-            }
-            feederId = user.petFeeder;
-            return PetFeeder.findById(feederId);
-        })
-        .then(feeder=>{
-            res.status(200).json({
-                battery:feeder.battery,
-                status:feeder.status,
-                remainingRounds: feeder.remainingRounds
-            })
-        })
-        .catch(err=>{
-            console.log(err);
-            next(err);
-        })
-}
 
-exports.getActiveSchedules = (req,res,next) =>{
-    let activeSchedules;
-    User.findById(req.userId)
-        .then(user =>{
-            if (!user){
-                const error = new Error("Something went wrong!")
-                error.statusCode = 500
-                throw error
-            }
-
-            res.status(200).json(user.ActiveSchedules);
-
-        })
-        .catch(err => next(err))
-}
 
 exports.postSchedule = (req,res,next) =>{
     let user;
-    let index = req.body.position_id;
+    let scheduleId = req.body._id;
     const schedule = new ActiveSchedule({
-        position_id : req.body.position_id,
+        _id : new mongoose.Types.ObjectId(req.body._id),
         title : req.body.title,
-        date : req.body.date,
-        time : req.body.time,
-        featured : req.body.featured,
+        date_time : req.body.date,
         status : req.body.status
     })
 
     User.findById(req.userId)
         .then(owner =>{
             user = owner;
-            if(owner.ActiveSchedules.length ===0 || owner.ActiveSchedules.length <= 4){
-                owner.ActiveSchedules[index-1] = schedule;
+            if(owner.ActiveSchedules.length ===0 || owner.ActiveSchedules.length < 4){
+                owner.ActiveSchedules.push(schedule);
             }
             else{
-                const error = new Error("Something went wrong! cannot submit this schedule");
-                error.statusCode = 422;
-                throw error;
+                const index = owner.ActiveSchedules.findIndex((schedules) =>{
+                    return schedules._id.toString() === scheduleId;
+
+                });
+                if (index >4 || index < 0 ){
+                    const error = new Error("Unexpected Error!");
+                    error.statusCode = 500;
+                    throw error;
+                }
+                owner.ActiveSchedules[index] = schedule;
             }
             return user.save();
         })
@@ -179,6 +196,36 @@ exports.postSchedule = (req,res,next) =>{
         })
         .catch(err =>{
             console.log(err);
+            next(err);
+        })
+}
+
+exports.postDeleteSchedule = (req,res,next) =>{
+    let scheduleId = req.body._id;
+    const schedule = new ActiveSchedule({
+        _id : new mongoose.Types.ObjectId(req.body._id),
+        title : null,
+        date_time : null,
+        status : false
+    })
+
+    User.findById(req.userId)
+        .then(user =>{
+            if (user.ActiveSchedules.length > 0){
+                const index = user.ActiveSchedules.findIndex((schedule) =>{
+                    return schedule._id.toString() === scheduleId;
+                });
+
+                if (index < 4 && index >=0){
+                    user.ActiveSchedules[index] = schedule;
+                }
+                return user.save()
+            }
+        })
+        .then(result =>{
+            res.status(200).json({message:"Schedule deactivated"});
+        })
+        .catch(err =>{
             next(err);
         })
 }

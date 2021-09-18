@@ -51,9 +51,16 @@ router.post('/login',authControllers.login);
 
 router.post('/user/post_schedules' , isAuth, authControllers.postSchedule);
 
+router.post('/user/delete_schedule',isAuth,authControllers.postDeleteSchedule);
+
 router.get('/user/get_status',isAuth,authControllers.getStatus);
 
-router.get('/user/get_schedules',isAuth,authControllers.getActiveSchedules)
+router.get('/user/get_schedules',
+    [
+        body("title").not().isEmpty().withMessage("Title Cannot be empty!"),
+        body("date_time").not().isEmpty().withMessage("Date and time undefined")
+    ],
+    isAuth,authControllers.getActiveSchedules)
 
 
 module.exports = router;

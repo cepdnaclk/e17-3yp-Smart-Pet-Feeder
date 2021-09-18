@@ -48,7 +48,7 @@ const ActiveSchedules = (props) => {
 
   const fetchSchedules=useCallback(()=>{
     setIsLoading(true);
-    fetch('http://localhost:8080/auth/user/get_schedules',{
+    fetch('http://localhost:8000/auth/user/get_schedules',{
       method:'GET',
       headers:{
         Authorization: 'Bearer ' + authCtx.token
@@ -117,7 +117,7 @@ const ActiveSchedules = (props) => {
       (schedule) => schedule.id === scheduleData.id
     );
 
-    fetch('http://localhost:8080/auth/user/post_schedules',{
+    fetch('http://localhost:8000/auth/user/post_schedules',{
       method:'POST',
       body: JSON.stringify({
         position_id:scheduleData.id,
@@ -160,7 +160,7 @@ const ActiveSchedules = (props) => {
     });
     console.log(index);
 
-    fetch('http://localhost:8080/auth/user/delete_schedule',{
+    fetch('http://localhost:8000/auth/user/delete_schedule',{
       method:'PUT',
       body: JSON.stringify({
         position_id:id

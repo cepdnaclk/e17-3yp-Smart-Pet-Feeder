@@ -129,7 +129,7 @@ export default function LoginForm(props) {
   const validateData = (event) => {
     let url;
 
-    url = "http://localhost:8080/auth/signup";
+    url = "http://localhost:8000/auth/signup";
 
     event.preventDefault();
     fetch(url, {

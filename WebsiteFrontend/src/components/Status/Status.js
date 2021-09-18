@@ -20,7 +20,7 @@ const Status = ({ bg, type }) => {
 
   const fetchData =useCallback(()=>{
     setIsLoading(true);
-    fetch('http://localhost:8080/auth/user/get_status',{
+    fetch('http://localhost:8000/auth/user/get_status',{
       method:'GET',
       headers:{
         Authorization: 'Bearer ' + authCtx.token
