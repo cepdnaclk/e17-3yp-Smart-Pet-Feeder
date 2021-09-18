@@ -1,7 +1,7 @@
 import React from "react";
+import { API_URL } from "../../configs/Configs";
 
 export const SET_STATUS = "SET_STATUS";
-import { API_URL } from "../../config/Configs";
 
 export const fetchStatus = () => {
   return async (dispatch, getState) => {

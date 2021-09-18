@@ -1,8 +1,9 @@
+import { API_URL } from "../../configs/Configs";
+
 export const SET_SCHEDULES = "SET_SCHEDULES";
 export const DELETE_SCHEDULE = "DELETE_SCHEDULE";
 export const CREATE_SCHEDULE = "CREATE_SCHEDULE";
 export const UPDATE_SCHEDULE = "UPDATE_SCHEDULE";
-import { API_URL } from "../../config/Configs";
 
 export const fetchSchedules = () => {
   return async (dispatch, getState) => {

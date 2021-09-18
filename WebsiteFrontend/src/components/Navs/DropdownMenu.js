@@ -4,18 +4,28 @@ import { Link as DomLink, useHistory } from "react-router-dom";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import HistoryIcon from "@material-ui/icons/History";
 import InfoIcon from "@material-ui/icons/Info";
+import VideoIcon from "@material-ui/icons/OndemandVideo";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import MessageIcon from "@material-ui/icons/Message";
+import LogoutIcon from "@material-ui/icons/ExitToApp";
 
 import useWindowResizeListener from "../../helpers/useWindowResizeListener";
 import AuthContext from "../../stores/auth-context";
+import { useDispatch, useSelector } from "react-redux";
 
-let isLoggedIn = false;
+import * as authActions from "../../store/actions/auth";
+
 const DropdownMenu = (props) => {
-  useWindowResizeListener();
-  const authCtx = useContext(AuthContext);
-  isLoggedIn = authCtx.isLoggedIn;
+  const isLoggedIn = useSelector((state) => {
+    return !!state.auth.token;
+  });
 
-  const logoutClickHandler = () => {
-    authCtx.logout();
+  useWindowResizeListener();
+  const dispatch = useDispatch();
+
+  const logoutClickHandler = (e) => {
+    e.preventDefault();
+    dispatch(authActions.logout());
   };
   const history = useHistory();
 
@@ -28,7 +38,7 @@ const DropdownMenu = (props) => {
               className={
                 props.fixed || props.type === "white" ? "white_bg" : "black_bg"
               }
-              activeClassName={"active"}
+              activeclassname={"active"}
               to={dropdown.to}
               spy={true}
               duration={200}
@@ -44,6 +54,7 @@ const DropdownMenu = (props) => {
       <ul className="nav navbar-nav" data-in="fadeIn" data-out="fadeOut">
         {!isLoggedIn && (
           <DomLink
+            to="Login"
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
@@ -53,9 +64,9 @@ const DropdownMenu = (props) => {
             <i className="icofont icofont-login" />
           </DomLink>
         )}
-
         {!isLoggedIn && (
           <DomLink
+            to={"Signup"}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
@@ -65,13 +76,15 @@ const DropdownMenu = (props) => {
             <i className="icofont icofont-login" />
           </DomLink>
         )}
-
         {isLoggedIn && (
           <DomLink
+            to={"/Status"}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
+
               history.push(`${process.env.PUBLIC_URL}/user/status`);
             }}
           >
@@ -79,13 +92,14 @@ const DropdownMenu = (props) => {
             <InfoIcon className="pb-1" />
           </DomLink>
         )}
-
         {isLoggedIn && (
           <DomLink
+            to={"/History"}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               history.push(`${process.env.PUBLIC_URL}/user/history`);
             }}
           >
@@ -93,16 +107,62 @@ const DropdownMenu = (props) => {
             <HistoryIcon className="pb-1" />
           </DomLink>
         )}
+        {isLoggedIn && (
+          <DomLink
+            to={"/Video"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={(e) => {
+              e.preventDefault();
+              history.push(`${process.env.PUBLIC_URL}/user/video`);
+            }}
+          >
+            Video
+            <VideoIcon className="pb-1" />
+          </DomLink>
+        )}
+        {isLoggedIn && (
+          <DomLink
+            to={"/Notifications"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={(e) => {
+              e.preventDefault();
+              history.push(`${process.env.PUBLIC_URL}/user/notifications`);
+            }}
+          >
+            Notifications
+            <NotificationsIcon className="pb-1" />
+          </DomLink>
+        )}
 
         {isLoggedIn && (
           <DomLink
+            to={"/Contact Us"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={(e) => {
+              e.preventDefault();
+              history.push(`${process.env.PUBLIC_URL}/user/contactus`);
+            }}
+          >
+            Contact Us
+            <MessageIcon className="pb-1" />
+          </DomLink>
+        )}
+        {isLoggedIn && (
+          <DomLink
+            to={"/Logout"}
             className={
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
             onClick={logoutClickHandler}
           >
             Logout
-            <ExitToAppIcon className="pb-1" />
+            <LogoutIcon className="pb-1" />
           </DomLink>
         )}
       </ul>
