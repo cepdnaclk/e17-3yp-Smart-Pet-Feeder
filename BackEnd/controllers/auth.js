@@ -59,7 +59,7 @@ exports.getActiveSchedules = (req,res,next) =>{
             res.status(200).json(user.ActiveSchedules);
 
         })
-        .catch(err => next(err))
+        .catch(err => next(err));
 }
 
 exports.getScheduleHistory =(req,res,next) =>{
@@ -218,7 +218,7 @@ exports.postSchedule = (req,res,next) =>{
     const schedule = new ActiveSchedule({
         _id : scheduleId,
         title : req.body.title,
-        date_time : req.body.date,
+        date_time : req.body.date_time,
         status : req.body.status
     })
 
@@ -226,9 +226,12 @@ exports.postSchedule = (req,res,next) =>{
         .then(owner =>{
             user = owner;
             const index = owner.ActiveSchedules.findIndex((schedules) =>{
+                console.log(schedules._id.toString() === scheduleId);
                 return schedules._id.toString() === scheduleId;
 
+
             });
+
             if (owner.ActiveSchedules.length < 4){
                 if (index <4 && index >0){
                     owner.ActiveSchedules[index] = schedule;
