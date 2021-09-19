@@ -15,32 +15,43 @@ const initialState = {
 const scheduleReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SCHEDULES:
+      const schedules_ = [...action.schedules];
+      for (let i = schedules_.length; i < 4; i++) {
+        schedules_[i] = { status: false };
+      }
       return {
-        schedules: action.schedules,
+        schedules: schedules_,
       };
 
     case CREATE_SCHEDULE:
       const newSchedule = new Schedule(
-        1,
-        new Date().toString(),
-        action.scheduleData.title,
-        action.scheduleData.date_time
+        action._id,
+        action.title,
+        action.date_time,
+        action.status
       );
+      console.log("New Schedule", newSchedule);
+
+      const temp = [...state.schedules];
+      const index_ = temp.findIndex((schedule) => schedule.status === false);
+      temp[index_] = newSchedule;
       return {
-        schedules: state.schedules.concat(newSchedule),
+        schedules: temp,
       };
 
     case UPDATE_SCHEDULE:
-      const index = state.schedules.findIndex(
-        (schedule) => schedule.id === action.scheduleData.id
-      );
-      const updatedSchedule = new Schedule(
-        1,
-        action.scheduleData.id,
-        action.scheduleData.title,
-        action.scheduleData.date_time
-      );
       const updatedSchedules = [...state.schedules];
+
+      const index = updatedSchedules.findIndex(
+        (schedule) => schedule._id === action._id
+      );
+
+      const updatedSchedule = new Schedule(
+        action._id,
+        action.title,
+        action.date_time,
+        action.status
+      );
       updatedSchedules[index] = updatedSchedule;
 
       return {
@@ -48,10 +59,14 @@ const scheduleReducer = (state = initialState, action) => {
       };
 
     case DELETE_SCHEDULE:
+      const after_deleted = [...state.schedules];
+      const delete_index = after_deleted.findIndex(
+        (schedule) => schedule._id === action._id
+      );
+      after_deleted[delete_index] = { status: false };
+      console.log(after_deleted);
       return {
-        schedules: state.schedules.filter(
-          (schedule) => schedule.id !== action.id
-        ),
+        schedules: after_deleted,
       };
   }
   return state;

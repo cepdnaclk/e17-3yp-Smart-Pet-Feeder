@@ -24,3 +24,7 @@ module.exports.isMobileNumber = (value) => {
 module.exports.isConfirmPassword = (password, value) => {
   return password === value;
 };
+
+module.exports.isValidDateTime = (value) => {
+  return value > new Date();
+};

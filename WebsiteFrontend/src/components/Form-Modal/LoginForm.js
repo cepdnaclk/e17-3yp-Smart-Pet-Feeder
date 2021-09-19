@@ -80,7 +80,7 @@ export default function LoginForm(props) {
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     reset: resetEmail,
-  } = useInput(Validators.isEmail);
+  } = useInput("", Validators.isEmail);
 
   const {
     value: password,
@@ -89,13 +89,12 @@ export default function LoginForm(props) {
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
     reset: resetPassword,
-  } = useInput(Validators.isNotEmpty);
+  } = useInput("", Validators.isNotEmpty);
 
   let formIsValid = false;
   if (passwordIsValid && emailIsValid) {
     formIsValid = true;
   }
-
 
   const submitForm = async () => {
     setError(null);
@@ -107,7 +106,6 @@ export default function LoginForm(props) {
       setError(err.message);
       setIsLoading(false);
     }
-
   };
 
   const closeFormHandler = () => {

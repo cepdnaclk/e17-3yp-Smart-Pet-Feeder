@@ -9,6 +9,11 @@ import Fab from "@material-ui/core/Fab";
 // import DeleteIcon from "@material-ui/icons/Delete";
 import CloseIcon from "@material-ui/icons/Close";
 import DoneIcon from "@material-ui/icons/Done";
+import { useDispatch, useSelector } from "react-redux";
+import * as Functions from "../../helpers/functions";
+import * as Validators from "../../helpers/validators";
+import useInput from "../../hooks/use-input";
+import * as ScheduleActions from "../../store/actions/schedules";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -43,48 +48,65 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ScheduleForm(props) {
+  // console.log("Schedle form ", props);
   const classes = useStyles();
-  console.log("Schedule Form beg = " + props.id);
 
-  const [title, setTitle] = useState(props.title);
-  const [date, setDate] = useState(props.date);
-  const [time, setTime] = useState(props.time);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    setTitle(props.title);
-    setDate(props.date);
-    setTime(props.time);
-  }, [props.title, props.date, props.time]);
+  let schedule = null;
+  if (props.status === true) {
+    schedule = useSelector((state) => {
+      return state.schedules.schedules.find((prod) => prod._id === props._id);
+    });
+  }
+  // console.log("schedule", schedule);
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+  const date_time = new Date(
+    schedule ? new Date(schedule.date_time) : new Date().setHours(23)
+  );
+
+  const [date, setDate] = useState(Functions.extractDate(date_time));
+  const [time, setTime] = useState(Functions.extractTime(date_time));
+
+  const isValidDateTime = Validators.isValidDateTime(
+    Functions.combineDateTime(date, time)
+  );
+
+  const {
+    value: title,
+    isValid: titleIsValid,
+    hasError: titleHasError,
+    valueChangeHandler: titleChangeHandler,
+    inputBlurHandler: titleBlurHandler,
+    reset: resetTitle,
+  } = useInput(schedule ? schedule.title : "", Validators.isNotEmpty);
+
+  const isFormValid = titleIsValid && isValidDateTime;
+
+  const submitHandler = () => {
+    if (!isFormValid) {
+      return;
+    }
+
+    if (schedule) {
+      dispatch(ScheduleActions.updateSchedule(schedule._id, title, date_time));
+    } else {
+      dispatch(ScheduleActions.createSchedule(null, title, date_time));
+    }
+
+    props.handleClose();
   };
 
-  const handleDateChange = (event) => {
+  const onChangeDate = (event) => {
     setDate(event.target.value);
   };
 
-  const handleTimeChange = (event) => {
+  const onChangeTime = (event) => {
     setTime(event.target.value);
   };
 
-  const submitHandler = (event) => {
-    const scheduleData = {
-      id: props.id,
-      title: title,
-      date: date,
-      time: time,
-    };
-    console.log("Schedule Form scheduleData = " + scheduleData.id);
-
-    props.submitSchedule(scheduleData);
-  };
   return (
     <Container component="main" maxWidth="xs">
-      {/*<Button variant="contained" color="secondary" onClick={handleOpen}>*/}
-      {/*  Open Animated Modal*/}
-      {/*</Button>*/}
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -100,7 +122,6 @@ export default function ScheduleForm(props) {
         <Fade in={props.open}>
           <div className="pricing-box" style={{ width: 400 }}>
             <Icofont />
-
             <div className="form-floating">
               <input
                 type="text"
@@ -109,12 +130,15 @@ export default function ScheduleForm(props) {
                 id="title"
                 required="required"
                 placeholder="Title"
-                // data-error="Title cannot be empty"
+                data-error="Title cannot be empty"
                 value={title}
-                onChange={handleTitleChange}
+                onChange={titleChangeHandler}
+                onBlur={titleBlurHandler}
               />
               <label htmlFor="name">Title</label>
-              {/*<div className="help-block with-errors mt-20" />*/}
+              {titleHasError && (
+                <p className="error-message">* Title should not be empty</p>
+              )}
             </div>
 
             <div className="form-floating">
@@ -125,14 +149,13 @@ export default function ScheduleForm(props) {
                 id="date"
                 required="required"
                 placeholder="Date"
-                // data-error="Title cannot be empty"
+                data-error="Title cannot be empty"
                 value={date}
-                onChange={handleDateChange}
+                onChange={onChangeDate}
               />
               <label htmlFor="date">Date</label>
               {/*<div className="help-block with-errors mt-20" />*/}
             </div>
-
             <div className="form-floating">
               <input
                 type="time"
@@ -141,14 +164,13 @@ export default function ScheduleForm(props) {
                 id="time"
                 required="required"
                 placeholder="Time"
-                // data-error="Title cannot be empty"
+                data-error="Title cannot be empty"
                 value={time}
-                onChange={handleTimeChange}
+                onChange={onChangeTime}
               />
               <label htmlFor="time">Time</label>
               {/*<div className="help-block with-errors mt-20" />*/}
             </div>
-
             <div className="row">
               <div className="col-6" onClick={props.handleClose}>
                 <Fab color="secondary" aria-label="add">
@@ -157,70 +179,12 @@ export default function ScheduleForm(props) {
               </div>
 
               <div className="col-6" onClick={submitHandler}>
-                <Fab color="primary" aria-label="add">
+                <Fab color="primary" aria-label="add" disabled={!isFormValid}>
                   <DoneIcon />
                 </Fab>
               </div>
             </div>
           </div>
-
-          {/*<div className={classes.paper}>*/}
-          {/*  <Avatar className={classes.avatar}>*/}
-          {/*    <LockOutlinedIcon />*/}
-          {/*  </Avatar>*/}
-          {/*  <Typography component="h1" variant="h5">*/}
-          {/*    Sign in*/}
-          {/*  </Typography>*/}
-          {/*  <form className={classes.form} noValidate>*/}
-          {/*    <TextField*/}
-          {/*      variant="outlined"*/}
-          {/*      margin="normal"*/}
-          {/*      required*/}
-          {/*      fullWidth*/}
-          {/*      id="email"*/}
-          {/*      label="Email Address"*/}
-          {/*      name="email"*/}
-          {/*      autoComplete="email"*/}
-          {/*      autoFocus*/}
-          {/*    />*/}
-          {/*    <TextField*/}
-          {/*      variant="outlined"*/}
-          {/*      margin="normal"*/}
-          {/*      required*/}
-          {/*      fullWidth*/}
-          {/*      name="password"*/}
-          {/*      label="Password"*/}
-          {/*      type="password"*/}
-          {/*      id="password"*/}
-          {/*      autoComplete="current-password"*/}
-          {/*    />*/}
-          {/*    <FormControlLabel*/}
-          {/*      control={<Checkbox value="remember" color="primary" />}*/}
-          {/*      label="Remember me"*/}
-          {/*    />*/}
-          {/*    <Button*/}
-          {/*      type="submit"*/}
-          {/*      fullWidth*/}
-          {/*      variant="contained"*/}
-          {/*      color="primary"*/}
-          {/*      className={classes.submit}*/}
-          {/*    >*/}
-          {/*      Sign In*/}
-          {/*    </Button>*/}
-          {/*    <Grid container>*/}
-          {/*      <Grid item xs>*/}
-          {/*        <Link href="#" variant="body2">*/}
-          {/*          Forgot password?*/}
-          {/*        </Link>*/}
-          {/*      </Grid>*/}
-          {/*      <Grid item>*/}
-          {/*        <Link href="" variant="body2">*/}
-          {/*          {"Don't have an account? Sign Up"}*/}
-          {/*        </Link>*/}
-          {/*      </Grid>*/}
-          {/*    </Grid>*/}
-          {/*  </form>*/}
-          {/*</div>*/}
         </Fade>
       </Modal>
     </Container>

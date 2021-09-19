@@ -77,7 +77,7 @@ export default function LoginForm(props) {
     valueChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
     reset: resetName,
-  } = useInput(Validators.isValidString);
+  } = useInput("", Validators.isValidString);
 
   const {
     value: email,
@@ -86,7 +86,7 @@ export default function LoginForm(props) {
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     reset: resetEmail,
-  } = useInput(Validators.isEmail);
+  } = useInput("", Validators.isEmail);
 
   const {
     value: mobileNumber,
@@ -95,7 +95,7 @@ export default function LoginForm(props) {
     valueChangeHandler: mobileNumberChangeHandler,
     inputBlurHandler: mobileNumberBlurHandler,
     reset: resetMobileNumber,
-  } = useInput(Validators.isMobileNumber);
+  } = useInput("", Validators.isMobileNumber);
 
   const {
     value: password,
@@ -104,7 +104,7 @@ export default function LoginForm(props) {
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
     reset: resetPassword,
-  } = useInput(Validators.isPassword);
+  } = useInput("", Validators.isPassword);
 
   const {
     value: confirmPassword,
@@ -113,7 +113,7 @@ export default function LoginForm(props) {
     valueChangeHandler: confirmPasswordChangeHandler,
     inputBlurHandler: confirmPasswordBlurHandler,
     reset: resetConfirmPassword,
-  } = useInput(Validators.isConfirmPassword.bind(null, password));
+  } = useInput("", Validators.isConfirmPassword.bind(null, password));
 
   let formIsValid = false;
   if (
@@ -129,9 +129,7 @@ export default function LoginForm(props) {
   const validateData = (event) => {
     let url;
 
-
     url = API_URL + "/auth/signup";
-
 
     event.preventDefault();
     fetch(url, {
