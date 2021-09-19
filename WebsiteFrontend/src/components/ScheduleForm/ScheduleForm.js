@@ -61,12 +61,22 @@ export default function ScheduleForm(props) {
   }
   // console.log("schedule", schedule);
 
-  const date_time = new Date(
-    schedule ? new Date(schedule.date_time) : new Date().setHours(23)
+  const [date, setDate] = useState(
+    Functions.extractDate(
+      new Date(
+        schedule ? new Date(schedule.date_time) : new Date().setHours(23)
+      )
+    )
+  );
+  const [time, setTime] = useState(
+    Functions.extractTime(
+      new Date(
+        schedule ? new Date(schedule.date_time) : new Date().setHours(23)
+      )
+    )
   );
 
-  const [date, setDate] = useState(Functions.extractDate(date_time));
-  const [time, setTime] = useState(Functions.extractTime(date_time));
+  const date_time = Functions.combineDateTime(date, time);
 
   const isValidDateTime = Validators.isValidDateTime(
     Functions.combineDateTime(date, time)
@@ -91,7 +101,7 @@ export default function ScheduleForm(props) {
     if (schedule) {
       dispatch(ScheduleActions.updateSchedule(schedule._id, title, date_time));
     } else {
-      dispatch(ScheduleActions.createSchedule(null, title, date_time));
+      dispatch(ScheduleActions.createSchedule(title, date_time));
     }
 
     props.handleClose();

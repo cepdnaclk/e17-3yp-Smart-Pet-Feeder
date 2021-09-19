@@ -58,23 +58,23 @@ const ActiveSchedules = (props) => {
     });
   };
 
-  const submitSchedule = (scheduleData) => {
-    setIsLoading(true);
-    dispatch(
-      schedulesActions.updateSchedule(
-        scheduleData._id,
-        scheduleData.title,
-        scheduleData.date_time
-      )
-    )
-      .then((response) => {
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        alert("Network Error. Please Try Again Later!");
-      });
-  };
+  // const submitSchedule = (scheduleData) => {
+  //   setIsLoading(true);
+  //   dispatch(
+  //     schedulesActions.updateSchedule(
+  //       scheduleData._id,
+  //       scheduleData.title,
+  //       scheduleData.date_time
+  //     )
+  //   )
+  //     .then((response) => {
+  //       setIsLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       setIsLoading(false);
+  //       alert("Network Error. Please Try Again Later!");
+  //     });
+  // };
 
   const deleteSchedule = (id) => {
     setIsLoading(true);
@@ -110,7 +110,6 @@ const ActiveSchedules = (props) => {
           _id={scheduleEditData._id}
           status={scheduleEditData.status}
           handleClose={editHandleClose}
-          submitSchedule={submitSchedule}
         />
       )}
 
