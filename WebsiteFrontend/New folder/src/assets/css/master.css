@@ -2922,66 +2922,66 @@ img.mfp-img {
 .pricing-table {
   margin: 40px 0;
 }
-.pricing-box {
-  padding: 40px;
-  text-align: center;
-  background: #fff;
-  transition: all 0.2s ease;
-}
-.pricing-box i {
-  font-size: 40px;
-  color: #212121;
-}
+/*.pricing-box {*/
+/*  padding: 40px;*/
+/*  text-align: center;*/
+/*  background: #fff;*/
+/*  transition: all 0.2s ease;*/
+/*}*/
+/*.pricing-box i {*/
+/*  font-size: 40px;*/
+/*  color: #212121;*/
+/*}*/
 
-.pricing-box:hover {
-  box-shadow: 0 10px 30px 5px rgba(17, 21, 23, 0.1);
-}
+/*.pricing-box:hover {*/
+/*  box-shadow: 0 10px 30px 5px rgba(17, 21, 23, 0.1);*/
+/*}*/
 
-.pricing-box h4 {
-  font-family: "Jost", sans-serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.pricing-box h2 {
-  font-family: "Jost", sans-serif;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  color: var(--main-color);
-  font-weight: 700;
-}
+/*.pricing-box h4 {*/
+/*  font-family: "Jost", sans-serif;*/
+/*  font-size: 22px;*/
+/*  letter-spacing: 2px;*/
+/*  text-transform: uppercase;*/
+/*  font-weight: 600;*/
+/*}*/
+/*.pricing-box h2 {*/
+/*  font-family: "Jost", sans-serif;*/
+/*  margin-top: 25px;*/
+/*  margin-bottom: 25px;*/
+/*  color: var(--main-color);*/
+/*  font-weight: 700;*/
+/*}*/
 
-.pricing-box h2 sup {
-  font-size: 18px;
-  padding-right: 2px;
-}
-.pricing-box h1 sup {
-  top: -0.5em;
-  font-size: 27px;
-  margin-right: 5px;
-}
-.pricing-box h1 span {
-  font-weight: 700;
-}
+/*.pricing-box h2 sup {*/
+/*  font-size: 18px;*/
+/*  padding-right: 2px;*/
+/*}*/
+/*.pricing-box h1 sup {*/
+/*  top: -0.5em;*/
+/*  font-size: 27px;*/
+/*  margin-right: 5px;*/
+/*}*/
+/*.pricing-box h1 span {*/
+/*  font-weight: 700;*/
+/*}*/
 
-.pricing-box ul {
-  margin: 20px 0;
-  padding: 0;
-}
-.pricing-box li {
-  display: block;
-  margin-bottom: 10px;
-  list-style: none;
-}
+/*.pricing-box ul {*/
+/*  margin: 20px 0;*/
+/*  padding: 0;*/
+/*}*/
+/*.pricing-box li {*/
+/*  display: block;*/
+/*  margin-bottom: 10px;*/
+/*  list-style: none;*/
+/*}*/
 
-.pricing-box-bottom {
-  margin-top: 40px;
-}
+/*.pricing-box-bottom {*/
+/*  margin-top: 40px;*/
+/*}*/
 
-.pricing-table-featured {
-  margin: 5px 0;
-}
+/*.pricing-table-featured {*/
+/*  margin: 5px 0;*/
+/*}*/
 
 .pricing-table-featured .pricicng-feature {
   min-height: 180px;

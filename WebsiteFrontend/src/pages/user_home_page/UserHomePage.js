@@ -3,15 +3,15 @@ import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import FooterCopyright from "../../components/Footer/FooterCopyright";
-// import Status from "../../components/Status/Status";
 import AOS from "aos";
-// import ActiveSchedules from "../../components/ActiveSchedules/ActiveSchedules";
-// import ScheduleForm from "../../components/ScheduleForm/ScheduleForm";
-// import ConfirmationBox from "../../components/ConfirmationBox/ConfirmationBox";
+
 import { Redirect, Route, Switch } from "react-router-dom";
-// import SmartPetFeeder from "../home/SmartPetFeeder";
 import UserStatusPage from "./UserStatusPage";
 import UserHistoryPage from "./UserHistoryPage";
+
+import UserNotificationPage from "./UserNotificationPage";
+import UserVideoPage from "./UserVideoPage";
+import UserContactUs from "./UserContactUs";
 
 const userHomePage = () => {
   useEffect(() => {
@@ -35,6 +35,24 @@ const userHomePage = () => {
               exact
               path={`${process.env.PUBLIC_URL}/user/history`}
               component={UserHistoryPage}
+            />
+
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/user/video`}
+              component={UserVideoPage}
+            />
+
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/user/notifications`}
+              component={UserNotificationPage}
+            />
+
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/user/contactus`}
+              component={UserContactUs}
             />
 
             <Route path="*">
