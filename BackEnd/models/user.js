@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const activeScheduleSchema = require('./active-schedules').schema;
 
-const ActiveSchedule = require('./active-schedules');
+
 
 const userSchema = new Schema({
     email:{
@@ -38,6 +38,17 @@ const userSchema = new Schema({
     ScheduleHistory:[
         {
         type:Schema.Types.ObjectId ,ref:'ActiveSchedule' ,required:false
+    }],
+    notifications:[{
+        type:Schema.Types.ObjectId ,
+        ref:'Notification',
+        required:true,
+        default:[]
+    }],
+    feedback:[{
+        type:Schema.Types.ObjectId,
+        ref:'Feedback',
+        required:false
     }]
 });
 

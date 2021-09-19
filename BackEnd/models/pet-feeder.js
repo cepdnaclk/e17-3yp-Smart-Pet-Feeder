@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const petFeederSchema = new Schema({
   battery: {
     type: Number,
     required: true,
@@ -23,4 +23,4 @@ const userSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("PetFeeder", userSchema);
+module.exports = mongoose.model("PetFeeder", petFeederSchema);

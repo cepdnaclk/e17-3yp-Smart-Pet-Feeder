@@ -57,11 +57,15 @@ router.post('/user/post_schedules' ,[
 
 router.post('/user/delete_schedule',isAuth,authControllers.postDeleteSchedule);
 
+router.post('/user/post_feedback',isAuth,authControllers.postFeedback);
+
 router.get('/user/get_status',isAuth,authControllers.getStatus);
 
 router.get('/user/get_schedules',isAuth,authControllers.getActiveSchedules);
 
 router.get('/user/get_history',isAuth,authControllers.getScheduleHistory);
+
+router.get('/user/get_notifications',isAuth,authControllers.getNotifications);
 
 
 module.exports = router;

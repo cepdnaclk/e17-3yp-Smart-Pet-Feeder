@@ -1,4 +1,3 @@
-
 const {validationResult} = require('express-validator/check');
 
 const bcrypt = require('bcryptjs');
@@ -10,6 +9,10 @@ const User = require('../models/user');
 const PetFeeder = require('../models/pet-feeder');
 
 const ActiveSchedule = require('../models/active-schedules');
+
+const Notification = require('../models/notification');
+
+const Feedback = require('../models/feedback');
 
 const mongoose = require('mongoose');
 
@@ -74,6 +77,19 @@ exports.getScheduleHistory =(req,res,next) =>{
             next(err);
         })
 
+}
+
+exports.getNotifications = (req,res,next) =>{
+    User.findById(req.userId)
+        .populate('notifications')
+        .then(user =>{
+            if (user){
+                res.status(201).json(user.notifications);
+            }
+        })
+        .catch(err =>{
+            next(err);
+        })
 }
 
 
@@ -239,12 +255,6 @@ exports.postSchedule = (req,res,next) =>{
 
 exports.postDeleteSchedule = (req,res,next) =>{
     let scheduleId = req.body._id;
-    const schedule = new ActiveSchedule({
-        _id : new mongoose.Types.ObjectId(req.body._id),
-        title : null,
-        date_time : null,
-        status : false
-    })
 
     User.findById(req.userId)
         .then(user =>{
@@ -261,6 +271,33 @@ exports.postDeleteSchedule = (req,res,next) =>{
         })
         .then(result =>{
             res.status(200).json({message:"Schedule deactivated"});
+        })
+        .catch(err =>{
+            next(err);
+        })
+}
+
+
+exports.postFeedback = (req,res,next) =>{
+    let feedback_id;
+    const feedback = new Feedback({
+        title:req.body.title,
+        message:req.body.message,
+        date_time:req.body.date_time,
+        userId:req.userId
+    });
+
+    feedback.save()
+        .then(result =>{
+            feedback_id = result._id;
+            return User.findById(req.userId);
+        })
+        .then(user => {
+            user.feedback.push(feedback_id);
+            return user.save();
+        })
+        .then(result =>{
+            res.status(201).json({message:"Feedback submitted"});
         })
         .catch(err =>{
             next(err);
