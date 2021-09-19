@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const activeScheduleSchema = require('./active-schedules').schema;
 
+const ActiveSchedule = require('./active-schedules');
 
 const userSchema = new Schema({
     email:{
@@ -32,7 +33,12 @@ const userSchema = new Schema({
         ref:'PetFeeder',
 
     },
-    ActiveSchedules:[activeScheduleSchema]
+    ActiveSchedules:[activeScheduleSchema],
+
+    ScheduleHistory:[
+        {
+        type:Schema.Types.ObjectId ,ref:'ActiveSchedule' ,required:false
+    }]
 });
 
 
