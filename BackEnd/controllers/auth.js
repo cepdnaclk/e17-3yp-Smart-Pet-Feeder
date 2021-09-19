@@ -225,22 +225,30 @@ exports.postSchedule = (req,res,next) =>{
     User.findById(req.userId)
         .then(owner =>{
             user = owner;
-            if(owner.ActiveSchedules.length ===0 || owner.ActiveSchedules.length < 4){
-                owner.ActiveSchedules.push(schedule);
-            }
-            else{
-                const index = owner.ActiveSchedules.findIndex((schedules) =>{
-                    return schedules._id.toString() === scheduleId;
+            const index = owner.ActiveSchedules.findIndex((schedules) =>{
+                return schedules._id.toString() === scheduleId;
 
-                });
-                if (index >4 || index < 0 ){
-                    const error = new Error("Unexpected Error!");
+            });
+            if (owner.ActiveSchedules.length < 4){
+                if (index <4 && index >0){
+                    owner.ActiveSchedules[index] = schedule;
+                }
+                else {
+                    owner.ActiveSchedules.push(schedule);
+                }
+                return owner.save();
+            }
+            else if(owner.ActiveSchedules.length === 4 ){
+                if (index <4 && index >0){
+                    owner.ActiveSchedules[index] = schedule;
+                    return owner.save();
+                }
+                else {
+                    const error = new Error('Cannot perform this action');
                     error.statusCode = 500;
                     throw error;
                 }
-                owner.ActiveSchedules[index] = schedule;
             }
-            return user.save();
         })
         .then(result =>{
 
