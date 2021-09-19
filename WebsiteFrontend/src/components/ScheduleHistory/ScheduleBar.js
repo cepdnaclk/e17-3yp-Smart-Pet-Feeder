@@ -24,11 +24,11 @@ export default function ScheduleBar({ title, description, status }) {
     <div className="mt-30 mb-30">
       <div
         className="row pricing-box pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2"
-        style={{ "box-shadow": "0 10px 30px 5px rgba(17, 21, 23, 0.1)" }}
+        style={{ boxShadow: "0 10px 30px 5px rgba(17, 21, 23, 0.1)" }}
       >
         <div className="col-2">
           <div className="mt-2">
-            <Icofont icon="dog" size="10" style={{ "font-size": "80px" }} />
+            <Icofont icon="dog" size="10" style={{ fontSize: "80px" }} />
           </div>
         </div>
 
@@ -40,24 +40,20 @@ export default function ScheduleBar({ title, description, status }) {
 
           <div className="row pt-3 pb-2">
             <div className="col-6">
-              <Icofont
-                icon="calendar"
-                size="10"
-                style={{ "font-size": "20px" }}
-              />
-              <l1 style={{ "font-size": "18px" }}>
+              <Icofont icon="calendar" size="10" style={{ fontSize: "20px" }} />
+              <span style={{ fontSize: "18px" }}>
                 <b>&nbsp; &nbsp;2021/09/23</b>
-              </l1>
+              </span>
             </div>
             <div className="col-6">
               <Icofont
                 icon="clock-time"
                 size="10"
-                style={{ "font-size": "20px" }}
+                style={{ fontSize: "20px" }}
               />
-              <l1 style={{ "font-size": "18px" }}>
+              <span style={{ fontSize: "18px" }}>
                 <b>&nbsp; &nbsp;08:25</b>
-              </l1>
+              </span>
             </div>
           </div>
         </div>
@@ -72,7 +68,7 @@ export default function ScheduleBar({ title, description, status }) {
             {/*<Icofont icon="close-circled" size="10" style={{ color: "red" }} />*/}
           </div>
 
-          <div className="mt-2" style={{ "font-size": "16px", color: "green" }}>
+          <div className="mt-2" style={{ fontSize: "16px", color: "green" }}>
             <b>Completed</b>
 
             {/*<b>In Completed</b>*/}

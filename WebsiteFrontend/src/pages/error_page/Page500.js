@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Icofont from "react-icofont";
 import Countdown from "react-countdown";
 import Loader from "../../components/Loader/Loader";
-import {API_URL} from "../../configs/Configs";
+import { API_URL } from "../../configs/Configs";
 
-const Page500 = (props) => {
+const Page500 = () => {
   const renderer = ({ days, hours, minutes, seconds }) => {
     return (
       <ul className="countdown">
@@ -45,11 +45,8 @@ const Page500 = (props) => {
               {/*    ></Countdown>*/}
             </div>
             <p className="mt-30">
-              <Link
-                to={API_URL + props.path}
-                className="btn btn-color btn-square"
-              >
-                <Icofont icon="chevron-left" /> Try Again
+              <Link to={API_URL + "/user"} className="btn btn-color btn-square">
+                <Icofont icon="chevron-left" /> Go To Homepage
               </Link>
             </p>
           </div>

@@ -93,8 +93,9 @@ const Schedule = ({ index, schedule, editHandler, deleteHandler }) => {
           <div
             className="col-6"
             onClick={
-              schedule.status &&
-              deleteHandler.bind(null, schedule._id, schedule.title)
+              schedule.status
+                ? deleteHandler.bind(null, schedule._id, schedule.title)
+                : () => {}
             }
           >
             <Fab color="secondary" aria-label="add" disabled={!schedule.status}>

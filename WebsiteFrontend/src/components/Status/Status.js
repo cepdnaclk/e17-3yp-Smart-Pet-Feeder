@@ -7,12 +7,14 @@ import * as statusActions from "../../store/actions/status";
 import Loader from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import Page500 from "../../pages/error_page/Page500";
+import { useHistory } from "react-router-dom";
 
 const Status = ({ bg, type }) => {
   const [viewed, setViewed] = useState(true);
 
   const status = useSelector((state) => state.status.status);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
@@ -39,7 +41,8 @@ const Status = ({ bg, type }) => {
   };
 
   if (error) {
-    return <Page500 path="/user/status" />;
+    history.replace(`${process.env.PUBLIC_URL}/500error`);
+    return <React.Fragment />;
   }
 
   return (
@@ -70,7 +73,6 @@ const Status = ({ bg, type }) => {
                   "count font-700 " + (bg === "white-bg" ? "" : "white-color")
                 }
               >
-
                 {status.status === true ? "ON" : "OFF"}
               </h2>
               <h3 className={bg === "white-bg" ? "dark-color" : ""}>Status</h3>
