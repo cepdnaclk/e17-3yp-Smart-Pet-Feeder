@@ -92,9 +92,12 @@ const Schedule = ({ index, schedule, editHandler, deleteHandler }) => {
 
           <div
             className="col-6"
-            onClick={deleteHandler.bind(null, schedule._id, schedule.title)}
+            onClick={
+              schedule.status &&
+              deleteHandler.bind(null, schedule._id, schedule.title)
+            }
           >
-            <Fab color="secondary" aria-label="add">
+            <Fab color="secondary" aria-label="add" disabled={!schedule.status}>
               <DeleteIcon />
             </Fab>
           </div>
