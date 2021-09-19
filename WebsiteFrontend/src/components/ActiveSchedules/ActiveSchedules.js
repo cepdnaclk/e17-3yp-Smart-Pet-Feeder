@@ -7,10 +7,12 @@ import Loader from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import * as schedulesActions from "../../store/actions/schedules";
 import Page500 from "../../pages/error_page/Page500";
+import { useHistory } from "react-router-dom";
 
 const ActiveSchedules = (props) => {
   const schedules = useSelector((state) => state.schedules.schedules);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
@@ -74,6 +76,7 @@ const ActiveSchedules = (props) => {
   };
 
   if (error) {
+    history.replace(`${process.env.PUBLIC_URL}/500error`);
     return <React.Fragment />;
   }
 

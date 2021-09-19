@@ -11,6 +11,7 @@ import UserHomePage from "./pages/user_home_page/UserHomePage";
 import ScrollToTop from "./helpers/ScrollToTop";
 import StartupPage from "./pages/Startup_page/StartupPage";
 import { useSelector } from "react-redux";
+import Page500 from "./pages/error_page/Page500";
 
 function App() {
   const isLoggedIn = useSelector((state) => {
@@ -41,6 +42,11 @@ function App() {
               component={UserHomePage}
             />
           )}
+
+          <Route
+            path={`${process.env.PUBLIC_URL}/500error`}
+            component={Page500}
+          />
 
           <Route path="*">
             <Redirect to="/" />

@@ -8,7 +8,7 @@ import ScheduleHistory from "../../components/ScheduleHistory/ScheduleHistory";
 
 const UserHistoryPage = () => {
   return (
-    <section>
+    <section className="pb-2">
       {/*<div className="container h-100">*/}
       <div className="section-heading pt-20">
         <h2

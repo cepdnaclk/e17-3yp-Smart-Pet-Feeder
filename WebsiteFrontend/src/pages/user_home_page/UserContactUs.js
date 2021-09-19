@@ -1,27 +1,30 @@
 import React from "react";
+import BroadcastForm from "../../components/Broadcast/Broadcast";
+import ContactUsForm from "../../components/ContactUs/ContactUsForm";
 
 const UserContactUs = () => {
   return (
-    <section style={{ height: "87vh" }}>
-      <div className="container h-100">
-        <div className="row align-items-center" style={{ height: "70vh" }}>
-          <div className="col-sm-8 section-heading">
+    <section>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-8 section-heading pt-10">
             <h2
               className="text-uppercase"
               data-aos={"fade-up"}
               data-aos-delay={100}
               data-aos-duration={700}
             >
-              Contact US
+              Contact Us
             </h2>
             <h4
-              className="text-uppercase"
+              className="text-uppercase pb-4"
               data-aos={"fade-up"}
               data-aos-delay={200}
               data-aos-duration={700}
             >
-              Contact Us
+              send message to us
             </h4>
+            <ContactUsForm />
           </div>
         </div>
       </div>

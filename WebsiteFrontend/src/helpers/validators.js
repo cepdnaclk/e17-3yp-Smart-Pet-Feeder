@@ -28,3 +28,7 @@ module.exports.isConfirmPassword = (password, value) => {
 module.exports.isValidDateTime = (value) => {
   return value > new Date();
 };
+
+module.exports.isValidMessage = (value) => {
+  return value.trim().length >= 20;
+};
