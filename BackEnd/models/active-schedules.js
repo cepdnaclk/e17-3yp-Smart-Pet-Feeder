@@ -17,6 +17,16 @@ const userSchema = new Schema({
         type:Boolean,
         required:false,
         default:false
+    },
+    userId:{
+        type:Schema.Types.ObjectId,
+        ref:'User',
+        required:false
+    },
+    creatorId:{
+        type:Schema.Types.ObjectId,
+        ref:'Admin',
+        required:false
     }
 
 

@@ -59,6 +59,23 @@ exports.getActiveSchedules = (req,res,next) =>{
         .catch(err => next(err))
 }
 
+exports.getScheduleHistory =(req,res,next) =>{
+    User.findById(req.userId)
+        .populate('ScheduleHistory')
+        .then(user =>{
+            if (!user.ScheduleHistory){
+                const error = new Error("Something went wrong");
+                error.statusCode = 500;
+                throw error;
+            }
+            res.status(201).json(user.ScheduleHistory);
+        })
+        .catch(err =>{
+            next(err);
+        })
+
+}
+
 
 
 // /auth/user [POST methods]/
@@ -210,7 +227,7 @@ exports.postSchedule = (req,res,next) =>{
         })
         .then(result =>{
 
-            res.status(201).json({message:'Scheduled Created!',scheduleId:result._id});
+            res.status(201).json({message:'Scheduled Created!',scheduleId:scheduleId});
         })
         .catch(err =>{
             console.log(err);
