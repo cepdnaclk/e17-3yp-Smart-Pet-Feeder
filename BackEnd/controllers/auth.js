@@ -211,6 +211,7 @@ exports.login = (req,res,next) =>{
 exports.postSchedule = (req,res,next) =>{
     let user;
     let scheduleId = req.body._id;
+    console.log(new Date());
     if (!scheduleId){
         scheduleId = new mongoose.Types.ObjectId();
         console.log(scheduleId);

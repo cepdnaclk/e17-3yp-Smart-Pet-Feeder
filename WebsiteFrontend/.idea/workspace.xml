@@ -2,27 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fee31508-3634-4ef0-be0e-b55df1bd462c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../BackEnd/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BackEnd/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../BackEnd/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BackEnd/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/controllers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BackEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserContactUs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserNotificationPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserVideoPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New folder/src/assets/css/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/New folder/src/assets/css/master.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ActiveSchedules/ActiveSchedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ActiveSchedules/ActiveSchedules.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ActiveSchedules/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ActiveSchedules/Schedule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form-Modal/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form-Modal/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form-Modal/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form-Modal/SignUpForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ScheduleForm/ScheduleForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScheduleForm/ScheduleForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Status/Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Status/Status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/validators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/use-input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/use-input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Schedule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user_home_page/UserStatusPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserStatusPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/schedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/schedules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducer/schedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/schedules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/history_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/history_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin_home_page/AdminHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin_home_page/AdminHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user_home_page/UserHistoryPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserHistoryPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user_home_page/UserHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserHomePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +63,7 @@
       <updated>1631904491830</updated>
       <workItem from="1631904493583" duration="27109000" />
       <workItem from="1631980658852" duration="4857000" />
-      <workItem from="1631986063239" duration="22413000" />
+      <workItem from="1631986063239" duration="42071000" />
     </task>
     <servers />
   </component>

@@ -4,9 +4,9 @@ import Schedule from "./Schedule";
 import ScheduleForm from "../ScheduleForm/ScheduleForm";
 import ConfirmationBox from "../ConfirmationBox/ConfirmationBox";
 import Loader from "react-loader-spinner";
-import { API_URL } from "../../configs/Configs";
 import { useDispatch, useSelector } from "react-redux";
 import * as schedulesActions from "../../store/actions/schedules";
+import Page500 from "../../pages/error_page/Page500";
 
 const ActiveSchedules = (props) => {
   const schedules = useSelector((state) => state.schedules.schedules);
@@ -58,35 +58,10 @@ const ActiveSchedules = (props) => {
     });
   };
 
-  const submitSchedule = (scheduleData) => {
-    setIsLoading(true);
-    dispatch(
-      schedulesActions.updateSchedule(
-        scheduleData._id,
-        scheduleData.title,
-        scheduleData.date_time
-      )
-    )
-      .then((response) => {
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        alert("Network Error. Please Try Again Later!");
-      });
-  };
-
   const deleteSchedule = (id) => {
     setIsLoading(true);
-    dispatch(schedulesActions.deleteSchedule(id))
-      .then((response) => {
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        alert("Network Error. Please Try Again Later!");
-      });
-
+    dispatch(schedulesActions.deleteSchedule(id));
+    setIsLoading(false);
     deleteHandleClose();
   };
 
@@ -98,9 +73,9 @@ const ActiveSchedules = (props) => {
     setScheduleDeleteData({ open: false, data: {} });
   };
 
-  // const filteredSchedules = schedules.sort((schedule1, schedule2) => {
-  //   return schedule1.date_time > schedule2.date_time;
-  // });
+  if (error) {
+    return <React.Fragment />;
+  }
 
   return (
     <React.Fragment>
@@ -110,7 +85,6 @@ const ActiveSchedules = (props) => {
           _id={scheduleEditData._id}
           status={scheduleEditData.status}
           handleClose={editHandleClose}
-          submitSchedule={submitSchedule}
         />
       )}
 

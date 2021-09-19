@@ -10,7 +10,7 @@ import AdminBroadcastPage from "./AdminBroadcastPage";
 import AdminFeedbackPage from "./AdminFeedbackPage";
 import Home from "./SmartPetFeederAdmin";
 
-const adminHomePage = () => {
+const AdminHomePage = () => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -55,7 +55,6 @@ const adminHomePage = () => {
             <Route path="*">
               <Redirect to={`${process.env.PUBLIC_URL}/admin/users`} />
             </Route>
-
           </Switch>
         </div>
 
@@ -65,4 +64,4 @@ const adminHomePage = () => {
   );
 };
 
-export default adminHomePage;
+export default AdminHomePage;

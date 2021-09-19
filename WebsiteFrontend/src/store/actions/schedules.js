@@ -61,7 +61,6 @@ export const createSchedule = (title, date_time) => {
 
 export const updateSchedule = (id, title, date_time) => {
   return async (dispatch, getState) => {
-    console.log("Updated Id", id);
     const token = getState().auth.token;
 
     const response = await fetch(API_URL + "/auth/user/post_schedules", {
@@ -79,12 +78,12 @@ export const updateSchedule = (id, title, date_time) => {
       }),
     });
 
-    console.log("Updated Prev Id ", id);
+    console.log("Updated Prev ", id, title, date_time);
     const resData = await response.json();
     console.log("Updated", resData);
     dispatch({
       type: UPDATE_SCHEDULE,
-      _id: resData.scheduleId,
+      _id: id,
       title: title,
       date_time: date_time,
       status: true,
@@ -109,7 +108,7 @@ export const deleteSchedule = (id) => {
 
     const resData = await response.json();
     console.log("Delete Prev Id, ", id);
-    console.log("Delete After Id, ", resData._id);
-    dispatch({ type: DELETE_SCHEDULE, id: id });
+    console.log("Delete After Id, ", resData.scheduleId);
+    dispatch({ type: DELETE_SCHEDULE, _id: id });
   };
 };
