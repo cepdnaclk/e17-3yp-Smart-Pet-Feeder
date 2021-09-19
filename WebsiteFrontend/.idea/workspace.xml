@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fee31508-3634-4ef0-be0e-b55df1bd462c" name="Changes" comment="" />
+    <list default="true" id="fee31508-3634-4ef0-be0e-b55df1bd462c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../BackEnd/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BackEnd/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BackEnd/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackEnd/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/controllers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ActiveSchedules/ActiveSchedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ActiveSchedules/ActiveSchedules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ActiveSchedules/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ActiveSchedules/Schedule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form-Modal/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form-Modal/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form-Modal/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form-Modal/SignUpForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ScheduleForm/ScheduleForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScheduleForm/ScheduleForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Status/Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Status/Status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/validators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/use-input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/use-input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Schedule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user_home_page/UserStatusPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserStatusPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/schedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/schedules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer/schedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/schedules.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,24 +39,26 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/error_page" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/hooks" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="actions.on.save" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sachi\OneDrive\Desktop\e17-3yp-Smart-Pet-Feeder\WebsiteFrontend\src\hooks" />
+      <recent name="C:\Users\sachi\OneDrive\Desktop\e17-3yp-Smart-Pet-Feeder\WebsiteFrontend\src\helpers" />
       <recent name="$PROJECT_DIR$/src/pages/error_page" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/data" />
-      <recent name="$PROJECT_DIR$/src/pages/Startup_page" />
-      <recent name="$PROJECT_DIR$/src/configs" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -46,10 +70,31 @@
       <option name="presentableId" value="Default" />
       <updated>1631904491830</updated>
       <workItem from="1631904493583" duration="27109000" />
+      <workItem from="1631980658852" duration="4857000" />
+      <workItem from="1631986063239" duration="22413000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

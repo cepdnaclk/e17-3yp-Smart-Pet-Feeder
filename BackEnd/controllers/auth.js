@@ -197,6 +197,7 @@ exports.postSchedule = (req,res,next) =>{
     let scheduleId = req.body._id;
     if (!scheduleId){
         scheduleId = new mongoose.Types.ObjectId();
+        console.log(scheduleId);
     }
     const schedule = new ActiveSchedule({
         _id : scheduleId,

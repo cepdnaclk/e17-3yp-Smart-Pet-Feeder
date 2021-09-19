@@ -3,16 +3,17 @@ import Icofont from "react-icofont";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Fab from "@material-ui/core/Fab";
-
-const msToTime = (duration) => {
-  let minutes = Math.floor((duration / (1000 * 60)) % 60),
-    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-
-  hours = hours < 10 ? "0" + hours : hours;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-
-  return hours + ":" + minutes;
-};
+import * as Functions from "../../helpers/functions";
+//
+// const msToTime = (duration) => {
+//   let minutes = Math.floor((duration / (1000 * 60)) % 60),
+//     hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+//
+//   hours = hours < 10 ? "0" + hours : hours;
+//   minutes = minutes < 10 ? "0" + minutes : minutes;
+//
+//   return hours + ":" + minutes;
+// };
 
 const Schedule = ({ index, schedule, editHandler, deleteHandler }) => {
   return (
@@ -43,16 +44,24 @@ const Schedule = ({ index, schedule, editHandler, deleteHandler }) => {
               AFTER
               <br />
               <span>
-                {msToTime(
-                  Date.parse(schedule.date + "," + schedule.time) - Date.now()
-                )}
-                h
+                {/*{msToTime(*/}
+                {/*  Date.parse(schedule.date + "," + schedule.time) - Date.now()*/}
+                {/*)}*/}
+                {!Functions.isExceedDay(schedule.date_time) &&
+                  Functions.getNumberOfHours(schedule.date_time)}
+                {Functions.isExceedDay(schedule.date_time) &&
+                  Functions.getNumberOfDays(schedule.date_time)}
               </span>
             </h2>
             <ul>
-              <li style={{ "font-size": "20px" }}>{schedule.date}</li>
+              <li style={{ fontSize: "20px" }}>
+                {" "}
+                {Functions.extractDate(new Date(schedule.date_time))}
+              </li>
 
-              <li style={{ "font-size": "20px" }}>{schedule.time}</li>
+              <li style={{ fontSize: "20px" }}>
+                {Functions.extractTime(new Date(schedule.date_time))}
+              </li>
             </ul>
           </React.Fragment>
         )}
@@ -72,13 +81,19 @@ const Schedule = ({ index, schedule, editHandler, deleteHandler }) => {
         )}
 
         <div className="row">
-          <div className="col-6" onClick={editHandler.bind(null, schedule)}>
+          <div
+            className="col-6"
+            onClick={editHandler.bind(null, schedule._id, schedule.status)}
+          >
             <Fab color="primary" aria-label="add">
               <EditIcon />
             </Fab>
           </div>
 
-          <div className="col-6" onClick={deleteHandler.bind(null, schedule)}>
+          <div
+            className="col-6"
+            onClick={deleteHandler.bind(null, schedule._id, schedule.title)}
+          >
             <Fab color="secondary" aria-label="add">
               <DeleteIcon />
             </Fab>

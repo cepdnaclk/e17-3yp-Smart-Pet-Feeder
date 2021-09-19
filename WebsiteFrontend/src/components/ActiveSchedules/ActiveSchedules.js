@@ -1,24 +1,39 @@
 import React, { useState, useCallback, useEffect, useContext } from "react";
 import Schedule from "./Schedule";
-import scheduleData from "../../data/Schedule/schedule-data.json";
+
 import ScheduleForm from "../ScheduleForm/ScheduleForm";
 import ConfirmationBox from "../ConfirmationBox/ConfirmationBox";
-import AuthContext from "../../stores/auth-context";
 import Loader from "react-loader-spinner";
 import { API_URL } from "../../configs/Configs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import * as schedulesActions from "../../store/actions/schedules";
 
 const ActiveSchedules = (props) => {
-  // const [scheduleData,setScheduleData] = useState({});
-  const [schedules, setSchedules] = useState(scheduleData);
+  const schedules = useSelector((state) => state.schedules.schedules);
+  const dispatch = useDispatch();
+
   const [isLoading, setIsLoading] = useState(false);
-  const token = useSelector((state) => {
-    return state.auth.token;
-  });
+  const [error, setError] = useState();
+
+  const loadSchedules = useCallback(() => {
+    setError(null);
+    setIsLoading(true);
+
+    return dispatch(schedulesActions.fetchSchedules())
+      .then((response) => {
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, [dispatch, setIsLoading, setError]);
+
+  useEffect(() => {
+    loadSchedules();
+  }, [dispatch, loadSchedules]);
 
   const [scheduleEditData, setScheduleEditData] = React.useState({
     open: false,
-    data: {},
   });
 
   const [scheduleDeleteData, setScheduleDeleteData] = React.useState({
@@ -26,158 +41,53 @@ const ActiveSchedules = (props) => {
     data: {},
   });
 
-  const editSchedulePop = (scheduleData) => {
+  const editSchedulePop = (id, status) => {
     setScheduleEditData({
       open: true,
-      data: {
-        id: scheduleData.id,
-        title: scheduleData.title,
-        date: scheduleData.date,
-        time: scheduleData.time,
-      },
+      _id: id,
+      status: status,
     });
   };
 
-  const deleteSchedulePop = (scheduleData) => {
+  const deleteSchedulePop = (id, title) => {
     setScheduleDeleteData({
       open: true,
-      data: {
-        id: scheduleData.id,
-        title: scheduleData.title,
-      },
+
+      _id: id,
+      title: title,
     });
   };
 
-  const fetchSchedules = useCallback(() => {
+  const submitSchedule = (scheduleData) => {
     setIsLoading(true);
-
-    fetch(API_URL + "/auth/user/get_schedules", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-
-    })
+    dispatch(
+      schedulesActions.updateSchedule(
+        scheduleData._id,
+        scheduleData.title,
+        scheduleData.date_time
+      )
+    )
       .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const fetchedSchedules = [
-          {
-            id: 1,
-            title: data[0].title,
-            date: data[0].date,
-            time: data[0].time,
-            featured: data[0].featured,
-            status: data[0].status,
-          },
-          {
-            id: 2,
-            title: data[1].title,
-            date: data[1].date,
-            time: data[1].time,
-            featured: data[1].featured,
-            status: data[1].status,
-          },
-
-          {
-            id: 3,
-            title: data[2].title,
-            date: data[2].date,
-            time: data[2].time,
-            featured: data[2].featured,
-            status: data[2].status,
-          },
-          {
-            id: 4,
-            title: data[3].title,
-            date: data[3].date,
-            time: data[3].time,
-            featured: data[3].featured,
-            status: data[3].status,
-          },
-        ];
-
-        setSchedules(fetchedSchedules);
         setIsLoading(false);
       })
-      .catch((err) => {});
-  }, []);
-
-  useEffect(() => {
-    fetchSchedules();
-  }, [fetchSchedules]);
-
-  const submitSchedule = (scheduleData) => {
-    let currentSchedules = [...schedules];
-    const index = currentSchedules.findIndex(
-      (schedule) => schedule.id === scheduleData.id
-    );
-
-
-    fetch("http://localhost:8080/auth/user/post_schedules", {
-      method: "POST",
-
-      body: JSON.stringify({
-        position_id: scheduleData.id,
-        title: scheduleData.title,
-        date: scheduleData.date,
-        time: scheduleData.time,
-        featured: scheduleData.featured,
-        status: scheduleData.status,
-      }),
-      headers: {
-        Authorization: "Bearer " + token,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          currentSchedules[index].title = scheduleData.title;
-          currentSchedules[index].date = scheduleData.date;
-          currentSchedules[index].time = scheduleData.time;
-          currentSchedules[index].status = true;
-
-          setSchedules(currentSchedules);
-
-          editHandleClose();
-        }
-      })
-      .catch((err) => {});
+      .catch((err) => {
+        setIsLoading(false);
+        alert("Network Error. Please Try Again Later!");
+      });
   };
 
   const deleteSchedule = (id) => {
-    let currentSchedules = [...schedules];
-
-    let index = currentSchedules.findIndex((schedule) => {
-      return schedule.id === id;
-    });
-
-
-    fetch("http://localhost:8080/auth/user/delete_schedule", {
-      method: "PUT",
-
-      body: JSON.stringify({
-        position_id: id,
-      }),
-      headers: {
-        Authorization: "Bearer " + token,
-        "Content-Type": "application/json",
-      },
-    })
+    setIsLoading(true);
+    dispatch(schedulesActions.deleteSchedule(id))
       .then((response) => {
-        if (response.ok) {
-          currentSchedules[index].title = "";
-          currentSchedules[index].date = "";
-          currentSchedules[index].time = "";
-          currentSchedules[index].status = false;
-
-          setSchedules(currentSchedules);
-
-          deleteHandleClose();
-        }
+        setIsLoading(false);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        setIsLoading(false);
+        alert("Network Error. Please Try Again Later!");
+      });
+
+    deleteHandleClose();
   };
 
   const editHandleClose = () => {
@@ -188,22 +98,26 @@ const ActiveSchedules = (props) => {
     setScheduleDeleteData({ open: false, data: {} });
   };
 
+  // const filteredSchedules = schedules.sort((schedule1, schedule2) => {
+  //   return schedule1.date_time > schedule2.date_time;
+  // });
+
   return (
     <React.Fragment>
-      <ScheduleForm
-        id={scheduleEditData.data.id}
-        open={scheduleEditData.open}
-        title={scheduleEditData.data.title}
-        date={scheduleEditData.data.date}
-        time={scheduleEditData.data.time}
-        handleClose={editHandleClose}
-        submitSchedule={submitSchedule}
-      />
+      {scheduleEditData.open && (
+        <ScheduleForm
+          open={scheduleEditData.open}
+          _id={scheduleEditData._id}
+          status={scheduleEditData.status}
+          handleClose={editHandleClose}
+          submitSchedule={submitSchedule}
+        />
+      )}
 
       <ConfirmationBox
-        id={scheduleDeleteData.data.id}
+        id={scheduleDeleteData._id}
         open={scheduleDeleteData.open}
-        title={scheduleDeleteData.data.title}
+        title={scheduleDeleteData.title}
         handleClose={deleteHandleClose}
         deleteSchedule={deleteSchedule}
       />
@@ -245,7 +159,6 @@ const ActiveSchedules = (props) => {
               {schedules.map((schedule, i) => (
                 <Schedule
                   schedule={schedule}
-                  index={i}
                   editHandler={editSchedulePop}
                   deleteHandler={deleteSchedulePop}
                   key={i}
