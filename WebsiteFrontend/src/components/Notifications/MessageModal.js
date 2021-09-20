@@ -10,7 +10,7 @@ import useInput from "../../hooks/use-input";
 import Button from "@material-ui/core/Button";
 
 import * as Validators from "../../helpers/validators";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as authActions from "../../store/actions/auth";
 import Loader from "react-loader-spinner";
 import Icofont from "react-icofont";
@@ -65,7 +65,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MessageModal(props) {
-  console.log("Message modal", props);
+  const notifications = useSelector(
+    (state) => state.notifications.notifications
+  );
+  const notification = notifications.find(
+    (notification) => notification._id === props.id
+  );
+
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -91,14 +97,23 @@ export default function MessageModal(props) {
         <Fade in={props.open}>
           <div className="pricing-box" style={{ width: 400 }}>
             <div align="middle" className="pb-3">
-              <h4 style={{ fontSize: 16 }}>{props.title}</h4>
+              <h4 style={{ fontSize: 16 }}>{notification.title}</h4>
             </div>
 
             <div align="middle">
-              <p className="">{props.message}</p>
+              <p className="">{notification.message}</p>
             </div>
-            <div align="middle" className="pt-3" onClick={markAsRead}>
-              <Fab color="primary" aria-label="add" size="medium">
+            <div
+              align="middle"
+              className="pt-3"
+              onClick={!notification.isRead ? markAsRead : () => {}}
+            >
+              <Fab
+                color="primary"
+                aria-label="add"
+                size="medium"
+                disabled={notification.isRead}
+              >
                 <DoneIcon />
               </Fab>
             </div>

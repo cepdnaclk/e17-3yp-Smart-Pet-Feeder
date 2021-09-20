@@ -25,14 +25,11 @@ export default function NotificationBar({
   title,
   message,
   date_time,
-  status,
+  isRead,
   showMessage,
 }) {
   return (
-    <div
-      className="mt-30 mb-30"
-      onClick={showMessage.bind(null, id, title, message)}
-    >
+    <div className="mt-30 mb-30" onClick={showMessage.bind(null, id)}>
       <div className="row pricing-box notification pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
         <div className="col-md-2">
           <div className="mt-2">
@@ -71,9 +68,9 @@ export default function NotificationBar({
         <div className="col-md-2">
           <div className="mt-3">
             <Icofont
-              icon={status === 1 ? "arrow-up" : "check-circled"}
+              icon={isRead === false ? "arrow-up" : "check-circled"}
               size="10"
-              style={{ color: status === 1 ? "green" : "orange" }}
+              style={{ color: isRead === false ? "green" : "orange" }}
             />
           </div>
 
@@ -81,10 +78,10 @@ export default function NotificationBar({
             className="mt-2"
             style={{
               fontSize: "16px",
-              color: status === 1 ? "green" : "orange",
+              color: isRead === false ? "green" : "orange",
             }}
           >
-            <b>{status === 1 ? "Not Seen" : "Seen"}</b>
+            <b>{isRead === false ? "Not Seen" : "Seen"}</b>
 
             {/*<b>In Completed</b>*/}
           </div>
