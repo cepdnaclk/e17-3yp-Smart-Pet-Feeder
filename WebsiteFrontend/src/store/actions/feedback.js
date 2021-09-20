@@ -4,7 +4,7 @@ export const sendFeedback = (title, message) => {
   return async (dispatch, getState) => {
     const token = getState().auth.token;
 
-    const response = await fetch(API_URL + "/auth/user/post_feedbacks", {
+    const response = await fetch(API_URL + "/auth/user/post_feedback", {
       method: "POST",
       headers: {
         Authorization: "Bearer " + token,

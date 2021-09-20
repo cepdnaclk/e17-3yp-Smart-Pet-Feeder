@@ -8,6 +8,7 @@ import * as Functions from "../../helpers/functions";
 import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { extractDate } from "../../helpers/functions";
 
 const useStyles = makeStyles((theme) => ({
   schedule_bar: {
@@ -19,21 +20,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ScheduleBar({ title, date_time, status }) {
+export default function NotificationBar({
+  id,
+  title,
+  message,
+  date_time,
+  status,
+  showMessage,
+}) {
   return (
-    <div className="mt-30 mb-30">
-      <div
-        className="row pricing-box pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2"
-        style={{ boxShadow: "0 10px 30px 5px rgba(17, 21, 23, 0.1)" }}
-      >
+    <div
+      className="mt-30 mb-30"
+      onClick={showMessage.bind(null, id, title, message)}
+    >
+      <div className="row pricing-box notification pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
         <div className="col-2">
           <div className="mt-2">
-            <Icofont icon="dog" size="10" style={{ fontSize: "80px" }} />
+            <Icofont icon="email" size="10" style={{ fontSize: "80px" }} />
           </div>
         </div>
 
         <div className="col-8">
-          <h4>{title}</h4>
+          <h4 style={{ fontSize: 16 }}>{title}</h4>
           {/*<h2>*/}
           {/*  <span>Remaining Time</span>*/}
           {/*</h2>*/}
@@ -42,7 +50,7 @@ export default function ScheduleBar({ title, date_time, status }) {
             <div className="col-6">
               <Icofont icon="calendar" size="10" style={{ fontSize: "20px" }} />
               <span style={{ fontSize: "18px" }}>
-                <b>&nbsp; &nbsp;{Functions.extractDate(date_time)}</b>
+                <b>&nbsp; &nbsp;{Functions.extractDate(new Date(date_time))}</b>
               </span>
             </div>
             <div className="col-6">
@@ -52,7 +60,9 @@ export default function ScheduleBar({ title, date_time, status }) {
                 style={{ fontSize: "20px" }}
               />
               <span style={{ fontSize: "18px" }}>
-                <b>&nbsp; &nbsp;{Functions.extractTime(date_time)}</b>
+                <b>
+                  &nbsp; &nbsp; {Functions.extractTime(new Date(date_time))}
+                </b>
               </span>
             </div>
           </div>
@@ -61,17 +71,22 @@ export default function ScheduleBar({ title, date_time, status }) {
         <div className="col-2">
           <div className="mt-3">
             <Icofont
-              icon={status === 1 ? "check-circled" : "close-circled"}
+              icon={status === 1 ? "arrow-up" : "check-circled"}
               size="10"
-              style={{ color: status === 1 ? "green" : "red" }}
+              style={{ color: status === 1 ? "green" : "orange" }}
             />
           </div>
 
           <div
             className="mt-2"
-            style={{ fontSize: "16px", color: status === 1 ? "green" : "red" }}
+            style={{
+              fontSize: "16px",
+              color: status === 1 ? "green" : "orange",
+            }}
           >
-            <b>{status === 1 ? "Completed" : "Incomplete"}</b>
+            <b>{status === 1 ? "Not Seen" : "Seen"}</b>
+
+            {/*<b>In Completed</b>*/}
           </div>
         </div>
 
