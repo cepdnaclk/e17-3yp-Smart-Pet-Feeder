@@ -346,7 +346,7 @@ exports.postMarkedAsRead = (req,res,next)=>{
                 throw error;
             }
 
-            user.notifications[index].isRead =false;
+            user.notifications[index].isRead =true;
             return user.notifications[index].save();
         })
         .then(result =>{
