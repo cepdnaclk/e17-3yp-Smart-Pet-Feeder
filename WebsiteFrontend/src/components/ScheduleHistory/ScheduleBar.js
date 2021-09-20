@@ -26,13 +26,13 @@ export default function ScheduleBar({ title, date_time, status }) {
         className="row pricing-box pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2"
         style={{ boxShadow: "0 10px 30px 5px rgba(17, 21, 23, 0.1)" }}
       >
-        <div className="col-2">
+        <div className="col-md-2">
           <div className="mt-2">
             <Icofont icon="dog" size="10" style={{ fontSize: "80px" }} />
           </div>
         </div>
 
-        <div className="col-8">
+        <div className="col-md-8">
           <h4>{title}</h4>
           {/*<h2>*/}
           {/*  <span>Remaining Time</span>*/}
@@ -58,7 +58,7 @@ export default function ScheduleBar({ title, date_time, status }) {
           </div>
         </div>
 
-        <div className="col-2">
+        <div className="col-md-2">
           <div className="mt-3">
             <Icofont
               icon={status === 1 ? "check-circled" : "close-circled"}
