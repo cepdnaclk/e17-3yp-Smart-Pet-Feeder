@@ -36,7 +36,9 @@ export default function Register(props) {
 
   useEffect(() => {
     if (error) {
-      Alert.alert("Authentication Failed!", error, [{ text: "Okay" }]);
+      Alert.alert("Authentication Failed!", "Email already exists", [
+        { text: "Okay" },
+      ]);
     }
   }, [error]);
 

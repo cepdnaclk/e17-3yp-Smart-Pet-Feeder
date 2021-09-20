@@ -15,42 +15,68 @@ const initialState = {
 const scheduleReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SCHEDULES:
+      const filteredSchedules0 = action.schedules.sort(
+        (schedule1, schedule2) => {
+          return (
+            Date.parse(schedule1.date_time) > Date.parse(schedule2.date_time)
+          );
+        }
+      );
       return {
-        schedules: action.schedules,
+        schedules: filteredSchedules0,
       };
 
     case CREATE_SCHEDULE:
       const newSchedule = new Schedule(
-        1,
-        new Date().toString(),
-        action.scheduleData.title,
-        action.scheduleData.date_time
+        action._id,
+        action.title,
+        action.date_time,
+        action.status
       );
+      console.log("New Schedule", newSchedule);
+      const temp1 = [...state.schedules];
+      const addedSchedules = temp1.concat(newSchedule);
+      const filteredSchedules1 = addedSchedules.sort((schedule1, schedule2) => {
+        return (
+          Date.parse(schedule1.date_time) > Date.parse(schedule2.date_time)
+        );
+      });
+
       return {
-        schedules: state.schedules.concat(newSchedule),
+        schedules: filteredSchedules1,
       };
 
     case UPDATE_SCHEDULE:
-      const index = state.schedules.findIndex(
-        (schedule) => schedule.id === action.scheduleData.id
-      );
-      const updatedSchedule = new Schedule(
-        1,
-        action.scheduleData.id,
-        action.scheduleData.title,
-        action.scheduleData.date_time
-      );
       const updatedSchedules = [...state.schedules];
+
+      const index = updatedSchedules.findIndex(
+        (schedule) => schedule._id === action._id
+      );
+
+      const updatedSchedule = new Schedule(
+        action._id,
+        action.title,
+        action.date_time,
+        action.status
+      );
       updatedSchedules[index] = updatedSchedule;
 
+      const filteredSchedules2 = updatedSchedules.sort(
+        (schedule1, schedule2) => {
+          return (
+            Date.parse(schedule1.date_time) > Date.parse(schedule2.date_time)
+          );
+        }
+      );
+
       return {
-        schedules: updatedSchedules,
+        schedules: filteredSchedules2,
       };
 
     case DELETE_SCHEDULE:
       return {
         schedules: state.schedules.filter(
-          (schedule) => schedule.id !== action.id
+          (schedule) => schedule._id !== action._id
         ),
       };
   }

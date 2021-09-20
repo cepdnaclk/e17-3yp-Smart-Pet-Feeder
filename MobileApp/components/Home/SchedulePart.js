@@ -1,22 +1,22 @@
 import { View } from "react-native";
 import Styles from "../../config/Styles";
-import { Divider, Text, Button } from "react-native-paper";
+import { Divider, Text, Button, FAB } from "react-native-paper";
 import ScheduleForm from "./ScheduleForm";
 import ActiveSchedules from "./ActiveSchedules";
 import React, { useCallback, useState } from "react";
 import * as ScheduleActions from "../../store/actions/schedules";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DialogBox from "./DialogBox";
+import ColorsApp from "../../config/ColorsApp";
+import { DotIndicator } from "react-native-indicators";
 
-const SchedulePart = () => {
+const SchedulePart = (props) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isUpdate, setIsUpdate] = useState();
   const [updateId, setUpdateId] = useState();
 
   const [isDialogShow, setIsDialogShow] = React.useState(false);
   const [deleteId, setDeleteId] = useState();
-
-  const showDialog = () => setIsDialogShow(true);
 
   const hideDialog = () => setIsDialogShow(false);
 
@@ -42,6 +42,8 @@ const SchedulePart = () => {
     setModalVisible(false);
   };
 
+  const schedules = useSelector((state) => state.schedules.schedules);
+
   return (
     <React.Fragment>
       <View style={Styles.cardContent}>
@@ -49,6 +51,16 @@ const SchedulePart = () => {
           Active Schedules
         </Text>
       </View>
+
+      {schedules.length < 4 && (
+        <FAB
+          style={Styles.fab}
+          small
+          icon="plus"
+          onPress={onPressPlusButton}
+          color="white"
+        />
+      )}
 
       <Divider style={{ marginTop: 20, paddingTop: 2 }} />
       {isModalVisible && (
@@ -68,11 +80,19 @@ const SchedulePart = () => {
         />
       )}
 
-      <ActiveSchedules
-        onPressPlusButton={onPressPlusButton}
-        onEditSchedule={onEditSchedule}
-        onDeleteSchedule={onDeleteSchedule}
-      />
+      {props.isLoading && (
+        <View style={{ marginTop: 20 }}>
+          <DotIndicator color={ColorsApp.PRIMARY} />
+        </View>
+      )}
+
+      {!props.isLoading && (
+        <ActiveSchedules
+          onEditSchedule={onEditSchedule}
+          onDeleteSchedule={onDeleteSchedule}
+          schedules={schedules}
+        />
+      )}
     </React.Fragment>
   );
 };
