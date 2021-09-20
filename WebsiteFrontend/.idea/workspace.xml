@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="fee31508-3634-4ef0-be0e-b55df1bd462c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Notifications/MessageModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Notifications/MessageModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Notifications/NotificationBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Notifications/NotificationBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Notifications/Notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Notifications/Notifications.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user_home_page/UserHistoryPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserHistoryPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/notifications.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer/notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer/notifications.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +60,7 @@
       <updated>1631904491830</updated>
       <workItem from="1631904493583" duration="27109000" />
       <workItem from="1631980658852" duration="4857000" />
-      <workItem from="1631986063239" duration="54266000" />
+      <workItem from="1631986063239" duration="61540000" />
     </task>
     <servers />
   </component>
