@@ -210,6 +210,15 @@ exports.login = (req,res,next) =>{
 
 
 exports.postSchedule = (req,res,next) =>{
+    let errors = validationResult(req);
+    if (!errors.isEmpty()){
+        const message = errors.array()[0].msg;
+        const error = new Error(message);
+        error.statusCode = 422;
+        error.data = errors.array();
+        throw error;
+    }
+
     let user;
     let scheduleId = req.body._id;
     console.log(new Date());
