@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 
 const authUserRoutes = require("./routes/user");
 
+const authAdminRoutes = require("./routes/admin");
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -19,6 +21,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/auth/user", authUserRoutes);
+
+app.use("/auth/admin", authAdminRoutes);
 
 
 app.use((error, req, res, next) => {
