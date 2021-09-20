@@ -3,7 +3,7 @@ import useInput from "../../hooks/use-input";
 import * as Validators from "../../helpers/validators";
 import * as authActions from "../../store/actions/auth";
 import Button from "@material-ui/core/Button";
-import { sendFeedback } from "../../store/actions/feedback";
+import { submitFeedback } from "../../store/actions/feedback";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Loader from "react-loader-spinner";
@@ -44,7 +44,7 @@ const ContactUsForm = () => {
     setError(null);
     setIsLoading(true);
     try {
-      await dispatch(sendFeedback(title, message));
+      await dispatch(submitFeedback(title, message));
       history.replace(`${process.env.PUBLIC_URL}/user/contactus`);
     } catch (err) {
       setError(err.message);
