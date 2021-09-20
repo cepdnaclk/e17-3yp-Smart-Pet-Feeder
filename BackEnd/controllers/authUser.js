@@ -94,6 +94,7 @@ exports.getNotifications = (req,res,next) =>{
 
 
 
+
 // /auth/user [POST methods]/
 exports.signUp = (req,res,next) =>{
     const errors = validationResult(req);
@@ -234,7 +235,7 @@ exports.postSchedule = (req,res,next) =>{
             });
 
             if (owner.ActiveSchedules.length < 4){
-                if (index <4 && index >0){
+                if (index <4 && index >=0){
                     owner.ActiveSchedules[index] = schedule;
                 }
                 else {
@@ -243,7 +244,7 @@ exports.postSchedule = (req,res,next) =>{
                 return owner.save();
             }
             else if(owner.ActiveSchedules.length === 4 ){
-                if (index <4 && index >0){
+                if (index <4 && index >=0){
                     owner.ActiveSchedules[index] = schedule;
                     return owner.save();
                 }
@@ -316,3 +317,34 @@ exports.postFeedback = (req,res,next) =>{
         })
 }
 
+exports.postMarkedAsRead = (req,res,next)=>{
+    let notificationId = req.body._id;
+    if (!notificationId){
+        const error = new Error("Error Occurred");
+        error.statusCode = 422;
+        throw error;
+    }
+    User.findById(req.userId)
+        .populate('notifications')
+        .then(user =>{
+            const index = user.notifications.findIndex(notification => {
+
+                return notification._id.toString() === notificationId;
+            });
+            if (index < 0){
+                const error = new Error("Error! notification not found");
+                error.statusCode = 422;
+                throw error;
+            }
+
+            user.notifications[index].isRead =false;
+            return user.notifications[index].save();
+        })
+        .then(result =>{
+            res.status(201).json({_id:result._id,message:"Successful"})
+        })
+        .catch(err =>{
+            console.log(err);
+        })
+    ;
+}
