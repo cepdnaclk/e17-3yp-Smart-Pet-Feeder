@@ -1,9 +1,9 @@
 class Schedule {
-  constructor(userId, id, title, date_time) {
-    this.userId = userId;
-    this.id = id;
+  constructor(_id, title, date_time, status) {
+    this._id = _id;
     this.title = title;
     this.date_time = date_time;
+    this.status = status;
   }
 }
 

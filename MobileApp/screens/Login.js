@@ -48,7 +48,9 @@ export default function Login(props) {
 
   useEffect(() => {
     if (error) {
-      Alert.alert("Authentication Failed!", error, [{ text: "Okay" }]);
+      Alert.alert("Authentication Failed!", "Invalid email or password", [
+        { text: "Okay" },
+      ]);
     }
   }, [error]);
 

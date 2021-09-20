@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { SafeAreaView, View, StyleSheet, Image } from "react-native";
+import React, { useCallback, useEffect, useState } from "react";
+import { SafeAreaView, View, StyleSheet, Image, Alert } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
 import Styles from "../config/Styles";
 import ColorsApp from "../config/ColorsApp";
 import useInput from "../hooks/use-input";
 import * as Validators from "../helpers/validators";
+import { useDispatch } from "react-redux";
+import { submitFeedback } from "../store/actions/feedback";
+import { DotIndicator } from "react-native-indicators";
 
 export default function ContactUs(props) {
   const {
@@ -27,11 +30,37 @@ export default function ContactUs(props) {
 
   const isFormValid = titleIsValid && messageIsValid;
 
-  const submitFeedback = () => {
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+  // if (error) {
+  //   return <Maintainance loadStatus={loadStatus} />;
+  // }
+
+  const onsubmitFeedback = () => {
     if (!isFormValid) return;
+    setIsLoading(true);
+    return dispatch(submitFeedback(title, message))
+      .then((response) => {
+        resetTitle();
+        resetMessage();
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err.message);
+      });
   };
 
   let msgCharCount = message.length;
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert("Submit schedule failed", "Try again later!", [
+        { text: "Okay" },
+      ]);
+    }
+  }, [error]);
 
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
@@ -107,20 +136,26 @@ export default function ContactUs(props) {
           marginBottom: 20,
         }}
       >
-        <Button
-          disabled={!isFormValid}
-          mode="contained"
-          style={{ borderRadius: 100 }}
-          contentStyle={{
-            paddingVertical: 10,
-            backgroundColor: !isFormValid ? "grey" : "green",
-            width: 250,
-          }}
-          labelStyle={Styles.SignButtonLabel}
-          onPress={submitFeedback}
-        >
-          Submit
-        </Button>
+        {isLoading ? (
+          <View style={{ height: 57 }}>
+            <DotIndicator color={ColorsApp.PRIMARY} />
+          </View>
+        ) : (
+          <Button
+            disabled={!isFormValid}
+            mode="contained"
+            style={{ borderRadius: 100 }}
+            contentStyle={{
+              paddingVertical: 10,
+              backgroundColor: !isFormValid ? "grey" : "green",
+              width: 250,
+            }}
+            labelStyle={Styles.SignButtonLabel}
+            onPress={onsubmitFeedback}
+          >
+            Submit
+          </Button>
+        )}
       </View>
     </SafeAreaView>
   );

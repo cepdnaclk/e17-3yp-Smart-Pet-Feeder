@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   View,
   StyleSheet,
   SafeAreaView,
   FlatList,
   Platform,
+  ScrollView,
+  RefreshControl,
 } from "react-native";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PastSchedule from "../components/History/PastSchedule";
 import { Button, Switch, Text } from "react-native-paper";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Icon from "react-native-dynamic-vector-icons/lib/Icon";
+import { fetchHistory } from "../store/actions/history";
 
 import * as Validators from "../helpers/functions";
 import ColorsApp from "../config/ColorsApp";
+import Maintainance from "../components/Error/Maintainance";
+import { DotIndicator } from "react-native-indicators";
+import * as statusActions from "../store/actions/status";
 
 const renderListItem = (itemData) => {
   return <PastSchedule pastSchedule={itemData} />;
 };
 
 export default function History(props) {
-  const history = useSelector((state) => state.history.history);
+  const historyData = useSelector((state) => state.history.history);
   const [showLatest, setShowLatest] = React.useState(false);
   const [filteredDate, setFilteredDate] = useState(new Date());
   const [isFiltered, setIsFiltered] = useState(false);
@@ -53,7 +59,7 @@ export default function History(props) {
     setFilteredDate(new Date());
   };
 
-  let filteredHistory = [...history];
+  let filteredHistory = [...historyData];
   if (isFiltered) {
     // console.log("filtering by date");
 
@@ -69,11 +75,38 @@ export default function History(props) {
     filteredHistory = filteredHistory.sort(Validators.dateCompare);
   }
 
-  // console.log(filteredHistory);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const onChangeScreen = (screen) => {
-    props.navigation.navigate(screen);
-  };
+  const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+
+  const loadHistory = useCallback(() => {
+    setError(null);
+    // setIsLoading(true);
+    setIsRefreshing(true);
+
+    return dispatch(fetchHistory())
+      .then((response) => {
+        setIsRefreshing(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, [dispatch, setIsRefreshing, setError]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    loadHistory().then(() => {
+      setIsLoading(false);
+    });
+  }, [dispatch, loadHistory]);
+
+  // if (error) {
+  //   return <Maintainance loadStatus={loadHistory} />;
+  // }
+
   return (
     <SafeAreaView>
       <View style={styles.Container}>
@@ -149,12 +182,23 @@ export default function History(props) {
         )}
       </View>
 
-      <FlatList
-        contentContainerStyle={{ paddingBottom: 150 }}
-        keyExtractor={(item) => item.id}
-        data={filteredHistory}
-        renderItem={renderListItem}
-      />
+      {isLoading && (
+        <View style={{ marginTop: 80 }}>
+          <DotIndicator color={ColorsApp.PRIMARY} />
+        </View>
+      )}
+
+      {!isLoading && (
+        <FlatList
+          refreshControl={
+            <RefreshControl refreshing={isRefreshing} onRefresh={loadHistory} />
+          }
+          contentContainerStyle={{ paddingBottom: 150 }}
+          keyExtractor={(item) => item._id}
+          data={filteredHistory}
+          renderItem={renderListItem}
+        />
+      )}
     </SafeAreaView>
   );
 }

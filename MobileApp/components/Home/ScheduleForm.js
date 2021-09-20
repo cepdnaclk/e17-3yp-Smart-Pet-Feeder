@@ -31,7 +31,7 @@ const ScheduleForm = (props) => {
   let schedule = null;
   if (props.isUpdate) {
     schedule = useSelector((state) => {
-      return state.schedules.schedules.find((prod) => prod.id === props.id);
+      return state.schedules.schedules.find((prod) => prod._id === props.id);
     });
   }
 
@@ -58,7 +58,7 @@ const ScheduleForm = (props) => {
     }
 
     if (schedule) {
-      dispatch(ScheduleActions.updateSchedule(schedule.id, title, dateOrTime));
+      dispatch(ScheduleActions.updateSchedule(schedule._id, title, dateOrTime));
     } else {
       dispatch(ScheduleActions.createSchedule(title, dateOrTime));
     }
@@ -194,7 +194,9 @@ const ScheduleForm = (props) => {
 
               {!isValidDateTime && (
                 <View style={Styles.Error}>
-                  <Text style={{ color: "red" }}>Invalid Date & Time</Text>
+                  <Text style={{ color: "red" }}>
+                    Time should be 10 minutes ahead
+                  </Text>
                 </View>
               )}
 
