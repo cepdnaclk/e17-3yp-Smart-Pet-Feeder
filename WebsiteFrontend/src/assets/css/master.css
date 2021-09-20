@@ -2919,6 +2919,10 @@ img.mfp-img {
 /*=============================================
                         Pricing Table
 =============================================*/
+.notification:hover{
+  boxShadow: 0 10px 30px 5px rgba(17, 21, 23, 0.1);
+  cursor: pointer;
+}
 .pricing-table {
   margin: 40px 0;
 }

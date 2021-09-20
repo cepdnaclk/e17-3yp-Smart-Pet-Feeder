@@ -1,13 +1,18 @@
 import React from "react";
 import ScheduleBar from "./ScheduleBar";
-import schedule_data from "../../data/history_data.json";
+import historyData from "../../data/history_data.json";
 
 export default function ScheduleHistory() {
   return (
     // <section>
     <div className="container">
-      {schedule_data.map((data) => (
-        <ScheduleBar title={data.title} status={data.status} key={data.id} />
+      {historyData.map((data) => (
+        <ScheduleBar
+          title={data.title}
+          date_time={data.date_time}
+          status={data.status}
+          key={data.id}
+        />
       ))}
     </div>
     // </section>

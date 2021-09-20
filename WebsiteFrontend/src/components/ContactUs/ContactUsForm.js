@@ -49,6 +49,8 @@ const ContactUsForm = () => {
     } catch (err) {
       setError(err.message);
     }
+    resetTitle();
+    resetMessage();
     setIsLoading(false);
   };
 
@@ -75,7 +77,7 @@ const ContactUsForm = () => {
 
         {titleHasError && (
           <p className="error-message" style={{ fontSize: 16 }}>
-            * Minimum length is 5 characters
+            * Title should contain at least 5 characters
           </p>
         )}
       </div>
@@ -94,7 +96,7 @@ const ContactUsForm = () => {
 
         {messageHasError && (
           <p className="error-message" style={{ fontSize: 16 }}>
-            * Minimum length is 20 characters
+            * Message should contain at least 20 characters
           </p>
         )}
       </div>
