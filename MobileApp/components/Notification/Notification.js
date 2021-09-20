@@ -13,17 +13,21 @@ const Notification = (props) => {
         style={{
           ...Styles.card6,
           backgroundColor:
-            props.NotificationData.item.status === 1 ? "#85F1BA" : "white",
+            props.NotificationData.item.isRead === false ? "#85F1BA" : "white",
         }}
       >
         <TouchableOpacity
-          onPress={props.showMessage.bind(null, props.NotificationData.item.id)}
+          onPress={props.showMessage.bind(
+            null,
+            props.NotificationData.item._id
+          )}
         >
           <View style={styles.cardTitle}>
             <Title
               style={{
                 fontSize: 16,
                 fontWeight: "bold",
+
                 lineHeight: 22,
               }}
             >

@@ -33,18 +33,21 @@ export const createSchedule = (title, date_time) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        position_id: 1,
         title: title,
-        date: "2018/04/07",
-        time: "08:25",
-        featured: false,
+        date_time: date_time,
         status: true,
       }),
     });
 
     const resData = await response.json();
     console.log(resData);
-    // dispatch({ type: SET_SCHEDULES, schedules: resData });
+    dispatch({
+      type: CREATE_SCHEDULE,
+      _id: resData.scheduleId,
+      title: title,
+      date_time: date_time,
+      status: true,
+    });
   };
 
   // return {
@@ -57,16 +60,55 @@ export const createSchedule = (title, date_time) => {
 };
 
 export const updateSchedule = (id, title, date_time) => {
-  return {
-    type: UPDATE_SCHEDULE,
-    scheduleData: {
-      id,
-      title,
-      date_time,
-    },
+  return async (dispatch, getState) => {
+    const token = getState().auth.token;
+
+    const response = await fetch(API_URL + "/auth/user/post_schedules", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        _id: id,
+        title: title,
+        date_time: date_time,
+        status: true,
+      }),
+    });
+
+    console.log("Updated Prev ", id, title, date_time);
+    const resData = await response.json();
+    console.log("Updated", resData);
+    dispatch({
+      type: UPDATE_SCHEDULE,
+      _id: id,
+      title: title,
+      date_time: date_time,
+      status: true,
+    });
   };
 };
 
 export const deleteSchedule = (id) => {
-  return { type: DELETE_SCHEDULE, id: id };
+  return async (dispatch, getState) => {
+    const token = getState().auth.token;
+
+    const response = await fetch(API_URL + "/auth/user/delete_schedule", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        _id: id,
+      }),
+    });
+
+    const resData = await response.json();
+    console.log("Delete Prev Id, ", id);
+    console.log("Delete After Id, ", resData.scheduleId);
+    dispatch({ type: DELETE_SCHEDULE, _id: id });
+  };
 };
