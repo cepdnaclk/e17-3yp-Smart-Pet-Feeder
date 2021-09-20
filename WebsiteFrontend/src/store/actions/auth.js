@@ -39,7 +39,9 @@ export const signup = (
   return async (dispatch) => {
     // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
 
-    const response = await fetch(API_URL + "/auth/signup", {
+    console.log(name, email, mobileNumber, password, confirmPassword);
+
+    const response = await fetch(API_URL + "/auth/user/signup", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -67,13 +69,20 @@ export const signup = (
 
     const resData = await response.json();
 
-    // dispatch(authenticate(resData.userId, resData.idToken));
+    dispatch(
+      authenticate(
+        resData.userId,
+        resData.idToken,
+        +parseInt(resData.expiresIn) * 1000
+      )
+    );
+    // This is for saving expiry time (When auto login)
 
-    // // This is for saving expiry time (When auto login)
-    // const expirationDate = new Date(
-    //   new Date().getTime() + parseInt(resData.expiresIn) * 1000
-    // );
-    // saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+    const expirationDate = new Date(
+      new Date().getTime() + +parseInt(resData.expiresIn) * 1000
+      // new Date().getTimezoneOffset() * 60 * 1000
+    );
+    saveDataToStorage(resData.idToken, resData.userId, expirationDate);
   };
 };
 
@@ -106,6 +115,7 @@ export const login = (email, password) => {
     }
 
     const resData = await response.json();
+    console.log(resData);
 
     dispatch(
       authenticate(

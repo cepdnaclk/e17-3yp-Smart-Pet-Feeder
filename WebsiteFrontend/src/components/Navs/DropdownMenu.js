@@ -6,6 +6,7 @@ import HistoryIcon from "@material-ui/icons/History";
 import InfoIcon from "@material-ui/icons/Info";
 import VideoIcon from "@material-ui/icons/OndemandVideo";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import NotificationAddIcon from "@material-ui/icons/AddAlert";
 import MessageIcon from "@material-ui/icons/Message";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
 
@@ -19,6 +20,10 @@ const DropdownMenu = (props) => {
   const isLoggedIn = useSelector((state) => {
     return !!state.auth.token;
   });
+
+  const isActiveNotifications = useSelector(
+    (state) => state.notifications.active
+  );
 
   useWindowResizeListener();
   const dispatch = useDispatch();
@@ -134,7 +139,12 @@ const DropdownMenu = (props) => {
             }}
           >
             Notifications
-            <NotificationsIcon className="pb-1" />
+            {isActiveNotifications ? (
+              <NotificationAddIcon className="pb-1" color="secondary" />
+            ) : (
+              <NotificationsIcon className="pb-1" />
+            )}
+            {/*<NotificationsIcon className="pb-1" />*/}
           </DomLink>
         )}
 
