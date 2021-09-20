@@ -34,13 +34,13 @@ export default function NotificationBar({
       onClick={showMessage.bind(null, id, title, message)}
     >
       <div className="row pricing-box notification pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
-        <div className="col-2">
+        <div className="col-md-2">
           <div className="mt-2">
             <Icofont icon="email" size="10" style={{ fontSize: "80px" }} />
           </div>
         </div>
 
-        <div className="col-8">
+        <div className="col-md-8">
           <h4 style={{ fontSize: 16 }}>{title}</h4>
           {/*<h2>*/}
           {/*  <span>Remaining Time</span>*/}
@@ -68,7 +68,7 @@ export default function NotificationBar({
           </div>
         </div>
 
-        <div className="col-2">
+        <div className="col-md-2">
           <div className="mt-3">
             <Icofont
               icon={status === 1 ? "arrow-up" : "check-circled"}

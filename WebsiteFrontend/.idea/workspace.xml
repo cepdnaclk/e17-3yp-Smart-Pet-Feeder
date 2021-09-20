@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fee31508-3634-4ef0-be0e-b55df1bd462c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Notifications/MessageModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Notifications/NotificationBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Notifications/Notifications.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/master.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ContactUs/ContactUsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContactUs/ContactUsForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Notifications/NotificationBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Notifications/NotificationBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ScheduleHistory/ScheduleHistory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/history_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/history_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/notification-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/notification-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user_home_page/UserNotificationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user_home_page/UserNotificationPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/feedback.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/notifications.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +53,7 @@
       <updated>1631904491830</updated>
       <workItem from="1631904493583" duration="27109000" />
       <workItem from="1631980658852" duration="4857000" />
-      <workItem from="1631986063239" duration="53664000" />
+      <workItem from="1631986063239" duration="54266000" />
     </task>
     <servers />
   </component>
