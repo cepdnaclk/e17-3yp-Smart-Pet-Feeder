@@ -81,7 +81,7 @@ export const login = (email, password) => {
   // "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
 
   return async (dispatch) => {
-    const response = await fetch(API_URL + "/auth/login", {
+    const response = await fetch(API_URL + "/auth/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
