@@ -1,9 +1,8 @@
 import { API_URL } from "../../configs/Configs";
 
-export const sendFeedback = (title, message) => {
+export const submitFeedback = (title, message) => {
   return async (dispatch, getState) => {
     const token = getState().auth.token;
-
     const response = await fetch(API_URL + "/auth/user/post_feedback", {
       method: "POST",
       headers: {
@@ -18,6 +17,6 @@ export const sendFeedback = (title, message) => {
     });
 
     const resData = await response.json();
-    console.log("Submit feedback response ", resData);
+    console.log(resData);
   };
 };
