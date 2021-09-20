@@ -97,6 +97,7 @@ exports.getNotifications = (req,res,next) =>{
 
 // /auth/user [POST methods]/
 exports.signUp = (req,res,next) =>{
+
     const errors = validationResult(req);
     let loadUser;
     if (!errors.isEmpty()){

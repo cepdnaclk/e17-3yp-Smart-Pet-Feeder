@@ -8,6 +8,7 @@ import Loader from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import Page500 from "../../pages/error_page/Page500";
 import { useHistory } from "react-router-dom";
+import { fetchNotification } from "../../store/actions/notifications";
 
 const Status = ({ bg, type }) => {
   const [viewed, setViewed] = useState(true);
@@ -25,7 +26,7 @@ const Status = ({ bg, type }) => {
 
     return dispatch(statusActions.fetchStatus())
       .then((response) => {
-        setIsLoading(false);
+        dispatch(fetchNotification()).then(setIsLoading(false));
       })
       .catch((err) => {
         setError(err.message);
