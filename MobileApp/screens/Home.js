@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   Animated,
   View,
@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   AsyncStorage,
+  RefreshControl,
 } from "react-native";
 import AppLoading from "../components/AppLoading";
 import { LinearGradient } from "expo-linear-gradient";
@@ -17,6 +18,10 @@ import { Title, Text, Divider, FAB } from "react-native-paper";
 import SchedulePart from "../components/Home/SchedulePart";
 import { DotIndicator } from "react-native-indicators";
 import * as authActions from "../store/actions/auth";
+import { useDispatch } from "react-redux";
+import { fetchSchedules } from "../store/actions/schedules";
+import Maintainance from "../components/Error/Maintainance";
+import { fetchNotification } from "../store/actions/notifications";
 
 const Home = (props) => {
   const yOffset = useRef(new Animated.Value(0)).current;
@@ -31,6 +36,43 @@ const Home = (props) => {
   // useEffect(() => {
   //   setIsPageLoaded(true);
   // }, []);
+
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+
+  // const loadSchedules = useCallback(() => {
+  //   setError(null);
+  //   setIsRefreshing(true);
+  //
+  //   return dispatch(fetchSchedules())
+  //     .then((response) => {
+  //       setIsRefreshing(false);
+  //     })
+  //     .catch((err) => {
+  //       setError(err.message);
+  //     });
+  // }, [dispatch, setIsRefreshing, setError]);
+
+  const loadData = useCallback(() => {
+    setError(null);
+    setIsRefreshing(true);
+
+    return dispatch(fetchSchedules())
+      .then((response) => {
+        dispatch(fetchNotification()).then(() => setIsRefreshing(false));
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, [dispatch, setIsRefreshing, setError]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    loadData();
+    setIsLoading(false);
+  }, [dispatch, loadData]);
 
   const onChangeScreen = (screen) => {
     props.navigation.navigate(screen);
@@ -54,8 +96,15 @@ const Home = (props) => {
     });
   }, [headerOpacity]);
 
+  if (error) {
+    return <Maintainance loadStatus={loadData} />;
+  }
+
   return (
     <Animated.ScrollView
+      refreshControl={
+        <RefreshControl refreshing={isRefreshing} onRefresh={loadData} />
+      }
       onScroll={Animated.event(
         [
           {
@@ -97,7 +146,7 @@ const Home = (props) => {
 
       <SafeAreaView>
         <View style={Styles.HomeScreen}>
-          <SchedulePart />
+          <SchedulePart isLoading={isLoading} />
         </View>
       </SafeAreaView>
     </Animated.ScrollView>

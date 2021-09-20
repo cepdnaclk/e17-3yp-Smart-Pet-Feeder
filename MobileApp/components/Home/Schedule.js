@@ -37,20 +37,35 @@ const Schedule = (props) => {
       </View>
 
       <View style={Styles.cardContent}>
-        <Text
-          style={{
-            fontSize: 28,
-            color: ColorsApp.PRIMARY,
-            fontWeight: "bold",
-            fontFamily: "bebas-neue",
-          }}
-        >
-          AFTER{" "}
-          {!Functions.isExceedDay(props.schedule.date_time) &&
-            Functions.getNumberOfHours(props.schedule.date_time)}
-          {Functions.isExceedDay(props.schedule.date_time) &&
-            Functions.getNumberOfDays(props.schedule.date_time)}
-        </Text>
+        {Functions.isDelayed(props.schedule.date_time) && (
+          <Text
+            style={{
+              fontSize: 28,
+              color: ColorsApp.PRIMARY,
+              fontWeight: "bold",
+              fontFamily: "bebas-neue",
+            }}
+          >
+            Processing . . .
+          </Text>
+        )}
+
+        {!Functions.isDelayed(props.schedule.date_time) && (
+          <Text
+            style={{
+              fontSize: 28,
+              color: ColorsApp.PRIMARY,
+              fontWeight: "bold",
+              fontFamily: "bebas-neue",
+            }}
+          >
+            AFTER{" "}
+            {!Functions.isExceedDay(props.schedule.date_time) &&
+              Functions.getNumberOfHours(props.schedule.date_time)}
+            {Functions.isExceedDay(props.schedule.date_time) &&
+              Functions.getNumberOfDays(props.schedule.date_time)}
+          </Text>
+        )}
       </View>
 
       <View style={Styles.cardContent}>
@@ -83,14 +98,14 @@ const Schedule = (props) => {
 
       <View style={Styles.cardButtons}>
         <Button
-          onPress={props.onEditSchedule.bind(null, props.schedule.id)}
+          onPress={props.onEditSchedule.bind(null, props.schedule._id)}
           // color="blue"
           color={ColorsApp.PRIMARY}
         >
           EDIT
         </Button>
         <Button
-          onPress={props.onDeleteSchedule.bind(null, props.schedule.id)}
+          onPress={props.onDeleteSchedule.bind(null, props.schedule._id)}
           // color="blue"
           color={ColorsApp.PRIMARY}
         >

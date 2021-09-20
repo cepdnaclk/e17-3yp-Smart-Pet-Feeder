@@ -20,6 +20,7 @@ import Maintainance from "../components/Error/Maintainance";
 
 export default function Home(props) {
   const yOffset = useRef(new Animated.Value(0)).current;
+
   const status = useSelector((state) => state.status.status);
   const [isRefreshing, setIsRefreshing] = useState(false);
 

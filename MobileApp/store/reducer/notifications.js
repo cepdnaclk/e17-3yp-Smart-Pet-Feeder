@@ -1,24 +1,35 @@
-import notificationData from "../../data/notification-data.json";
-
 import { MARK_AS_READ } from "../actions/notifications";
+import { SET_NOTIFICATIONS } from "../actions/notifications";
 
 const initialState = {
-  notifications: notificationData,
+  notifications: [],
   active: false,
 };
 
 const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_NOTIFICATIONS:
+      const unread__notification = action.notifications.find(
+        (notification) => notification.isRead === false
+      );
+
+      const active_ = !!unread__notification;
+
+      return {
+        notifications: action.notifications,
+        active: active_,
+      };
+
     case MARK_AS_READ:
       const index = state.notifications.findIndex(
-        (notification) => notification.id === action.id
+        (notification) => notification._id === action.id
       );
 
       const updatedNotifications = [...state.notifications];
-      updatedNotifications[index].status = 0;
+      updatedNotifications[index].isRead = true;
 
       const unread_notification = state.notifications.find(
-        (notification) => notification.status === 1
+        (notification) => notification.isRead === false
       );
 
       let active = true;

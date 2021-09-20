@@ -1,10 +1,16 @@
-import historyData from "../../data/history_data.json";
+import { SET_HISTORY } from "../actions/history";
 
 const initialState = {
-  history: historyData,
+  history: [],
 };
 
 const historyReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SET_HISTORY:
+      return {
+        history: action.history,
+      };
+  }
   return state;
 };
 

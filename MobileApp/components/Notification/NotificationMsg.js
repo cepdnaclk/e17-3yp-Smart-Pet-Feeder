@@ -21,7 +21,7 @@ const ScheduleForm = (props) => {
   );
 
   const notification = notifications.find(
-    (notification) => notification.id === props.id
+    (notification) => notification._id === props.id
   );
 
   const markAsRead = () => {
@@ -72,8 +72,17 @@ const ScheduleForm = (props) => {
               </View>
 
               <View style={Styles.Button}>
-                <TouchableOpacity onPress={markAsRead}>
-                  <Avatar.Icon icon="check" size={34} backgroundColor="green" />
+                <TouchableOpacity
+                  onPress={markAsRead}
+                  disabled={notification.isRead === true}
+                >
+                  <Avatar.Icon
+                    icon="check"
+                    size={34}
+                    backgroundColor={
+                      notification.isRead === false ? "green" : "grey"
+                    }
+                  />
                 </TouchableOpacity>
               </View>
             </ScrollView>
