@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ScheduleForm(props) {
-  // console.log("Schedle form ", props);
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -59,7 +58,6 @@ export default function ScheduleForm(props) {
       return state.schedules.schedules.find((prod) => prod._id === props._id);
     });
   }
-  // console.log("schedule", schedule);
 
   const [date, setDate] = useState(
     Functions.extractDate(
@@ -181,7 +179,7 @@ export default function ScheduleForm(props) {
             </div>
 
             {!isValidDateTime && (
-                <p className="error-message">* Invalid date</p>
+              <p className="error-message">* Invalid date</p>
             )}
             <div className="row">
               <div className="col-6" onClick={props.handleClose}>

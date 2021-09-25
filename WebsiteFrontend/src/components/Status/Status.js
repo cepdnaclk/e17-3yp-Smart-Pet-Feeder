@@ -30,6 +30,7 @@ const Status = ({ bg, type }) => {
       })
       .catch((err) => {
         setError(err.message);
+        setIsLoading(false);
       });
   }, [dispatch, setIsLoading, setError]);
 

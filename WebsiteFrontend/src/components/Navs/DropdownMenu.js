@@ -19,16 +19,12 @@ import * as adminAuthActions from "../../store/actions/admin_auth";
 
 const DropdownMenu = (props) => {
   const isLoggedIn = useSelector((state) => {
-    console.log(state.auth.token);
     return !!state.auth.token;
   });
 
   const isAdminLoggedIn = useSelector((state) => {
     return !!state.admin_auth.token;
   });
-
-  console.log(isLoggedIn);
-  console.log(isAdminLoggedIn);
 
   const isHomePage = !isLoggedIn && !isAdminLoggedIn;
 

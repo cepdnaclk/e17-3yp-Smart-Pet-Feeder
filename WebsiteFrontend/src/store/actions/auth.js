@@ -39,8 +39,6 @@ export const signup = (
   return async (dispatch) => {
     // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
 
-    console.log(name, email, mobileNumber, password, confirmPassword);
-
     const response = await fetch(API_URL + "/auth/user/signup", {
       method: "PUT",
       headers: {
@@ -115,7 +113,6 @@ export const login = (email, password) => {
     }
 
     const resData = await response.json();
-    console.log(resData);
 
     dispatch(
       authenticate(
@@ -172,5 +169,4 @@ const saveDataToStorage = (token, userId, expirationDate) => {
       expiryDate: expirationDate.toISOString(),
     })
   );
-  // console.log("Saved expire date", expirationDate);
 };

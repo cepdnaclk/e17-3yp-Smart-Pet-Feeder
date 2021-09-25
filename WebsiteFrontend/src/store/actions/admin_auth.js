@@ -41,7 +41,6 @@ export const login = (email, password) => {
     }
 
     const resData = await response.json();
-    console.log("Admin Login ", resData);
 
     dispatch(
       authenticate(
@@ -98,5 +97,4 @@ const saveDataToStorage = (token, userId, expirationDate) => {
       expiryDate: expirationDate.toISOString(),
     })
   );
-  // console.log("Saved expire date", expirationDate);
 };

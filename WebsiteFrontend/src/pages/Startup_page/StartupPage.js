@@ -16,8 +16,7 @@ const StartupPage = (props) => {
     const tryAdminLogin = () => {
       const adminData = localStorage.getItem("adminData");
       const userData = localStorage.getItem("userData");
-      console.log("Admin data ", adminData);
-      console.log("user data ", userData);
+
       if (!adminData) {
         return false;
       }
@@ -75,7 +74,6 @@ const StartupPage = (props) => {
 
     // Call tryLogin func
     const isAdmin = tryAdminLogin();
-    // console.log("ISADMIN ", isAdmin);
     if (isAdmin) history.replace(`${process.env.PUBLIC_URL}/admin`);
     else tryLogin();
   }, [dispatch]);

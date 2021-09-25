@@ -7,6 +7,7 @@ import Icofont from "react-icofont";
 import Fab from "@material-ui/core/Fab";
 import ConnectIcon from "@material-ui/icons/Wifi";
 import BlockIcon from "@material-ui/icons/Block";
+import { width } from "dom-helpers";
 
 const styleObj = {
   fontFamily: "sans-serif",
@@ -15,7 +16,7 @@ const styleObj = {
   textAlign: "left",
 };
 
-const User = ({ index, user }) => {
+const User = ({ index, user, onClickHandler }) => {
   return (
     <div
       data-aos={"fade-up"}
@@ -25,33 +26,38 @@ const User = ({ index, user }) => {
     >
       <div
         className="pricing-box"
-        // style={
-        //   schedule.status
-        //     ? { backgroundColor: "#cce0ff" }
-        //     : { backgroundColor: "white" }
-        // }
+        style={
+          // schedule.status
+          //   ? { backgroundColor: "#cce0ff" }
+          //   : { backgroundColor: "white" }
+          { minHeight: 320 }
+        }
       >
         <Icofont icon="user" />
 
         <React.Fragment>
-          <div className="email_">sachinthamadhushanka9@gmail.com</div>
+          <div className="email_">{user.email}</div>
           <div className="username_">
-            <span>Sachintha Madhushanka</span>
+            <span>{user.name}</span>
           </div>
         </React.Fragment>
 
         <div className="row">
           <div
             className="col-12"
-            // onClick={editHandler.bind(null, schedule._id, schedule.status)}
+            onClick={onClickHandler.bind(null, user.userId, user.isActive)}
           >
-            <Fab color="primary" aria-label="add">
-              <ConnectIcon />
-            </Fab>
+            {user.isActive && (
+              <Fab color="primary" aria-label="add">
+                <ConnectIcon />
+              </Fab>
+            )}
 
-            <Fab color="secondary" aria-label="add">
-              <BlockIcon />
-            </Fab>
+            {!user.isActive && (
+              <Fab color="secondary" aria-label="add">
+                <BlockIcon />
+              </Fab>
+            )}
           </div>
         </div>
       </div>

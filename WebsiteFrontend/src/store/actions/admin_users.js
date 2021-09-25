@@ -7,7 +7,7 @@ export const fetchUsers = () => {
   return async (dispatch, getState) => {
     const token = getState().auth.token;
 
-    const response = await fetch(API_URL + "/auth/user/get_status", {
+    const response = await fetch(API_URL + "/auth/admin/get_users", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -15,6 +15,7 @@ export const fetchUsers = () => {
     });
 
     const resData = await response.json();
-    dispatch({ type: SET_USERS, status: resData });
+    console.log("Users ", resData);
+    dispatch({ type: SET_USERS, users: resData });
   };
 };

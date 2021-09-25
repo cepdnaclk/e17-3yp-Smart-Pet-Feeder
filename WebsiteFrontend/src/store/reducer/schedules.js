@@ -30,7 +30,6 @@ const scheduleReducer = (state = initialState, action) => {
         action.date_time,
         action.status
       );
-      console.log("New Schedule", newSchedule);
 
       const temp = [...state.schedules];
       const index_ = temp.findIndex((schedule) => schedule.status === false);
@@ -64,7 +63,6 @@ const scheduleReducer = (state = initialState, action) => {
         (schedule) => schedule._id === action._id
       );
       after_deleted[delete_index] = { status: false };
-      console.log(after_deleted);
       return {
         schedules: after_deleted,
       };

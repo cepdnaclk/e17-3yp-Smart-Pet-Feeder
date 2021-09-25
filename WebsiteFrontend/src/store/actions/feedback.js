@@ -17,6 +17,5 @@ export const submitFeedback = (title, message) => {
     });
 
     const resData = await response.json();
-    console.log(resData);
   };
 };
