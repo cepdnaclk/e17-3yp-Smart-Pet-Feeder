@@ -6,6 +6,13 @@ const jwt = require('jsonwebtoken');
 
 const Admin = require('../models/admin');
 
+const Feedback = require('../models/feedback');
+
+const User = require('../models/user');
+
+const mongoose = require('mongoose');
+
+const ObjectId = mongoose.Types.ObjectId;
 
 exports.login = (req,res,next) =>{
     const email = req.body.email;
@@ -45,4 +52,51 @@ exports.login = (req,res,next) =>{
         .catch(err=>{
             next(err);
         })
+}
+
+exports.postActiveStatus = (req,res,next) =>{
+    const userId = new ObjectId(req.body.userId);
+    const isActive = req.body.isActive;
+
+    User.findById({_id:userId})
+        .then(user =>{
+            if (!user){
+                const error = new Error("User Not Found!");
+                error.statusCode = 404;
+                throw error;
+            }
+            user.isActive = isActive;
+            return user.save();
+        })
+        .then(result =>{
+            res.status(200).json({message:"Successful",userId:userId});
+        })
+        .catch(err => {
+            next(err)
+        })
+}
+
+
+exports.getFeedbacks = (req,res,next) =>{
+    Feedback.find({isHandle:false})
+        .then(result =>{
+            res.status(200).json(result);
+        })
+        .catch(err =>
+        next(err)
+        )
+}
+
+exports.getUsers = (req,res,next) =>{
+    User.find({})
+        .then(users =>{
+            const editedUsers = users.map(user =>{
+                return {userId: user._id,
+                    name:user.name,
+                    email:user.email,
+                    isActive:user.isActive};
+            })
+            res.status(200).json(editedUsers);
+        })
+        .catch(err => next(err))
 }

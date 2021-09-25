@@ -12,4 +12,10 @@ const router = express.Router();
 
 router.post('/login',adminControllers.login);
 
+router.post('/post_ActiveStatus',adminControllers.postActiveStatus);
+
+router.get('/get_feedbacks',adminControllers.getFeedbacks);
+
+router.get('/get_users',adminControllers.getUsers);
+
 module.exports = router;
