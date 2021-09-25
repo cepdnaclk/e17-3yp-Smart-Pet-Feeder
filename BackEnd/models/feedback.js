@@ -19,6 +19,10 @@ const feedbackSchema = new Schema({
     date_time:{
         type:Date,
         required:true
+    },
+    isHandle:{
+        type:Boolean,
+        required:true
     }
 });
 

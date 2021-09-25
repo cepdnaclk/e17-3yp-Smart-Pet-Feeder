@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const Admin = require('../models/admin');
 
+const Feedback = require('../models/feedback');
 
 exports.login = (req,res,next) =>{
     const email = req.body.email;
@@ -45,4 +46,15 @@ exports.login = (req,res,next) =>{
         .catch(err=>{
             next(err);
         })
+}
+
+
+exports.getFeedbacks = (req,res,next) =>{
+    Feedback.find({isHandle:false})
+        .then(result =>{
+            res.status(200).json(result);
+        })
+        .catch(err =>
+        next(err)
+        )
 }

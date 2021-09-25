@@ -12,4 +12,5 @@ const router = express.Router();
 
 router.post('/login',adminControllers.login);
 
+router.get('/get_feedbacks',adminControllers.getFeedbacks);
 module.exports = router;
