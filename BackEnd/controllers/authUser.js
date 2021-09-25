@@ -62,6 +62,7 @@ exports.getActiveSchedules = (req,res,next) =>{
         .catch(err => next(err));
 }
 
+
 exports.getScheduleHistory =(req,res,next) =>{
     User.findById(req.userId)
         .populate('ScheduleHistory')
