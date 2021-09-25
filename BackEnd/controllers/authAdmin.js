@@ -8,6 +8,8 @@ const Admin = require('../models/admin');
 
 const Feedback = require('../models/feedback');
 
+const User = require('../models/user');
+
 exports.login = (req,res,next) =>{
     const email = req.body.email;
     const password = req.body.password;
@@ -48,6 +50,23 @@ exports.login = (req,res,next) =>{
         })
 }
 
+exports.postActiveStatus = (req,res,next) =>{
+    const userId = req.body.userId;
+    const isActive = req.body.isActive;
+
+    User.findById({userId})
+        .then(user =>{
+            user.isActive = isActive;
+            return user.save();
+        })
+        .then(result =>{
+            res.status(200).json({message:"Successful",userId:userId});
+        })
+        .catch(err => {
+            next(err)
+        })
+}
+
 
 exports.getFeedbacks = (req,res,next) =>{
     Feedback.find({isHandle:false})
@@ -57,4 +76,18 @@ exports.getFeedbacks = (req,res,next) =>{
         .catch(err =>
         next(err)
         )
+}
+
+exports.getUsers = (req,res,next) =>{
+    User.find({})
+        .then(users =>{
+            const editedUsers = users.map(user =>{
+                return {userId: user._id,
+                    name:user.name,
+                    email:user.email,
+                    isActive:user.isActive};
+            })
+            res.status(200).json(editedUsers);
+        })
+        .catch(err => next(err))
 }
