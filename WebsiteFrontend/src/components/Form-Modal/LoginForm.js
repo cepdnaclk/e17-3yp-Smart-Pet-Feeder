@@ -69,7 +69,7 @@ export default function LoginForm(props) {
 
   useEffect(() => {
     if (error) {
-      alert("Authentication Failed!");
+      alert("Invalid Email or Password!");
     }
   }, [error]);
 

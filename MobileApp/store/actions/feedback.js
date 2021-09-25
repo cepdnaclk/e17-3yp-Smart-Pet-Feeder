@@ -1,4 +1,4 @@
-import { API_URL } from "../../configs/Configs";
+import { API_URL } from "../../config/Configs";
 
 export const submitFeedback = (title, message) => {
   return async (dispatch, getState) => {

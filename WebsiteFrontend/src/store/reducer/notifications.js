@@ -25,14 +25,14 @@ const notificationReducer = (state = initialState, action) => {
 
     case MARK_AS_READ:
       const index = state.notifications.findIndex(
-        (notification) => notification._id === action.id
+          (notification) => notification._id === action.id
       );
 
       const updatedNotifications = [...state.notifications];
       updatedNotifications[index].isRead = true;
 
       const unread_notification = state.notifications.find(
-        (notification) => notification.isRead === false
+          (notification) => notification.isRead === false
       );
 
       let active = true;

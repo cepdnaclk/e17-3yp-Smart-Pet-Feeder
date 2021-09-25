@@ -22,6 +22,24 @@ export const fetchNotification = () => {
 };
 
 export const markAsRead = (id) => {
-  console.log("mark as read id ", id);
-  return { type: MARK_AS_READ, id: id };
+  return async (dispatch, getState) => {
+    const token = getState().auth.token;
+
+    const response = await fetch(API_URL + "/auth/user/post_markRead", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        _id: id,
+      }),
+    });
+
+    console.log(id);
+
+    const resData = await response.json();
+    console.log(resData);
+    dispatch({ type: MARK_AS_READ, id: id });
+  };
 };

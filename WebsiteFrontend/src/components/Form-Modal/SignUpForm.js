@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -11,6 +11,9 @@ import { API_URL } from "../../configs/Configs";
 import Button from "@material-ui/core/Button";
 
 import * as Validators from "../../helpers/validators";
+import * as authActions from "../../store/actions/auth";
+import { useDispatch } from "react-redux";
+import Loader from "react-loader-spinner";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -65,10 +68,20 @@ const useStyles = makeStyles((theme) => ({
 // const isPassword = (value) => value.trim() !== "";
 // const isEmail = (value) => value.includes("@");
 
-export default function LoginForm(props) {
+export default function SignUpForm(props) {
   const classes = useStyles();
 
   const history = useHistory();
+
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (error) {
+      alert("Email Already Exists!");
+    }
+  }, [error]);
 
   const {
     value: name,
@@ -126,46 +139,18 @@ export default function LoginForm(props) {
     formIsValid = true;
   }
 
-  const validateData = (event) => {
-    let url;
-
-    url = API_URL + "/auth/signup";
-
-    event.preventDefault();
-    fetch(url, {
-      method: "PUT",
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        confirmPassword: confirmPassword,
-        name: name,
-        phoneNumber: mobileNumber,
-        returnSecureToken: true,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = data.message;
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
-        resetEmail();
-        resetPassword();
-        props.handleClose();
-        history.replace("/*");
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+  const submitForm = async () => {
+    setError(null);
+    setIsLoading(true);
+    try {
+      await dispatch(
+        authActions.signup(name, email, mobileNumber, password, confirmPassword)
+      );
+      history.replace(`${process.env.PUBLIC_URL}/user`);
+    } catch (err) {
+      setError(err.message);
+      setIsLoading(false);
+    }
   };
 
   const closeFormHandler = () => {
@@ -287,16 +272,27 @@ export default function LoginForm(props) {
               </div>
 
               <div className="form-actions">
-                <Button
-                  classes={{
-                    root: classes.button, // class name, e.g. `root-x`
-                    disabled: classes.disabled, // class name, e.g. `disabled-x`
-                  }}
-                  disabled={!formIsValid}
-                  onClick={validateData}
-                >
-                  Submit
-                </Button>
+                {isLoading ? (
+                  <div align="center">
+                    <Loader
+                      type="ThreeDots"
+                      color="#d42e22"
+                      height={100}
+                      width={100}
+                    />
+                  </div>
+                ) : (
+                  <Button
+                    classes={{
+                      root: classes.button, // class name, e.g. `root-x`
+                      disabled: classes.disabled, // class name, e.g. `disabled-x`
+                    }}
+                    disabled={!formIsValid}
+                    onClick={submitForm}
+                  >
+                    Submit
+                  </Button>
+                )}
               </div>
             </form>
           </div>
