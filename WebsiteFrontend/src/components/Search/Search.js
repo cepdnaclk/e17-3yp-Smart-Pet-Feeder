@@ -1,23 +1,22 @@
 import React from "react";
-import "./Search.css"
-
+import "./Search.css";
+import Button from "@material-ui/core/Button";
 
 const SearchBar = () => (
-    <div className="searchBar">
+  <div className>
     <form action="/" method="get">
-        <label htmlFor="header-search">
-            <span className="visually-hidden">Search </span>
-        </label>
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Type User name"
-            name="s" 
-        />
-        <button type="submit">Search  </button>
+      <input
+        type="text"
+        name="title"
+        className="form-control"
+        id="title"
+        placeholder="User Email"
+        // value={title}
+        // onChange={titleChangeHandler}
+        // onBlur={titleBlurHandler}
+      />
     </form>
-    </div>
+  </div>
 );
 
 export default SearchBar;
-                  

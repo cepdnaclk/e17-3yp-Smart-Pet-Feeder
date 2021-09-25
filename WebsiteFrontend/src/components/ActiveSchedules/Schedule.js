@@ -40,19 +40,30 @@ const Schedule = ({ index, schedule, editHandler, deleteHandler }) => {
         {schedule.status && (
           <React.Fragment>
             <h4>{schedule.title}</h4>
-            <h2>
-              AFTER
-              <br />
-              <span>
-                {/*{msToTime(*/}
-                {/*  Date.parse(schedule.date + "," + schedule.time) - Date.now()*/}
-                {/*)}*/}
-                {!Functions.isExceedDay(schedule.date_time) &&
-                  Functions.getNumberOfHours(schedule.date_time)}
-                {Functions.isExceedDay(schedule.date_time) &&
-                  Functions.getNumberOfDays(schedule.date_time)}
-              </span>
-            </h2>
+            {Functions.isDelayed(schedule.date_time) && (
+              <h2>
+                {" "}
+                Processing
+                <br />
+                Now
+              </h2>
+            )}
+            {!Functions.isDelayed(schedule.date_time) && (
+              <h2>
+                AFTER
+                <br />
+                <span>
+                  {/*{msToTime(*/}
+                  {/*  Date.parse(schedule.date + "," + schedule.time) - Date.now()*/}
+                  {/*)}*/}
+                  {!Functions.isExceedDay(schedule.date_time) &&
+                    Functions.getNumberOfHours(schedule.date_time)}
+                  {Functions.isExceedDay(schedule.date_time) &&
+                    Functions.getNumberOfDays(schedule.date_time)}
+                </span>
+              </h2>
+            )}
+
             <ul>
               <li style={{ fontSize: "20px" }}>
                 {" "}

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-scroll";
 import { Link as DomLink, useHistory } from "react-router-dom";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import HistoryIcon from "@material-ui/icons/History";
 import InfoIcon from "@material-ui/icons/Info";
 import VideoIcon from "@material-ui/icons/OndemandVideo";
@@ -9,17 +8,29 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import NotificationAddIcon from "@material-ui/icons/AddAlert";
 import MessageIcon from "@material-ui/icons/Message";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
+import GroupIcon from "@material-ui/icons/Group";
+import TelegramIcon from "@material-ui/icons/Telegram";
 
 import useWindowResizeListener from "../../helpers/useWindowResizeListener";
-import AuthContext from "../../stores/auth-context";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as authActions from "../../store/actions/auth";
+import * as adminAuthActions from "../../store/actions/admin_auth";
 
 const DropdownMenu = (props) => {
   const isLoggedIn = useSelector((state) => {
+    console.log(state.auth.token);
     return !!state.auth.token;
   });
+
+  const isAdminLoggedIn = useSelector((state) => {
+    return !!state.admin_auth.token;
+  });
+
+  console.log(isLoggedIn);
+  console.log(isAdminLoggedIn);
+
+  const isHomePage = !isLoggedIn && !isAdminLoggedIn;
 
   const isActiveNotifications = useSelector(
     (state) => state.notifications.active
@@ -31,6 +42,11 @@ const DropdownMenu = (props) => {
   const logoutClickHandler = (e) => {
     e.preventDefault();
     dispatch(authActions.logout());
+  };
+
+  const adminLogoutClickHandler = (e) => {
+    e.preventDefault();
+    dispatch(adminAuthActions.logout());
   };
   const history = useHistory();
 
@@ -57,7 +73,7 @@ const DropdownMenu = (props) => {
       </ul>
 
       <ul className="nav navbar-nav" data-in="fadeIn" data-out="fadeOut">
-        {!isLoggedIn && (
+        {isHomePage && (
           <DomLink
             to="Login"
             className={
@@ -69,7 +85,7 @@ const DropdownMenu = (props) => {
             <i className="icofont icofont-login" />
           </DomLink>
         )}
-        {!isLoggedIn && (
+        {isHomePage && (
           <DomLink
             to={"Signup"}
             className={
@@ -78,6 +94,18 @@ const DropdownMenu = (props) => {
             onClick={props.signClickedHandler}
           >
             SignUp
+            <i className="icofont icofont-login" />
+          </DomLink>
+        )}
+        {isHomePage && (
+          <DomLink
+            to={"AdminLogin"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={props.handleAdminLogin}
+          >
+            Admin
             <i className="icofont icofont-login" />
           </DomLink>
         )}
@@ -147,7 +175,6 @@ const DropdownMenu = (props) => {
             {/*<NotificationsIcon className="pb-1" />*/}
           </DomLink>
         )}
-
         {isLoggedIn && (
           <DomLink
             to={"/Contact Us"}
@@ -170,6 +197,67 @@ const DropdownMenu = (props) => {
               props.fixed || props.type === "white" ? "white_bg" : "black_bg"
             }
             onClick={logoutClickHandler}
+          >
+            Logout
+            <LogoutIcon className="pb-1" />
+          </DomLink>
+        )}
+
+        {isAdminLoggedIn && (
+          <DomLink
+            to={"/Admin Users Page"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={(e) => {
+              e.preventDefault();
+              history.push(`${process.env.PUBLIC_URL}/admin/users`);
+            }}
+          >
+            Users
+            <GroupIcon className="pb-1" />
+          </DomLink>
+        )}
+
+        {isAdminLoggedIn && (
+          <DomLink
+            to={"/Admin Feedback Page"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={(e) => {
+              e.preventDefault();
+              history.push(`${process.env.PUBLIC_URL}/admin/feedback`);
+            }}
+          >
+            Feedback
+            <MessageIcon className="pb-1" />
+          </DomLink>
+        )}
+
+        {isAdminLoggedIn && (
+          <DomLink
+            to={"/Admin Broadcast Page"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={(e) => {
+              e.preventDefault();
+              history.push(`${process.env.PUBLIC_URL}/admin/broadcast`);
+            }}
+          >
+            Broadcast
+            <TelegramIcon className="pb-1" />
+          </DomLink>
+        )}
+
+        {isAdminLoggedIn && (
+          <DomLink
+            to={"/Logout Admin"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={adminLogoutClickHandler}
           >
             Logout
             <LogoutIcon className="pb-1" />

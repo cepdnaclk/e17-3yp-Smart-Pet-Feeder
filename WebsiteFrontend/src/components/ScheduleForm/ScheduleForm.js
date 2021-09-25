@@ -159,7 +159,6 @@ export default function ScheduleForm(props) {
                 id="date"
                 required="required"
                 placeholder="Date"
-                data-error="Title cannot be empty"
                 value={date}
                 onChange={onChangeDate}
               />
@@ -174,13 +173,16 @@ export default function ScheduleForm(props) {
                 id="time"
                 required="required"
                 placeholder="Time"
-                data-error="Title cannot be empty"
                 value={time}
                 onChange={onChangeTime}
               />
               <label htmlFor="time">Time</label>
               {/*<div className="help-block with-errors mt-20" />*/}
             </div>
+
+            {!isValidDateTime && (
+                <p className="error-message">* Invalid date</p>
+            )}
             <div className="row">
               <div className="col-6" onClick={props.handleClose}>
                 <Fab color="secondary" aria-label="add">

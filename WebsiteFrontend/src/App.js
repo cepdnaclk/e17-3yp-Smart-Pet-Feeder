@@ -12,11 +12,18 @@ import ScrollToTop from "./helpers/ScrollToTop";
 import StartupPage from "./pages/Startup_page/StartupPage";
 import { useSelector } from "react-redux";
 import Page500 from "./pages/error_page/Page500";
+import AdminHomePage from "./pages/admin_home_page/AdminHomePage";
 
 function App() {
   const isLoggedIn = useSelector((state) => {
     return !!state.auth.token;
   });
+
+  const isAdminLoggedIn = useSelector((state) => {
+    return !!state.admin_auth.token;
+  });
+
+  const isHomePage = !isLoggedIn && !isAdminLoggedIn;
 
   return (
     <Router>
@@ -28,7 +35,7 @@ function App() {
             component={StartupPage}
           />
 
-          {!isLoggedIn && (
+          {isHomePage && (
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/home`}
@@ -40,6 +47,13 @@ function App() {
             <Route
               path={`${process.env.PUBLIC_URL}/user`}
               component={UserHomePage}
+            />
+          )}
+
+          {isAdminLoggedIn && (
+            <Route
+              path={`${process.env.PUBLIC_URL}/admin`}
+              component={AdminHomePage}
             />
           )}
 

@@ -1,9 +1,10 @@
 // The initial Screen (Which used to check the validity of the token and userId - For auto login)
 import React, { useEffect } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "./../../components/Loader/Loader";
 
+import * as adminAuthActions from "../../store/actions/admin_auth";
 import * as authActions from "../../store/actions/auth";
 import { useHistory } from "react-router-dom";
 
@@ -12,9 +13,30 @@ const StartupPage = (props) => {
   const history = useHistory();
 
   useEffect(() => {
+    const tryAdminLogin = () => {
+      const adminData = localStorage.getItem("adminData");
+      const userData = localStorage.getItem("userData");
+      console.log("Admin data ", adminData);
+      console.log("user data ", userData);
+      if (!adminData) {
+        return false;
+      }
+
+      const transformedData = JSON.parse(adminData);
+      const { token, userId, expiryDate } = transformedData;
+      const expirationDate = new Date(expiryDate);
+
+      if (expirationDate <= new Date() || !token || !userId) {
+        return false;
+      }
+
+      const expireTime = expirationDate.getTime() - new Date().getTime();
+      dispatch(adminAuthActions.authenticate(userId, token, expireTime));
+      return true;
+    };
+
     const tryLogin = () => {
       const userData = localStorage.getItem("userData");
-
       // If userData is not available
       if (!userData) {
         // props.navigation.navigate("Auth"); // navigate to Auth screen
@@ -52,7 +74,10 @@ const StartupPage = (props) => {
     };
 
     // Call tryLogin func
-    tryLogin();
+    const isAdmin = tryAdminLogin();
+    // console.log("ISADMIN ", isAdmin);
+    if (isAdmin) history.replace(`${process.env.PUBLIC_URL}/admin`);
+    else tryLogin();
   }, [dispatch]);
 
   return (

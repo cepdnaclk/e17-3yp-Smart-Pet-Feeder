@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchHistory } from "../../store/actions/history";
 import Loader from "react-loader-spinner";
 import { useHistory } from "react-router-dom";
+import Switch from "react-switch";
 
 export default function ScheduleHistory() {
   const history = useHistory();
@@ -11,8 +12,12 @@ export default function ScheduleHistory() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
+  const [isChecked, setChecked] = useState(false);
   const dispatch = useDispatch();
 
+  const handleChange = () => {
+    setChecked((prevState) => !prevState);
+  };
   const loadHistory = useCallback(() => {
     setError(null);
     setIsLoading(true);
@@ -45,6 +50,15 @@ export default function ScheduleHistory() {
 
   return (
     <div className="container">
+      {/*<div className="form-group">*/}
+      {/*  <div className="">*/}
+      {/*    <h4 className="">Show Latest</h4>*/}
+      {/*  </div>*/}
+      {/*  <div className="">*/}
+      {/*    <Switch onChange={handleChange} checked={isChecked} height={25} />*/}
+      {/*  </div>*/}
+      {/*</div>*/}
+
       {historyData.map((data) => (
         <ScheduleBar
           title={data.title}
