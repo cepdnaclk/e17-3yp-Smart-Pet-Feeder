@@ -10,6 +10,10 @@ const Feedback = require('../models/feedback');
 
 const User = require('../models/user');
 
+const mongoose = require('mongoose');
+
+const ObjectId = mongoose.Types.ObjectId;
+
 exports.login = (req,res,next) =>{
     const email = req.body.email;
     const password = req.body.password;
@@ -51,11 +55,16 @@ exports.login = (req,res,next) =>{
 }
 
 exports.postActiveStatus = (req,res,next) =>{
-    const userId = req.body.userId;
+    const userId = new ObjectId(req.body.userId);
     const isActive = req.body.isActive;
 
-    User.findById({userId})
+    User.findById({_id:userId})
         .then(user =>{
+            if (!user){
+                const error = new Error("User Not Found!");
+                error.statusCode = 404;
+                throw error;
+            }
             user.isActive = isActive;
             return user.save();
         })
