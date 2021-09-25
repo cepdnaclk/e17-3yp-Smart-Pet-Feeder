@@ -70,3 +70,7 @@ export const isSameDate = (date1, date2) => {
 export const combineDateTime = (date, time) => {
   return Date.parse(date + "T" + time + ":00.000+05:30");
 };
+
+export const isDelayed = (date) => {
+  return new Date(date) - new Date() < 300000;
+};

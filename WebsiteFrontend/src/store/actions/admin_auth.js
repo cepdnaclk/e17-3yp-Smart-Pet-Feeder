@@ -1,23 +1,8 @@
-/*
-  We can use dispatch func
-    - To dispatch reducer action  (Using {} brackets)
-    - To execute any function after some async operation
- */
-
 import { API_URL } from "../../configs/Configs";
 
-export const AUTHENTICATE = "AUTHENTICATE";
-
-// Logout action identifier
-export const LOGOUT = "LOGOUT";
+export const AUTHENTICATE_ADMIN = "AUTHENTICATE_ADMIN";
+export const LOGOUT_ADMIN = "LOGOUT_ADMIN";
 let timer; // to hold timer func
-
-const calculateRemainingTime = (expirationTime) => {
-  const currentTime = new Date().getTime();
-  const adjExpirationTime = new Date(expirationTime).getTime();
-
-  return adjExpirationTime - currentTime;
-};
 
 export const authenticate = (userId, token, expiryTime) => {
   // Dispatching 2 actions here. (Can we implement this without dispatch ? )
@@ -25,70 +10,13 @@ export const authenticate = (userId, token, expiryTime) => {
     dispatch(setLogoutTimer(expiryTime));
 
     // Dispatch AUTHENTICATE action (To store token and id in the redux store)
-    dispatch({ type: AUTHENTICATE, userId: userId, token: token });
-  };
-};
-
-export const signup = (
-  name,
-  email,
-  mobileNumber,
-  password,
-  confirmPassword
-) => {
-  return async (dispatch) => {
-    // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
-
-    const response = await fetch(API_URL + "/auth/user/signup", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        phoneNumber: mobileNumber,
-        password: password,
-        confirmPassword: confirmPassword,
-        // returnSecureToken: true,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorResData = await response.json();
-
-      const errorId = errorResData.error.message;
-      let message = "Authentication failed!";
-      if (errorId === "EMAIL_EXISTS") {
-        message = "This email exists already!";
-      }
-      throw new Error(message);
-    }
-
-    const resData = await response.json();
-
-    dispatch(
-      authenticate(
-        resData.userId,
-        resData.idToken,
-        +parseInt(resData.expiresIn) * 1000
-      )
-    );
-    // This is for saving expiry time (When auto login)
-
-    const expirationDate = new Date(
-      new Date().getTime() + +parseInt(resData.expiresIn) * 1000
-      // new Date().getTimezoneOffset() * 60 * 1000
-    );
-    saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+    dispatch({ type: AUTHENTICATE_ADMIN, userId: userId, token: token });
   };
 };
 
 export const login = (email, password) => {
-  // "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
-
   return async (dispatch) => {
-    const response = await fetch(API_URL + "/auth/user/login", {
+    const response = await fetch(API_URL + "/auth/admin/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -137,10 +65,10 @@ export const logout = () => {
   clearLogoutTimer();
   // Remove userData from mobile storage
 
-  localStorage.removeItem("userData");
+  localStorage.removeItem("adminData");
 
   // Dispatch LOGOUT action (No async operations, so can dispatch actions directly)
-  return { type: LOGOUT };
+  return { type: LOGOUT_ADMIN };
 };
 
 const clearLogoutTimer = () => {
@@ -162,7 +90,7 @@ const setLogoutTimer = (expirationTime) => {
 
 const saveDataToStorage = (token, userId, expirationDate) => {
   localStorage.setItem(
-    "userData",
+    "adminData",
     JSON.stringify({
       token: token,
       userId: userId,

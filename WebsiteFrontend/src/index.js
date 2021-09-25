@@ -10,14 +10,18 @@ import statusReducer from "./store/reducer/status";
 import historyReducer from "./store/reducer/history";
 import ReduxThunk from "redux-thunk";
 import authReducer from "./store/reducer/auth";
+import adminAuthReducer from "./store/reducer/admin_auth";
 import notificationReducer from "./store/reducer/notifications";
+import usersReducer from "./store/reducer/admin_users";
 
 const rootReducer = combineReducers({
   schedules: scheduleReducer,
   status: statusReducer,
   history: historyReducer,
   auth: authReducer,
+  admin_auth: adminAuthReducer,
   notifications: notificationReducer,
+  users: usersReducer,
 });
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 

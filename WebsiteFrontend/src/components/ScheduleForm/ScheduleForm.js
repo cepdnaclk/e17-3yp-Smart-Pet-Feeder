@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ScheduleForm(props) {
-  // console.log("Schedle form ", props);
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -59,7 +58,6 @@ export default function ScheduleForm(props) {
       return state.schedules.schedules.find((prod) => prod._id === props._id);
     });
   }
-  // console.log("schedule", schedule);
 
   const [date, setDate] = useState(
     Functions.extractDate(
@@ -159,7 +157,6 @@ export default function ScheduleForm(props) {
                 id="date"
                 required="required"
                 placeholder="Date"
-                data-error="Title cannot be empty"
                 value={date}
                 onChange={onChangeDate}
               />
@@ -174,13 +171,16 @@ export default function ScheduleForm(props) {
                 id="time"
                 required="required"
                 placeholder="Time"
-                data-error="Title cannot be empty"
                 value={time}
                 onChange={onChangeTime}
               />
               <label htmlFor="time">Time</label>
               {/*<div className="help-block with-errors mt-20" />*/}
             </div>
+
+            {!isValidDateTime && (
+              <p className="error-message">* Invalid date</p>
+            )}
             <div className="row">
               <div className="col-6" onClick={props.handleClose}>
                 <Fab color="secondary" aria-label="add">

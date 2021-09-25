@@ -13,10 +13,12 @@ import FooterOne from "../../components/Footer/FooterOne";
 import dataNav from "../../data/Navbar/homepage-navbar-data.json";
 import LoginForm from "../../components/Form-Modal/LoginForm";
 import SignUpForm from "../../components/Form-Modal/SignUpForm";
+import AdminLoginForm from "../../components/Form-Modal/AdminLoginForm";
 
 const SmartPetFeeder = () => {
   const [isLogClicked, setLogClick] = useState(false);
   const [isSignClicked, setSignClick] = useState(false);
+  const [isAdminClicked, setAdminClicked] = useState(false);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -34,9 +36,16 @@ const SmartPetFeeder = () => {
     setSignClick(true);
   };
 
+  const AdminClickHandle = (e) => {
+    e.preventDefault();
+
+    setAdminClicked(true);
+  };
+
   const exitFromLog = () => {
     setSignClick(false);
     setLogClick(false);
+    setAdminClicked(false);
   };
   return (
     <>
@@ -45,20 +54,19 @@ const SmartPetFeeder = () => {
           data={dataNav}
           handleLog={logClickedHandler}
           handleSignIn={signClickHandle}
+          handleAdminLogin={AdminClickHandle}
         />
         <Home data={HomeDate} />
         <About />
-
         <Services title="What We Offer" tagline="We Turn Heads" />
         <Testimonials title="TESTIMONIALS" tagline="Happy clients" />
-
         <Team />
-
         <FooterOne />
       </Loader>
       <div>
         <LoginForm open={isLogClicked} handleClose={exitFromLog} />
         <SignUpForm open={isSignClicked} handleClose={exitFromLog} />
+        <AdminLoginForm open={isAdminClicked} handleClose={exitFromLog} />
       </div>
     </>
   );

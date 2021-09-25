@@ -16,7 +16,6 @@ export const fetchNotification = () => {
     });
 
     const resData = await response.json();
-    console.log(resData);
     dispatch({ type: SET_NOTIFICATIONS, notifications: resData });
   };
 };
@@ -36,10 +35,7 @@ export const markAsRead = (id) => {
       }),
     });
 
-    console.log(id);
-
     const resData = await response.json();
-    console.log(resData);
     dispatch({ type: MARK_AS_READ, id: id });
   };
 };

@@ -17,7 +17,6 @@ export const fetchSchedules = () => {
     });
 
     const resData = await response.json();
-    console.log("Res data", resData);
     dispatch({ type: SET_SCHEDULES, schedules: resData });
   };
 };
@@ -40,7 +39,6 @@ export const createSchedule = (title, date_time) => {
     });
 
     const resData = await response.json();
-    console.log("Incoming Data ", resData);
     dispatch({
       type: CREATE_SCHEDULE,
       _id: resData.scheduleId,
@@ -78,9 +76,7 @@ export const updateSchedule = (id, title, date_time) => {
       }),
     });
 
-    console.log("Updated Prev ", id, title, date_time);
     const resData = await response.json();
-    console.log("Updated", resData);
     dispatch({
       type: UPDATE_SCHEDULE,
       _id: id,
@@ -107,8 +103,7 @@ export const deleteSchedule = (id) => {
     });
 
     const resData = await response.json();
-    console.log("Delete Prev Id, ", id);
-    console.log("Delete After Id, ", resData.scheduleId);
+
     dispatch({ type: DELETE_SCHEDULE, _id: id });
   };
 };

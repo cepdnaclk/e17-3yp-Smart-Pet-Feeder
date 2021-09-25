@@ -41,7 +41,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   button: {
-    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    backgroundColor: "#1d9a6c",
+    fontSize: 14,
+    fontFamily: "Courier-Bold",
+    fontWeight: "bold",
     borderRadius: 3,
     border: 0,
     color: "white",
@@ -51,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
     // $disabled is a reference to the local disabled
     // rule within the same style sheet.
     // By using &, we increase the specificity.
+    "&:hover": {
+      backgroundColor: "green",
+    },
     "&$disabled": {
       background: "rgba(0, 0, 0, 0.12)",
       color: "white",
@@ -184,7 +190,7 @@ export default function SignUpForm(props) {
           <div className="pricing-box" style={{ width: 400 }}>
             <form>
               <div align="middle">
-                <h2>Register</h2>
+                <h2>REGISTER</h2>
               </div>
 
               <div>
@@ -277,7 +283,7 @@ export default function SignUpForm(props) {
                     <Loader
                       type="ThreeDots"
                       color="#d42e22"
-                      height={100}
+                      height={48}
                       width={100}
                     />
                   </div>
@@ -290,7 +296,7 @@ export default function SignUpForm(props) {
                     disabled={!formIsValid}
                     onClick={submitForm}
                   >
-                    Submit
+                    Register
                   </Button>
                 )}
               </div>

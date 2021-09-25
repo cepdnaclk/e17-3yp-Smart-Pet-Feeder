@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import Header from "../../components/Header/AdminHeader";
+import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import FooterCopyright from "../../components/Footer/FooterCopyright";
 import AOS from "aos";
@@ -8,7 +8,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import AdminUsersPage from "./AdminUsersPage";
 import AdminBroadcastPage from "./AdminBroadcastPage";
 import AdminFeedbackPage from "./AdminFeedbackPage";
-import Home from "./SmartPetFeederAdmin";
 
 const AdminHomePage = () => {
   useEffect(() => {
@@ -22,12 +21,6 @@ const AdminHomePage = () => {
           <Header type={"white"} dropdown={false} />
 
           <Switch>
-            <Route
-              exact
-              path={`${process.env.PUBLIC_URL}/admin/`}
-              component={Home}
-            />
-
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/admin/users`}
@@ -44,12 +37,6 @@ const AdminHomePage = () => {
               exact
               path={`${process.env.PUBLIC_URL}/admin/broadcast`}
               component={AdminBroadcastPage}
-            />
-
-            <Route
-              exact
-              path={`${process.env.PUBLIC_URL}/admin/users`}
-              component={AdminUsersPage}
             />
 
             <Route path="*">

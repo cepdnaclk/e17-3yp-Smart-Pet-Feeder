@@ -11,7 +11,7 @@ function AttributeNav(props) {
 }
 
 AttributeNav.propTypes = { children: PropTypes.node };
-const Header = ({ type, data ,handleLog,handleSignIn}) => {
+const Header = ({ type, data, handleLog, handleSignIn, handleAdminLogin }) => {
   const [show, setShow] = useState(false);
   const [fixed, setFixed] = useState(false);
   const [collapse, setCollapse] = useState(false);
@@ -77,7 +77,14 @@ const Header = ({ type, data ,handleLog,handleSignIn}) => {
             <Icofont icon="navigation-menu" />
           </button>
           <MainLogo showMenu={showMenu} />
-          <DropdownMenu fixed={fixed} type={type} data={data} isClickedLog = {handleLog} signClickedHandler={handleSignIn} />
+          <DropdownMenu
+            fixed={fixed}
+            type={type}
+            data={data}
+            isClickedLog={handleLog}
+            signClickedHandler={handleSignIn}
+            handleAdminLogin={handleAdminLogin}
+          />
         </div>
       </nav>
     </>

@@ -11,7 +11,7 @@ import Button from "@material-ui/core/Button";
 
 import * as Validators from "../../helpers/validators";
 import { useDispatch } from "react-redux";
-import * as authActions from "../../store/actions/auth";
+import * as authActions from "../../store/actions/admin_auth";
 import Loader from "react-loader-spinner";
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   disabled: {},
 }));
 
-export default function LoginForm(props) {
+export default function AdminLoginForm(props) {
   const classes = useStyles();
   const history = useHistory();
 
@@ -105,9 +105,10 @@ export default function LoginForm(props) {
   const submitForm = async () => {
     setError(null);
     setIsLoading(true);
+
     try {
       await dispatch(authActions.login(email, password));
-      history.replace(`${process.env.PUBLIC_URL}/user`);
+      history.replace(`${process.env.PUBLIC_URL}/admin/users`);
     } catch (err) {
       setError(err.message);
       setIsLoading(false);
@@ -121,10 +122,6 @@ export default function LoginForm(props) {
   };
   return (
     <Container component="main" maxWidth="xs">
-      {/*<Button variant="contained" color="secondary" onClick={handleOpen}>*/}
-      {/*  Open Animated Modal*/}
-      {/*</Button>*/}
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -141,7 +138,7 @@ export default function LoginForm(props) {
           <div className="pricing-box" style={{ width: 400 }}>
             <form>
               <div align="middle">
-                <h2 className="">LOGIN</h2>
+                <h2 className="">ADMIN LOGIN</h2>
               </div>
               <div>
                 <input
@@ -186,8 +183,8 @@ export default function LoginForm(props) {
                 ) : (
                   <Button
                     classes={{
-                      root: classes.button, // class name, e.g. `root-x`
-                      disabled: classes.disabled, // class name, e.g. `disabled-x`
+                      root: classes.button,
+                      disabled: classes.disabled,
                     }}
                     disabled={!formIsValid}
                     onClick={submitForm}

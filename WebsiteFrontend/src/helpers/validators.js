@@ -26,7 +26,7 @@ module.exports.isConfirmPassword = (password, value) => {
 };
 
 module.exports.isValidDateTime = (value) => {
-  return value > new Date();
+  return value - new Date() > 600000;
 };
 
 module.exports.isValidMessage = (value) => {
