@@ -12,10 +12,12 @@ const router = express.Router();
 
 router.post('/login',adminControllers.login);
 
-router.post('/post_ActiveStatus',adminControllers.postActiveStatus);
+router.post('/post_ActiveStatus',isAuth,adminControllers.postActiveStatus);
 
-router.get('/get_feedbacks',adminControllers.getFeedbacks);
+router.get('/get_feedbacks',isAuth,adminControllers.getFeedbacks);
 
-router.get('/get_users',adminControllers.getUsers);
+router.get('/get_users',isAuth,adminControllers.getUsers);
+
+router.get('/get_usersDetails',isAuth,adminControllers.getUsersDetails);
 
 module.exports = router;

@@ -100,3 +100,21 @@ exports.getUsers = (req,res,next) =>{
         })
         .catch(err => next(err))
 }
+
+exports.getUsersDetails = (req,res,next) =>{
+    User.find({})
+        .then(users =>{
+            const userCount = users.length;
+            let activeUsers  = 0;
+            users.forEach(user =>{
+                if (user.isActive){
+                    activeUsers++;
+                }
+            })
+
+            res.status(200).json({userCount:userCount,activeUsers:activeUsers});
+        })
+        .catch(err=>{
+            next(err)
+        })
+}
