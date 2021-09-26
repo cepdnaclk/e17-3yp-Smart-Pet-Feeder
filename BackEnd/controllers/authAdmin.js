@@ -39,7 +39,7 @@ exports.login = (req,res,next) =>{
                     email:loadAdmin.email,
                     userId:loadAdmin._id.toString()
                 },
-                'Smart-Pet-Feeder-2021',
+                'Smart-Pet-Feeder-2021-Admin',
                 {expiresIn: '1h'}
             );
 

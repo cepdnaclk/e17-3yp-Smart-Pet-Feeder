@@ -49,7 +49,11 @@ const userSchema = new Schema({
         type:Schema.Types.ObjectId,
         ref:'Feedback',
         required:false
-    }]
+    }],
+    refreshTokens:[
+        {type:String}
+    ]
+
 });
 
 
