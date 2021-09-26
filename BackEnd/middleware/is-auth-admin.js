@@ -4,7 +4,7 @@ module.exports = (req,res,next) =>{
     const token = req.get('Authorization').split(' ')[1];
     let decodedToken;
     try{
-        decodedToken = jwt.verify(token,'Smart-Pet-Feeder-2021');
+        decodedToken = jwt.verify(token,'Smart-Pet-Feeder-2021-Admin');
     }
     catch (err){
         console.log("This is error")
@@ -16,6 +16,6 @@ module.exports = (req,res,next) =>{
         error.statusCode = 401;
         throw error;
     }
-    req.userId = decodedToken.userId;
+    req.adminId = decodedToken.adminId;
     next();
 }

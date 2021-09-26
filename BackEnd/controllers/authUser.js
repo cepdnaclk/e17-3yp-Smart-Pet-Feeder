@@ -16,6 +16,8 @@ const Feedback = require('../models/feedback');
 
 const mongoose = require('mongoose');
 
+const Speakeasy = require('speakeasy');
+
 // auth/user/[GET Methods]
 
 //get the current status of the pet feeder (battery, status, remaining rounds)
@@ -193,11 +195,22 @@ exports.login = (req,res,next) =>{
                 userId:loadUser._id.toString()
             },
                 'Smart-Pet-Feeder-2021',
-                {expiresIn: '1h'}
+                {expiresIn: '60s'}
+            );
+
+
+
+            const refreshToken = jwt.sign({
+                email:loadUser.email,
+                userId:loadUser._id.toString()
+            },
+                'SmartPetFeeder2021',
+                {expiresIn: '1y'}
             );
 
             res.status(201).json({
                 idToken:token,
+                refreshToken:refreshToken,
                 expiresIn:"3600",
                 userId: loadUser._id.toString()
             });
@@ -207,6 +220,55 @@ exports.login = (req,res,next) =>{
         })
 }
 
+exports.postGetToken=( req,res,next) =>{
+    const refreshToken = req.get('Authorization').split(' ')[1];
+    if (! refreshToken ){
+        const error = new Error("Error occurred");
+        error.statusCode = 403;
+        throw error;
+    }
+    let decodedToken;
+    try{
+        decodedToken = jwt.verify(refreshToken,'SmartPetFeeder2021');
+    }
+    catch (err){
+        console.log("This is error")
+        err.statusCode = 500;
+        throw err;
+    }
+    if (!decodedToken){
+        const error = new Error('You are not authenticated!');
+        error.statusCode = 401;
+        throw error;
+    }
+     User.findById(decodedToken.userId)
+         .then(user =>{
+             if (!user){
+                 const error = new Error("User not authenticated error");
+                 error.statusCode = 403;
+                 throw error;
+             }
+             if (! user.refreshTokens.includes(refreshToken)){
+                 const error = new Error("You are not authenticated");
+                 error.statusCode = 403;
+                 throw error;
+             }
+             const token = jwt.sign({
+                     email:user.email,
+                     userId:user._id.toString()
+                 },
+                 'Smart-Pet-Feeder-2021',
+                 {expiresIn: '60s'}
+             );
+
+             res.status(201).json({
+                 idToken:token,
+                 refreshToken:refreshToken,
+                 expiresIn:"3600",
+                 userId: user._id.toString()
+             });
+         }).catch(err =>{next(err)})
+}
 
 
 

@@ -4,7 +4,7 @@ const { body } = require("express-validator/check");
 
 const adminControllers = require("../controllers/authAdmin");
 
-const isAuth = require("../middleware/is-auth");
+const isAuthAdmin = require("../middleware/is-auth-admin");
 
 const router = express.Router();
 
@@ -12,12 +12,12 @@ const router = express.Router();
 
 router.post('/login',adminControllers.login);
 
-router.post('/post_ActiveStatus',isAuth,adminControllers.postActiveStatus);
+router.post('/post_ActiveStatus',isAuthAdmin,adminControllers.postActiveStatus);
 
-router.get('/get_feedbacks',isAuth,adminControllers.getFeedbacks);
+router.get('/get_feedbacks',isAuthAdmin,adminControllers.getFeedbacks);
 
-router.get('/get_users',isAuth,adminControllers.getUsers);
+router.get('/get_users',isAuthAdmin,adminControllers.getUsers);
 
-router.get('/get_usersDetails',isAuth,adminControllers.getUsersDetails);
+router.get('/get_usersDetails',isAuthAdmin,adminControllers.getUsersDetails);
 
 module.exports = router;

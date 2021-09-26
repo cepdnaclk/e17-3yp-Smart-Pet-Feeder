@@ -6,7 +6,7 @@ const userControllers = require("../controllers/authUser");
 
 const User = require("../models/user");
 
-const isAuth = require("../middleware/is-auth");
+const isAuthUser = require("../middleware/is-auth-user");
 
 const router = express.Router();
 
@@ -50,24 +50,26 @@ router.put('/signup',
 
 router.post('/login',userControllers.login);
 
+router.post('/token',userControllers.postGetToken);
+
 router.post('/post_schedules' ,[
     body("title").not().isEmpty().withMessage("Title Cannot be empty!"),
     body("date_time").not().isEmpty().withMessage("Date and time undefined")
-], isAuth, userControllers.postSchedule);
+], isAuthUser, userControllers.postSchedule);
 
-router.post('/delete_schedule',isAuth,userControllers.postDeleteSchedule);
+router.post('/delete_schedule',isAuthUser,userControllers.postDeleteSchedule);
 
-router.post('/post_feedback',isAuth,userControllers.postFeedback);
+router.post('/post_feedback',isAuthUser,userControllers.postFeedback);
 
-router.post('/post_markRead',isAuth,userControllers.postMarkedAsRead);
+router.post('/post_markRead',isAuthUser,userControllers.postMarkedAsRead);
 
-router.get('/get_status',isAuth,userControllers.getStatus);
+router.get('/get_status',isAuthUser,userControllers.getStatus);
 
-router.get('/get_schedules',isAuth,userControllers.getActiveSchedules);
+router.get('/get_schedules',isAuthUser,userControllers.getActiveSchedules);
 
-router.get('/get_history',isAuth,userControllers.getScheduleHistory);
+router.get('/get_history',isAuthUser,userControllers.getScheduleHistory);
 
-router.get('/get_notifications',isAuth,userControllers.getNotifications);
+router.get('/get_notifications',isAuthUser,userControllers.getNotifications);
 
 
 module.exports = router;
