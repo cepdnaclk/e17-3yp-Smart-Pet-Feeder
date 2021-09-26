@@ -173,6 +173,8 @@ exports.login = (req,res,next) =>{
     const email = req.body.email;
     const password = req.body.password;
     let loadUser;
+    let token;
+    let refreshToken;
 
     User.findOne({email:email})
         .then(user =>{
@@ -190,7 +192,7 @@ exports.login = (req,res,next) =>{
                 error.statusCode = 401;
                 throw error;
             }
-            const token = jwt.sign({
+            token = jwt.sign({
                 email:loadUser.email,
                 userId:loadUser._id.toString()
             },
@@ -200,7 +202,7 @@ exports.login = (req,res,next) =>{
 
 
 
-            const refreshToken = jwt.sign({
+            refreshToken = jwt.sign({
                 email:loadUser.email,
                 userId:loadUser._id.toString()
             },
@@ -208,6 +210,11 @@ exports.login = (req,res,next) =>{
                 {expiresIn: '1y'}
             );
 
+            loadUser.refreshTokens.push(refreshToken);
+            return loadUser.save();
+
+        })
+        .then(result=>{
             res.status(201).json({
                 idToken:token,
                 refreshToken:refreshToken,
