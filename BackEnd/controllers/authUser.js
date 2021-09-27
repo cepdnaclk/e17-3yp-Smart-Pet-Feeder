@@ -195,7 +195,7 @@ exports.login = (req,res,next) =>{
                 userId:loadUser._id.toString()
             },
                 'Smart-Pet-Feeder-2021',
-                {expiresIn: '60s'}
+                {expiresIn: '1y'}
             );
 
 
@@ -258,7 +258,7 @@ exports.postGetToken=( req,res,next) =>{
                      userId:user._id.toString()
                  },
                  'Smart-Pet-Feeder-2021',
-                 {expiresIn: '60s'}
+                 {expiresIn: '1y'}
              );
 
              res.status(201).json({
@@ -370,7 +370,8 @@ exports.postFeedback = (req,res,next) =>{
         title:req.body.title,
         message:req.body.message,
         date_time:req.body.date_time,
-        userId:req.userId
+        userId:req.userId,
+        isHandle:false
     });
 
     feedback.save()
