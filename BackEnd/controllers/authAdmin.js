@@ -72,7 +72,7 @@ exports.postActiveStatus = (req,res,next) =>{
             res.status(200).json({message:"Successful",userId:userId});
         })
         .catch(err => {
-            next(err)
+            next(err);
         })
 }
 
