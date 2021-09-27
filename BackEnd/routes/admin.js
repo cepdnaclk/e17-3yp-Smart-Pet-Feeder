@@ -14,6 +14,8 @@ router.post('/login',adminControllers.login);
 
 router.post('/post_ActiveStatus',isAuthAdmin,adminControllers.postActiveStatus);
 
+router.post('/post_reply',isAuthAdmin,adminControllers.postReply);
+
 router.get('/get_feedbacks',isAuthAdmin,adminControllers.getFeedbacks);
 
 router.get('/get_users',isAuthAdmin,adminControllers.getUsers);

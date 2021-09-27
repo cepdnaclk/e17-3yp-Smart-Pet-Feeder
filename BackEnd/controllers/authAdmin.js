@@ -77,15 +77,43 @@ exports.postActiveStatus = (req,res,next) =>{
 }
 
 
+exports.postReply = (req,res,next)=>{
+    const feedbackId = req.body.feedbackId;
+    const message = req.body.message;
+
+    Feedback.findById(feedbackId)
+        .then(feedback =>{
+            feedback.reply = message;
+            feedback.isHandle = true;
+            return feedback.save();
+        })
+        .then(result =>{
+            res.status(201).json({message:"Message sent"});
+        })
+        .catch(err=>next(err))
+}
+
 exports.getFeedbacks = (req,res,next) =>{
     Feedback.find({isHandle:false})
+        .populate('userId')
         .then(result =>{
-            res.status(200).json(result);
+            const feedbacks = result.map(feedback =>{
+                return {
+                    userId:feedback.userId._id,
+                    email:feedback.userId.email ,
+                    title:feedback.title,
+                    message:feedback.message,
+                    date_time:feedback.date_time
+                }
+            })
+            res.status(200).json(feedbacks);
         })
         .catch(err =>
         next(err)
         )
 }
+
+
 
 exports.getUsers = (req,res,next) =>{
     User.find({})
