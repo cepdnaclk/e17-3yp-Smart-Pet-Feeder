@@ -25,9 +25,9 @@ const feedbackSchema = new Schema({
         required:true
     },
     reply:{
-        type:String,
+        type:Object,
         required:true,
-        default:""
+        default:{}
     }
 });
 
