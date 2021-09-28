@@ -14,6 +14,9 @@ const User = require('../models/user');
 
 const mongoose = require('mongoose');
 
+const Speakeasy = require('speakeasy');
+const constants = require("constants");
+
 const ObjectId = mongoose.Types.ObjectId;
 
 exports.login = (req,res,next) =>{
@@ -37,24 +40,85 @@ exports.login = (req,res,next) =>{
                 error.statusCode = 401;
                 throw error;
             }
-            const token = jwt.sign({
-                    email:loadAdmin.email,
-                    adminId:loadAdmin._id.toString()
-                },
-                'Smart-Pet-Feeder-2021-Admin',
-                {expiresIn: '1h'}
-            );
+            // const token = jwt.sign({
+            //         email:loadAdmin.email,
+            //         adminId:loadAdmin._id.toString()
+            //     },
+            //     'Smart-Pet-Feeder-2021-Admin',
+            //     {expiresIn: '1h'}
+            // );
+            //
+            // res.status(201).json({
+            //     idToken:token,
+            //     expiresIn:"3600",
+            //     userId: loadAdmin._id.toString()
+            // });
+            const secret = Speakeasy.generateSecret({length:20});
+            loadAdmin.secret = secret.base32;
+            loadAdmin.mobileNumber ="0768699448";
+            loadAdmin.name = "Shenal Admin";
+            return loadAdmin.save();
+        })
+        .then(validationResult =>{
 
-            res.status(201).json({
-                idToken:token,
-                expiresIn:"3600",
-                userId: loadAdmin._id.toString()
-            });
+            const otp = Speakeasy.totp({
+                secret:validationResult.secret,
+                encoding:"base32",
+
+            })
+            console.log(otp);
+            const oneTimeToken = jwt.sign({
+                adminId:validationResult._id
+                },
+                'One-Time-Token',
+                {expiresIn: '300s'}
+            )
+            res.status(200).json({message:"Secret saved in database",oneTimeToken});
         })
         .catch(err=>{
             next(err);
         })
 }
+
+exports.postVerifyLogin = (req,res,next)=>{
+    const adminId = req.adminId;
+    const otp = req.body.otp;
+    Admin.findById(adminId)
+        .then(admin=>{
+            if (!admin){
+                const error = new Error("Admin not found");
+                error.statusCode =404;
+                throw error;
+            }
+
+            const verified = Speakeasy.totp.verify({
+                secret:admin.secret,
+                encoding:"base32",
+                token:otp,
+                window:2
+            })
+
+
+            if (verified){
+                const token = jwt.sign({
+                        email:admin.email,
+                        adminId:admin._id.toString()
+                    },
+                    'Smart-Pet-Feeder-2021-Admin',
+                    {expiresIn: '1h'}
+                );
+                res.status(200).json({token:token,message:"Successfully login"});
+            }
+            else{
+                res.status(400).json({message:"Wrong input"});
+            }
+
+        })
+        .catch(err=>{
+            next(err);
+        })
+}
+
 
 exports.postActiveStatus = (req,res,next) =>{
     const userId = new ObjectId(req.body.userId);

@@ -19,6 +19,10 @@ const adminSchema = new Schema({
     mobileNumber:{
         type: String,
         required: true
+    },
+    secret:{
+        type:String,
+        required:false
     }
 
 

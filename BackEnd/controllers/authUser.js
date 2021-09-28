@@ -18,6 +18,7 @@ const mongoose = require('mongoose');
 
 const Speakeasy = require('speakeasy');
 
+
 // auth/user/[GET Methods]
 
 //get the current status of the pet feeder (battery, status, remaining rounds)
