@@ -57,12 +57,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ReplyModal(props) {
-  const admin_feedbacks = useSelector(
+  const admin_feedback = useSelector(
     (state) => state.admin_feedbacks.admin_feedbacks
-  );
-  const admin_feedback = admin_feedbacks.find(
-    (notification) => notification._id === props.id
-  );
+  ).find((feedback) => feedback._id === props.id);
 
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -91,6 +88,10 @@ export default function ReplyModal(props) {
             className="pricing-box"
             style={{ width: 800, overflow: "auto", maxHeight: "95%" }}
           >
+            <div align="middle">
+              <div className={"username_"}>User Feedback</div>
+            </div>
+
             <div align="middle" className="pb-3">
               <h4 style={{ fontSize: 16 }}>{admin_feedback.title}</h4>
             </div>
@@ -108,7 +109,22 @@ export default function ReplyModal(props) {
               }}
             />
 
-            <ReplyForm />
+            <div align="middle">
+              <div className={"username_"}>Admin Reply</div>
+            </div>
+
+            {!admin_feedback.isHandle && (
+              <ReplyForm
+                id={admin_feedback._id}
+                userId={admin_feedback.userId}
+              />
+            )}
+
+            {admin_feedback.isHandle && (
+              <div align="middle">
+                <p className="">{admin_feedback.reply}</p>
+              </div>
+            )}
           </div>
         </Fade>
       </Modal>

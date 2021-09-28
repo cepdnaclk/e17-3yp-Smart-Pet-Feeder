@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import AdminFeedbacks from "../../components/AdminFeedback/AdminFeedbacks";
 import usersData from "../../data/Feedback/Feedback-data.json";
 import { useSelector } from "react-redux";
+import { dateCompare } from "../../helpers/functions";
 
 const Feedbacks = () => {
-  const admin_feedbacks = useSelector(
-    (state) => state.admin_feedbacks.admin_feedbacks
-  );
-
   const [search_email, setSearchEmail] = useState("");
   const onChangeEmail = (e) => {
     setSearchEmail(e.target.value);
   };
 
-  // const filteredFeedbacks = admin_feedbacks.filter((user) =>
-  //   user.email.includes(userEmail)
-  // );
+  const admin_feedbacks = useSelector(
+    (state) => state.admin_feedbacks.admin_feedbacks
+  )
+    .sort((date1, date2) => dateCompare(date1, date2))
+    .filter((user) => user.email.includes(search_email));
+
   return (
     <React.Fragment>
       <section>

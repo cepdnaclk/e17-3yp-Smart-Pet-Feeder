@@ -3,15 +3,13 @@ import useInput from "../../hooks/use-input";
 import * as Validators from "../../helpers/validators";
 import * as authActions from "../../store/actions/auth";
 import Button from "@material-ui/core/Button";
-import { feedbackReply } from "../../store/actions/admin_feedbacks";
-import { useDispatch, useSelector } from "react-redux";
+import { submitFeedback } from "../../store/actions/feedback";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import Page500 from "../../pages/error_page/Page500";
 
-const ReplyForm = (props) => {
-  const email = useSelector((state) => state.admin_feedbacks.admin_feedbacks);
-
+const AdminContactUsForm = () => {
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -46,7 +44,7 @@ const ReplyForm = (props) => {
     setError(null);
     setIsLoading(true);
     try {
-      await dispatch(feedbackReply(props.id, props.userId, title, message));
+      await dispatch(submitFeedback(title, message));
       history.replace(`${process.env.PUBLIC_URL}/user/contactus`);
     } catch (err) {
       setError(err.message);
@@ -70,12 +68,12 @@ const ReplyForm = (props) => {
           name="title"
           className="form-control"
           id="title"
-          placeholder="Title"
+          placeholder="Name"
           value={title}
           onChange={titleChangeHandler}
           onBlur={titleBlurHandler}
         />
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Name</label>
 
         {titleHasError && (
           <p className="error-message" style={{ fontSize: 16 }}>
@@ -113,14 +111,14 @@ const ReplyForm = (props) => {
           disabled={!formIsValid}
           type="submit"
           name="submit"
-          className="btn btn-circle mt-5 w-25"
+          className="btn btn-circle mt-5 mb-5 w-25"
           style={{
             backgroundColor: "black",
             color: "white",
             fontSize: 18,
           }}
         >
-          Reply
+          Submit
         </Button>
       )}
 
@@ -129,4 +127,4 @@ const ReplyForm = (props) => {
   );
 };
 
-export default ReplyForm;
+export default AdminContactUsForm;

@@ -24,16 +24,17 @@ const useStyles = makeStyles((theme) => ({
 export default function AdminFeedback({
   id,
   title,
+  email,
   date_time,
   isRead,
   showMessage,
 }) {
-  const email = useSelector((state) => state.admin_feedbacks.admin_feedbacks);
   return (
-    <div className="mt-30 mb-30" onClick={showMessage.bind(null, id)}>
+    <div className="mt-30 mb-30">
       <div
         className="row pricing-box notification pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2"
-        style={{ backgroundColor: isRead === false ? "#CBFBFD" : "orange" }}
+        style={{ backgroundColor: isRead === false ? "#CBFBFD" : "" }}
+        onClick={showMessage.bind(null, id)}
       >
         <div className="col-md-2">
           <div style={{ marginTop: 32 }}>
@@ -43,7 +44,7 @@ export default function AdminFeedback({
 
         <div className="col-md-8">
           <h4 style={{ fontSize: 16 }}>{title}</h4>
-          <div className="username_"></div>
+          <div className="username_">{email}</div>
 
           <div className="row pt-1 pb-1">
             <div className="col-6">
@@ -67,7 +68,7 @@ export default function AdminFeedback({
           </div>
         </div>
 
-        <div className="col-md-2" style={{ marginTop: 32 }}>
+        <div className="col-md-2" style={{ marginTop: 35 }}>
           <div>
             <Icofont
               icon={isRead === false ? "arrow-up" : "check-circled"}

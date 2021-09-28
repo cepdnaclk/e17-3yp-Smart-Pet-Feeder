@@ -226,7 +226,23 @@ const DropdownMenu = (props) => {
               history.push(`${process.env.PUBLIC_URL}/admin/feedback`);
             }}
           >
-            Feedback
+            Feedbacks
+            <MessageIcon className="pb-1" />
+          </DomLink>
+        )}
+
+        {isAdminLoggedIn && (
+          <DomLink
+            to={"/Admin Message Page"}
+            className={
+              props.fixed || props.type === "white" ? "white_bg" : "black_bg"
+            }
+            onClick={(e) => {
+              e.preventDefault();
+              history.push(`${process.env.PUBLIC_URL}/admin/message`);
+            }}
+          >
+            Message
             <MessageIcon className="pb-1" />
           </DomLink>
         )}
