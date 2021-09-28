@@ -94,7 +94,7 @@ exports.postReply = (req,res,next)=>{
 }
 
 exports.getFeedbacks = (req,res,next) =>{
-    Feedback.find({isHandle:false})
+    Feedback.find({ })
         .populate('userId')
         .then(result =>{
             const feedbacks = result.map(feedback =>{
@@ -104,6 +104,7 @@ exports.getFeedbacks = (req,res,next) =>{
                     email:feedback.userId.email ,
                     title:feedback.title,
                     message:feedback.message,
+                    isHandle:feedback.isHandle,
                     date_time:feedback.date_time
                 }
             })
