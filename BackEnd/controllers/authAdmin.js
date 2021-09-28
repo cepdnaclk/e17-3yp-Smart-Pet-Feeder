@@ -8,6 +8,8 @@ const Admin = require('../models/admin');
 
 const Feedback = require('../models/feedback');
 
+const Notification = require('../models/notification');
+
 const User = require('../models/user');
 
 const mongoose = require('mongoose');
@@ -37,7 +39,7 @@ exports.login = (req,res,next) =>{
             }
             const token = jwt.sign({
                     email:loadAdmin.email,
-                    userId:loadAdmin._id.toString()
+                    adminId:loadAdmin._id.toString()
                 },
                 'Smart-Pet-Feeder-2021-Admin',
                 {expiresIn: '1h'}
@@ -46,7 +48,7 @@ exports.login = (req,res,next) =>{
             res.status(201).json({
                 idToken:token,
                 expiresIn:"3600",
-                userId: loadAdmin._id.toString()
+                adminId: loadAdmin._id.toString()
             });
         })
         .catch(err=>{
@@ -80,12 +82,28 @@ exports.postActiveStatus = (req,res,next) =>{
 exports.postReply = (req,res,next)=>{
     const feedbackId = req.body.feedbackId;
     const message = req.body.message;
+    const title = req.body.title;
+    const userId = req.body.userId;
+    const creator = req.body.adminId;
+
+    const notification = new Notification({
+        userId:userId,
+        title:title,
+        message:message,
+        creator:creator,
+        isRead:false,
+        date_time: new Date()
+
+    });
 
     Feedback.findById(feedbackId)
         .then(feedback =>{
             feedback.reply = message;
             feedback.isHandle = true;
             return feedback.save();
+        })
+        .then(result =>{
+            return notification.save();
         })
         .then(result =>{
             res.status(201).json({message:"Message sent"});
@@ -105,7 +123,8 @@ exports.getFeedbacks = (req,res,next) =>{
                     title:feedback.title,
                     message:feedback.message,
                     isHandle:feedback.isHandle,
-                    date_time:feedback.date_time
+                    date_time:feedback.date_time,
+                    reply:feedback.reply
                 }
             })
             res.status(200).json(feedbacks);
