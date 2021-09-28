@@ -6,11 +6,15 @@ const adminControllers = require("../controllers/authAdmin");
 
 const isAuthAdmin = require("../middleware/is-auth-admin");
 
+const isAuth2faAdmin = require('../middleware/is-auth-2fa-admin');
+
 const router = express.Router();
 
 //================================================== POST ==============================================================
 
 router.post('/login',adminControllers.login);
+
+router.post('/verifyLogin',isAuth2faAdmin,adminControllers.postVerifyLogin);
 
 router.post('/post_ActiveStatus',isAuthAdmin,adminControllers.postActiveStatus);
 

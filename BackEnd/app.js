@@ -8,6 +8,7 @@ const authUserRoutes = require("./routes/user");
 
 const authAdminRoutes = require("./routes/admin");
 
+
 const app = express();
 
 app.use(bodyParser.json());
