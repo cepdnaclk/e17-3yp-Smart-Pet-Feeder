@@ -23,6 +23,10 @@ const feedbackSchema = new Schema({
     isHandle:{
         type:Boolean,
         required:true
+    },
+    reply:{
+        type:String,
+        required:false
     }
 });
 
