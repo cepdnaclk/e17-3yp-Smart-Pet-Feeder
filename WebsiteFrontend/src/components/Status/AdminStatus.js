@@ -118,10 +118,7 @@ const AdminStatus = ({ bg, type }) => {
               data-aos-easing={"ease-in-sine"}
               style={{ paddingTop: 10 }}
             >
-              <Icofont
-                icon={"close-circled"}
-                className="light-icon font-30px"
-              />
+              <Icofont icon={"z"} className="light-icon font-30px" />
 
               <h2
                 className={

@@ -48,7 +48,7 @@ exports.login = (req,res,next) =>{
             res.status(201).json({
                 idToken:token,
                 expiresIn:"3600",
-                adminId: loadAdmin._id.toString()
+                userId: loadAdmin._id.toString()
             });
         })
         .catch(err=>{

@@ -15,7 +15,7 @@ const StartupPage = (props) => {
   useEffect(() => {
     const tryAdminLogin = () => {
       const adminData = localStorage.getItem("adminData");
-      const userData = localStorage.getItem("userData");
+      console.log(adminData);
 
       if (!adminData) {
         return false;
@@ -64,19 +64,19 @@ const StartupPage = (props) => {
         When app restarts, redux storage hasn't token and Id.
         By dispatching this, token and Id will be save in the redux store.
         If user manually set token and Id in the mobile storage. He will log into the system, but
-        he cannot send requests to the server with invalid token.
+        he cannot send requests to the server with invalid token.z
        */
-      history.replace(`${process.env.PUBLIC_URL}/user`);
 
       const expireTime = expirationDate.getTime() - new Date().getTime();
       dispatch(authActions.authenticate(userId, token, expireTime));
+      history.replace(`${process.env.PUBLIC_URL}/user`);
     };
 
     // Call tryLogin func
     const isAdmin = tryAdminLogin();
     if (isAdmin) history.replace(`${process.env.PUBLIC_URL}/admin`);
     else tryLogin();
-  }, [dispatch]);
+  }, [dispatch, history, ,]);
 
   return (
     // Show Loading spinner, while stay in this screen

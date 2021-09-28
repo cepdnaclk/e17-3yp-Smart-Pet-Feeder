@@ -118,7 +118,7 @@ const ContactUsForm = () => {
             fontSize: 18,
           }}
         >
-          SUBMIT
+          Submit
         </Button>
       )}
 

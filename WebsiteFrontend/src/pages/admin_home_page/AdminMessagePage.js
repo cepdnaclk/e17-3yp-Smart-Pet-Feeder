@@ -1,7 +1,7 @@
 import React from "react";
 import ContactUsForm from "../../components/ContactUs/ContactUsForm";
 
-const UserContactUs = () => {
+const AdminMessagePage = () => {
   return (
     <section>
       <div className="container">
@@ -13,7 +13,7 @@ const UserContactUs = () => {
               data-aos-delay={100}
               data-aos-duration={700}
             >
-              Contact Us
+              Message
             </h2>
             <h4
               className="text-uppercase pb-4"
@@ -21,9 +21,9 @@ const UserContactUs = () => {
               data-aos-delay={200}
               data-aos-duration={700}
             >
-              - send message to all -
+              - send message to specific user -
             </h4>
-            {/*<ContactUsForm />*/}
+            <ContactUsForm />
           </div>
         </div>
       </div>
@@ -31,4 +31,4 @@ const UserContactUs = () => {
   );
 };
 
-export default UserContactUs;
+export default AdminMessagePage;

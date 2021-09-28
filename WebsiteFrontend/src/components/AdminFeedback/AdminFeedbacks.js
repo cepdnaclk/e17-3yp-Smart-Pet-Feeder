@@ -36,6 +36,7 @@ export default function Notifications(props) {
   const [modalData, setModalData] = useState({ open: false });
 
   const showMessage = (id) => {
+    console.log("id", id);
     setModalData({ open: true, id: id });
   };
 
@@ -60,10 +61,11 @@ export default function Notifications(props) {
         <div className="container">
           {props.admin_feedbacks.map((data) => (
             <AdminFeedback
+              id={data._id}
               title={data.title}
+              email={data.email}
               date_time={data.date_time}
               isRead={data.isHandle}
-              id={data._id}
               key={data._id}
               showMessage={showMessage}
             />
