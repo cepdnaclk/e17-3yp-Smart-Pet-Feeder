@@ -105,6 +105,12 @@ exports.postReply = (req,res,next)=>{
         .then(result =>{
             return notification.save();
         })
+        .then(result=>{
+            User.findById(userId)
+                .then(user=>{
+                    user.notification.push(result._id);
+                })
+        })
         .then(result =>{
             res.status(201).json({message:"Message sent"});
         })
