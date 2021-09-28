@@ -2,8 +2,8 @@ import { SET_STATUS } from "../actions/status";
 
 const initialState = {
   status: {
-    battery: 80,
-    remainingRounds: 4,
+    battery: 0,
+    remainingRounds: 0,
     status: true,
   },
 };

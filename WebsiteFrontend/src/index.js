@@ -13,6 +13,8 @@ import authReducer from "./store/reducer/auth";
 import adminAuthReducer from "./store/reducer/admin_auth";
 import notificationReducer from "./store/reducer/notifications";
 import usersReducer from "./store/reducer/admin_users";
+import AdminFeedbackReducer from "./store/reducer/admin_feedbacks";
+import adminStatusReducer from "./store/reducer/admin_status";
 
 const rootReducer = combineReducers({
   schedules: scheduleReducer,
@@ -20,8 +22,10 @@ const rootReducer = combineReducers({
   history: historyReducer,
   auth: authReducer,
   admin_auth: adminAuthReducer,
+  admin_feedbacks: AdminFeedbackReducer,
   notifications: notificationReducer,
   users: usersReducer,
+  admin_status: adminStatusReducer,
 });
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 

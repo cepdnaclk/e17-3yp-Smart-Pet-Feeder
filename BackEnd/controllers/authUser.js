@@ -197,7 +197,7 @@ exports.login = (req,res,next) =>{
                 userId:loadUser._id.toString()
             },
                 'Smart-Pet-Feeder-2021',
-                {expiresIn: '60s'}
+                {expiresIn: '3600s'}
             );
 
 
