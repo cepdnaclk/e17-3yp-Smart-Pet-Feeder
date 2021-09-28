@@ -99,6 +99,7 @@ exports.getFeedbacks = (req,res,next) =>{
         .then(result =>{
             const feedbacks = result.map(feedback =>{
                 return {
+                    _id:feedback._id,
                     userId:feedback.userId._id,
                     email:feedback.userId.email ,
                     title:feedback.title,
