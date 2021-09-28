@@ -1,16 +1,9 @@
 import React from "react";
-import BroadcastForm from "../../components/Broadcast/Broadcast";
+import ContactUsForm from "../../components/ContactUs/ContactUsForm";
 
-import Status from "../../components/Status/Status";
-import ActiveSchedules from "../../components/ActiveSchedules/ActiveSchedules";
-import Schedule from "../../components/ActiveSchedules/Schedule";
-
-const AdminHistoryPage = () => {
+const UserContactUs = () => {
   return (
-    <section className="" style={{
-      background: `url(${require("../../assets/images/background/blue.png")}) center center / cover scroll no-repeat`,
-    }}>
-     
+    <section>
       <div className="container">
         <div className="row">
           <div className="col-sm-8 section-heading pt-10">
@@ -20,17 +13,17 @@ const AdminHistoryPage = () => {
               data-aos-delay={100}
               data-aos-duration={700}
             >
-              Broadcast
+              Contact Us
             </h2>
             <h4
-              className="text-uppercase"
+              className="text-uppercase pb-4"
               data-aos={"fade-up"}
               data-aos-delay={200}
               data-aos-duration={700}
             >
-              send broadcast to all
+              - send message to all -
             </h4>
-            <BroadcastForm/>
+            <ContactUsForm />
           </div>
         </div>
       </div>
@@ -38,4 +31,4 @@ const AdminHistoryPage = () => {
   );
 };
 
-export default AdminHistoryPage;
+export default UserContactUs;

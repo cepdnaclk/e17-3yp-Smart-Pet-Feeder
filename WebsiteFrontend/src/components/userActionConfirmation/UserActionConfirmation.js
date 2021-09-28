@@ -36,11 +36,7 @@ export default function UserActionConfirmation({
           <Button onClick={handleClose} color="primary">
             No
           </Button>
-          <Button
-            onClick={actionHandler.bind(null, id)}
-            color="primary"
-            autoFocus
-          >
+          <Button onClick={actionHandler} color="primary" autoFocus>
             Yes
           </Button>
         </DialogActions>
