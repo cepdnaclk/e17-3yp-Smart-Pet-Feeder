@@ -26,7 +26,8 @@ const feedbackSchema = new Schema({
     },
     reply:{
         type:String,
-        required:false
+        required:true,
+        default:""
     }
 });
 
