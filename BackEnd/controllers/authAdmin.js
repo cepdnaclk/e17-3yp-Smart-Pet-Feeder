@@ -108,7 +108,9 @@ exports.postReply = (req,res,next)=>{
         .then(result=>{
             User.findById(userId)
                 .then(user=>{
+
                     user.notifications.push(result._id);
+                    return user.save();
                 })
         })
         .then(result =>{
