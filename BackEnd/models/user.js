@@ -52,7 +52,11 @@ const userSchema = new Schema({
     }],
     refreshTokens:[
         {type:String}
-    ]
+    ],
+    secret:{
+        type:String,
+        required:false
+    }
 
 });
 
