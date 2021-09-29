@@ -2,6 +2,7 @@ import { API_URL } from "../../configs/Configs";
 
 export const AUTHENTICATE_ADMIN = "AUTHENTICATE_ADMIN";
 export const LOGOUT_ADMIN = "LOGOUT_ADMIN";
+export const SAVE_ONETIME_TOKEN = "SAVE_ONETIME_TOKEN";
 let timer; // to hold timer func
 
 export const authenticate = (userId, token, expiryTime) => {
@@ -14,7 +15,7 @@ export const authenticate = (userId, token, expiryTime) => {
   };
 };
 
-export const login = (email, password) => {
+export const tryLogin = (email, password) => {
   return async (dispatch) => {
     const response = await fetch(API_URL + "/auth/admin/login", {
       method: "POST",
@@ -30,17 +31,61 @@ export const login = (email, password) => {
 
     if (!response.ok) {
       const errorResData = await response.json();
-      const errorId = errorResData.error.message;
-      let message = "Authentication failed!";
-      if (errorId === "EMAIL_NOT_FOUND") {
-        message = "This email could not be found!";
-      } else if (errorId === "INVALID_PASSWORD") {
-        message = "This password is not valid!";
-      }
+
+      let message = "An error occurred";
+      if (errorResData.message) message = errorResData.message;
       throw new Error(message);
     }
 
     const resData = await response.json();
+    console.log(resData);
+
+    dispatch({ type: SAVE_ONETIME_TOKEN, oneTimeToken: resData.oneTimeToken });
+
+    // dispatch(
+    //     authenticate(
+    //         resData.userId,
+    //         resData.idToken,
+    //         +parseInt(resData.expiresIn) * 1000
+    //     )
+    // );
+    // // This is for saving expiry time (When auto login)
+    //
+    // const expirationDate = new Date(
+    //     new Date().getTime() + +parseInt(resData.expiresIn) * 1000
+    //     // new Date().getTimezoneOffset() * 60 * 1000
+    // );
+    // saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+  };
+};
+
+export const submitOTP = (otp) => {
+  console.log("Incoming OTP", otp);
+  return async (dispatch, getState) => {
+    const token = getState().admin_auth.oneTimeToken;
+    const response = await fetch(API_URL + "/auth/admin/verifyLogin", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        otp: otp,
+        // returnSecureToken: true,
+      }),
+    });
+
+    console.log("respose", response);
+    if (!response.ok) {
+      const errorResData = await response.json();
+
+      let message = "An error occurred";
+      if (errorResData.message) message = errorResData.message;
+      throw new Error(message);
+    }
+
+    const resData = await response.json();
+    console.log("resDate", resData);
 
     dispatch(
       authenticate(

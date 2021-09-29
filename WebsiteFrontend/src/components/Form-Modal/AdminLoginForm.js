@@ -42,8 +42,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: "#1d9a6c",
     fontSize: 14,
-    fontFamily: "Courier-Bold",
-    fontWeight: "bold",
+    fontFamily: "Jost",
     borderRadius: 3,
     border: 0,
     color: "white",
@@ -54,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     // rule within the same style sheet.
     // By using &, we increase the specificity.
     "&:hover": {
-      backgroundColor: "green",
+      backgroundColor: "#1d9a6c",
     },
     "&$disabled": {
       background: "rgba(0, 0, 0, 0.12)",
@@ -73,9 +72,13 @@ export default function AdminLoginForm(props) {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
+  const [isInvalidOTP, setOTPInValidity] = useState(false);
+  const [isOTPPage, setOTPPage] = useState(false);
+  const [OTP, setOTP] = useState("");
+
   useEffect(() => {
     if (error) {
-      alert("Invalid Email or Password!");
+      alert(error);
     }
   }, [error]);
 
@@ -107,10 +110,28 @@ export default function AdminLoginForm(props) {
     setIsLoading(true);
 
     try {
-      await dispatch(authActions.login(email, password));
+      await dispatch(authActions.tryLogin(email, password));
+      // history.replace(`${process.env.PUBLIC_URL}/admin/users`);
+      setOTPPage(true);
+    } catch (err) {
+      setError(err.message);
+      setIsLoading(false);
+    }
+  };
+
+  const OTPChangeHandler = (e) => {
+    setOTP(e.target.value);
+  };
+  const submitOTP = async () => {
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      await dispatch(authActions.submitOTP(OTP));
       history.replace(`${process.env.PUBLIC_URL}/admin/users`);
     } catch (err) {
       setError(err.message);
+      setOTPInValidity(true);
       setIsLoading(false);
     }
   };
@@ -118,8 +139,12 @@ export default function AdminLoginForm(props) {
   const closeFormHandler = () => {
     resetEmail();
     resetPassword();
+    setOTPPage(false);
+    setOTP("");
+    setOTPInValidity(false);
     props.handleClose();
   };
+
   return (
     <Container component="main" maxWidth="xs">
       <Modal
@@ -170,29 +195,64 @@ export default function AdminLoginForm(props) {
                   <p className="error-message">*Password should not be empty</p>
                 )}
               </div>
-              <div className="form-actions">
-                {isLoading ? (
-                  <div align="center">
-                    <Loader
-                      type="ThreeDots"
-                      color="#d42e22"
-                      height={48}
-                      width={100}
+
+              {!isOTPPage && (
+                <div className="form-actions">
+                  {isLoading ? (
+                    <div align="center">
+                      <Loader
+                        type="ThreeDots"
+                        color="#d42e22"
+                        height={48}
+                        width={100}
+                      />
+                    </div>
+                  ) : (
+                    <Button
+                      classes={{
+                        root: classes.button,
+                        disabled: classes.disabled,
+                      }}
+                      disabled={!formIsValid}
+                      onClick={submitForm}
+                    >
+                      Login
+                    </Button>
+                  )}
+                </div>
+              )}
+
+              {isOTPPage && (
+                <React.Fragment>
+                  <hr style={{ width: "100%", height: "2px" }} />
+                  <div className="">
+                    <input
+                      type="input"
+                      id="otp"
+                      placeholder="Enter OTP"
+                      value={OTP}
+                      onChange={OTPChangeHandler}
+                      className="form-control"
+                      required="required"
                     />
+                    {isInvalidOTP && (
+                      <p className="error-message">* Invalid OTP</p>
+                    )}
                   </div>
-                ) : (
+
                   <Button
                     classes={{
                       root: classes.button,
                       disabled: classes.disabled,
                     }}
-                    disabled={!formIsValid}
-                    onClick={submitForm}
+                    className="button__"
+                    // disabled={!formIsValid}
+                    onClick={submitOTP}
                   >
-                    Login
+                    Submit OTP
                   </Button>
-                )}
-              </div>
+                </React.Fragment>
+              )}
             </form>
           </div>
         </Fade>

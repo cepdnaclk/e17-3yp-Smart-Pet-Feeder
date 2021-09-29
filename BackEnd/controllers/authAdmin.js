@@ -110,7 +110,7 @@ exports.postVerifyLogin = (req,res,next)=>{
                 res.status(200).json({token:token,message:"Successfully login"});
             }
             else{
-                res.status(400).json({message:"Wrong input"});
+                res.status(400).json({message:"Invalid OTP"});
             }
 
         })
