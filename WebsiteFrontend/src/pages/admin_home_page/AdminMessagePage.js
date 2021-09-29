@@ -1,5 +1,6 @@
 import React from "react";
 import ContactUsForm from "../../components/ContactUs/ContactUsForm";
+import AdminMessageForm from "../../components/ContactUs/AdminMessageForm";
 
 const AdminMessagePage = () => {
   return (
@@ -23,7 +24,7 @@ const AdminMessagePage = () => {
             >
               - send message to specific user -
             </h4>
-            <ContactUsForm />
+            <AdminMessageForm />
           </div>
         </div>
       </div>

@@ -51,8 +51,8 @@ const AdminStatus = ({ bg, type }) => {
   return (
     <section className={"pt-120 pb-80 " + (bg ? bg : "dark-bg")}>
       {isLoading && (
-        <div align="center" style={{ marginTop: 20 }}>
-          <Loader type="ThreeDots" color="#d42e22" height={100} width={100} />
+        <div align="center" style={{ marginTop: 35 }}>
+          <Loader type="ThreeDots" color="green" height={100} width={100} />
         </div>
       )}
 
@@ -118,7 +118,10 @@ const AdminStatus = ({ bg, type }) => {
               data-aos-easing={"ease-in-sine"}
               style={{ paddingTop: 10 }}
             >
-              <Icofont icon={"z"} className="light-icon font-30px" />
+              <Icofont
+                icon={"close-circled"}
+                className="light-icon font-30px"
+              />
 
               <h2
                 className={

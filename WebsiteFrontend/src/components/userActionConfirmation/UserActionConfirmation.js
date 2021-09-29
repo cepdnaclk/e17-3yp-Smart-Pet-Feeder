@@ -23,20 +23,33 @@ export default function UserActionConfirmation({
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title" className="dialog_title">
+        <div id="alert-dialog-title" className="dialog_title">
           Handling User Access
-        </DialogTitle>
+        </div>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <div
+            className="email_"
+            id="alert-dialog-description"
+            style={{ fontSize: "12px" }}
+          >
             {isActive && "Are you sure you want to disable the user ? "}
             {!isActive && "Are you sure you want to enable the user ? "}{" "}
-          </DialogContentText>
+          </div>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button
+            onClick={handleClose}
+            color="primary"
+            style={{ fontFamily: "Jost", fontSize: "13px" }}
+          >
             No
           </Button>
-          <Button onClick={actionHandler} color="primary" autoFocus>
+          <Button
+            onClick={actionHandler}
+            color="primary"
+            autoFocus
+            style={{ fontFamily: "Jost", fontSize: "13px" }}
+          >
             Yes
           </Button>
         </DialogActions>

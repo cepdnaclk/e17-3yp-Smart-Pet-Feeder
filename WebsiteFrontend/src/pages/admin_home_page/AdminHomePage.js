@@ -8,6 +8,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import AdminUsersPage from "./AdminUsersPage";
 import AdminBroadcastPage from "./AdminBroadcastPage";
 import AdminFeedbackPage from "./AdminFeedbackPage";
+import AdminMessagePage from "./AdminMessagePage";
 
 const AdminHomePage = () => {
   useEffect(() => {
@@ -31,6 +32,12 @@ const AdminHomePage = () => {
               exact
               path={`${process.env.PUBLIC_URL}/admin/feedback`}
               component={AdminFeedbackPage}
+            />
+
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/admin/message`}
+              component={AdminMessagePage}
             />
 
             <Route
