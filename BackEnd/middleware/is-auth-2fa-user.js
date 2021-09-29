@@ -2,12 +2,13 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (req,res,next) =>{
     const token = req.get('Authorization').split(' ')[1];
+
     let decodedToken;
     try{
-        decodedToken = jwt.verify(token,'Smart-Pet-Feeder-2021');
+        decodedToken = jwt.verify(token,'One-Time-Token-For-User');
     }
     catch (err){
-        console.log("This is error in auth")
+        console.log("This is error in auth 2fa user")
         err.statusCode = 500;
         throw err;
     }
