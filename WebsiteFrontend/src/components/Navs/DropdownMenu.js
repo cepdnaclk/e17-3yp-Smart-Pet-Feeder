@@ -6,7 +6,8 @@ import InfoIcon from "@material-ui/icons/Info";
 import VideoIcon from "@material-ui/icons/OndemandVideo";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import NotificationAddIcon from "@material-ui/icons/AddAlert";
-import MessageIcon from "@material-ui/icons/Message";
+import MessageIcon from "@material-ui/icons/Email";
+import FeedbackIcon from "@material-ui/icons/ClearAll";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
 import GroupIcon from "@material-ui/icons/Group";
 import TelegramIcon from "@material-ui/icons/Telegram";
@@ -227,7 +228,7 @@ const DropdownMenu = (props) => {
             }}
           >
             Feedbacks
-            <MessageIcon className="pb-1" />
+            <FeedbackIcon className="pb-1" />
           </DomLink>
         )}
 

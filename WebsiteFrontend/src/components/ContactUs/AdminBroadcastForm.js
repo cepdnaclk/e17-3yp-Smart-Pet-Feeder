@@ -3,13 +3,42 @@ import useInput from "../../hooks/use-input";
 import * as Validators from "../../helpers/validators";
 import * as authActions from "../../store/actions/auth";
 import Button from "@material-ui/core/Button";
-import { submitFeedback } from "../../store/actions/feedback";
+import { submitAdminBroadcast } from "../../store/actions/feedback";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import Page500 from "../../pages/error_page/Page500";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    backgroundColor: "#1d9a6c",
+    fontSize: 14,
+    fontFamily: "Jost",
+    borderRadius: 3,
+    border: 0,
+    color: "white",
+    height: 48,
+    padding: "0 30px",
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    // $disabled is a reference to the local disabled
+    // rule within the same style sheet.
+    // By using &, we increase the specificity.
+    "&:hover": {
+      backgroundColor: "#1d9a6c",
+    },
+    "&$disabled": {
+      background: "rgba(0, 0, 0, 0.12)",
+      color: "white",
+      boxShadow: "none",
+    },
+  },
+  disabled: {},
+}));
 
 const AdminContactUsForm = () => {
+  const classes = useStyles();
+
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,8 +73,8 @@ const AdminContactUsForm = () => {
     setError(null);
     setIsLoading(true);
     try {
-      await dispatch(submitFeedback(title, message));
-      history.replace(`${process.env.PUBLIC_URL}/user/contactus`);
+      await dispatch(submitAdminBroadcast(title, message));
+      // history.replace(`${process.env.PUBLIC_URL}/user/contactus`);
     } catch (err) {
       setError(err.message);
     }
@@ -68,12 +97,12 @@ const AdminContactUsForm = () => {
           name="title"
           className="form-control"
           id="title"
-          placeholder="Name"
+          placeholder="Title"
           value={title}
           onChange={titleChangeHandler}
           onBlur={titleBlurHandler}
         />
-        <label htmlFor="title">Name</label>
+        <label htmlFor="title">Title</label>
 
         {titleHasError && (
           <p className="error-message" style={{ fontSize: 16 }}>
@@ -103,7 +132,7 @@ const AdminContactUsForm = () => {
 
       {isLoading ? (
         <div align="center" className="pt-3 pb-4">
-          <Loader type="ThreeDots" color="#d42e22" height={100} width={100} />
+          <Loader type="ThreeDots" color="green" height={100} width={100} />
         </div>
       ) : (
         <Button
@@ -111,14 +140,13 @@ const AdminContactUsForm = () => {
           disabled={!formIsValid}
           type="submit"
           name="submit"
-          className="btn btn-circle mt-5 mb-5 w-25"
-          style={{
-            backgroundColor: "black",
-            color: "white",
-            fontSize: 18,
+          classes={{
+            root: classes.button, // class name, e.g. `root-x`
+            disabled: classes.disabled, // class name, e.g. `disabled-x`
           }}
+          className="mt-5 mb-2"
         >
-          Submit
+          Send Broadcast
         </Button>
       )}
 

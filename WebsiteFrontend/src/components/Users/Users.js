@@ -117,12 +117,7 @@ const Users = () => {
 
           {isLoading && (
             <div align="center">
-              <Loader
-                type="ThreeDots"
-                color="#d42e22"
-                height={100}
-                width={100}
-              />
+              <Loader type="ThreeDots" color="green" height={100} width={100} />
             </div>
           )}
           {!isLoading && (

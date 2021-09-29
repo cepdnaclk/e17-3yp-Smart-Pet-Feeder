@@ -112,6 +112,8 @@ export default function AdminLoginForm(props) {
     try {
       await dispatch(authActions.tryLogin(email, password));
       // history.replace(`${process.env.PUBLIC_URL}/admin/users`);
+      setIsLoading(false);
+
       setOTPPage(true);
     } catch (err) {
       setError(err.message);
@@ -202,7 +204,7 @@ export default function AdminLoginForm(props) {
                     <div align="center">
                       <Loader
                         type="ThreeDots"
-                        color="#d42e22"
+                        color="green"
                         height={48}
                         width={100}
                       />
@@ -240,17 +242,28 @@ export default function AdminLoginForm(props) {
                     )}
                   </div>
 
-                  <Button
-                    classes={{
-                      root: classes.button,
-                      disabled: classes.disabled,
-                    }}
-                    className="button__"
-                    // disabled={!formIsValid}
-                    onClick={submitOTP}
-                  >
-                    Submit OTP
-                  </Button>
+                  {isLoading ? (
+                    <div align="center">
+                      <Loader
+                        type="ThreeDots"
+                        color="green"
+                        height={48}
+                        width={100}
+                      />
+                    </div>
+                  ) : (
+                    <Button
+                      classes={{
+                        root: classes.button,
+                        disabled: classes.disabled,
+                      }}
+                      className="button__"
+                      // disabled={!formIsValid}
+                      onClick={submitOTP}
+                    >
+                      Submit OTP
+                    </Button>
+                  )}
                 </React.Fragment>
               )}
             </form>
