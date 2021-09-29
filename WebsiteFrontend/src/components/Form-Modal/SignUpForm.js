@@ -43,8 +43,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: "#1d9a6c",
     fontSize: 14,
-    fontFamily: "Courier-Bold",
-    fontWeight: "bold",
+    fontFamily: "Jost",
     borderRadius: 3,
     border: 0,
     color: "white",
@@ -55,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     // rule within the same style sheet.
     // By using &, we increase the specificity.
     "&:hover": {
-      backgroundColor: "green",
+      backgroundColor: "#1d9a6c",
     },
     "&$disabled": {
       background: "rgba(0, 0, 0, 0.12)",
@@ -63,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "none",
     },
   },
+
   disabled: {},
   // paper: {
   //   backgroundColor: theme.palette.background.paper,

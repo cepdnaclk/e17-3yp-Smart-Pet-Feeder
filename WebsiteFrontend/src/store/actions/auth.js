@@ -57,11 +57,8 @@ export const signup = (
     if (!response.ok) {
       const errorResData = await response.json();
 
-      const errorId = errorResData.error.message;
-      let message = "Authentication failed!";
-      if (errorId === "EMAIL_EXISTS") {
-        message = "This email exists already!";
-      }
+      let message = "An error occurred";
+      if (errorResData.message) message = errorResData.message;
       throw new Error(message);
     }
 
@@ -102,13 +99,9 @@ export const login = (email, password) => {
 
     if (!response.ok) {
       const errorResData = await response.json();
-      const errorId = errorResData.error.message;
-      let message = "Authentication failed!";
-      if (errorId === "EMAIL_NOT_FOUND") {
-        message = "This email could not be found!";
-      } else if (errorId === "INVALID_PASSWORD") {
-        message = "This password is not valid!";
-      }
+
+      let message = "An error occurred";
+      if (errorResData.message) message = errorResData.message;
       throw new Error(message);
     }
 
