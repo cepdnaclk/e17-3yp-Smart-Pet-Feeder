@@ -15,7 +15,8 @@ const User = require('../models/user');
 const mongoose = require('mongoose');
 
 const Speakeasy = require('speakeasy');
-const constants = require("constants");
+
+const nodemailer = require('nodemailer');
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -53,13 +54,13 @@ exports.login = (req,res,next) =>{
             //     expiresIn:"3600",
             //     userId: loadAdmin._id.toString()
             // });
+
             const secret = Speakeasy.generateSecret({length:20});
             loadAdmin.secret = secret.base32;
-            loadAdmin.mobileNumber ="0768699448";
-            loadAdmin.name = "Shenal Admin";
             return loadAdmin.save();
         })
         .then(validationResult =>{
+            loadAdmin =validationResult;
 
             const otp = Speakeasy.totp({
                 secret:validationResult.secret,
@@ -67,13 +68,38 @@ exports.login = (req,res,next) =>{
 
             })
             console.log(otp);
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'smartpetfeederteam@gmail.com',
+                    pass: 'Smartpetfeeder@2021'
+                }
+            });
+
+            let mailOptions = {
+                from: 'smartpetfeederteam@gmail.com',
+                to: email,
+                subject: 'Welcome To Smart Pet Feeder',
+                text: 'Your otp is: ' + otp
+            };
+
+            return transporter.sendMail(mailOptions);
+
+
+        })
+        .then(result=>{
             const oneTimeToken = jwt.sign({
-                adminId:validationResult._id
+                    adminId:loadAdmin._id
                 },
                 'One-Time-Token',
                 {expiresIn: '300s'}
             )
-            res.status(200).json({message:"Secret saved in database",oneTimeToken});
+            res.status(200).json({
+                message:"Secret saved in database",
+                idToken:oneTimeToken,
+                userId:loadAdmin._id.toString(),
+                expiresIn:"3600"
+            });
         })
         .catch(err=>{
             next(err);

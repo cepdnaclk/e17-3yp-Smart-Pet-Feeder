@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const authUserRoutes = require("./routes/user");
 
 const authAdminRoutes = require("./routes/admin");
+const nodemailer = require("nodemailer");
 
 
 const app = express();
