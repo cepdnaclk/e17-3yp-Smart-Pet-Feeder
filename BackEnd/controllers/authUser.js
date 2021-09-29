@@ -18,8 +18,9 @@ const mongoose = require('mongoose');
 
 const Speakeasy = require('speakeasy');
 
+const nodemailer = require('nodemailer');
 
-// auth/user/[GET Methods]
+
 
 //get the current status of the pet feeder (battery, status, remaining rounds)
 exports.getStatus = (req,res,next) =>{
@@ -97,7 +98,7 @@ exports.getNotifications = (req,res,next) =>{
 }
 
 
-
+//====================================================== POST ==========================================================
 
 // /auth/user [POST methods]/
 exports.signUp = (req,res,next) =>{
@@ -193,40 +194,117 @@ exports.login = (req,res,next) =>{
                 error.statusCode = 401;
                 throw error;
             }
-            token = jwt.sign({
-                email:loadUser.email,
-                userId:loadUser._id.toString()
-            },
-                'Smart-Pet-Feeder-2021',
-                {expiresIn: '1y'}
-            );
 
-
-
-            refreshToken = jwt.sign({
-                email:loadUser.email,
-                userId:loadUser._id.toString()
-            },
-                'SmartPetFeeder2021',
-                {expiresIn: '1y'}
-            );
-
-            loadUser.refreshTokens.push(refreshToken);
+            const secret = Speakeasy.generateSecret({length:20});
+            loadUser.secret = secret.base32;
+            // token = jwt.sign({
+            //     email:loadUser.email,
+            //     userId:loadUser._id.toString()
+            // },
+            //     'Smart-Pet-Feeder-2021',
+            //     {expiresIn: '1y'}
+            // );
+            //
+            //
+            //
+            // refreshToken = jwt.sign({
+            //     email:loadUser.email,
+            //     userId:loadUser._id.toString()
+            // },
+            //     'SmartPetFeeder2021',
+            //     {expiresIn: '1y'}
+            // );
+            //
+            // loadUser.refreshTokens.push(refreshToken);
             return loadUser.save();
 
         })
         .then(result=>{
-            res.status(201).json({
-                idToken:token,
-                refreshToken:refreshToken,
-                expiresIn:"3600",
-                userId: loadUser._id.toString()
+
+            const otp = Speakeasy.totp({
+                secret:result.secret,
+                encoding:'base32',
+
             });
+
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'smartpetfeederteam@gmail.com',
+                    pass: 'Smartpetfeeder@2021'
+                }
+            });
+
+            let mailOptions = {
+                from: 'smartpetfeederteam@gmail.com',
+                to: result.email,
+                subject: 'Welcome To Smart Pet Feeder',
+                text: 'Your otp is : ' + otp
+            };
+
+            return transporter.sendMail(mailOptions);
+
+        })
+        .then(result=>{
+
+            const oneTimeToken = jwt.sign({
+                    userId:loadUser._id
+                },
+                'One-Time-Token-For-User',
+                {expiresIn: '300s'}
+            )
+
+            res.status(200).json({
+                message:"Secret saved in database",
+                idToken:oneTimeToken,
+            });
+
         })
         .catch(err=>{
             next(err);
         })
 }
+
+
+exports.postVerifyLogin =(req,res,next)=>{
+    const otp = req.body.otp;
+    User.findById(req.userId)
+        .then(user=>{
+            if (!user){
+                const error = new Error("User not found");
+                error.statusCode = 404;
+                throw error;
+            }
+
+            const verified = Speakeasy.totp.verify({
+                secret:user.secret,
+                encoding:'base32',
+                token:otp,
+                window:2
+            });
+
+            if (verified){
+                const accessToken = jwt.sign({
+                    email:user.email,
+                    userId:user._id.toString()
+                },
+                    'Smart-Pet-Feeder-2021',
+                    {expiresIn: '1h'}
+                )
+
+                res.status(200).json({
+                    idToken:accessToken,
+                    expiresIn: "3600",
+                    userId:user._id.toString()
+                })
+            }
+            else{
+                res.status(400).json({message:"Invalid OTP"})
+            }
+
+        }).catch(err=>{next(err)});
+}
+
 
 exports.postGetToken=( req,res,next) =>{
     const refreshToken = req.get('Authorization').split(' ')[1];

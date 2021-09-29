@@ -8,6 +8,8 @@ const User = require("../models/user");
 
 const isAuthUser = require("../middleware/is-auth-user");
 
+const isAuth2faUser = require("../middleware/is-auth-2fa-user");
+
 const router = express.Router();
 
 
@@ -62,6 +64,8 @@ router.post('/delete_schedule',isAuthUser,userControllers.postDeleteSchedule);
 router.post('/post_feedback',isAuthUser,userControllers.postFeedback);
 
 router.post('/post_markRead',isAuthUser,userControllers.postMarkedAsRead);
+
+router.post('/verifyLogin',isAuth2faUser,userControllers.postVerifyLogin);
 
 router.get('/get_status',isAuthUser,userControllers.getStatus);
 
