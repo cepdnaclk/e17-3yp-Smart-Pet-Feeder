@@ -7,7 +7,7 @@ module.exports = (req,res,next) =>{
         decodedToken = jwt.verify(token,'Smart-Pet-Feeder-2021');
     }
     catch (err){
-        console.log("This is error in auth")
+        console.log("This is error in auth user login")
         err.statusCode = 500;
         throw err;
     }
