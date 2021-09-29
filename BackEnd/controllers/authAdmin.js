@@ -97,8 +97,6 @@ exports.login = (req,res,next) =>{
             res.status(200).json({
                 message:"Secret saved in database",
                 idToken:oneTimeToken,
-                userId:loadAdmin._id.toString(),
-                expiresIn:"3600"
             });
         })
         .catch(err=>{
@@ -133,7 +131,12 @@ exports.postVerifyLogin = (req,res,next)=>{
                     'Smart-Pet-Feeder-2021-Admin',
                     {expiresIn: '1h'}
                 );
-                res.status(200).json({token:token,message:"Successfully login"});
+                res.status(200).json({
+                    idToken:token,
+                    expiresIn:"3600",
+                    userId:admin._id.toString(),
+                    message:"Successfully login",
+                });
             }
             else{
                 res.status(400).json({message:"Invalid OTP"});
