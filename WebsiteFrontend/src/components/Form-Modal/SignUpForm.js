@@ -282,7 +282,7 @@ export default function SignUpForm(props) {
                   <div align="center">
                     <Loader
                       type="ThreeDots"
-                      color="#d42e22"
+                      color="green"
                       height={48}
                       width={100}
                     />

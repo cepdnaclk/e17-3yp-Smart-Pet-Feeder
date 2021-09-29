@@ -1,5 +1,6 @@
 import React from "react";
 import ContactUsForm from "../../components/ContactUs/ContactUsForm";
+import AdminBroadcastForm from "../../components/ContactUs/AdminBroadcastForm";
 
 const UserContactUs = () => {
   return (
@@ -23,7 +24,7 @@ const UserContactUs = () => {
             >
               - send message to all -
             </h4>
-            {/*<ContactUsForm />*/}
+            <AdminBroadcastForm />
           </div>
         </div>
       </div>
