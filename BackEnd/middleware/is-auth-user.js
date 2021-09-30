@@ -7,9 +7,16 @@ module.exports = (req,res,next) =>{
         decodedToken = jwt.verify(token,'Smart-Pet-Feeder-2021');
     }
     catch (err){
-        console.log("This is error in auth")
-        err.statusCode = 500;
-        throw err;
+        if (err.name === jwt.TokenExpiredError.name){
+            const error = new Error("JWT EXPIRED");
+            error.statusCode = 503;
+            throw error;
+        }
+        else{
+            err.statusCode = 500;
+            throw err;
+        }
+
     }
     if (!decodedToken){
         const error = new Error('You are not authenticated!');
