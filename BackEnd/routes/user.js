@@ -26,8 +26,8 @@ router.put('/signup',
                                 }
                         })
             })
-            .normalizeEmail(),
-        body('password').trim()
+            .normalizeEmail({gmail_remove_dots:false}),
+        body('password').trim().not().isEmpty().withMessage('Password is empty')
             .isLength({min: 6}).withMessage('Password is too short'),
         body('name').trim()
             .not().isEmpty().withMessage('name field cannot be empty'),

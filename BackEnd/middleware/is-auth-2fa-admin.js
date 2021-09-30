@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+
+
 module.exports = (req,res,next) =>{
     const token = req.get('Authorization').split(' ')[1];
     let decodedToken;
@@ -7,7 +9,7 @@ module.exports = (req,res,next) =>{
         decodedToken = jwt.verify(token,'One-Time-Token');
     }
     catch (err){
-        console.log("This is error in auth")
+        console.log(err.name ===jwt.TokenExpiredError.name)
         err.statusCode = 500;
         throw err;
     }

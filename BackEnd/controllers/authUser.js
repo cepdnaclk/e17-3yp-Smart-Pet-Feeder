@@ -475,9 +475,17 @@ exports.postVerifyLogin =(req,res,next)=>{
                     {expiresIn: '1h'}
                 )
 
+                const refreshToken = jwt.sign({
+                    userId:user._id.toString()
+                },
+                    'SmartPetFeeder2021-refresh'
+
+                )
+
                 res.status(200).json({
                     idToken:accessToken,
                     expiresIn: "3600",
+                    refreshToken,
                     userId:user._id.toString()
                 })
             }
@@ -498,7 +506,7 @@ exports.postGetToken=( req,res,next) =>{
     }
     let decodedToken;
     try{
-        decodedToken = jwt.verify(refreshToken,'SmartPetFeeder2021');
+        decodedToken = jwt.verify(refreshToken,'SmartPetFeeder2021-refresh');
     }
     catch (err){
         console.log("This is error")
