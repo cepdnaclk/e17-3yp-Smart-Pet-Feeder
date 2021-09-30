@@ -34,6 +34,8 @@ const StartupPage = (props) => {
 
     const tryLogin = () => {
       const userData = localStorage.getItem("userData");
+
+      console.log("Startup page user", userData);
       // If userData is not available
       if (!userData) {
         // props.navigation.navigate("Auth"); // navigate to Auth screen
@@ -44,11 +46,9 @@ const StartupPage = (props) => {
       // convert JSON string to JS Object
       const transformedData = JSON.parse(userData);
       // Extract token, id, expiration time
-      const { token, userId, expiryDate } = transformedData;
-      const expirationDate = new Date(expiryDate); // Convert expiryDate to Date Object
+      const { token, userId, refreshToken } = transformedData;
 
-      // Check validity of the token
-      if (expirationDate <= new Date() || !token || !userId) {
+      if (!token || !userId) {
         history.replace(`${process.env.PUBLIC_URL}/home`);
 
         // props.navigation.navigate("Auth"); // Navigate to Auth screen if token is not valid
@@ -65,8 +65,7 @@ const StartupPage = (props) => {
         he cannot send requests to the server with invalid token.z
        */
 
-      const expireTime = expirationDate.getTime() - new Date().getTime();
-      dispatch(authActions.authenticate(userId, token, expireTime));
+      dispatch(authActions.authenticate(userId, token, refreshToken));
       history.replace(`${process.env.PUBLIC_URL}/user`);
     };
 
@@ -74,7 +73,7 @@ const StartupPage = (props) => {
     const isAdmin = tryAdminLogin();
     if (isAdmin) history.replace(`${process.env.PUBLIC_URL}/admin`);
     else tryLogin();
-  }, [dispatch, history, ,]);
+  }, [dispatch, history]);
 
   return (
     // Show Loading spinner, while stay in this screen

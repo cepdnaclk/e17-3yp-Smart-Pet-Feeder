@@ -38,6 +38,7 @@ export const tryLogin = (email, password) => {
     }
 
     const resData = await response.json();
+    console.log(resData);
 
     dispatch({ type: SAVE_ONETIME_TOKEN, oneTimeToken: resData.idToken });
 
@@ -59,8 +60,10 @@ export const tryLogin = (email, password) => {
 };
 
 export const submitOTP = (otp) => {
+  console.log("Incoming OTP", otp);
   return async (dispatch, getState) => {
     const token = getState().admin_auth.oneTimeToken;
+    console.log("ONE TIME TOKEN ", token);
     const response = await fetch(API_URL + "/auth/admin/verifyLogin", {
       method: "POST",
       headers: {
@@ -73,6 +76,7 @@ export const submitOTP = (otp) => {
       }),
     });
 
+    console.log("respose", response);
     if (!response.ok) {
       const errorResData = await response.json();
 
@@ -82,6 +86,7 @@ export const submitOTP = (otp) => {
     }
 
     const resData = await response.json();
+    console.log("SUBMIT OTP RES DATA", resData);
 
     dispatch(
       authenticate(

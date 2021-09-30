@@ -6,13 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNotification } from "../../store/actions/notifications";
 import Loader from "react-loader-spinner";
 import { useHistory } from "react-router-dom";
+import { dateCompare } from "../../helpers/functions";
 
 export default function Notifications() {
   const history = useHistory();
 
   const notifications = useSelector(
     (state) => state.notifications.notifications
-  );
+  ).sort((date1, date2) => dateCompare(date1, date2));
+
   //
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();

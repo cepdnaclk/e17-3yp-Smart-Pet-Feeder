@@ -9,30 +9,33 @@ const initialState = {
 const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_NOTIFICATIONS:
-      const unread__notification = action.notifications.find(
-        (notification) => notification.isRead === false
-      );
+      console.log("Notifications", action.notifications);
+      if (action.notifications) {
+        const unread__notification = action.notifications.find(
+          (notification) => notification.isRead === false
+        );
 
-      let active_ = true;
-      if (!unread__notification) {
-        active_ = false;
+        let active_ = true;
+        if (!unread__notification) {
+          active_ = false;
+        }
+
+        return {
+          notifications: action.notifications,
+          active: active_,
+        };
       }
-
-      return {
-        notifications: action.notifications,
-        active: active_,
-      };
 
     case MARK_AS_READ:
       const index = state.notifications.findIndex(
-          (notification) => notification._id === action.id
+        (notification) => notification._id === action.id
       );
 
       const updatedNotifications = [...state.notifications];
       updatedNotifications[index].isRead = true;
 
       const unread_notification = state.notifications.find(
-          (notification) => notification.isRead === false
+        (notification) => notification.isRead === false
       );
 
       let active = true;

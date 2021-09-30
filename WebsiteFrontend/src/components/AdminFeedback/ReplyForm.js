@@ -133,8 +133,8 @@ const ReplyForm = (props) => {
       </div>
 
       {isLoading ? (
-        <div align="center" className="pt-3 pb-4">
-          <Loader type="ThreeDots" color="#d42e22" height={100} width={100} />
+        <div align="center" className="pt-4">
+          <Loader type="ThreeDots" color="green" height={78} width={100} />
         </div>
       ) : (
         <Button

@@ -10,22 +10,20 @@ export const AUTHENTICATE = "AUTHENTICATE";
 
 // Logout action identifier
 export const LOGOUT = "LOGOUT";
-let timer; // to hold timer func
+// let timer; // to hold timer func
 
-const calculateRemainingTime = (expirationTime) => {
-  const currentTime = new Date().getTime();
-  const adjExpirationTime = new Date(expirationTime).getTime();
-
-  return adjExpirationTime - currentTime;
-};
-
-export const authenticate = (userId, token, expiryTime) => {
+export const authenticate = (userId, token, refreshToken) => {
   // Dispatching 2 actions here. (Can we implement this without dispatch ? )
   return (dispatch) => {
-    dispatch(setLogoutTimer(expiryTime));
+    // dispatch(setLogoutTimer(expiryTime));
 
     // Dispatch AUTHENTICATE action (To store token and id in the redux store)
-    dispatch({ type: AUTHENTICATE, userId: userId, token: token });
+    dispatch({
+      type: AUTHENTICATE,
+      userId: userId,
+      token: token,
+      refreshToken: refreshToken,
+    });
   };
 };
 
@@ -65,19 +63,10 @@ export const signup = (
     const resData = await response.json();
 
     dispatch(
-      authenticate(
-        resData.userId,
-        resData.idToken,
-        +parseInt(resData.expiresIn) * 1000
-      )
+      authenticate(resData.userId, resData.idToken, resData.refreshToken)
     );
-    // This is for saving expiry time (When auto login)
 
-    const expirationDate = new Date(
-      new Date().getTime() + +parseInt(resData.expiresIn) * 1000
-      // new Date().getTimezoneOffset() * 60 * 1000
-    );
-    saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+    saveDataToStorage(resData.idToken, resData.userId);
   };
 };
 
@@ -150,28 +139,20 @@ export const submitOTP = (otp) => {
     }
 
     const resData = await response.json();
+    console.log(resData);
 
     dispatch(
-      authenticate(
-        resData.userId,
-        resData.idToken,
-        +parseInt(resData.expiresIn) * 1000
-      )
+      authenticate(resData.userId, resData.idToken, resData.refreshToken)
     );
-    // This is for saving expiry time (When auto login)
 
-    const expirationDate = new Date(
-      new Date().getTime() + +parseInt(resData.expiresIn) * 1000
-      // new Date().getTimezoneOffset() * 60 * 1000
-    );
-    saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+    saveDataToStorage(resData.idToken, resData.userId, resData.refreshToken);
   };
 };
 
 // Logout func
 export const logout = () => {
   // clear log out timer
-  clearLogoutTimer();
+  // clearLogoutTimer();
   // Remove userData from mobile storage
 
   localStorage.removeItem("userData");
@@ -180,30 +161,30 @@ export const logout = () => {
   return { type: LOGOUT };
 };
 
-const clearLogoutTimer = () => {
-  // If timer exists, clear it
-  if (timer) {
-    clearTimeout(timer);
-  }
-};
+// const clearLogoutTimer = () => {
+//   // If timer exists, clear it
+//   if (timer) {
+//     clearTimeout(timer);
+//   }
+// };
 
-// Setting logout timer
-const setLogoutTimer = (expirationTime) => {
-  // This is a async operation (need dispatch callback)
-  return (dispatch) => {
-    timer = setTimeout(() => {
-      dispatch(logout()); // dispatch logout() func after expiration time
-    }, expirationTime);
-  };
-};
+// // Setting logout timer
+// const setLogoutTimer = (expirationTime) => {
+//   // This is a async operation (need dispatch callback)
+//   return (dispatch) => {
+//     timer = setTimeout(() => {
+//       dispatch(logout()); // dispatch logout() func after expiration time
+//     }, expirationTime);
+//   };
+// };
 
-const saveDataToStorage = (token, userId, expirationDate) => {
+export const saveDataToStorage = (token, userId, refreshToken) => {
   localStorage.setItem(
     "userData",
     JSON.stringify({
       token: token,
       userId: userId,
-      expiryDate: expirationDate.toISOString(),
+      refreshToken: refreshToken,
     })
   );
 };
