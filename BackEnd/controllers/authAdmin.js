@@ -14,11 +14,13 @@ const User = require('../models/user');
 
 const mongoose = require('mongoose');
 
-const Speakeasy = require('speakeasy');
+const {authenticator,totp} = require('otplib');
 
 const nodemailer = require('nodemailer');
 
 const ObjectId = mongoose.Types.ObjectId;
+
+totp.options = {step:300}
 
 exports.login = (req,res,next) =>{
     const email = req.body.email;
@@ -41,32 +43,13 @@ exports.login = (req,res,next) =>{
                 error.statusCode = 401;
                 throw error;
             }
-            // const token = jwt.sign({
-            //         email:loadAdmin.email,
-            //         adminId:loadAdmin._id.toString()
-            //     },
-            //     'Smart-Pet-Feeder-2021-Admin',
-            //     {expiresIn: '1h'}
-            // );
-            //
-            // res.status(201).json({
-            //     idToken:token,
-            //     expiresIn:"3600",
-            //     userId: loadAdmin._id.toString()
-            // });
 
-            const secret = Speakeasy.generateSecret({length:20});
-            loadAdmin.secret = secret.base32;
+            loadAdmin.secret = authenticator.generateSecret(32);
             return loadAdmin.save();
         })
         .then(validationResult =>{
             loadAdmin =validationResult;
-
-            const otp = Speakeasy.totp({
-                secret:validationResult.secret,
-                encoding:"base32",
-
-            })
+            const otp = totp.generate(validationResult.secret)
             console.log(otp);
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
@@ -115,13 +98,7 @@ exports.postVerifyLogin = (req,res,next)=>{
                 throw error;
             }
 
-            const verified = Speakeasy.totp.verify({
-                secret:admin.secret,
-                encoding:"base32",
-                token:otp,
-                window:2
-            })
-
+            const verified = totp.verify({secret:admin.secret,token:otp})
 
             if (verified){
                 const token = jwt.sign({
