@@ -5,10 +5,13 @@ import { fetchHistory } from "../../store/actions/history";
 import Loader from "react-loader-spinner";
 import { useHistory } from "react-router-dom";
 import Switch from "react-switch";
+import { dateCompare } from "../../helpers/functions";
 
 export default function ScheduleHistory() {
   const history = useHistory();
-  const historyData = useSelector((state) => state.history.history);
+  const historyData = useSelector((state) => state.history.history).sort(
+    (date1, date2) => dateCompare(date1, date2)
+  );
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
@@ -43,7 +46,7 @@ export default function ScheduleHistory() {
   if (isLoading) {
     return (
       <div align="center">
-        <Loader type="ThreeDots" color="#d42e22" height={100} width={100} />
+        <Loader type="ThreeDots" color="green" height={100} width={100} />
       </div>
     );
   }

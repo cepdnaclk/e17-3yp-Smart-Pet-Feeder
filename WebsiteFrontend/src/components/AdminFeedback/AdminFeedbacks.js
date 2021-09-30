@@ -36,7 +36,6 @@ export default function Notifications(props) {
   const [modalData, setModalData] = useState({ open: false });
 
   const showMessage = (id) => {
-    console.log("id", id);
     setModalData({ open: true, id: id });
   };
 

@@ -72,9 +72,13 @@ export default function LoginForm(props) {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
+  const [isInvalidOTP, setOTPInValidity] = useState(false);
+  const [isOTPPage, setOTPPage] = useState(false);
+  const [OTP, setOTP] = useState("");
+
   useEffect(() => {
     if (error) {
-      alert("Invalid Email or Password!");
+      alert(error);
     }
   }, [error]);
 
@@ -105,10 +109,31 @@ export default function LoginForm(props) {
     setError(null);
     setIsLoading(true);
     try {
-      await dispatch(authActions.login(email, password));
-      history.replace(`${process.env.PUBLIC_URL}/user`);
+      await dispatch(authActions.tryLogin(email, password));
+      setIsLoading(false);
+      setOTPPage(true);
+
+      // history.replace(`${process.env.PUBLIC_URL}/user`);
     } catch (err) {
       setError(err.message);
+      setIsLoading(false);
+    }
+  };
+
+  const OTPChangeHandler = (e) => {
+    setOTP(e.target.value);
+  };
+
+  const submitOTP = async () => {
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      await dispatch(authActions.submitOTP(OTP));
+      history.replace(`${process.env.PUBLIC_URL}/admin/users`);
+    } catch (err) {
+      setError(err.message);
+      setOTPInValidity(true);
       setIsLoading(false);
     }
   };
@@ -116,6 +141,9 @@ export default function LoginForm(props) {
   const closeFormHandler = () => {
     resetEmail();
     resetPassword();
+    setOTPPage(false);
+    setOTP("");
+    setOTPInValidity(false);
     props.handleClose();
   };
   return (
@@ -172,29 +200,75 @@ export default function LoginForm(props) {
                   <p className="error-message">*Password should not be empty</p>
                 )}
               </div>
-              <div className="form-actions">
-                {isLoading ? (
-                  <div align="center">
-                    <Loader
-                      type="ThreeDots"
-                      color="green"
-                      height={48}
-                      width={100}
+
+              {!isOTPPage && (
+                <div className="form-actions">
+                  {isLoading ? (
+                    <div align="center">
+                      <Loader
+                        type="ThreeDots"
+                        color="green"
+                        height={48}
+                        width={100}
+                      />
+                    </div>
+                  ) : (
+                    <Button
+                      classes={{
+                        root: classes.button, // class name, e.g. `root-x`
+                        disabled: classes.disabled, // class name, e.g. `disabled-x`
+                      }}
+                      disabled={!formIsValid}
+                      onClick={submitForm}
+                    >
+                      Login
+                    </Button>
+                  )}
+                </div>
+              )}
+
+              {isOTPPage && (
+                <React.Fragment>
+                  <hr style={{ width: "100%", height: "2px" }} />
+                  <div className="">
+                    <input
+                      type="input"
+                      id="otp"
+                      placeholder="Enter OTP"
+                      value={OTP}
+                      onChange={OTPChangeHandler}
+                      className="form-control"
+                      required="required"
                     />
+                    {isInvalidOTP && (
+                      <p className="error-message">* Invalid OTP</p>
+                    )}
                   </div>
-                ) : (
-                  <Button
-                    classes={{
-                      root: classes.button, // class name, e.g. `root-x`
-                      disabled: classes.disabled, // class name, e.g. `disabled-x`
-                    }}
-                    disabled={!formIsValid}
-                    onClick={submitForm}
-                  >
-                    Login
-                  </Button>
-                )}
-              </div>
+
+                  {isLoading ? (
+                    <div align="center">
+                      <Loader
+                        type="ThreeDots"
+                        color="green"
+                        height={48}
+                        width={100}
+                      />
+                    </div>
+                  ) : (
+                    <Button
+                      classes={{
+                        root: classes.button,
+                        disabled: classes.disabled,
+                      }}
+                      className="button__"
+                      // disabled={!formIsValid}
+                      onClick={submitOTP}
+                    >
+                      Submit OTP
+                    </Button>
+                  )}
+                </React.Fragment>
+              )}
             </form>
           </div>
         </Fade>

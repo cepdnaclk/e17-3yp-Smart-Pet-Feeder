@@ -16,7 +16,7 @@ export const fetchFeedbacks = () => {
     });
 
     const resData = await response.json();
-    console.log("Admin feedbacks ", resData);
+    console.log(resData);
     dispatch({ type: SET_FEEDBACKS, feedbacks: resData });
   };
 };
@@ -40,12 +40,10 @@ export const feedbackReply = (id, userId, title, message) => {
     });
 
     const resData = await response.json();
-    console.log(resData);
-    // dispatch({
-    //   type: POST_FEEDBACK_REPLY,
-    //   userId: userId,
-    //   title: title,
-    //   message: message,
-    // });
+    dispatch({
+      type: POST_FEEDBACK_REPLY,
+      id: id,
+      reply: message,
+    });
   };
 };

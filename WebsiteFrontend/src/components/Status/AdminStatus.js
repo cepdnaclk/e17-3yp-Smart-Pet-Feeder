@@ -14,7 +14,6 @@ const AdminStatus = ({ bg, type }) => {
   const [viewed, setViewed] = useState(true);
 
   const admin_status = useSelector((state) => state.admin_status.admin_status);
-  console.log(admin_status);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -51,7 +50,7 @@ const AdminStatus = ({ bg, type }) => {
   return (
     <section className={"pt-120 pb-80 " + (bg ? bg : "dark-bg")}>
       {isLoading && (
-        <div align="center" style={{ marginTop: 35 }}>
+        <div align="center" style={{ paddingTop: 30, paddingBottom: 15 }}>
           <Loader type="ThreeDots" color="green" height={100} width={100} />
         </div>
       )}

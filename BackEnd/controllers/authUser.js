@@ -227,6 +227,8 @@ exports.login = (req,res,next) =>{
 
             });
 
+            console.log(otp);
+
 
             let sendHtmlEmail ='<!DOCTYPE html>\n' +
                 '<html lang="en">\n' +
@@ -470,7 +472,7 @@ exports.postVerifyLogin =(req,res,next)=>{
                     userId:user._id.toString()
                 },
                     'Smart-Pet-Feeder-2021',
-                    {expiresIn: '1h'}
+                    {expiresIn: '5s'}
                 )
 
                 const refreshToken = jwt.sign({
@@ -497,6 +499,8 @@ exports.postVerifyLogin =(req,res,next)=>{
 
 exports.postGetToken=( req,res,next) =>{
     const refreshToken = req.get('Authorization').split(' ')[1];
+    console.log("Incoming token", refreshToken);
+
     if (! refreshToken ){
         const error = new Error("Error occurred");
         error.statusCode = 403;
@@ -511,6 +515,7 @@ exports.postGetToken=( req,res,next) =>{
         err.statusCode = 500;
         throw err;
     }
+    console.log("Decoded token", decodedToken);
     if (!decodedToken){
         const error = new Error('You are not authenticated!');
         error.statusCode = 401;
@@ -523,16 +528,17 @@ exports.postGetToken=( req,res,next) =>{
                  error.statusCode = 403;
                  throw error;
              }
-             if (! user.refreshTokens.includes(refreshToken)){
-                 const error = new Error("You are not authenticated");
-                 error.statusCode = 403;
-                 throw error;
-             }
+             // if (! user.refreshTokens.includes(refreshToken)){
+             //     const error = new Error("You are not authenticated");
+             //     error.statusCode = 403;
+             //     throw error;
+             // }
              const token = jwt.sign({
                      email:user.email,
                      userId:user._id.toString()
                  },
                  'Smart-Pet-Feeder-2021',
+
                  {expiresIn: '1h'}
              );
 

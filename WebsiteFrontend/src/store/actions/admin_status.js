@@ -6,6 +6,7 @@ export const SET_ADMIN_STATUS = "SET_ADMIN_STATUS";
 export const fetchAdminStatus = () => {
   return async (dispatch, getState) => {
     const token = getState().admin_auth.token;
+    console.log("admin token", token);
     const response = await fetch(API_URL + "/auth/admin/get_usersDetails", {
       method: "GET",
       headers: {
@@ -14,7 +15,6 @@ export const fetchAdminStatus = () => {
     });
 
     const resData = await response.json();
-    console.log("Count ", resData);
     dispatch({ type: SET_ADMIN_STATUS, status: resData });
   };
 };

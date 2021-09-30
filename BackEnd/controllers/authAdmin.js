@@ -65,7 +65,6 @@ exports.login = (req,res,next) =>{
                 subject: 'Welcome To Smart Pet Feeder',
                 text: 'Your otp is: ' + otp
             };
-
             return transporter.sendMail(mailOptions);
 
 
@@ -90,6 +89,7 @@ exports.login = (req,res,next) =>{
 exports.postVerifyLogin = (req,res,next)=>{
     const adminId = req.adminId;
     const otp = req.body.otp;
+    console.log(otp)
     Admin.findById(adminId)
         .then(admin=>{
             if (!admin){
