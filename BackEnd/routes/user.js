@@ -67,6 +67,10 @@ router.post('/post_markRead',isAuthUser,userControllers.postMarkedAsRead);
 
 router.post('/verifyLogin',isAuth2faUser,userControllers.postVerifyLogin);
 
+
+//=================================================== GET ==============================================================
+
+
 router.get('/get_status',isAuthUser,userControllers.getStatus);
 
 router.get('/get_schedules',isAuthUser,userControllers.getActiveSchedules);
