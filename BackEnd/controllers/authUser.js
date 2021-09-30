@@ -538,7 +538,8 @@ exports.postGetToken=( req,res,next) =>{
                      userId:user._id.toString()
                  },
                  'Smart-Pet-Feeder-2021',
-                 {expiresIn: '5s'}
+
+                 {expiresIn: '1h'}
              );
 
              res.status(201).json({
