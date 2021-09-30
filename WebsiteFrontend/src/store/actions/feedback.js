@@ -1,7 +1,6 @@
 import { API_URL } from "../../configs/Configs";
 
 export const submitFeedback = (title, message) => {
-  console.log(title, message);
   return async (dispatch, getState) => {
     const token = getState().auth.token;
     const response = await fetch(API_URL + "/auth/user/post_feedback", {
@@ -22,7 +21,6 @@ export const submitFeedback = (title, message) => {
 };
 
 export const submitAdminMessage = (email, title, message) => {
-  console.log(email, title, message);
   return async (dispatch, getState) => {
     const token = getState().admin_auth.token;
     // const response = await fetch(API_URL + "/auth/user/post_feedback", {
@@ -51,7 +49,6 @@ export const submitAdminMessage = (email, title, message) => {
 };
 
 export const submitAdminBroadcast = (title, message) => {
-  console.log(title, message);
   return async (dispatch, getState) => {
     const token = getState().admin_auth.token;
     // const response = await fetch(API_URL + "/auth/user/post_feedback", {

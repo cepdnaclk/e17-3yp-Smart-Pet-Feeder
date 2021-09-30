@@ -14,7 +14,6 @@ const AdminStatus = ({ bg, type }) => {
   const [viewed, setViewed] = useState(true);
 
   const admin_status = useSelector((state) => state.admin_status.admin_status);
-  console.log(admin_status);
   const dispatch = useDispatch();
   const history = useHistory();
 

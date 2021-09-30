@@ -8,8 +8,37 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import Page500 from "../../pages/error_page/Page500";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    backgroundColor: "#1d9a6c",
+    fontSize: 14,
+    fontFamily: "Jost",
+    borderRadius: 3,
+    border: 0,
+    color: "white",
+    height: 48,
+    padding: "0 30px",
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    // $disabled is a reference to the local disabled
+    // rule within the same style sheet.
+    // By using &, we increase the specificity.
+    "&:hover": {
+      backgroundColor: "#1d9a6c",
+    },
+    "&$disabled": {
+      background: "rgba(0, 0, 0, 0.12)",
+      color: "white",
+      boxShadow: "none",
+    },
+  },
+  disabled: {},
+}));
 
 const ReplyForm = (props) => {
+  const classes = useStyles();
+
   const email = useSelector((state) => state.admin_feedbacks.admin_feedbacks);
 
   const [error, setError] = useState();
@@ -47,7 +76,7 @@ const ReplyForm = (props) => {
     setIsLoading(true);
     try {
       await dispatch(feedbackReply(props.id, props.userId, title, message));
-      history.replace(`${process.env.PUBLIC_URL}/user/contactus`);
+      // history.replace(`${process.env.PUBLIC_URL}/user/contactus`);
     } catch (err) {
       setError(err.message);
     }
@@ -113,12 +142,11 @@ const ReplyForm = (props) => {
           disabled={!formIsValid}
           type="submit"
           name="submit"
-          className="btn btn-circle mt-5 w-25"
-          style={{
-            backgroundColor: "black",
-            color: "white",
-            fontSize: 18,
+          classes={{
+            root: classes.button,
+            disabled: classes.disabled,
           }}
+          className="mt-5 mb-2"
         >
           Reply
         </Button>

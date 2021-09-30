@@ -82,7 +82,6 @@ exports.login = (req,res,next) =>{
                 subject: 'Welcome To Smart Pet Feeder',
                 text: 'Your otp is: ' + otp
             };
-
             return transporter.sendMail(mailOptions);
 
 

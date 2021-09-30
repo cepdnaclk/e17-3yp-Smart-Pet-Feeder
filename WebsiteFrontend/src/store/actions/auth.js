@@ -5,7 +5,7 @@
  */
 
 import { API_URL } from "../../configs/Configs";
-
+export const USER_SAVE_ONETIME_TOKEN = "USER_SAVE_ONETIME_TOKEN";
 export const AUTHENTICATE = "AUTHENTICATE";
 
 // Logout action identifier
@@ -81,7 +81,7 @@ export const signup = (
   };
 };
 
-export const login = (email, password) => {
+export const tryLogin = (email, password) => {
   // "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
 
   return async (dispatch) => {
@@ -106,7 +106,50 @@ export const login = (email, password) => {
     }
 
     const resData = await response.json();
-    console.log("LOgin ", resData);
+    dispatch({ type: USER_SAVE_ONETIME_TOKEN, oneTimeToken: resData.idToken });
+
+    // dispatch(
+    //   authenticate(
+    //     resData.userId,
+    //     resData.idToken,
+    //     +parseInt(resData.expiresIn) * 1000
+    //   )
+    // );
+    // // This is for saving expiry time (When auto login)
+    //
+    // const expirationDate = new Date(
+    //   new Date().getTime() + +parseInt(resData.expiresIn) * 1000
+    //   // new Date().getTimezoneOffset() * 60 * 1000
+    // );
+    // saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+  };
+};
+
+export const submitOTP = (otp) => {
+  return async (dispatch, getState) => {
+    const token = getState().auth.oneTimeToken;
+
+    const response = await fetch(API_URL + "/auth/user/verifyLogin", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        otp: otp,
+        // returnSecureToken: true,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorResData = await response.json();
+
+      let message = "An error occurred";
+      if (errorResData.message) message = errorResData.message;
+      throw new Error(message);
+    }
+
+    const resData = await response.json();
 
     dispatch(
       authenticate(

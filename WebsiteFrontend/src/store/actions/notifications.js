@@ -16,7 +16,6 @@ export const fetchNotification = () => {
     });
 
     const resData = await response.json();
-    console.log("Notifications ", resData);
     dispatch({ type: SET_NOTIFICATIONS, notifications: resData });
   };
 };

@@ -14,7 +14,6 @@ export const fetchAdminStatus = () => {
     });
 
     const resData = await response.json();
-    console.log("Count ", resData);
     dispatch({ type: SET_ADMIN_STATUS, status: resData });
   };
 };

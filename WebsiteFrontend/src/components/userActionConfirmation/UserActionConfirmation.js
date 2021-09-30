@@ -13,8 +13,6 @@ export default function UserActionConfirmation({
   handleClose,
   actionHandler,
 }) {
-  console.log("hi");
-
   return (
     <div>
       <Dialog

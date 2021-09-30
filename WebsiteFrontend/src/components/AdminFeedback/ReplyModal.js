@@ -88,9 +88,13 @@ export default function ReplyModal(props) {
             className="pricing-box"
             style={{ width: 800, overflow: "auto", maxHeight: "95%" }}
           >
-            <div align="middle">
-              <div className={"username_"}>User Feedback</div>
-            </div>
+            {admin_feedback.isHandle && (
+              <React.Fragment>
+                <div align="middle">
+                  <div className={"username_"}>User Feedback</div>
+                </div>
+              </React.Fragment>
+            )}
 
             <div align="middle" className="pb-3">
               <h4 style={{ fontSize: 16 }}>{admin_feedback.title}</h4>

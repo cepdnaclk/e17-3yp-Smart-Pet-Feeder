@@ -227,6 +227,8 @@ exports.login = (req,res,next) =>{
 
             });
 
+            console.log(otp);
+
 
             let sendHtmlEmail ='<!DOCTYPE html>\n' +
                 '<html lang="en">\n' +

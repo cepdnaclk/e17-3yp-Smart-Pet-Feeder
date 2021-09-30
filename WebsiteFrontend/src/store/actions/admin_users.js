@@ -16,7 +16,6 @@ export const fetchUsers = () => {
     });
 
     const resData = await response.json();
-    console.log("Users ", resData);
     dispatch({ type: SET_USERS, users: resData });
   };
 };
@@ -37,7 +36,6 @@ export const postActiveStatus = (id, status) => {
     });
 
     const resData = await response.json();
-    console.log(resData);
     dispatch({ type: POST_ACTIVE_STATUS, id: id });
   };
 };

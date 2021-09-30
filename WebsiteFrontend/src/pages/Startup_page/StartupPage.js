@@ -15,8 +15,6 @@ const StartupPage = (props) => {
   useEffect(() => {
     const tryAdminLogin = () => {
       const adminData = localStorage.getItem("adminData");
-      console.log(adminData);
-
       if (!adminData) {
         return false;
       }
