@@ -10,6 +10,8 @@ const isAuthUser = require("../middleware/is-auth-user");
 
 const isAuth2faUser = require("../middleware/is-auth-2fa-user");
 
+const iaAuthVerifySignUp = require("../middleware/is-auth-verifySignupUser");
+
 const router = express.Router();
 
 
@@ -49,6 +51,7 @@ router.put('/signup',
 
 ],userControllers.signUp);
 
+router.post('/verify_account',iaAuthVerifySignUp,userControllers.postVerifyAccount);
 
 router.post('/login',userControllers.login);
 
