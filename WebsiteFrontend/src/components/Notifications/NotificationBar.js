@@ -30,8 +30,14 @@ export default function NotificationBar({
 }) {
   return (
     <div className="mt-30 mb-30" onClick={showMessage.bind(null, id)}>
-      <div className="row pricing-box notification pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
-        <div className="col-md-2">
+      <div
+        className="row pricing-box notification pt-4 pb-4 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2"
+        style={{ backgroundColor: isRead === false ? "#CBFBFD" : "" }}
+      >
+        <div
+          className="col-md-2"
+          style={{ backgroundColor: isRead === false ? "#CBFBFD" : "" }}
+        >
           <div className="mt-2">
             <Icofont icon="email" size="10" style={{ fontSize: "80px" }} />
           </div>

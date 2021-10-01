@@ -50,8 +50,8 @@ const Status = ({ bg, type }) => {
   return (
     <section className={"pt-120 pb-80 " + (bg ? bg : "dark-bg")}>
       {isLoading && (
-        <div align="center">
-          <Loader type="ThreeDots" color="#d42e22" height={100} width={100} />
+        <div align="center" style={{ paddingTop: 25, paddingBottom: 10 }}>
+          <Loader type="ThreeDots" color="green" height={100} width={100} />
         </div>
       )}
 

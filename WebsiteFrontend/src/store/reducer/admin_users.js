@@ -12,13 +12,11 @@ const usersReducer = (state = initialState, action) => {
       };
 
     case POST_ACTIVE_STATUS:
-      console.log("reducer ", action.id);
       const current_users = [...state.users];
       const index = current_users.findIndex(
         (user) => user.userId === action.id
       );
 
-      console.log("Index ", index);
       current_users[index].isActive = !current_users[index].isActive;
       return {
         users: current_users,

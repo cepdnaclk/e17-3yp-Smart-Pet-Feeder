@@ -13,9 +13,13 @@ const AdminFeedbackReducer = (state = initialState, action) => {
 
     case POST_FEEDBACK_REPLY:
       const current_feedbacks = [...state.admin_feedbacks];
-      // const index = current_feedbacks.findIndex((feedback) => feedback.userId === )
+      const index = current_feedbacks.findIndex(
+        (feedback) => feedback._id === action.id
+      );
+      current_feedbacks[index].isHandle = true;
+      current_feedbacks[index].reply = action.reply;
       return {
-        admin_feedbacks: action.feedbacks,
+        admin_feedbacks: current_feedbacks,
       };
   }
   return state;
