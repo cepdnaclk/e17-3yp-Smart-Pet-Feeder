@@ -189,25 +189,16 @@ exports.login = (req,res,next) =>{
                 throw error;
             }
 
-            const secret = Speakeasy.generateSecret({length:20});
-            loadUser.secret = secret.base32;
 
+            loadUser.secret = authenticator.generateSecret(32);
             return loadUser.save();
 
         })
         .then(result=>{
-
-            const otp = Speakeasy.totp({
-                secret:result.secret,
-                encoding:'base32',
-
-            });
+            const otp = totp.generate(result.secret);
 
 
             return ejs.render(emailTemplate, {"OTP":otp,"NAME":result.name});
-
-
-
 
         })
         .then(result=>{
@@ -257,13 +248,8 @@ exports.postVerifyLogin =(req,res,next)=>{
                 error.statusCode = 404;
                 throw error;
             }
+            const verified = totp.verify({token:otp,secret:user.secret})
 
-            const verified = Speakeasy.totp.verify({
-                secret:user.secret,
-                encoding:'base32',
-                token:otp,
-                window:2
-            });
 
             if (verified){
                 const accessToken = jwt.sign({
@@ -292,7 +278,10 @@ exports.postVerifyLogin =(req,res,next)=>{
                 res.status(400).json({message:"Invalid OTP"})
             }
 
-        }).catch(err=>{next(err)});
+        })
+        .catch(err=>{
+            next(err)
+        });
 }
 
 
