@@ -51,7 +51,7 @@ router.put('/signup',
 
 ],userControllers.signUp);
 
-router.post('/verify_account',iaAuthVerifySignUp,userControllers.postVerifyAccount);
+router.get('/verify_account/:token',iaAuthVerifySignUp,userControllers.postVerifyAccount);
 
 router.post('/login',userControllers.login);
 
