@@ -16,8 +16,6 @@ const Feedback = require('../models/feedback');
 
 const mongoose = require('mongoose');
 
-const Speakeasy = require('speakeasy');
-
 const {authenticator,totp} = require('otplib');
 
 const nodemailer = require('nodemailer');
@@ -25,6 +23,7 @@ const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 
 const emailTemplate = require('../views/email');
+
 
 totp.options = {step:300}
 
@@ -79,26 +78,20 @@ exports.signUp = (req,res,next) =>{
             //Generate OTP Secret
             user.secret =authenticator.generateSecret(32);
             user.petFeeder = feederId;
+            user.token = jwt.sign({
+                    userId: loadUser._id
+                },
+                'SmartSignupVerification',
+                {expiresIn: '1y'}
+            );
             return user.save();
         })
         .then(result =>{
             loadUser=result;
-            const otp = totp.generate(result.secret);
-            return ejs.render(emailTemplate,{"OTP":otp,"NAME":result.name});
 
-            // const token = jwt.sign({
-            //         email:loadUser.email,
-            //         userId:loadUser._id.toString()
-            //     },
-            //     'Smart-Pet-Feeder-2021',
-            //     {expiresIn: '1h'}
-            // );
-            // res.status(201).json({
-            //     message:"User created",
-            //     idToken:token,
-            //     expiresIn:"3600",
-            //     userId: loadUser._id.toString()
-            //})
+
+            return ejs.render(emailTemplate,{"OTP":result.token,"NAME":result.name});
+
         })
         .then(email=>{
             let transporter = nodemailer.createTransport({
@@ -119,14 +112,9 @@ exports.signUp = (req,res,next) =>{
             return transporter.sendMail(mailOptions);
         })
         .then(result=>{
-            const signupToken = jwt.sign({
-                userId: loadUser._id
-            },
-                'SmartSignupVerification',
-                {expiresIn: '300s'}
-            )
 
-            res.status(200).json({idToken:signupToken,message:"user saved. Enter OTP to verify"});
+
+            res.status(200).json({message:"user saved. Enter OTP to verify"});
         })
         .catch(err =>{
             if (!err.statusCode){
@@ -139,6 +127,9 @@ exports.signUp = (req,res,next) =>{
 
 exports.postVerifyAccount = (req,res,next)=>{
     const otp = req.body.otp;
+    const token = req.params.token;
+
+
     User.findById(req.userId)
         .then(user=>{
             if (!user){
@@ -146,8 +137,13 @@ exports.postVerifyAccount = (req,res,next)=>{
                 error.statusCode =404;
                 throw error;
             }
-            const verified = totp.verify({token: otp, secret: user.secret});
-
+            if (user.isActive){
+                const error = new Error("Already verified");
+                error.statusCode = 409;
+                throw  error;
+            }
+            //const verified = totp.verify({token: otp, secret: user.secret});
+            const verified = user.token === token;
             if (!verified){
                 const error = new Error("Invalid OTP");
                 error.statusCode = 400;
@@ -155,6 +151,7 @@ exports.postVerifyAccount = (req,res,next)=>{
             }
             else{
                 user.isActive = true;
+                user.token= '';
                 return user.save();
             }
         })
@@ -177,6 +174,11 @@ exports.login = (req,res,next) =>{
             if(!user){
                 const error = new Error('User not found!');
                 error.statusCode = 404;
+                throw error;
+            }
+            if (!user.isActive){
+                const error = new Error("Please verify your account! ");
+                error.statusCode =403;
                 throw error;
             }
             loadUser = user;
