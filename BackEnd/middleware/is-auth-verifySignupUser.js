@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = (req,res,next) =>{
-    const token = req.get('Authorization').split(' ')[1];
+    //const token = req.get('Authorization').split(' ')[1];
+    const {token} = req.params;
     let decodedToken;
     try{
         decodedToken = jwt.verify(token,'SmartSignupVerification');
