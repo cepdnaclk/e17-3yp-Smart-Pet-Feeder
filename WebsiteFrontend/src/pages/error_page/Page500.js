@@ -6,44 +6,16 @@ import Loader from "../../components/Loader/Loader";
 import { API_URL } from "../../configs/Configs";
 
 const Page500 = () => {
-  const renderer = ({ days, hours, minutes, seconds }) => {
-    return (
-      <ul className="countdown">
-        <li>
-          <span className="hours">{days}</span>
-          <p>days </p>
-        </li>
-        <li>
-          <span className="hours">{hours}</span>
-          <p>hours </p>
-        </li>
-        <li>
-          <span className="minutes">{minutes}</span>
-          <p>minutes</p>
-        </li>
-        <li>
-          <span className="seconds">{seconds}</span>
-          <p>seconds</p>
-        </li>
-      </ul>
-    );
-  };
-
   return (
     <Loader>
       <section
         className="title-error-bg coming-cover-bg"
         data-stellar-background-ratio="0.2"
+        // style={{ width: "100%", height: "100%" }}
       >
         <div className="container">
           <div className="page-title text-center">
             <h1>We are down now</h1>
-            <div className="countdown-container">
-              {/*<Countdown*/}
-              {/*      date={Date.now() + (6500000 * 60 * 48 + 5000)}*/}
-              {/*      renderer={renderer}*/}
-              {/*    ></Countdown>*/}
-            </div>
             <p className="mt-30">
               <Link to={API_URL + "/user"} className="btn btn-color btn-square">
                 <Icofont icon="chevron-left" /> Go To Homepage

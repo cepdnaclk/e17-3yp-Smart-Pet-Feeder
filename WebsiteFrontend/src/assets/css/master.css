@@ -5625,7 +5625,7 @@ ul.footer-gallery li img {
     background-repeat: no-repeat;
     background-position: center center;
     position: relative;
-    min-height: 1080px;
+    min-height: 100vh;
 }
 
 .title-error-bg::before,
@@ -5670,7 +5670,10 @@ ul.footer-gallery li img {
 
 .coming-cover-bg {
     background-image: url(../images/background/500_error.jpg);
-    height: 60vh;
+    /*background-size: 300px 150px;*/
+    width: 100%;
+    height: 100%;
+
 }
 
 .widget-cover-bg {

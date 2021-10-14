@@ -4,7 +4,7 @@ import Loader from "../../components/Loader/Loader";
 
 const Page404 = () => (
   <Loader>
-    <section className="vh-height ComingSoon.js white-bg">
+    <section className="vh-height white-bg">
       <div className="container">
         <div className="row">
           <div className="col-md-12">

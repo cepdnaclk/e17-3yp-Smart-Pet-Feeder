@@ -56,7 +56,7 @@ const SmartPetFeeder = () => {
           handleSignIn={signClickHandle}
           handleAdminLogin={AdminClickHandle}
         />
-        <Home data={HomeDate} />
+        <Home />
         <About />
         <Services title="What We Offer" tagline="We Turn Heads" />
         <Testimonials title="TESTIMONIALS" tagline="Happy clients" />

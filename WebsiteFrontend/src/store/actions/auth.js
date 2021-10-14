@@ -60,13 +60,13 @@ export const signup = (
       throw new Error(message);
     }
 
-    const resData = await response.json();
-
-    dispatch(
-      authenticate(resData.userId, resData.idToken, resData.refreshToken)
-    );
-
-    saveDataToStorage(resData.idToken, resData.userId);
+    // const resData = await response.json();
+    //
+    // dispatch(
+    //   authenticate(resData.userId, resData.idToken, resData.refreshToken)
+    // );
+    //
+    // saveDataToStorage(resData.idToken, resData.userId);
   };
 };
 
