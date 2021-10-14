@@ -196,6 +196,7 @@ exports.login = (req,res,next) =>{
         })
         .then(result=>{
             const otp = totp.generate(result.secret);
+            console.log(otp);
 
 
             return ejs.render(emailTemplate, {"OTP":otp,"NAME":result.name});

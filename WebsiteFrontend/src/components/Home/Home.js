@@ -1,46 +1,46 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
-import parse from "html-react-parser";
-import SliderButtons from "../../elements/SliderButtons/SliderButtons";
 
-const Home = ({ data }) => (
+const Home = () => (
   <section className="pt-0 pb-0" id="home">
     <div className="slider-bg flexslider">
       <ul className="slides">
         <Swiper>
-          <SwiperSlide key={data.id}>
+          <SwiperSlide>
             <div
               className="slide-img"
               style={{
-                background: `url(${require("../../assets/images/" +
-                  data.image)}) center center / cover scroll no-repeat`,
+                background: `url(${require("../../assets/images/background/home.jpg")}) center center / cover scroll no-repeat`,
               }}
             />
-            <div
-              className={
-                "hero-text-wrap " + (data.bg ? "gradient-overlay-bg" : "")
-              }
-            >
+            <div className={"hero-text-wrap "}>
               <div className="hero-text white-color">
                 <div className="container text-center">
                   <h2 className="white-color font-500 letter-spacing-5">
-                    {data.tagline}
+                    WELCOME TO
                   </h2>
                   <h1 className="white-color text-uppercase font-700">
-                    {data.title}
+                    Smart Pet Feeder
                   </h1>
                   <h3 className="white-color font-400 fst-italic">
-                    {data.text ? parse(data.text) : ""}
+                    saving one pet won't change the world, but for that one pet
+                    the world will change forever
                   </h3>
 
-                  {data.buttons.length !== 0 ? (
-                    <p className="text-center mt-30">
-                      <SliderButtons buttons={data.buttons} />
-                    </p>
-                  ) : (
-                    ""
-                  )}
+                  <div className="text-center mt-30">
+                    <div
+                      // href={`${process.env.PUBLIC_URL}/${button.link}`}
+                      className={"btn btn-animate btn-circle btn-color"}
+                    >
+                      <span>
+                        Mobile App
+                        <i className="icofont icofont-arrow-right" />
+                      </span>
+                    </div>
+
+                    {/*<SliderButtons buttons={data.buttons} />*/}
+                  </div>
                 </div>
               </div>
             </div>

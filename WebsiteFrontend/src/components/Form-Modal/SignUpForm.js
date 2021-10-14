@@ -83,6 +83,10 @@ export default function SignUpForm(props) {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
+  const [isInvalidOTP, setOTPInValidity] = useState(false);
+  const [isOTPPage, setOTPPage] = useState(false);
+  const [OTP, setOTP] = useState("");
+
   useEffect(() => {
     if (error) {
       alert("Email Already Exists!");
