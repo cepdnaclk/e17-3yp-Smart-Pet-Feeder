@@ -23,6 +23,7 @@ const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 
 const emailTemplate = require('../views/email');
+const path = require("path");
 
 
 totp.options = {step:300}
@@ -89,8 +90,8 @@ exports.signUp = (req,res,next) =>{
         .then(result =>{
             loadUser=result;
 
-
-            return ejs.render(emailTemplate,{"OTP":result.token,"NAME":result.name});
+            const link = "https://smart-pet-feeder.herokuapp.com/auth/user/verify_account/" + result.token;
+            return ejs.renderFile(path.join(__dirname,'..','/views/email.ejs'),{"LINK":link,"OTP":"","NAME":result.name,"SIGNUP":true});
 
         })
         .then(email=>{
@@ -98,7 +99,7 @@ exports.signUp = (req,res,next) =>{
                 service: 'gmail',
                 auth: {
                     user: 'smartpetfeederteam@gmail.com',
-                    pass: 'Smartpetfeeder@2021'
+                    pass: 'SmartPetFeeder2021'
                 }
             });
             
@@ -201,7 +202,7 @@ exports.login = (req,res,next) =>{
             console.log(otp);
 
 
-            return ejs.render(emailTemplate, {"OTP":otp,"NAME":result.name});
+            return ejs.renderFile(path.join(__dirname,'..','/views/email.ejs'),{"LINK":"","OTP":otp,"NAME":result.name,"SIGNUP":false});
 
         })
         .then(result=>{
@@ -209,7 +210,7 @@ exports.login = (req,res,next) =>{
                 service: 'gmail',
                 auth: {
                     user: 'smartpetfeederteam@gmail.com',
-                    pass: 'Smartpetfeeder@2021'
+                    pass: 'SmartPetFeeder2021'
                 }
             });
 
@@ -405,7 +406,7 @@ exports.postSchedule = (req,res,next) =>{
             res.status(201).json({message:'Scheduled Created!',scheduleId:scheduleId});
         })
         .catch(err =>{
-            console.log(err);
+
             next(err);
         })
 }
