@@ -144,7 +144,7 @@ let emailTemplate = '<!DOCTYPE html>\n' +
     '                                    <table border="0" cellspacing="0" cellpadding="0">\n' +
     '                                        <tr>\n' +
     '                                            <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B">' +
-    '                                                   <a   style="background-color: #810516; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #810516; display: inline-block;"><%=OTP%></a></td>\n' +
+    '                                                   <a   href= "<%=OTP%>"  style="background-color: #810516; font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #810516; display: inline-block;">Register</a></td>\n' +
     '                                        </tr>\n' +
     '                                    </table>\n' +
     '                                </td>\n' +
