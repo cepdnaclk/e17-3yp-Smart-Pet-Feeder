@@ -41,6 +41,8 @@ export const authenticate = (userId, token, refreshToken) => {
     };
 };
 
+
+
 export const signup = (
     name,
     email,
@@ -69,37 +71,80 @@ export const signup = (
         if (!response.ok) {
             const errorResData = await response.json();
 
-            const errorId = errorResData.error.message;
-            let message = "Authentication failed!";
-            if (errorId === "EMAIL_EXISTS") {
-                message = "This email exists already!";
-            }
+            let message = "An error occurred";
+            if (errorResData.message) message = errorResData.message;
             throw new Error(message);
         }
 
-        const resData = await response.json();
-
-        dispatch(authenticate(resData.userId, resData.idToken));
-        const expirationDate = new Date(
-            new Date().getTime() + parseInt(resData.expiresIn) * 1000
-        );
-        saveDataToStorage(resData.idToken, resData.userId, expirationDate);
-
-        // dispatch(authenticate(resData.userId, resData.idToken));
-
-        // // This is for saving expiry time (When auto login)
-        // const expirationDate = new Date(
-        //   new Date().getTime() + parseInt(resData.expiresIn) * 1000
+        // const resData = await response.json();
+        //
+        // dispatch(
+        //   authenticate(resData.userId, resData.idToken, resData.refreshToken)
         // );
-        // saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+        //
+        // saveDataToStorage(resData.idToken, resData.userId);
     };
 };
+
+
+// export const signup = (
+//     name,
+//     email,
+//     mobileNumber,
+//     password,
+//     confirmPassword
+// ) => {
+//     return async (dispatch) => {
+//         // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
+//
+//         const response = await fetch(API_URL + "/auth/user/signup", {
+//             method: "PUT",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify({
+//                 name: name,
+//                 email: email,
+//                 phoneNumber: mobileNumber,
+//                 password: password,
+//                 confirmPassword: confirmPassword,
+//                 // returnSecureToken: true,
+//             }),
+//         });
+//
+//         if (!response.ok) {
+//             const errorResData = await response.json();
+//
+//             const errorId = errorResData.error.message;
+//             let message = "Authentication failed!";
+//             if (errorId === "EMAIL_EXISTS") {
+//                 message = "This email exists already!";
+//             }
+//             throw new Error(message);
+//         }
+//
+//         const resData = await response.json();
+//
+//         dispatch(authenticate(resData.userId, resData.idToken));
+//         const expirationDate = new Date(
+//             new Date().getTime() + parseInt(resData.expiresIn) * 1000
+//         );
+//         saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+//
+//         // dispatch(authenticate(resData.userId, resData.idToken));
+//
+//         // // This is for saving expiry time (When auto login)
+//         // const expirationDate = new Date(
+//         //   new Date().getTime() + parseInt(resData.expiresIn) * 1000
+//         // );
+//         // saveDataToStorage(resData.idToken, resData.userId, expirationDate);
+//     };
+// };
 
 
 export const tryLogin = (email, password) => {
     // "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
 
-    console.log("hi");
     return async (dispatch) => {
         const response = await fetch(API_URL + "/auth/user/login", {
             method: "POST",
@@ -122,7 +167,6 @@ export const tryLogin = (email, password) => {
         }
 
         const resData = await response.json();
-        console.log("try login", resData);
         dispatch({type: USER_SAVE_ONETIME_TOKEN, oneTimeToken: resData.idToken});
 
         // dispatch(
@@ -168,7 +212,6 @@ export const submitOTP = (otp) => {
         }
 
         const resData = await response.json();
-        console.log(resData);
 
         dispatch(
             authenticate(resData.userId, resData.idToken, resData.refreshToken)

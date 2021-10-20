@@ -85,7 +85,6 @@ export default function Login(props) {
         try {
             await dispatch(authActions.submitOTP(OTP));
             // history.replace(`${process.env.PUBLIC_URL}/admin/users`);
-            console.log("all done");
             // props.navigation.navigate("Shop");
 
         } catch (err) {
@@ -132,7 +131,6 @@ export default function Login(props) {
     //       const expirationTime = new Date(
     //         new Date().getTime() + +data.expiresIn * 1000
     //       );
-    //       console.log(data.expiresIn);
     //       // authCtx.login(data.idToken, expirationTime.toISOString());
     //     })
     //     .catch((err) => {

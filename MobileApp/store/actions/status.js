@@ -22,13 +22,11 @@ import {userFetchTemplate} from "./fetchTemplate";
 
 
 export const fetchStatus = () => {
-    console.log("fetching");
     return async (dispatch, getState) => {
         const resData = await userFetchTemplate(
             // fetchStatusFunction.bind(null, dispatch, getState),
             async () => {
                 const token = getState().auth.token;
-                console.log("Fetsch status function ", getState().auth);
 
                 return await fetch(API_URL + "/auth/user/get_status", {
                     method: "GET",
@@ -41,7 +39,6 @@ export const fetchStatus = () => {
             getState
         );
 
-        console.log("Last res data", resData);
         dispatch({ type: SET_STATUS, status: resData });
     };
 };
