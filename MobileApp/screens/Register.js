@@ -18,6 +18,7 @@ import * as Validators from "../helpers/validators";
 import { useDispatch } from "react-redux";
 import * as authActions from "../store/actions/auth";
 import { DotIndicator } from "react-native-indicators";
+import Verified from "../components/Register/Verified";
 
 export default function Register(props) {
   const [error, setError] = useState();
@@ -25,6 +26,7 @@ export default function Register(props) {
   const dispatch = useDispatch();
 
   const [isPageLoading, setIsPageLoaded] = useState(true);
+  const [isVerifying, setIsVerifying] = useState(false);
 
   useEffect(() => {
     setIsPageLoaded(false);
@@ -105,12 +107,25 @@ export default function Register(props) {
       await dispatch(
         authActions.signup(name, email, mobileNumber, password, confirmPassword)
       );
+
+      resetName();
+      resetEmail();
+      resetMobileNumber()
+      resetPassword();
+      resetConfirmPassword();
+      setIsLoading(false);
+      setIsVerifying(true);
+
       // props.navigation.navigate("Shop");
     } catch (err) {
       setError(err.message);
       setIsLoading(false);
     }
   };
+
+  const hideModal = () => {
+    setIsVerifying(false);
+  }
 
   // const submitForm = (event) => {
   //   let url;
@@ -147,7 +162,6 @@ export default function Register(props) {
   //       }
   //     })
   //     .then((data) => {
-  //       console.log(data);
   //     })
   //     .catch((err) => {
   //       alert(err.message);
@@ -159,6 +173,7 @@ export default function Register(props) {
   }
   return (
     <SafeAreaView style={Styles.AuthPage}>
+
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -167,6 +182,11 @@ export default function Register(props) {
           paddingTop: 30,
         }}
       >
+
+        {isVerifying &&  <Verified isModalVisible={isVerifying} hideModal={hideModal}/>}
+
+
+
         <Image
           source={require("../assets/images/logo.png")}
           resizeMode={"contain"}

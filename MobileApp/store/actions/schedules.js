@@ -52,7 +52,6 @@ export const createSchedule = (title, date_time) => {
             // fetchStatusFunction.bind(null, dispatch, getState),
             async () => {
                 const token = getState().auth.token;
-                console.log("Fetsch status function ", getState().auth);
 
                 return await fetch(API_URL + "/auth/user/post_schedules", {
                     method: "POST",
@@ -157,7 +156,6 @@ export const updateSchedule = (id, title, date_time) => {
             // fetchStatusFunction.bind(null, dispatch, getState),
             async () => {
                 const token = getState().auth.token;
-                console.log("Fetsch status function ", getState().auth);
 
                 return await fetch(API_URL + "/auth/user/post_schedules", {
                     method: "POST",
@@ -217,7 +215,6 @@ export const deleteSchedule = (id) => {
             // fetchStatusFunction.bind(null, dispatch, getState),
             async () => {
                 const token = getState().auth.token;
-                console.log("Fetsch status function ", getState().auth);
 
                 return await fetch(API_URL + "/auth/user/delete_schedule", {
                     method: "POST",

@@ -33,7 +33,6 @@ const scheduleReducer = (state = initialState, action) => {
         action.date_time,
         action.status
       );
-      console.log("New Schedule", newSchedule);
       const temp1 = [...state.schedules];
       const addedSchedules = temp1.concat(newSchedule);
       const filteredSchedules1 = addedSchedules.sort((schedule1, schedule2) => {

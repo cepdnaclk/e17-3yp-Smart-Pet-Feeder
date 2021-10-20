@@ -61,7 +61,6 @@ export default function History(props) {
 
   let filteredHistory = [...historyData];
   if (isFiltered) {
-    // console.log("filtering by date");
 
     filteredHistory = filteredHistory.filter((historyData) =>
       Validators.isSameDate(

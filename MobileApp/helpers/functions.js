@@ -68,6 +68,5 @@ export const isSameDate = (date1, date2) => {
 };
 
 export const isDelayed = (date) => {
-  // console.log(new Date(date) - new Date() > 300);
   return new Date(date) - new Date() < 300000;
 };
