@@ -1,2 +1,2 @@
 
-export const API_URL = "http://35.173.186.246:8000";
+export const API_URL = "https://smart-pet-feeder.herokuapp.com";
