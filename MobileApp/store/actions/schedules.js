@@ -1,114 +1,238 @@
+import {userFetchTemplate} from "./fetchTemplate";
+
 export const SET_SCHEDULES = "SET_SCHEDULES";
 export const DELETE_SCHEDULE = "DELETE_SCHEDULE";
 export const CREATE_SCHEDULE = "CREATE_SCHEDULE";
 export const UPDATE_SCHEDULE = "UPDATE_SCHEDULE";
-import { API_URL } from "../../config/Configs";
+import {API_URL} from "../../config/Configs";
+import {AsyncStorage} from "react-native";
+
+// export const fetchSchedules = () => {
+//   return async (dispatch, getState) => {
+//     const token = getState().auth.token;
+//
+//     const response = await fetch(API_URL + "/auth/user/get_schedules", {
+//       method: "GET",
+//       headers: {
+//         Authorization: "Bearer " + token,
+//       },
+//     });
+//
+//     const resData = await response.json();
+//     console.log(resData);
+//     dispatch({ type: SET_SCHEDULES, schedules: resData });
+//   };
+// };
 
 export const fetchSchedules = () => {
-  return async (dispatch, getState) => {
-    const token = getState().auth.token;
 
-    const response = await fetch(API_URL + "/auth/user/get_schedules", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    return async (dispatch, getState) => {
+        const resData = await userFetchTemplate(
+            // fetchStatusFunction.bind(null, dispatch, getState),
+            async () => {
+                const token = getState().auth.token;
 
-    const resData = await response.json();
-    console.log(resData);
-    dispatch({ type: SET_SCHEDULES, schedules: resData });
-  };
+                return await fetch(API_URL + "/auth/user/get_schedules", {
+                    method: "GET",
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                });
+            },
+            dispatch,
+            getState
+        );
+        dispatch({type: SET_SCHEDULES, schedules: resData});
+    };
 };
 
 export const createSchedule = (title, date_time) => {
-  return async (dispatch, getState) => {
-    const token = getState().auth.token;
-    console.log(title);
+    return async (dispatch, getState) => {
+        const resData = await userFetchTemplate(
+            // fetchStatusFunction.bind(null, dispatch, getState),
+            async () => {
+                const token = getState().auth.token;
+                console.log("Fetsch status function ", getState().auth);
 
-    const response = await fetch(API_URL + "/auth/user/post_schedules", {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + token,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: title,
-        date_time: date_time,
-        status: true,
-      }),
-    });
-
-    const resData = await response.json();
-    console.log(resData);
-    dispatch({
-      type: CREATE_SCHEDULE,
-      _id: resData.scheduleId,
-      title: title,
-      date_time: date_time,
-      status: true,
-    });
-  };
-
-  // return {
-  //   type: CREATE_SCHEDULE,
-  //   scheduleData: {
-  //     title,
-  //     date_time,
-  //   },
-  // };
+                return await fetch(API_URL + "/auth/user/post_schedules", {
+                    method: "POST",
+                    headers: {
+                        Authorization: "Bearer " + token,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        title: title,
+                        date_time: date_time,
+                        status: true,
+                    }),
+                });
+            },
+            dispatch,
+            getState
+        );
+        dispatch({
+            type: CREATE_SCHEDULE,
+            _id: resData.scheduleId,
+            title: title,
+            date_time: date_time,
+            status: true,
+        });
+    };
 };
+
+// export const createSchedule = (title, date_time) => {
+//   return async (dispatch, getState) => {
+//     const token = getState().auth.token;
+//     console.log(title);
+//
+//     const response = await fetch(API_URL + "/auth/user/post_schedules", {
+//       method: "POST",
+//       headers: {
+//         Authorization: "Bearer " + token,
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//         title: title,
+//         date_time: date_time,
+//         status: true,
+//       }),
+//     });
+//
+//     const resData = await response.json();
+//     console.log(resData);
+//     dispatch({
+//       type: CREATE_SCHEDULE,
+//       _id: resData.scheduleId,
+//       title: title,
+//       date_time: date_time,
+//       status: true,
+//     });
+//   };
+//
+//   // return {
+//   //   type: CREATE_SCHEDULE,
+//   //   scheduleData: {
+//   //     title,
+//   //     date_time,
+//   //   },
+//   // };
+// };
+
+// export const updateSchedule = (id, title, date_time) => {
+//     return async (dispatch, getState) => {
+//         const token = getState().auth.token;
+//
+//         const response = await fetch(API_URL + "/auth/user/post_schedules", {
+//             method: "POST",
+//             headers: {
+//                 Authorization: "Bearer " + token,
+//                 "Content-Type": "application/json",
+//             },
+//
+//             body: JSON.stringify({
+//                 _id: id,
+//                 title: title,
+//                 date_time: date_time,
+//                 status: true,
+//             }),
+//         });
+//
+//         console.log("Updated Prev ", id, title, date_time);
+//         const resData = await response.json();
+//         console.log("Updated", resData);
+//         dispatch({
+//             type: UPDATE_SCHEDULE,
+//             _id: id,
+//             title: title,
+//             date_time: date_time,
+//             status: true,
+//         });
+//     };
+// };
+
 
 export const updateSchedule = (id, title, date_time) => {
-  return async (dispatch, getState) => {
-    const token = getState().auth.token;
+    return async (dispatch, getState) => {
+        const resData = await userFetchTemplate(
+            // fetchStatusFunction.bind(null, dispatch, getState),
+            async () => {
+                const token = getState().auth.token;
+                console.log("Fetsch status function ", getState().auth);
 
-    const response = await fetch(API_URL + "/auth/user/post_schedules", {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + token,
-        "Content-Type": "application/json",
-      },
+                return await fetch(API_URL + "/auth/user/post_schedules", {
+                    method: "POST",
+                    headers: {
+                        Authorization: "Bearer " + token,
+                        "Content-Type": "application/json",
+                    },
 
-      body: JSON.stringify({
-        _id: id,
-        title: title,
-        date_time: date_time,
-        status: true,
-      }),
-    });
-
-    console.log("Updated Prev ", id, title, date_time);
-    const resData = await response.json();
-    console.log("Updated", resData);
-    dispatch({
-      type: UPDATE_SCHEDULE,
-      _id: id,
-      title: title,
-      date_time: date_time,
-      status: true,
-    });
-  };
+                    body: JSON.stringify({
+                        _id: id,
+                        title: title,
+                        date_time: date_time,
+                        status: true,
+                    }),
+                });
+            },
+            dispatch,
+            getState
+        );
+        dispatch({
+            type: UPDATE_SCHEDULE,
+            _id: id,
+            title: title,
+            date_time: date_time,
+            status: true,
+        });
+    };
 };
 
+//
+// export const deleteSchedule = (id) => {
+//     return async (dispatch, getState) => {
+//         const token = getState().auth.token;
+//
+//         const response = await fetch(API_URL + "/auth/user/delete_schedule", {
+//             method: "POST",
+//             headers: {
+//                 Authorization: "Bearer " + token,
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify({
+//                 _id: id,
+//             }),
+//         });
+//
+//         const resData = await response.json();
+//         console.log("Delete Prev Id, ", id);
+//         console.log("Delete After Id, ", resData.scheduleId);
+//         dispatch({type: DELETE_SCHEDULE, _id: id});
+//     };
+// };
+
+
 export const deleteSchedule = (id) => {
-  return async (dispatch, getState) => {
-    const token = getState().auth.token;
+    return async (dispatch, getState) => {
+        const resData = await userFetchTemplate(
+            // fetchStatusFunction.bind(null, dispatch, getState),
+            async () => {
+                const token = getState().auth.token;
+                console.log("Fetsch status function ", getState().auth);
 
-    const response = await fetch(API_URL + "/auth/user/delete_schedule", {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + token,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        _id: id,
-      }),
-    });
-
-    const resData = await response.json();
-    console.log("Delete Prev Id, ", id);
-    console.log("Delete After Id, ", resData.scheduleId);
-    dispatch({ type: DELETE_SCHEDULE, _id: id });
-  };
+                return await fetch(API_URL + "/auth/user/delete_schedule", {
+                    method: "POST",
+                    headers: {
+                        Authorization: "Bearer " + token,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        _id: id,
+                    }),
+                });
+            },
+            dispatch,
+            getState
+        );
+        dispatch({type: DELETE_SCHEDULE, _id: id});
+    };
 };
