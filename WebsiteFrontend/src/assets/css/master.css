@@ -3314,6 +3314,17 @@ img.mfp-img {
     overflow-wrap: break-word;
 }
 
+.verified_ {
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #1d9a6c;
+    padding-top: 20px;
+    overflow-wrap: break-word;
+}
+
 .pricing-box h2 {
     font-family: "Jost", sans-serif;
     margin-top: 25px;

@@ -56,14 +56,14 @@
 
 .white_bg {
   color: black;
-  background-color: transparent;
+  /*background-color: transparent;*/
   outline: none;
   margin-bottom: -2px;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.1em;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 20px 20px;
 }
 
@@ -76,7 +76,7 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.1em;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 20px 20px;
 }
 
@@ -90,7 +90,7 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.1em;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 20px 20px;
 }
 
@@ -103,7 +103,7 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.1em;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 20px 20px;
 }
 
@@ -126,7 +126,7 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.1em;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 20px 20px;
 
 }
@@ -141,7 +141,7 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.1em;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   padding: 20px 20px;
 }
 

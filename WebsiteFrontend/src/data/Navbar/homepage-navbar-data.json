@@ -18,12 +18,6 @@
   },
 
   {
-    "id": 5,
-    "title": "Testimonials",
-    "to": "testimonials"
-  },
-
-  {
     "id": 7,
     "title": "Team",
     "to": "team"

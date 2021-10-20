@@ -58,8 +58,8 @@ const SmartPetFeeder = () => {
         />
         <Home />
         <About />
-        <Services title="What We Offer" tagline="We Turn Heads" />
-        <Testimonials title="TESTIMONIALS" tagline="Happy clients" />
+        <Services title="Our Services" tagline="" />
+        {/*<Testimonials title="TESTIMONIALS" tagline="Happy clients" />*/}
         <Team />
         <FooterOne />
       </Loader>
