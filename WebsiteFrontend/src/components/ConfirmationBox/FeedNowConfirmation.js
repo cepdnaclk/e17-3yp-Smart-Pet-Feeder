@@ -17,7 +17,7 @@ export default function FeedNowConfirmation({
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <div id="alert-dialog-title" className="confirm_ pt-20 pl-50 pr-50">
+                <div id="alert-dialog-title" className="confirm_ pl-50 pt-20 pr-50">
                     {"Do you want to feed your pet now ?"}
                 </div>
 
