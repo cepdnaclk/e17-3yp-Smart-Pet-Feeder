@@ -12,7 +12,12 @@ const router = express.Router();
 
 //================================================== POST ==============================================================
 
-router.post('/login',adminControllers.login);
+router.post('/login',
+    [
+        body('email').not().isEmail().withMessage("Enter a valid email")
+            .normalizeEmail({gmail_remove_dots:false}),
+        body('password').trim().not().isEmpty().withMessage("Password cannot be empty")
+    ],adminControllers.login);
 
 router.post('/verifyLogin',isAuth2faAdmin,adminControllers.postVerifyLogin);
 

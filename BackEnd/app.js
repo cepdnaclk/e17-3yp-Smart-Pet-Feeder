@@ -14,6 +14,7 @@ const app = express();
 
 
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

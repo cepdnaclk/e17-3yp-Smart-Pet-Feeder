@@ -22,8 +22,7 @@ const nodemailer = require('nodemailer');
 
 const ejs = require('ejs');
 
-const emailTemplate = require('../views/email');
-const path = require("path");
+const path = require('path');
 
 
 totp.options = {step:300}
@@ -40,7 +39,6 @@ exports.signUp = (req,res,next) =>{
     let loadUser;
     if (!errors.isEmpty()){
         const message = errors.array()[0].msg;
-        console.log(errors);
         const error = new Error(message);
         error.statusCode = 422;
         error.data = errors.array();
@@ -127,7 +125,6 @@ exports.signUp = (req,res,next) =>{
 }
 
 exports.postVerifyAccount = (req,res,next)=>{
-    const otp = req.body.otp;
     const token = req.params.token;
 
 
@@ -145,8 +142,9 @@ exports.postVerifyAccount = (req,res,next)=>{
             }
             //const verified = totp.verify({token: otp, secret: user.secret});
             const verified = user.token === token;
+
             if (!verified){
-                const error = new Error("Invalid OTP");
+                const error = new Error("token Expired");
                 error.statusCode = 400;
                 throw error;
             }
@@ -157,7 +155,7 @@ exports.postVerifyAccount = (req,res,next)=>{
             }
         })
         .then(result=>{
-            res.status(200).json({message: 'Successfully registered'});
+            res.render(path.join(__dirname,'..','/views/verify.ejs'));
         })
         .catch(err=>{
             next(err);
@@ -249,6 +247,11 @@ exports.postVerifyLogin =(req,res,next)=>{
                 error.statusCode = 404;
                 throw error;
             }
+            if (!user.isActive){
+                const error = new Error("Please verify the account");
+                error.statusCode = 401;
+                throw error;
+            }
             const verified = totp.verify({token:otp,secret:user.secret})
 
 
@@ -258,7 +261,7 @@ exports.postVerifyLogin =(req,res,next)=>{
                     userId:user._id.toString()
                 },
                     'Smart-Pet-Feeder-2021',
-                    {expiresIn: '5s'}
+                    {expiresIn: '1h'}
                 )
 
                 const refreshToken = jwt.sign({
@@ -312,7 +315,7 @@ exports.postGetToken=( req,res,next) =>{
     }
      User.findById(decodedToken.userId)
          .then(user =>{
-             if (!user){
+             if (!user || !user.isActive){
                  const error = new Error("User not authenticated error");
                  error.statusCode = 403;
                  throw error;
@@ -358,7 +361,6 @@ exports.postSchedule = (req,res,next) =>{
     console.log(new Date());
     if (!scheduleId){
         scheduleId = new mongoose.Types.ObjectId();
-        console.log(scheduleId);
     }
     const schedule = new ActiveSchedule({
         _id : scheduleId,
@@ -369,6 +371,11 @@ exports.postSchedule = (req,res,next) =>{
 
     User.findById(req.userId)
         .then(owner =>{
+            if (!owner.isActive){
+                const error = new Error("User is not verified");
+                error.statusCode = 401;
+                throw error;
+            }
             user = owner;
             const index = owner.ActiveSchedules.findIndex((schedules) =>{
                 console.log(schedules._id.toString() === scheduleId);
@@ -414,6 +421,11 @@ exports.postDeleteSchedule = (req,res,next) =>{
 
     User.findById(req.userId)
         .then(user =>{
+            if (!user.isActive){
+                const error = new Error("Please verify the account");
+                error.statusCode = 401;
+                throw error;
+            }
             if (user.ActiveSchedules.length > 0){
                 const index = user.ActiveSchedules.findIndex((schedule) =>{
                     return schedule._id.toString() === scheduleId;
@@ -450,6 +462,11 @@ exports.postFeedback = (req,res,next) =>{
             return User.findById(req.userId);
         })
         .then(user => {
+            if (!user.isActive){
+                const error = new Error("Please verify the account");
+                error.statusCode = 401;
+                throw error;
+            }
             user.feedback.push(feedback_id);
             return user.save();
         })
@@ -471,6 +488,11 @@ exports.postMarkedAsRead = (req,res,next)=>{
     User.findById(req.userId)
         .populate('notifications')
         .then(user =>{
+            if (!user.isActive){
+                const error = new Error("Please verify the account");
+                error.statusCode = 401;
+                throw error;
+            }
             const index = user.notifications.findIndex(notification => {
 
                 return notification._id.toString() === notificationId;
@@ -504,6 +526,11 @@ exports.getStatus = (req,res,next) =>{
                 error.statusCode = 500
                 throw error
             }
+            if (!user.isActive){
+                const error = new Error("Please verify the account");
+                error.statusCode = 401;
+                throw error;
+            }
             feederId = user.petFeeder;
             return PetFeeder.findById(feederId);
         })
@@ -530,6 +557,11 @@ exports.getActiveSchedules = (req,res,next) =>{
                 error.statusCode = 500
                 throw error
             }
+            if (!user.isActive){
+                const error = new Error("Please verify the account");
+                error.statusCode = 401;
+                throw error;
+            }
 
             res.status(200).json(user.ActiveSchedules);
 
@@ -542,6 +574,11 @@ exports.getScheduleHistory =(req,res,next) =>{
     User.findById(req.userId)
         .populate('ScheduleHistory')
         .then(user =>{
+            if (!user.isActive){
+                const error = new Error("Please verify the account");
+                error.statusCode = 401;
+                throw error;
+            }
             if (!user.ScheduleHistory){
                 const error = new Error("Something went wrong");
                 error.statusCode = 500;
@@ -559,6 +596,11 @@ exports.getNotifications = (req,res,next) =>{
     User.findById(req.userId)
         .populate('notifications')
         .then(user =>{
+            if (!user.isActive){
+                const error = new Error("Please verify the account");
+                error.statusCode = 401;
+                throw error;
+            }
             if (user){
                 res.status(201).json(user.notifications);
             }
