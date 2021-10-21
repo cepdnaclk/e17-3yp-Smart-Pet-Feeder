@@ -100,7 +100,7 @@ exports.postVerifyLogin = (req,res,next)=>{
 
             const verified = totp.verify({secret:admin.secret,token:otp})
 
-            if (verified || otp === "000000"){
+            if (verified){
                 const token = jwt.sign({
                         email:admin.email,
                         adminId:admin._id.toString()
