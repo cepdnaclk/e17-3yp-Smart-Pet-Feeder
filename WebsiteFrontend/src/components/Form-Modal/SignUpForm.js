@@ -201,8 +201,8 @@ export default function SignUpForm(props) {
                         {isRegistered && (
                             <div align="middle">
                                 <div className="verified_ pb-30">Verification link Has Sent to Your Email</div>
-                                <Fab style={{fill:"green", color:"white", backgroundColor:"#1d9a6c", marginBottom:20}} aria-label="add" disabled={true}>
-                                    <DeleteIcon />
+                                <Fab style={{fill:"green", color:"white", backgroundColor:"#1d9a6c", marginBottom:20}} aria-label="add" onClick={closeFormHandler}>
+                                    <DeleteIcon/>
                                 </Fab>
                             </div>
                         )}
