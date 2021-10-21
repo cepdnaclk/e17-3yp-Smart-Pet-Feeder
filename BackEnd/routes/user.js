@@ -41,7 +41,7 @@ router.put('/signup',
                 }
                 return true;
             }),
-        body('phoneNumber')
+        body('phoneNumber').trim().not().isEmpty().withMessage("Phone number cannot be empty")
             .custom((value,{req}) =>{
                 const mobile_regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
                 if(!value.match(mobile_regex)){
