@@ -3347,6 +3347,23 @@ img.mfp-img {
 
 }
 
+.confirm_{
+    /*font-family: "Jost", sans-serif;*/
+    margin-top: 25px;
+    margin-bottom: 25px;
+    /*color: var(--main-color);*/
+    /*color: #1d9a6c;*/
+    font-weight: 700;
+    font-size: 20px;
+    overflow-wrap: break-word;
+}
+
+.confirm_button_{
+    font-weight: 700;
+    font-size: 15px;
+    overflow-wrap: break-word;
+}
+
 .dialog_title{
     font-family: "Jost", sans-serif;
     margin-top: 25px;

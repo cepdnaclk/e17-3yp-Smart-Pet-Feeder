@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEnd/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/background/header.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Alert/Alert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/ConfirmationBox/FeedNowConfirmation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/master.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/background/tran-mau-tri-tam-7mfR5n3XozU-unsplash.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/About/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/About/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/SignUpForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Services/Services.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Services/Services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Navbar/homepage-navbar-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Navbar/homepage-navbar-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/home/SmartPetFeeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/ActiveSchedules/ActiveSchedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/ActiveSchedules/ActiveSchedules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/ActiveSchedules/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/ActiveSchedules/Schedule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/ConfirmationBox/ConfirmationBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/ConfirmationBox/ConfirmationBox.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +91,8 @@
       <workItem from="1631980616602" duration="19000" />
       <workItem from="1634214365160" duration="143000" />
       <workItem from="1634392818100" duration="8452000" />
-      <workItem from="1634755577144" duration="4261000" />
+      <workItem from="1634755577144" duration="4895000" />
+      <workItem from="1634825966207" duration="8936000" />
     </task>
     <servers />
   </component>
