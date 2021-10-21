@@ -4,13 +4,11 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 
 
-export default function ConfirmationBox({
-                                            open,
-                                            id,
-                                            title,
-                                            handleClose,
-                                            deleteSchedule,
-                                        }) {
+export default function FeedNowConfirmation({
+                                                open,
+                                                handleClose,
+                                                onConfirm
+                                            }) {
     return (
         <div>
             <Dialog
@@ -19,11 +17,12 @@ export default function ConfirmationBox({
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                    <div id="alert-dialog-title" className="confirm_ pt-20 pl-50 pr-50">
-                        {"Do you want to delete schedule named " + title + " ?"}
-                    </div>
+                <div id="alert-dialog-title" className="confirm_ pt-20 pl-50 pr-50">
+                    {"Do you want to feed your pet now ?"}
+                </div>
 
-                    <DialogActions className="pl-50 pr-50">
+                <div className="">
+                    <DialogActions>
 
                         <Button onClick={handleClose} color="primary">
                             <span className="confirm_button_">
@@ -32,7 +31,7 @@ export default function ConfirmationBox({
 
                         </Button>
                         <Button
-                            onClick={deleteSchedule.bind(null, id)}
+                            onClick={onConfirm}
                             color="primary"
                             autoFocus
                         >
@@ -41,6 +40,8 @@ export default function ConfirmationBox({
                             </span>
                         </Button>
                     </DialogActions>
+                </div>
+
             </Dialog>
         </div>
     );
