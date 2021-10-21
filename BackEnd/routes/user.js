@@ -20,6 +20,7 @@ router.put('/signup',
         body('email')
             .isEmail()
             .withMessage('Please enter a valid email!')
+            .normalizeEmail({gmail_remove_dots:false})
             .custom((value,{req}) =>{
                    return  User.findOne({email:value})
                         .then(userDoc =>{
@@ -28,7 +29,7 @@ router.put('/signup',
                                 }
                         })
             })
-            .normalizeEmail({gmail_remove_dots:false}),
+            ,
         body('password').trim().not().isEmpty().withMessage('Password is empty')
             .isLength({min: 6}).withMessage('Password is too short'),
         body('name').trim()
@@ -53,7 +54,13 @@ router.put('/signup',
 
 router.get('/verify_account/:token',iaAuthVerifySignUp,userControllers.postVerifyAccount);
 
-router.post('/login',userControllers.login);
+router.post('/login',
+    [
+        body('email')
+            .isEmail().withMessage("Please enter a valid email")
+            .normalizeEmail({gmail_remove_dots:false}),
+        body('password').trim().not().isEmpty().withMessage("Password cannot be empty")
+    ],userControllers.login);
 
 router.post('/token',userControllers.postGetToken);
 

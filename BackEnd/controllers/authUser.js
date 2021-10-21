@@ -199,9 +199,6 @@ exports.login = (req,res,next) =>{
         })
         .then(result=>{
             const otp = totp.generate(result.secret);
-            console.log(otp);
-
-
             return ejs.renderFile(path.join(__dirname,'..','/views/email.ejs'),{"LINK":"","OTP":otp,"NAME":result.name,"SIGNUP":false});
 
         })
@@ -255,7 +252,7 @@ exports.postVerifyLogin =(req,res,next)=>{
             const verified = totp.verify({token:otp,secret:user.secret})
 
 
-            if (verified || otp  === "000000"){
+            if (verified){
                 const accessToken = jwt.sign({
                     email:user.email,
                     userId:user._id.toString()
