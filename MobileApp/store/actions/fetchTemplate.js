@@ -9,7 +9,6 @@ export const userFetchTemplate = async (fetchFunction, dispatch, getState) => {
     if (errorResData.message === "JWT EXPIRED") {
 
       const refreshToken = getState().auth.refreshToken;
-      console.log("Sending refresh token", refreshToken);
       response = await fetch(API_URL + "/auth/user/token", {
         method: "POST",
         headers: {

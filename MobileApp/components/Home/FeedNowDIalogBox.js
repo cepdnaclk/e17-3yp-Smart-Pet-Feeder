@@ -1,22 +1,11 @@
 import Dialog from "react-native-dialog";
-import React, {useState} from "react";
-import {SafeAreaView, StyleSheet, Text, View} from "react-native";
+import React, { useReducer, useState } from "react";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Modal from "react-native-modal";
-import {useDispatch} from "react-redux";
-import * as ScheduleActions from "../../store/actions/schedules";
 
-const ScheduleForm = (props) => {
-
-    const dispatch = useDispatch();
-
-    const onDeleteSchedule = () => {
-        dispatch(ScheduleActions.deleteSchedule(props.id));
-
-        props.hideDialog();
-    };
-
+const FeedNowDialogBox = (props) => {
     return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
             <Modal
                 isVisible={props.isDialogShow}
                 backdropOpacity={0.8}
@@ -27,18 +16,17 @@ const ScheduleForm = (props) => {
                 backdropTransitionInTiming={1}
                 backdropTransitionOutTiming={1}
             >
-                <SafeAreaView style={{flex: 1, justifyContent: "center"}}>
+                <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
                     <View style={Styles.Container}>
                         <View style={Styles.Details}>
-                            <Text style={Styles.Title}>Delete Schedule</Text>
+                            <Text style={Styles.Title}>Feed Now</Text>
                             <Text style={Styles.Description}>
-                                Do you want to delete this schedule? You cannot undo this
-                                action.
+                                Do you want to feed your pet now ?
                             </Text>
 
                             <View style={Styles.Inline}>
-                                <Dialog.Button label="Cancel" onPress={props.hideDialog}/>
-                                <Dialog.Button label="Delete" onPress={onDeleteSchedule}/>
+                                <Dialog.Button label="Cancel" onPress={props.hideDialog} />
+                                <Dialog.Button label="Feed Now" onPress={props.feedNowHandler} />
                             </View>
                         </View>
                     </View>
@@ -78,4 +66,4 @@ const Styles = StyleSheet.create({
     },
 });
 
-export default ScheduleForm;
+export default FeedNowDialogBox;
