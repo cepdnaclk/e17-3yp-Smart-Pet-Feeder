@@ -542,7 +542,6 @@ exports.getStatus = (req,res,next) =>{
             })
         })
         .catch(err=>{
-            console.log(err);
             next(err);
         })
 }
@@ -553,8 +552,8 @@ exports.getActiveSchedules = (req,res,next) =>{
     User.findById(req.userId)
         .then(user =>{
             if (!user){
-                const error = new Error("Something went wrong!")
-                error.statusCode = 500
+                const error = new Error("User Not found")
+                error.statusCode = 404
                 throw error
             }
             if (!user.isActive){
