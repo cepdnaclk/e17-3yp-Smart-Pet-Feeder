@@ -65,51 +65,6 @@ public class AppTest
         driver.findElement(By.xpath("//*[@id=\"navbar-menu\"]/ul[2]/a[3]")).click();	//Video tab
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         
-        //Status tab
-        driver.findElement(By.xpath("//*[@id=\"navbar-menu\"]/ul[2]/a[1]")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-       
-        //Wait
-        WebDriverWait wait = new WebDriverWait(driver,30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"main\"]/div/div[1]/section[2]/div/div[2]/div/span/button")));
-           
-        //Feed now
-        driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[1]/section[2]/div/div[2]/div/span/button")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         
-        //Confirm
-        driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div/button[2]/span[1]/span")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        
-        //Scorl down
-        JavascriptExecutor js = (JavascriptExecutor)driver;  
-        js.executeScript("scrollBy(0, 5000)");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        
-        //Delete schedule
-        driver.findElement(By.xpath("/html/body/div/div/div[1]/section[2]/div/div[3]/div[1]/div/div/div[2]/button")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);// WebDriverWait wait = new WebDriverWait(driver,30);
-        
-        //Confirm
-        driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div[2]/button[2]/span[1]/span")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        
-        //Add schedule
-        driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[1]/section[2]/div/div[3]/div[1]/div/div/div[1]/span/button")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        
-        //Add data
-        driver.findElement(By.id("title")).sendKeys("Test schedule 1");
-        driver.findElement(By.id("date")).sendKeys("10/22/2021");
-        driver.findElement(By.id("date")).sendKeys("10:00 AM");
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        
-        //Comfirm
-        driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[4]/div[2]/button")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        
-        //Log-out
-        driver.findElement(By.xpath("//*[@id=\"navbar-menu\"]/ul[2]/a[6]")).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }
