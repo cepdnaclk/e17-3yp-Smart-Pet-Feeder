@@ -21,6 +21,7 @@ import {
 import ColorsApp from "../../config/ColorsApp";
 
 const Schedule = (props) => {
+    const delayed = Functions.isDelayed(props.schedule.date_time);
   return (
     <Card style={Styles.card6}>
       <View style={Styles.cardTitle}>
@@ -37,7 +38,7 @@ const Schedule = (props) => {
       </View>
 
       <View style={Styles.cardContent}>
-        {Functions.isDelayed(props.schedule.date_time) && (
+        {delayed && (
           <Text
             style={{
               fontSize: 28,
@@ -50,7 +51,7 @@ const Schedule = (props) => {
           </Text>
         )}
 
-        {!Functions.isDelayed(props.schedule.date_time) && (
+        {!delayed && (
           <Text
             style={{
               fontSize: 28,
@@ -101,6 +102,7 @@ const Schedule = (props) => {
           onPress={props.onEditSchedule.bind(null, props.schedule._id)}
           // color="blue"
           color={ColorsApp.PRIMARY}
+          disabled={delayed}
         >
           EDIT
         </Button>

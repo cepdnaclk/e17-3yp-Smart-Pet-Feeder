@@ -864,7 +864,7 @@ module.exports = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     marginRight: 20,
-    backgroundColor: PrimaryColor,
+    // backgroundColor: PrimaryColor,
     // marginTop: 10,
     right: 0,
     // bottom: 0,

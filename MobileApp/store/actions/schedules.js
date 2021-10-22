@@ -19,7 +19,6 @@ import {AsyncStorage} from "react-native";
 //     });
 //
 //     const resData = await response.json();
-//     console.log(resData);
 //     dispatch({ type: SET_SCHEDULES, schedules: resData });
 //   };
 // };
@@ -82,7 +81,6 @@ export const createSchedule = (title, date_time) => {
 // export const createSchedule = (title, date_time) => {
 //   return async (dispatch, getState) => {
 //     const token = getState().auth.token;
-//     console.log(title);
 //
 //     const response = await fetch(API_URL + "/auth/user/post_schedules", {
 //       method: "POST",
@@ -98,7 +96,6 @@ export const createSchedule = (title, date_time) => {
 //     });
 //
 //     const resData = await response.json();
-//     console.log(resData);
 //     dispatch({
 //       type: CREATE_SCHEDULE,
 //       _id: resData.scheduleId,
@@ -136,9 +133,7 @@ export const createSchedule = (title, date_time) => {
 //             }),
 //         });
 //
-//         console.log("Updated Prev ", id, title, date_time);
 //         const resData = await response.json();
-//         console.log("Updated", resData);
 //         dispatch({
 //             type: UPDATE_SCHEDULE,
 //             _id: id,
@@ -202,8 +197,7 @@ export const updateSchedule = (id, title, date_time) => {
 //         });
 //
 //         const resData = await response.json();
-//         console.log("Delete Prev Id, ", id);
-//         console.log("Delete After Id, ", resData.scheduleId);
+
 //         dispatch({type: DELETE_SCHEDULE, _id: id});
 //     };
 // };
