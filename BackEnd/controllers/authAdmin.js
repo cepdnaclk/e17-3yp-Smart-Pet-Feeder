@@ -55,7 +55,7 @@ exports.login = (req,res,next) =>{
                 service: 'gmail',
                 auth: {
                     user: 'smartpetfeederteam@gmail.com',
-                    pass: 'Smartpetfeeder@2021'
+                    pass: 'SmartPetFeeder2021'
                 }
             });
 
