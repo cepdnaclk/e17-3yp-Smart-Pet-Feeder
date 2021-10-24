@@ -1,7 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-// import NotificationBar from "./NotificationBar";
-import LoginForm from "../Form-Modal/LoginForm";
-// import MessageModal from "./MessageModal";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFeedbacks } from "../../store/actions/admin_feedbacks";
 import Loader from "react-loader-spinner";
