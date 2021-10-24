@@ -117,7 +117,6 @@ export default function LoginForm(props) {
 
             // history.replace(`${process.env.PUBLIC_URL}/user`);
         } catch (err) {
-            console.log(err.message);
             setError(err.message);
             setIsLoading(false);
         }

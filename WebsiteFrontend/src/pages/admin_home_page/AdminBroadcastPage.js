@@ -14,7 +14,7 @@ const UserContactUs = () => {
               data-aos-delay={100}
               data-aos-duration={700}
             >
-              Contact Us
+              Broadcast
             </h2>
             <h4
               className="text-uppercase pb-4"

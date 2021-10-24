@@ -42,10 +42,8 @@ mongoose.connect('mongodb+srv://Shenal:SmartPetFeeder2021@cluster0.y3bkj.mongodb
 
 
         app.listen(port);
-        console.log("Connected Successfully!");
 
 
     })
     .catch(err => {
-        console.log("Database Connections Failed");
     })

@@ -13,7 +13,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case AUTHENTICATE_ADMIN:
-      console.log("Admin reducer", action);
 
       return {
         token: action.token,

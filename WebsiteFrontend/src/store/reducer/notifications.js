@@ -9,7 +9,6 @@ const initialState = {
 const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_NOTIFICATIONS:
-      console.log("Notifications", action.notifications);
       if (action.notifications) {
         const unread__notification = action.notifications.find(
           (notification) => notification.isRead === false

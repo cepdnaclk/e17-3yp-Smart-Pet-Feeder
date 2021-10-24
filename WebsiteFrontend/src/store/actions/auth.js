@@ -139,7 +139,6 @@ export const submitOTP = (otp) => {
     }
 
     const resData = await response.json();
-    console.log(resData);
 
     dispatch(
       authenticate(resData.userId, resData.idToken, resData.refreshToken)

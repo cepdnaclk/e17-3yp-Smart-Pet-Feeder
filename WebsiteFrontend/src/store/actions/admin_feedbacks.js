@@ -16,7 +16,6 @@ export const fetchFeedbacks = () => {
     });
 
     const resData = await response.json();
-    console.log(resData);
     dispatch({ type: SET_FEEDBACKS, feedbacks: resData });
   };
 };

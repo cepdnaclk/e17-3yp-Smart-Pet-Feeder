@@ -8,7 +8,6 @@ module.exports = (req,res,next) =>{
         decodedToken = jwt.verify(token,'One-Time-Token-For-User');
     }
     catch (err){
-        console.log("This is error in auth 2fa user")
         err.statusCode = 500;
         throw err;
     }
