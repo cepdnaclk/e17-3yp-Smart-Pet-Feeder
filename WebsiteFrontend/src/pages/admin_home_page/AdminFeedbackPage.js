@@ -36,7 +36,7 @@ const Feedbacks = () => {
                 data-aos-delay={200}
                 data-aos-duration={700}
               >
-                - Search users -
+                - Search feedback by email -
               </h4>
               <div>
                 <form action="/" method="get">
