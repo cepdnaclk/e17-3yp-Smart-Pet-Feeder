@@ -298,7 +298,6 @@ exports.postVerifyLogin = (req, res, next) => {
 
 exports.postGetToken = (req, res, next) => {
     const refreshToken = req.get('Authorization').split(' ')[1];
-    console.log("Incoming token", refreshToken);
 
     if (!refreshToken) {
         const error = new Error("Error occurred");
@@ -309,11 +308,9 @@ exports.postGetToken = (req, res, next) => {
     try {
         decodedToken = jwt.verify(refreshToken, 'SmartPetFeeder2021-refresh');
     } catch (err) {
-        console.log("This is error")
         err.statusCode = 500;
         throw err;
     }
-    console.log("Decoded token", decodedToken);
     if (!decodedToken) {
         const error = new Error('You are not authenticated!');
         error.statusCode = 401;
@@ -364,7 +361,6 @@ exports.postSchedule = (req, res, next) => {
 
     let user;
     let scheduleId = req.body._id;
-    console.log(new Date());
     if (!scheduleId) {
         scheduleId = new mongoose.Types.ObjectId();
     }
@@ -384,7 +380,6 @@ exports.postSchedule = (req, res, next) => {
             }
             user = owner;
             const index = owner.ActiveSchedules.findIndex((schedules) => {
-                console.log(schedules._id.toString() === scheduleId);
                 return schedules._id.toString() === scheduleId;
 
 
@@ -519,7 +514,6 @@ exports.postMarkedAsRead = (req, res, next) => {
             res.status(201).json({_id: result._id, message: "Successful"})
         })
         .catch(err => {
-            console.log(err);
         })
     ;
 }

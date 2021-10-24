@@ -5,19 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEnd/IOT Certificates/CA1.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/IOT Certificates/CA3.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/IOT Certificates/certificate.pem.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/IOT Certificates/private.pem.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/IOT Certificates/public.pem.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/functions/IOT.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/controllers/authAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/controllers/authAdmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/controllers/authUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/controllers/authUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/functions/IOT.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/functions/IOT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/middleware/is-auth-2fa-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/middleware/is-auth-2fa-admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/middleware/is-auth-2fa-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/middleware/is-auth-2fa-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/middleware/is-auth-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/middleware/is-auth-admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/elements/CartMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/elements/CartMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/ActiveSchedules/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/ActiveSchedules/Schedule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/ScheduleHistory/ScheduleBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/ScheduleHistory/ScheduleBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Form-Modal/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/pages/Startup_page/StartupPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/Startup_page/StartupPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/pages/admin_home_page/AdminBroadcastPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/admin_home_page/AdminBroadcastPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/admin_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/admin_auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/admin_feedbacks.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/admin_feedbacks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/admin_status.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/admin_status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/feedback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/fetchTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/fetchTemplate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/notifications.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/schedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/actions/schedules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/store/reducer/admin_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/store/reducer/admin_auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +110,8 @@
       <workItem from="1634392818100" duration="8452000" />
       <workItem from="1634755577144" duration="4895000" />
       <workItem from="1634825966207" duration="10405000" />
-      <workItem from="1634978138639" duration="12735000" />
+      <workItem from="1634978138639" duration="13925000" />
+      <workItem from="1635083697639" duration="4638000" />
     </task>
     <servers />
   </component>

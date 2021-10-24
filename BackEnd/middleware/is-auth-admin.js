@@ -7,7 +7,6 @@ module.exports = (req,res,next) =>{
         decodedToken = jwt.verify(token,'Smart-Pet-Feeder-2021-Admin');
     }
     catch (err){
-        console.log("This is error")
         err.statusCode = 500;
         throw err;
     }

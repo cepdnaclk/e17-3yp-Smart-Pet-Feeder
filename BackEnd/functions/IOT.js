@@ -13,7 +13,6 @@ exports.publishSchedules = (schedules)=>{
     });
     device
         .on('connect', function() {
-            console.log("Connected to the IOT");
 
             device.publish('Pet_Feeder/inSchedule', JSON.stringify({ schedules : schedules }));
         });

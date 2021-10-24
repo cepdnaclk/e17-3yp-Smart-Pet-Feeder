@@ -19,7 +19,6 @@ import {Tooltip} from "@material-ui/core";
 
 const Schedule = ({index, schedule, editHandler, deleteHandler, num_of_active_schedules}) => {
     const remainingRounds = useSelector((state) => state.status.status.remainingRounds);
-    console.log(index)
 
     const delayed = Functions.isDelayed(schedule.date_time);
 

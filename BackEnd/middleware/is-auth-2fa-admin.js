@@ -9,7 +9,6 @@ module.exports = (req,res,next) =>{
         decodedToken = jwt.verify(token,'One-Time-Token');
     }
     catch (err){
-        console.log(err.name ===jwt.TokenExpiredError.name)
         err.statusCode = 500;
         throw err;
     }

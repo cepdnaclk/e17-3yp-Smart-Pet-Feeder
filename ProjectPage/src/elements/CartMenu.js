@@ -11,7 +11,6 @@ const CartMenu = () => {
     if (width < 991) {
       const el = e.target;
       if (e.target.nextSibling) {
-        console.log("parent",el.parentElement)
         if (el.parentElement.classList.contains("on")) {
           el.nextSibling.style.display = "none";
           el.parentElement.classList.remove("on");
