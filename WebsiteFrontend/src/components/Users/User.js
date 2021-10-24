@@ -46,6 +46,7 @@ const User = ({ index, user, onClickHandler }) => {
           <div
             className="col-12"
             onClick={onClickHandler.bind(null, user.userId, user.isActive)}
+            id={index}
           >
             {user.isActive && (
               <Fab color="primary" aria-label="add">
