@@ -371,9 +371,7 @@ exports.postSchedule = (req, res, next) => {
 
     let user;
     let scheduleId = req.body._id;
-
     if (!scheduleId) {
-
         scheduleId = new mongoose.Types.ObjectId();
     }
     const schedule = new ActiveSchedule({
@@ -417,7 +415,7 @@ exports.postSchedule = (req, res, next) => {
         })
         .then(result => {
 
-            res.status(201).json({message: 'Scheduled Created!', scheduleId: scheduleId});
+            res.status(201).json({message: 'Scheduled Created!', scheduleId: schedule._id});
             IOT.publishSchedules(user.ActiveSchedules);
 
         })
