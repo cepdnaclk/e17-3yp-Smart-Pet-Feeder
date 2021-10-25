@@ -23,7 +23,6 @@ const ObjectId = mongoose.Types.ObjectId;
 totp.options = {step:300}
 
 exports.login = (req,res,next) =>{
-    console.log("hii")
     const email = req.body.email;
     const password = req.body.password;
     let loadAdmin;
@@ -98,6 +97,8 @@ exports.login = (req,res,next) =>{
 exports.postVerifyLogin = (req,res,next)=>{
     const adminId = req.adminId;
     const otp = req.body.otp;
+
+
     Admin.findById(adminId)
         .then(admin=>{
             if (!admin){
@@ -163,6 +164,15 @@ exports.postReply = (req,res,next)=>{
     const title = req.body.title;
     const userId = req.body.userId;
     const creator = req.body.adminId;
+
+    let errors = validationResult(req);
+    if (!errors.isEmpty()){
+        const message = errors.array()[0].msg;
+        const error = new Error(message);
+        error.statusCode = 422;
+        error.data = errors.array();
+        throw error;
+    }
 
     const notification = new Notification({
         userId:userId,
