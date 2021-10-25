@@ -7,11 +7,10 @@
     <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/controllers/authUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/controllers/authUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoftwareTesting/Admin-tab-testing/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoftwareTesting/Login-page-validate-testing/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoftwareTesting/Sign-up-validate-testing/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SoftwareTesting/User-tab-testing/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +95,7 @@
       <workItem from="1634825966207" duration="10405000" />
       <workItem from="1634978138639" duration="13925000" />
       <workItem from="1635083697639" duration="6920000" />
-      <workItem from="1635152866678" duration="5368000" />
+      <workItem from="1635152866678" duration="6870000" />
     </task>
     <servers />
   </component>
