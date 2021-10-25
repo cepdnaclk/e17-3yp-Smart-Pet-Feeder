@@ -23,9 +23,19 @@ const ObjectId = mongoose.Types.ObjectId;
 totp.options = {step:300}
 
 exports.login = (req,res,next) =>{
+    console.log("hii")
     const email = req.body.email;
     const password = req.body.password;
     let loadAdmin;
+
+    let errors = validationResult(req);
+    if (!errors.isEmpty()){
+        const message = errors.array()[0].msg;
+        const error = new Error(message);
+        error.statusCode = 422;
+        error.data = errors.array();
+        throw error;
+    }
 
     Admin.findOne({email:email})
         .then(user =>{

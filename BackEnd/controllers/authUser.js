@@ -167,7 +167,14 @@ exports.login = (req,res,next) =>{
     const email = req.body.email;
     const password = req.body.password;
     let loadUser;
-
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        const message = errors.array()[0].msg;
+        const error = new Error(message);
+        error.statusCode = 422;
+        error.data = errors.array();
+        throw error;
+    }
     User.findOne({email:email})
         .then(user =>{
             if(!user){
@@ -358,7 +365,7 @@ exports.postSchedule = (req,res,next) =>{
 
     let user;
     let scheduleId = req.body._id;
-    console.log(new Date());
+
     if (!scheduleId){
         scheduleId = new mongoose.Types.ObjectId();
     }
@@ -378,7 +385,7 @@ exports.postSchedule = (req,res,next) =>{
             }
             user = owner;
             const index = owner.ActiveSchedules.findIndex((schedules) =>{
-                console.log(schedules._id.toString() === scheduleId);
+
                 return schedules._id.toString() === scheduleId;
 
 
@@ -434,6 +441,11 @@ exports.postDeleteSchedule = (req,res,next) =>{
                 if (index < 4 && index >=0){
                     user.ActiveSchedules.splice(index, 1);
                 }
+                else{
+                    const error = new Error("Schedule Not found!");
+                    error.statusCode =404;
+                    throw error;
+                }
                 return user.save();
             }
         })
@@ -448,6 +460,15 @@ exports.postDeleteSchedule = (req,res,next) =>{
 
 exports.postFeedback = (req,res,next) =>{
     let feedback_id;
+    let errors = validationResult(req);
+    if (!errors.isEmpty()){
+        const message = errors.array()[0].msg;
+        const error = new Error(message);
+        error.statusCode = 422;
+        error.data = errors.array();
+        throw error;
+    }
+
     const feedback = new Feedback({
         title:req.body.title,
         message:req.body.message,
@@ -480,7 +501,7 @@ exports.postFeedback = (req,res,next) =>{
 
 exports.postMarkedAsRead = (req,res,next)=>{
     let notificationId = req.body._id;
-    if (!notificationId){
+    if (!notificationId || notificationId ===""){
         const error = new Error("Error Occurred");
         error.statusCode = 422;
         throw error;
@@ -510,7 +531,7 @@ exports.postMarkedAsRead = (req,res,next)=>{
             res.status(201).json({_id:result._id,message:"Successful"})
         })
         .catch(err =>{
-            console.log(err);
+            next(err);
         })
     ;
 }

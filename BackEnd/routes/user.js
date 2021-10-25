@@ -65,13 +65,19 @@ router.post('/login',
 router.post('/token',userControllers.postGetToken);
 
 router.post('/post_schedules' ,[
-    body("title").not().isEmpty().withMessage("Title Cannot be empty!"),
+    body("title").not().isEmpty().withMessage("Title Cannot be empty"),
     body("date_time").not().isEmpty().withMessage("Date and time undefined")
 ], isAuthUser, userControllers.postSchedule);
 
 router.post('/delete_schedule',isAuthUser,userControllers.postDeleteSchedule);
 
-router.post('/post_feedback',isAuthUser,userControllers.postFeedback);
+router.post('/post_feedback',
+    [
+        body('title').trim().not().isEmpty().withMessage("title Cannot be empty"),
+        body('message').trim().not().isEmpty().withMessage("Message cannot be empty"),
+        body('date_time').trim().not().isEmpty().withMessage("Date_time is undefined")
+    ]
+    ,isAuthUser,userControllers.postFeedback);
 
 router.post('/post_markRead',isAuthUser,userControllers.postMarkedAsRead);
 
