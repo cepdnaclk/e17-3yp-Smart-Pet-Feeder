@@ -23,6 +23,7 @@ app.use((req, res, next) => {
     next();
 });
 
+
 app.use("/auth/user", authUserRoutes);
 
 app.use("/auth/admin", authAdminRoutes);

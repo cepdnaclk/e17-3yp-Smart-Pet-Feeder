@@ -16,6 +16,9 @@ import usersReducer from "./store/reducer/admin_users";
 import AdminFeedbackReducer from "./store/reducer/admin_feedbacks";
 import adminStatusReducer from "./store/reducer/admin_status";
 
+import HttpsRedirect from 'react-https-redirect';
+
+
 const rootReducer = combineReducers({
     schedules: scheduleReducer,
     status: statusReducer,
@@ -30,9 +33,12 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App/>
-    </Provider>,
+    <HttpsRedirect>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </HttpsRedirect>,
+
 
     document.getElementById("main")
 );
