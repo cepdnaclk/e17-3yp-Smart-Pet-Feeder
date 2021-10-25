@@ -19,7 +19,6 @@ import {Tooltip} from "@material-ui/core";
 
 const Schedule = ({index, schedule, editHandler, deleteHandler, num_of_active_schedules}) => {
     const remainingRounds = useSelector((state) => state.status.status.remainingRounds);
-    console.log(index)
 
     const delayed = Functions.isDelayed(schedule.date_time);
 
@@ -106,6 +105,7 @@ const Schedule = ({index, schedule, editHandler, deleteHandler, num_of_active_sc
                         className="col-6"
                         onClick={(!schedule.status && remainingRounds <= index) || delayed ? () => {
                         } : editHandler.bind(null, schedule._id, schedule.status)}
+                        id={index.toString() + "1"}
                     >
                         <Tooltip
                             title={delayed ? "Cannot edit while processing" : index >= remainingRounds ? "All remaining rounds are scheduled or no remaining rounds." : ""
@@ -138,6 +138,8 @@ const Schedule = ({index, schedule, editHandler, deleteHandler, num_of_active_sc
                                 :
                                 deleteHandler.bind(null, schedule._id, schedule.title)
                         }
+                        id={index.toString() + "2"}
+
                     >
                         <Fab color="secondary" aria-label="add"
                              disabled={!schedule.status}>

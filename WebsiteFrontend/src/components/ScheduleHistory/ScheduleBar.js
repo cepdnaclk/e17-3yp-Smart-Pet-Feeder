@@ -63,15 +63,15 @@ export default function ScheduleBar({ title, date_time, status }) {
             <Icofont
               icon={status === 1 ? "check-circled" : "close-circled"}
               size="10"
-              style={{ color: status === 1 ? "green" : "red" }}
+              style={{ color: status === true ? "green" : "red" }}
             />
           </div>
 
           <div
             className="mt-2"
-            style={{ fontSize: "16px", color: status === 1 ? "green" : "red" }}
+            style={{ fontSize: "16px", color: status === true ? "green" : "red" }}
           >
-            <b>{status === 1 ? "Completed" : "Incomplete"}</b>
+            <b>{status === true ? "Completed" : "Incomplete"}</b>
           </div>
         </div>
 

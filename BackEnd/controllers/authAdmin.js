@@ -60,7 +60,6 @@ exports.login = (req,res,next) =>{
         .then(validationResult =>{
             loadAdmin =validationResult;
             const otp = totp.generate(validationResult.secret)
-            console.log(otp);
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
@@ -99,7 +98,6 @@ exports.login = (req,res,next) =>{
 exports.postVerifyLogin = (req,res,next)=>{
     const adminId = req.adminId;
     const otp = req.body.otp;
-    console.log(otp)
     Admin.findById(adminId)
         .then(admin=>{
             if (!admin){

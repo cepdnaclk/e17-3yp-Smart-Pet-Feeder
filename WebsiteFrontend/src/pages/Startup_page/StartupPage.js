@@ -35,7 +35,6 @@ const StartupPage = (props) => {
     const tryLogin = () => {
       const userData = localStorage.getItem("userData");
 
-      console.log("Startup page user", userData);
       // If userData is not available
       if (!userData) {
         // props.navigation.navigate("Auth"); // navigate to Auth screen
