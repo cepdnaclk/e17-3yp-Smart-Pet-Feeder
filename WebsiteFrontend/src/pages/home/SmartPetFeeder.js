@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Loader from "./../../components/Loader/Loader";
@@ -6,69 +6,68 @@ import HomeDate from "../../data/Home/home.json";
 import Header from "../../components/Header/Header";
 import Home from "../../components/Home/Home";
 import About from "../../components/About/About";
+import Architecture from "../../components/Architecture/Architecture";
+import ThreeDDesign from "../../components/Design/ThreeDDesign";
 import Team from "../../components/Team/Team";
 import Services from "../../components/Services/Services";
 import Testimonials from "../../components/Testimonials/Testimonials";
+import Blogs from "../../components/Blog/Blogs";
 import FooterOne from "../../components/Footer/FooterOne";
-import dataNav from "../../data/Navbar/homepage-navbar-data.json";
-import LoginForm from "../../components/Form-Modal/LoginForm";
-import SignUpForm from "../../components/Form-Modal/SignUpForm";
-import AdminLoginForm from "../../components/Form-Modal/AdminLoginForm";
+import DataFlow from "../../components/DataFlow/DataFlow";
+import Budget from "../../components/Budget/Budget";
+import SecurityAscpects from "../../components/SecurityAspects/SecurityAscpects";
+import Timeline from "../../components/Timeline/Timeline";
+import Hardware from "../../components/Hardware/Hardware";
+import UIDescription from "../../components/Design/UIDesign/UIDescription";
+import UIDesign from "../../components/Design/UIDesign/UIDesign";
+
+import Progress from "../../components/Progress/Progress";
+
+import AwsArchitecture from "../../components/AWSdesign/AwsArchitecture";
+
 
 const SmartPetFeeder = () => {
-  const [isLogClicked, setLogClick] = useState(false);
-  const [isSignClicked, setSignClick] = useState(false);
-  const [isAdminClicked, setAdminClicked] = useState(false);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
-
-  const logClickedHandler = (e) => {
-    e.preventDefault();
-
-    setLogClick(true);
-  };
-
-  const signClickHandle = (e) => {
-    e.preventDefault();
-
-    setSignClick(true);
-  };
-
-  const AdminClickHandle = (e) => {
-    e.preventDefault();
-
-    setAdminClicked(true);
-  };
-
-  const exitFromLog = () => {
-    setSignClick(false);
-    setLogClick(false);
-    setAdminClicked(false);
-  };
   return (
-    <>
-      <Loader>
-        <Header
-          data={dataNav}
-          handleLog={logClickedHandler}
-          handleSignIn={signClickHandle}
-          handleAdminLogin={AdminClickHandle}
-        />
-        <Home />
-        <About />
-        <Services title="Our Services" tagline="" />
-        {/*<Testimonials title="TESTIMONIALS" tagline="Happy clients" />*/}
-        <Team />
-        <FooterOne />
-      </Loader>
-      <div>
-        <LoginForm open={isLogClicked} handleClose={exitFromLog} />
-        <SignUpForm open={isSignClicked} handleClose={exitFromLog} />
-        <AdminLoginForm open={isAdminClicked} handleClose={exitFromLog} />
-      </div>
-    </>
+    <Loader>
+      <Header />
+      <Home data={HomeDate} />
+      <About />
+      <Architecture />
+      <DataFlow />
+      <AwsArchitecture/>
+      <ThreeDDesign />
+      <UIDescription />
+      <UIDesign
+        filter="true"
+        layout="wide"
+        columns="3"
+        items="9"
+        classAppend="pt-0"
+      />
+
+      <Hardware />
+      <SecurityAscpects />
+      <Progress />
+      <Budget />
+      <Timeline />
+      {/*<Portfolio*/}
+      {/*  filter="true"*/}
+      {/*  layout="wide"*/}
+      {/*  columns="2"*/}
+      {/*  items="6"*/}
+      {/*  classAppend="pt-0"*/}
+      {/*/>*/}
+
+      <Team />
+      {/*<Services title="What We Offer" tagline="We Turn Heads" />*/}
+      {/*<Testimonials title="TESTIMONIALS" tagline="Happy clients" />*/}
+      {/*<Blogs />*/}
+      <FooterOne />
+    </Loader>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import logoFooter from "../../assets/images/logo-footer.png";
 import FooterCopyright from "./FooterCopyright";
-import { Link } from "react-scroll";
 
 const FooterOne = () => (
   <>
@@ -20,14 +19,7 @@ const FooterOne = () => (
                     />
                   </a>
                 </div>
-                <p
-                  style={{
-                    lineHeight: "30px",
-                    textAlign: "justify",
-                    textJustify: "inter-word",
-                    paddingTop: "10px",
-                  }}
-                >
+                <p>
                   Smart Pet Feeder is a product that helps you to take care of
                   your pets. It will help you to build the relationship with
                   your pet better and better even you are not in the home. Have
@@ -64,83 +56,20 @@ const FooterOne = () => (
                 <h5 className="widget-title">Useful Links</h5>
                 <ul>
                   <li>
-                    <Link
-                      className="footer_"
-                      // activeclassname={"active"}
-                      to="home"
-                      spy={true}
-                      duration={200}
-                      delay={0}
-                      // key={i}
-                      smooth={"easeInOutQuart"}
-                    >
-                      {/*{dropdown.title}*/}
-                      Home
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      className="footer_"
-                      // activeclassname={"active"}
-                      to="about"
-                      spy={true}
-                      duration={200}
-                      delay={0}
-                      // key={i}
-                      smooth={"easeInOutQuart"}
-                    >
-                      {/*{dropdown.title}*/}
-                      About Us
-                    </Link>
+                    <a href={process.env.PUBLIC_URL}>About Us</a>
                   </li>
                   <li>
-                    <Link
-                      className="footer_"
-                      // activeclassname={"active"}
-                      to="services"
-                      spy={true}
-                      duration={200}
-                      delay={0}
-                      // key={i}
-                      smooth={"easeInOutQuart"}
-                    >
-                      {/*{dropdown.title}*/}
-                      Our Services
-                    </Link>
+                    <a href={process.env.PUBLIC_URL}>Contact Us</a>
                   </li>
-
-                  <li>
-                    <Link
-                      className="footer_"
-                      // activeclassname={"active"}
-                      to="testimonials"
-                      spy={true}
-                      duration={200}
-                      delay={0}
-                      // key={i}
-                      smooth={"easeInOutQuart"}
-                    >
-                      {/*{dropdown.title}*/}
-                      Testimonials
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      className="footer_"
-                      // activeclassname={"active"}
-                      // to="services"
-                      spy={true}
-                      duration={200}
-                      delay={0}
-                      // key={i}
-                      smooth={"easeInOutQuart"}
-                    >
-                      {/*{dropdown.title}*/}
-                      Team
-                    </Link>
-                  </li>
+                  {/*<li>*/}
+                  {/*  <a href={process.env.PUBLIC_URL}>Our Services</a>*/}
+                  {/*</li>*/}
+                  {/*<li>*/}
+                  {/*  <a href={process.env.PUBLIC_URL}>Terms &amp; Conditions</a>*/}
+                  {/*</li>*/}
+                  {/*<li>*/}
+                  {/*  <a href={process.env.PUBLIC_URL}>Careers</a>*/}
+                  {/*</li>*/}
                 </ul>
               </div>
             </div>
@@ -162,14 +91,9 @@ const FooterOne = () => (
                     <i className="icofont icofont-iphone"></i>
                     <a href="tel:441632960290">+94 76 682 1877</a>
                   </li>
-
-                  <li>
-                    <i className="icofont icofont-iphone"></i>
-                    <a href="tel:441632960290">+94 77 955 8616</a>
-                  </li>
                   <li>
                     <i className="icofont icofont-mail"></i>
-                    <a href={process.env.PUBLIC_URL}>
+                    <a href="mailto:helloscoda@gmail.com">
                       smartpetfeederuop@gmail.com
                     </a>
                   </li>

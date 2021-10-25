@@ -8,29 +8,10 @@
 /* Here you can CHANGE COLORS of the theme
    Secondary color is used for some hover on buttons.
 */
-
 :root {
   --main-color: #d42e22;
   --secondary-color: #ce1500;
 }
-
-/* For footer in user home page*/
-/*-----------------------------*/
-.flex-wrapper {
-  position: relative;
-  min-height: 100vh;
-}
-
-.content {
-  padding-bottom: 95px; /* Footer height */
-}
-.userpage_footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 95px; /* Footer height */
-}
-/*-----------------------------*/
 
 .dark_bg {
   background: rgba(13, 0, 26, 0.98);
@@ -56,19 +37,6 @@
 
 .white_bg {
   color: black;
-  /*background-color: transparent;*/
-  outline: none;
-  margin-bottom: -2px;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 0.1em;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 20px 20px;
-}
-
-.white_bg2 {
-  color: rgb(235, 226, 226);
   background-color: transparent;
   outline: none;
   margin-bottom: -2px;
@@ -83,15 +51,6 @@
 .white_bg:hover {
   cursor: pointer;
   color: deeppink;
-  background-color: transparent;
-  outline: none;
-  margin-bottom: -2px;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 0.1em;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 20px 20px;
 }
 
 .black_bg {
@@ -107,44 +66,14 @@
   padding: 20px 20px;
 }
 
-.footer_{
-
-}
-
-.footer_:hover{
-  cursor: pointer;
-
-}
-
 .black_bg:hover {
   cursor: pointer;
   color: deeppink;
-  background-color: transparent;
-  outline: none;
-  margin-bottom: -2px;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 0.1em;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 20px 20px;
-
 }
 
 .active {
-  cursor: pointer;
   color: deeppink;
-  background-color: transparent;
-  outline: none;
-  margin-bottom: -2px;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 0.1em;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 20px 20px;
 }
-
 
 .dropdown-menu {
   transition: all 1s;
@@ -746,9 +675,5 @@ a.isDisabled:focus {
 
   .white_bg {
     color: white;
-  }
-  .footer-copyright {
-    padding-top: 10px;
-    padding-bottom: 0px;
   }
 }

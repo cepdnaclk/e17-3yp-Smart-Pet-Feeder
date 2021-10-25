@@ -7,8 +7,8 @@
   "buttons": [
     {
       "id": 1,
-      "text": "Get Started",
-      "link": "/signup",
+      "text": "Go to Repository",
+      "link": "https://github.com/cepdnaclk/e17-3yp-Smart-Pet-Feeder",
       "type": "btn-circle btn-color"
     }
   ]
