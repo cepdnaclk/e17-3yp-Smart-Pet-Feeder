@@ -180,7 +180,7 @@ exports.login = (req, res, next) => {
         error.data = errors.array();
         throw error;
     }
-    
+
     User.findOne({email: email})
         .then(user => {
             if (!user) {

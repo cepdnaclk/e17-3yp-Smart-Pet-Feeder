@@ -39,11 +39,9 @@ const port = process.env.PORT || 8000;
 
 mongoose.connect('mongodb+srv://Shenal:SmartPetFeeder2021@cluster0.y3bkj.mongodb.net/Smart-Pet-Feeder?retryWrites=true&w=majority')
     .then(result => {
-
-
+        console.log("Database connected !")
         app.listen(port);
-
-
     })
     .catch(err => {
+        console.log("Database connection failed")
     })
