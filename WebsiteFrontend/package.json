@@ -33,6 +33,7 @@
     "react-countdown": "^2.2.1",
     "react-countup": "^4.4.0",
     "react-dom": "^17.0.2",
+    "react-https-redirect": "^1.1.0",
     "react-icofont": "^1.0.19",
     "react-icons": "^4.2.0",
     "react-id-swiper": "^4.0.0",
