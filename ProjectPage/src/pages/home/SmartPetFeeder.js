@@ -6,6 +6,7 @@ import HomeDate from "../../data/Home/home.json";
 import Header from "../../components/Header/Header";
 import Home from "../../components/Home/Home";
 import About from "../../components/About/About";
+import Testing from "../../components/Testing/Testing"
 import Architecture from "../../components/Architecture/Architecture";
 import ThreeDDesign from "../../components/Design/ThreeDDesign";
 import Team from "../../components/Team/Team";
@@ -51,6 +52,7 @@ const SmartPetFeeder = () => {
 
       <Hardware />
       <SecurityAscpects />
+      <Testing/>
       <Progress />
       <Budget />
       <Timeline />

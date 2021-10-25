@@ -34,21 +34,26 @@
     "title": "Security",
     "to": "security_aspects"
   },
-
   {
     "id": 7,
+    "title": "Testing",
+    "to": "testing"
+  },
+
+  {
+    "id": 8,
     "title": "Budget",
     "to": "budget"
   },
 
   {
-    "id": 8,
+    "id": 9,
     "title": "Timeline",
     "to": "timeline"
   },
 
   {
-    "id": 9,
+    "id": 10,
     "title": "Team",
     "to": "team"
   }

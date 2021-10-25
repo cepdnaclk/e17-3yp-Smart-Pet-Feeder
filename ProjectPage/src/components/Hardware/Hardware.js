@@ -1,7 +1,7 @@
 import React from "react";
 import HeadingSection from "../HeadingSection/HeadingSection";
 
-import Core from "../../assets/images/design/core.jpg";
+import Core from "../../assets/images/design/Core.jpg";
 import other from "../../assets/images/design/other.jpg";
 import other2 from "../../assets/images/design/Hardware2.jpg";
 import power from "../../assets/images/design/power.jpg";
