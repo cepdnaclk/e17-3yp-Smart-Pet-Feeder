@@ -4,14 +4,8 @@ import DropdownMenu from "../Navs/DropdownMenu";
 import SearchOverlay from "../../elements/SearchOverlay";
 import MainLogo from "../MainLogo";
 import "../../assets/css/style.css";
-import * as PropTypes from "prop-types";
 
-function AttributeNav(props) {
-  return null;
-}
-
-AttributeNav.propTypes = { children: PropTypes.node };
-const Header = ({ type, data, handleLog, handleSignIn, handleAdminLogin }) => {
+const Header = ({ type }) => {
   const [show, setShow] = useState(false);
   const [fixed, setFixed] = useState(false);
   const [collapse, setCollapse] = useState(false);
@@ -36,11 +30,11 @@ const Header = ({ type, data, handleLog, handleSignIn, handleAdminLogin }) => {
     searchForm.style.top = wHeight / 2 + "px";
   }, []);
 
-  // const showSearchForm = (e) => {
-  //   e.preventDefault();
-  //   setShow(true);
-  //   resizeForm();
-  // };
+  const showSearchForm = (e) => {
+    e.preventDefault();
+    setShow(true);
+    resizeForm();
+  };
 
   const hideSearchForm = (e) => {
     e.preventDefault();
@@ -77,14 +71,13 @@ const Header = ({ type, data, handleLog, handleSignIn, handleAdminLogin }) => {
             <Icofont icon="navigation-menu" />
           </button>
           <MainLogo showMenu={showMenu} />
-          <DropdownMenu
-            fixed={fixed}
-            type={type}
-            data={data}
-            isClickedLog={handleLog}
-            signClickedHandler={handleSignIn}
-            handleAdminLogin={handleAdminLogin}
-          />
+          <DropdownMenu fixed={fixed} type={type} />
+          {/*<AttributeNav>*/}
+          {/*  <div className="login_button">*/}
+          {/*    Login*/}
+          {/*    <i className="icofont icofont-login"></i>*/}
+          {/*  </div>*/}
+          {/*</AttributeNav>*/}
         </div>
       </nav>
     </>
