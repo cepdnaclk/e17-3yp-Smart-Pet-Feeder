@@ -5,63 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEnd/functions/DateOperations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/components/Progress/ProgressVideos.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/CA1.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/CA3.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/certificate.pem.crt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/private.pem.key" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/public.pem.key" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/controllers/authUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/controllers/authUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/functions/IOT.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/functions/IOT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/animate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/bootsnav.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/bootsnav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/master.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/fonts/et-line.svg" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/fonts/et-line.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/fonts/icofont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/fonts/icofont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/fonts/ionicons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/fonts/ionicons.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/design/Core.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/design/Core.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/design/other.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/design/other.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/security-aspects/images.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/security-aspects/images.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/About/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/About/About.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Blog/Blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Blog/Blogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Footer/FooterCopyright.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Footer/FooterCopyright.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Footer/FooterOne.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Footer/FooterOne.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/HeadingSection/HeadingSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/HeadingSection/HeadingSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Loader/Loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Loader/Loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/MainLogo.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/MainLogo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Navs/DropdownMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Navs/DropdownMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Services/Services.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Services/Services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Team/OurTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Team/OurTeam.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Team/Team.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Team/Team.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Testimonials/TestimonialItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Testimonials/TestimonialItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Testimonials/Testimonials.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Testimonials/Testimonials.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MobileApp/config/Configs.js" beforeDir="false" afterPath="$PROJECT_DIR$/MobileApp/config/Configs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/assets/images/design/Core.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/design/rasberry_pi.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Budget/Budget.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Budget/Budget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Progress/Progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Progress/Progress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/data/Navbar/navbar-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/data/Navbar/navbar-data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/configs/Configs.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/configs/Configs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/About/about-corporate-business.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/About/about-corporate-business.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Blog/blog-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Blog/blog-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Cart/cart-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Cart/cart-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Home/home.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Home/home.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Social/social-footer.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Social/social-footer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/TabsIconSection/tabs-icon-section.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/TabsIconSection/tabs-icon-section.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Team/advisor-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Team/advisor-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Team/team-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Team/team-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Testimonials/testimonials-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Testimonials/testimonials-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/elements/CartMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/elements/CartMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/elements/FeatureBox/FeatureBoxTwo.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/elements/FeatureBox/FeatureBoxTwo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/elements/SearchItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/elements/SearchItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/elements/SearchOverlay.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/elements/SearchOverlay.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/elements/SliderButtons/SliderButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/elements/SliderButtons/SliderButtons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/helpers/ScrollToTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/helpers/ScrollToTop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/helpers/useWindowResizeListener.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/helpers/useWindowResizeListener.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/home/SmartPetFeeder.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +45,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/BackEnd/functions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -167,7 +121,9 @@
       <workItem from="1634978138639" duration="13925000" />
       <workItem from="1635083697639" duration="6920000" />
       <workItem from="1635152866678" duration="8599000" />
-      <workItem from="1635177685410" duration="5617000" />
+      <workItem from="1635177685410" duration="8317000" />
+      <workItem from="1635253697682" duration="94000" />
+      <workItem from="1635257863518" duration="1351000" />
     </task>
     <servers />
   </component>

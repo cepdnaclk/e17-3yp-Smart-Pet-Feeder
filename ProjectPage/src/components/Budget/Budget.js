@@ -7,7 +7,7 @@ const Budget = () => (
     <div className="container">
       <div className="row">
         <HeadingSection title="Budget">
-          <div className="pb-5 pt-3">
+          <div className=" pt-3">
             <img src={budget} />
           </div>
         </HeadingSection>
