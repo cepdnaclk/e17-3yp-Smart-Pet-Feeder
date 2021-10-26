@@ -5,17 +5,151 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ProjectPage/src/components/Progress/ProgressVideos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/_redirects" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/asset-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/favicon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/precache-manifest.99de73c8272cb267778977aa19ff681a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/precache-manifest.9b8cd0e0cedaa36dd74851b4698daf7a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/css/2.7dba0534.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/css/main.113f6cc7.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/css/main.65e203c8.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/js/2.674ef484.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/js/2.aa238b26.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/js/main.4ee09460.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/js/main.d67de8f9.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/js/runtime~main.1d172121.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/1.5cd759e0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/404.e4301010.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/API_Results.7d7bf721.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/API_Testing.98f8fd6a.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/AWS.95588710.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Admin Functionalities.cf9e0d6f.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Circuit_Diagram.27c41a46.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Core.a020eddb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Dr_Isuru.57ad9a2f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Dr_Mahanama.d18fd466.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Food_container.ba1797d5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Hardware2.b8f6c225.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/IOT connectivity.6322d572.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Login_SignUp.14d2509f.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Mobile App Functionalities.912c392c.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/New Microsoft PowerPoint Presentation.d41d8cd9.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/PetFeeder.aa00b7f0.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Pet_feeder.f94f4e57.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/ProgressVideo.667af6a7.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/Register.db699a61.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/SoftwareTesting.613593c0.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/SoftwareTesting_UnitTest.613593c0.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/User Functionalities.e3e7040d.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/about-us.c83dc045.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/achintha.57195634.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/admin_broadcast.df2ca179.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/admin_feedback.01b99259.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/admin_poster.2f83f67f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/admin_users.eee05635.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/api_poster.09f228d2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/api_results_admin.396130f0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/api_results_users.29c3d6d4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/architecture.2793adb0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/budget.d66f8b76.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/data_flow.ccbb6718.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/et-line.26ec3c7d.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/et-line.2bea85e7.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/et-line.569bd908.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/et-line.98126e3e.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/et-line.b01ff252.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/home.5cb779c7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/home.9bfd6883.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/images.79dd7ed7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/ionicons.05acfdb5.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/ionicons.24712f6c.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/ionicons.2c2ae068.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/ionicons.621bd386.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/ionicons.c037dbbc.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/login.30d54e1c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/map-bg.6e682f8d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/mobile_app_poster.9c81c1a1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/other.40279d81.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-10.3ed47b87.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-12.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-14.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-15.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-18.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-20.3f45b450.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-3.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-4.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-6.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-7.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg-9.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/parallax-bg.3ed47b87.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/pet_feeder_2.7d5206f3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/power.a417d843.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/rasberry_pi.a020eddb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/sachintha.3ea19351.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/security testing 1.a3724d42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/security testing 2.4310bc65.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/shenal.53a58b7c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/slick.b7c9e1e4.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/slick.ced611da.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/slick.d41f55a7.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/slick.f97e3bbf.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/startup-bg-left.c83dc045.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/team-03.dd22906b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-1.9eafde0a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-10.9eafde0a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-2.9eafde0a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-3.9eafde0a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-4.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-5.fe77ad16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-6.7c6a5bd7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-7.7c6a5bd7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-8.7c6a5bd7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/title-hero-9.9eafde0a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/travel-bg-left.c83dc045.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/travel-bg-right.c83dc045.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/ui_design.096cd65f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/user_feedback.797dc615.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/user_history.85b67fc3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/user_notification.43481945.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/user_poster.f3026932.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/build/static/media/user_status.d11b0354.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/admin_poster.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/mobile_app_poster.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/testing/api_poster.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/testing/api_results_admin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/testing/api_results_users.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/testing/security testing 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/testing/security testing 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/user_poster.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/API_Results.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/API_Testing.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/Admin Functionalities.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/IOT connectivity.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/Login_SignUp.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/Mobile App Functionalities.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/SoftwareTesting.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectPage/src/assets/video/User Functionalities.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MobileApp/config/Configs.js" beforeDir="false" afterPath="$PROJECT_DIR$/MobileApp/config/Configs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPage/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPage/src/assets/images/design/Core.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/design/rasberry_pi.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Budget/Budget.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Budget/Budget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Progress/Progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Progress/Progress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/functions/DateOperations.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/functions/DateOperations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/assets/video/ProgressVideo.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/assets/video/SoftwareTesting_UnitTest.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Progress/ProgressVideos.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Progress/ProgressVideos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Testing/Testing.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Testing/Testing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Timeline/Timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Timeline/Timeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/data/Home/home.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/data/Home/home.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectPage/src/data/Navbar/navbar-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/data/Navbar/navbar-data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testing/Security Testing/security testing 1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/Security Testing/security testing 1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/video/ProgressVideo.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/configs/Configs.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/configs/Configs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Navbar/navbar-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Navbar/navbar-data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +179,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BackEnd" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -123,7 +257,7 @@
       <workItem from="1635152866678" duration="8599000" />
       <workItem from="1635177685410" duration="8317000" />
       <workItem from="1635253697682" duration="94000" />
-      <workItem from="1635257863518" duration="1351000" />
+      <workItem from="1635257863518" duration="16553000" />
     </task>
     <servers />
   </component>

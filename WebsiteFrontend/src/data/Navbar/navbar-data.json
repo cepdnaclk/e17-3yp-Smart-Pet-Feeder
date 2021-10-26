@@ -34,17 +34,16 @@
     "title": "Security",
     "to": "security_aspects"
   },
-
-  {
-    "id": 7,
-    "title": "Budget",
-    "to": "budget"
-  },
-
   {
     "id": 8,
     "title": "Timeline",
     "to": "timeline"
+  },
+
+  {
+    "id": 7,
+    "title": "Testing",
+    "to": "testing"
   },
 
   {
