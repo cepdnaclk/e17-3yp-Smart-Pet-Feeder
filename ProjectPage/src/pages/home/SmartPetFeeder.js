@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Loader from "./../../components/Loader/Loader";
@@ -27,48 +27,48 @@ import AwsArchitecture from "../../components/AWSdesign/AwsArchitecture";
 
 
 const SmartPetFeeder = () => {
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
-  return (
-    <Loader>
-      <Header />
-      <Home data={HomeDate} />
-      <About />
-      <Architecture />
-      <DataFlow />
-      <AwsArchitecture/>
-      <ThreeDDesign />
-      <UIDescription />
-      <UIDesign
-        filter="true"
-        layout="wide"
-        columns="3"
-        items="9"
-        classAppend="pt-0"
-      />
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+    return (
+        <Loader>
+            <Header/>
+            <Home data={HomeDate}/>
+            <About/>
+            <Architecture/>
+            <DataFlow/>
+            <AwsArchitecture/>
+            <ThreeDDesign/>
+            <UIDescription/>
+            <UIDesign
+                filter="true"
+                layout="wide"
+                columns="3"
+                items="9"
+                classAppend="pt-0"
+            />
 
-      <Hardware />
-      <SecurityAscpects />
-      <Progress />
-      <Budget />
-      <Timeline />
-      {/*<Portfolio*/}
-      {/*  filter="true"*/}
-      {/*  layout="wide"*/}
-      {/*  columns="2"*/}
-      {/*  items="6"*/}
-      {/*  classAppend="pt-0"*/}
-      {/*/>*/}
+            <Hardware/>
+            <SecurityAscpects/>
+            <Budget/>
+            <Progress/>
 
-      <Team />
-      {/*<Services title="What We Offer" tagline="We Turn Heads" />*/}
-      {/*<Testimonials title="TESTIMONIALS" tagline="Happy clients" />*/}
-      {/*<Blogs />*/}
-      <FooterOne />
-    </Loader>
-  );
+            {/*<Portfolio*/}
+            {/*  filter="true"*/}
+            {/*  layout="wide"*/}
+            {/*  columns="2"*/}
+            {/*  items="6"*/}
+            {/*  classAppend="pt-0"*/}
+            {/*/>*/}
+
+            <Team/>
+            {/*<Services title="What We Offer" tagline="We Turn Heads" />*/}
+            {/*<Testimonials title="TESTIMONIALS" tagline="Happy clients" />*/}
+            {/*<Blogs />*/}
+            <FooterOne/>
+        </Loader>
+    );
 };
 
 export default SmartPetFeeder;
