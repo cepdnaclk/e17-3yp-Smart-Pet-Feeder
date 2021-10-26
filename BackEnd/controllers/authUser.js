@@ -360,6 +360,7 @@ exports.postGetToken = (req, res, next) => {
 
 
 exports.postSchedule = (req, res, next) => {
+
     let errors = validationResult(req);
     if (!errors.isEmpty()) {
         const message = errors.array()[0].msg;
@@ -371,7 +372,9 @@ exports.postSchedule = (req, res, next) => {
 
     let user;
     let scheduleId = req.body._id;
+    let operation = "Update";
     if (!scheduleId) {
+        operation = "Insert"    ;
         scheduleId = new mongoose.Types.ObjectId();
     }
     const schedule = new ActiveSchedule({
@@ -416,7 +419,7 @@ exports.postSchedule = (req, res, next) => {
         .then(result => {
 
             res.status(201).json({message: 'Scheduled Created!', scheduleId: schedule._id});
-            IOT.publishSchedules(user.ActiveSchedules);
+            IOT.publishSchedules(operation, schedule._id, schedule.title, schedule.date_time);
 
         })
         .catch(err => {
@@ -456,7 +459,7 @@ exports.postDeleteSchedule = (req, res, next) => {
         })
         .then(result => {
             res.status(200).json({message: "Schedule deactivated"});
-            IOT.publishSchedules(user_.ActiveSchedules);
+            IOT.publishSchedules("Delete", scheduleId);
 
         })
         .catch(err => {

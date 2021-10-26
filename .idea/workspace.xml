@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BackEnd/functions/DateOperations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/CA1.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/CA3.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/certificate.pem.crt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/private.pem.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/IOT Certificates/public.pem.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/controllers/authUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/controllers/authUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/functions/IOT.js" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/functions/IOT.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/public/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/public/robots.txt" afterDir="false" />
@@ -40,6 +43,7 @@
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Team/Team.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Team/Team.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Testimonials/TestimonialItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Testimonials/TestimonialItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/components/Testimonials/Testimonials.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/components/Testimonials/Testimonials.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/configs/Configs.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/configs/Configs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/About/about-corporate-business.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/About/about-corporate-business.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Blog/blog-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Blog/blog-data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/data/Cart/cart-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/data/Cart/cart-data.json" afterDir="false" />
@@ -58,37 +62,6 @@
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/helpers/useWindowResizeListener.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/helpers/useWindowResizeListener.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/pages/home/SmartPetFeeder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.1675bec590068b2985470c2e833a6741.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.1a4030dd4eca6203f21ed564153deb51.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.2bb18e55136827e554a422d3dc77e750.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.31dcba745fb89a72f4f13c6214d8d56b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.3c65bd80bdf21499dbed09321100cf24.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.42c32d375810157fd48632fe192b31b5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.4543e485d463502b79e88ed114f1b0bf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.50a2bbd278815261463212402093986e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.66e707d6b8034671c85de20219bf280a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.913a90d91c21607a9ea82d8e1eecb52a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.918714d4650a9c79809a005d727c1ef5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.99a7b00cf5c571b102b907ab56d970ea.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.9a2bd52226dc01817c568ae3732b7af4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.9b8cd0e0cedaa36dd74851b4698daf7a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.a4cbf44e34b20485512781f8c3a2b9ac.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.bc3decbe97aef037449626f685b04721.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.bc673328125de3ea3a0049ed6dacc5e7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.d566850af82730837c543b2ebf963daa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.e883ea0aef23eb615f34b674b3dbf262.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.edcac0ba6f206f5b2dfa8a0d1fa08150.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/precache-manifest.f87fbceaf4da541c444acfa8dc97d31e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/2.7dba0534.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/static/css/2.7dba0534.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/main.65e203c8.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/static/css/main.65e203c8.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/media/et-line.569bd908.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/static/media/et-line.569bd908.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/media/ionicons.621bd386.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/static/media/ionicons.621bd386.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/media/slick.f97e3bbf.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/static/media/slick.f97e3bbf.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +91,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BackEnd/functions" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -130,6 +103,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sachi\OneDrive\Desktop\e17-3yp-Smart-Pet-Feeder\BackEnd\functions" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sachi\OneDrive\Desktop\e17-3yp-Smart-Pet-Feeder\BackEnd\functions" />
       <recent name="C:\Users\sachi\OneDrive\Desktop\e17-3yp-Smart-Pet-Feeder\BackEnd" />
@@ -191,7 +167,7 @@
       <workItem from="1634978138639" duration="13925000" />
       <workItem from="1635083697639" duration="6920000" />
       <workItem from="1635152866678" duration="8599000" />
-      <workItem from="1635177685410" duration="612000" />
+      <workItem from="1635177685410" duration="5617000" />
     </task>
     <servers />
   </component>
