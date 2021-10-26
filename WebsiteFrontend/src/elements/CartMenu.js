@@ -38,7 +38,8 @@ const CartMenu = () => {
         <span className="badge">{cartData.length}</span>
       </a>
       <ul
-        className="dropdown-menu dropdown-item cart-list animated " style={{display: "none"}}
+        className="dropdown-menu dropdown-item cart-list animated "
+        style={{ display: "none" }}
       >
         {cartData.map((item) => (
           <li key={item.id}>
