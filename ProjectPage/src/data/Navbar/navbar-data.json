@@ -36,15 +36,15 @@
   },
 
   {
-    "id": 7,
-    "title": "Budget",
-    "to": "budget"
-  },
-
-  {
     "id": 8,
     "title": "Progress",
     "to": "progress"
+  },
+
+  {
+    "id": 7,
+    "title": "Testing",
+    "to": "testing"
   },
 
   {

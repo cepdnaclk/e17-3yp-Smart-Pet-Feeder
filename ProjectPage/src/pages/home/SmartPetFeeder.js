@@ -24,6 +24,7 @@ import UIDesign from "../../components/Design/UIDesign/UIDesign";
 import Progress from "../../components/Progress/Progress";
 
 import AwsArchitecture from "../../components/AWSdesign/AwsArchitecture";
+import Testing from "../../components/Testing/Testing";
 
 
 const SmartPetFeeder = () => {
@@ -53,6 +54,7 @@ const SmartPetFeeder = () => {
             <SecurityAscpects/>
             <Budget/>
             <Progress/>
+            <Testing/>
 
             {/*<Portfolio*/}
             {/*  filter="true"*/}
