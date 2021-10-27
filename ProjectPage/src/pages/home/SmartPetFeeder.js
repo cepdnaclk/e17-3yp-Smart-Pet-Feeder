@@ -55,6 +55,7 @@ const SmartPetFeeder = () => {
             <Budget/>
             <Progress/>
             <Testing/>
+            <Timeline/>
 
             {/*<Portfolio*/}
             {/*  filter="true"*/}
