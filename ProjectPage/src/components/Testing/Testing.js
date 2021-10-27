@@ -2,6 +2,8 @@ import React from "react";
 import software_test from "../../assets/video/SoftwareTesting.mp4";
 import API_Results from "../../assets/video/API_Results.mp4";
 import api_test from "../../assets/video/API_Testing.mp4";
+import e2e_test from "../../assets/video/E2E Testing.mp4";
+
 import HeadingSection from "../HeadingSection/HeadingSection";
 import "../../../node_modules/video-react/dist/video-react.css";
 import {Player} from "video-react";
@@ -43,7 +45,11 @@ const Testing = () => (
                     className="row justify-content-center">API TESTING</h3>
                 <Player playsInline poster={api_poster} src={api_test}/>
 
-                <h3 style={{fontWeight: "bold", paddingBottom: "10px", paddingTop:"30px"}}
+                <h3 style={{fontWeight: "bold", paddingBottom: "10px", paddingTop:"50px"}}
+                    className="row justify-content-center">E2E TESTING</h3>
+                <Player playsInline  src={e2e_test}/>
+
+                <h3 style={{fontWeight: "bold", paddingBottom: "10px", paddingTop:"50px"}}
                     className="row justify-content-center">Testing Results</h3>
 
                 <Player playsInline src={API_Results}/>

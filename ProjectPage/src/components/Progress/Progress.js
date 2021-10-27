@@ -7,7 +7,6 @@ import ProgressVideos from "./ProgressVideos";
 const Progress = () => (
     <React.Fragment>
         <ProgressVideos/>
-        <Timeline/>
     </React.Fragment>
 );
 
