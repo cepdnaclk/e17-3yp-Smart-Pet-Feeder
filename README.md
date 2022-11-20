@@ -58,6 +58,7 @@ This is a cylindrical shaped food container, which has diveded in to four partit
 ### Design of the food container
 ![image](https://user-images.githubusercontent.com/73388013/202932788-a3fdc792-db71-48e1-9bbe-40faf0fa44a3.png)
 <br/>
+<br/>
 Food container is made from 6 inches width cylinder. The cylinder is divided into four pieces. To divide the cylinder equal for wings and small 1 inch long cylinder is used. (see figure 2.2)
 
 ![image](https://user-images.githubusercontent.com/73388013/202932823-ba4c6f0b-b331-4d2e-bea3-898ee6836ced.png)
@@ -124,24 +125,13 @@ Visualizing unit is responsible for live streaming. There is a 5MP Omnivision 56
 
 # Hardware Components
 ---
-### Controller Platform
-![raspberry-pi-3bplus-1](https://user-images.githubusercontent.com/73387610/130919677-5fe25e18-ab1e-4974-a727-1b6ed1310eba.jpg)
 
-As the main Controller Platform Raspberry Pi 3 Model B is used. It comes with pre loaded python programming language. It has 4 x ARM Cortex-A53 CPU which have 1.2GHz processing speed. Has a seperate Camera Serial Interface. Also 40 GPIO pins. Raspberry Pi 3 Model B comes with onboard Wi-Fi network interface which has about 38Mbps bandwith. 
+## Stepper Motor
+![image](https://user-images.githubusercontent.com/73388013/202933720-a3bcb5bf-8756-42dd-a058-7c201a2796f2.png)
+<br/>
+Stepper motor is concocted to the motor controller. According to the angle given by the motor controller, the stepper motor will rotate. 
+Stepper motor is used to rotate the food container for certain angle. According to the signal given from the motor controller, the stepper motor will rotate until the rotation is stopped by the controller. This will lead to rotate the food container that attached to the stepper motor
 
-![othercomponents](https://user-images.githubusercontent.com/73387610/131223561-d6a85053-e4c5-4eb4-9111-32143a79b316.jpeg)
-
-![Hardware2](https://user-images.githubusercontent.com/73440714/131258073-6d634aec-4450-4303-9d2e-db268356d532.jpg)
-
-As the other hardware components,It has included an 5MP Omnivision Camera Module, 0.91 Inch LCD Display, L298N Dual Bridge DC Motor Controllers, 12v Stepper motor, Infrared IR Sensor and 5V Realy Module. When considering the actuators the 12v bipolar junction stepper motor has 200 step per revelution and it is capable of giving a high-torque up to 40 N.cm. Next the raspberry pi camera mocdule will give a Full HD video quality of 1080p with 30fps and if it reduced the quality to 720p the frame rate can be increased to 60fps.
-
-Then the IR Sensor will be used to ste the food container to its initial position and that Sensor shoulbe given a input voltage 3-5V.
-
-Also a motor controller has used to control the speed, direction and rotating angle of the stepper motor. A 5V relay module has used to supply the 5V input to the Raspberry PI from the 12V battery.
-
-
-![image](https://user-images.githubusercontent.com/73387610/127871736-4185829d-020c-4e7f-824a-a3d1b0356e24.png)
-As the power supply component, It has used a 12V Lithium battery of 3000mAh. Its Good capacity, lightweight, and rechargeability are very helpful to reduce the total weight and keep the machine active for a long time using battery current.
 # Security Aspects
 ---
 2 factor authentication for login is used as a security mechanism. When user trying to login to the system he will receive OTP to his mobile phone. So If an attacker steals the email and password of a user he cannot login to the system unless he has owner’s mobile phone. Another security mechanism is AWS Web application firewalls. The firewall helps to protect out API from common web attacks and bots. And also Json web token are used to communicate between API and the frontend. After user login to the system API will given a token to the frontend. So UI send request to the API along with the token. So the attackers cannot access our API without the token
