@@ -57,7 +57,8 @@ Users can log into the system using the mobile application or web application by
 
 
 ![mobile_ui](https://user-images.githubusercontent.com/73388013/202932144-df8ef49b-8b72-48c5-8afb-368f945740cd.png)
-<br>
+<br/>
+<br/>
 ![web_ui](https://user-images.githubusercontent.com/73388013/202932157-4325c13a-2e96-4898-8a8b-70350006d0f2.png)
 
 ### Conceptual Schema
