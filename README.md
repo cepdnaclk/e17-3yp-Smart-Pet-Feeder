@@ -67,7 +67,7 @@ Users can log into the system using the mobile application or web application by
 For the Back end database MongoDB is used. These are main four collections.Key-Value store schema is used since it gives high scalability and low model complexcity
 # Data Flow
 ---
-![data flow](https://user-images.githubusercontent.com/73387610/131223497-3ff93289-8bf3-4632-8c4a-38b50f87209e.jpeg)
+![data_flow](https://user-images.githubusercontent.com/73388013/202931905-474bd25e-5e22-4e8c-b29b-3cd5919ad2c9.png)
 
 
 The users of the pet feeder can schedule a plan or control it manually using the website or a mobile app. Then From the UI, data will get into the Web server and the microconprocessor in the controller (Rasapberry Pi) receive the data from the server. And also the users of the pet feeder can see their pet using the camera, which is in the feeding machine. Live stream data will be sent to the UI through the AWS cloud.
