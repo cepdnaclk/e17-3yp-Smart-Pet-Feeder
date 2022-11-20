@@ -73,10 +73,16 @@ Using the 1 inches width cylinder and 4 wings in the figure 2.2 the tool in the 
 
 
 <br/>
-<br/>
 Figure 2.4 shows the driving tool of the food container. Upper part of the container (see figure 2.1) is attached to the driving tool (figure 2.4). Driving tool has half cylinder with 4 opens (same size). This half cylinder is attached to the stand via a razor. It can be rotated around its vertical axis. Using this part and the upper part of the food container, food container is made. Food in the container is going through the food path from the driving tool when the relevant rotations is done by the motor.
 This food container is attached to the pet feeder (See figure 2.5). As in the figure 2.5 a stepper motor is attached to the driving tool of the pet feeder.  
 
+## Design of the pet feeder
+![image](https://user-images.githubusercontent.com/73388013/202933157-b414da51-bc2c-4d1b-8727-668a13e21146.png)
+
+<br/>
+<br/>
+Food container is attached to the pet feeder using the driving tool. That driving tool is attached to the stepper motor from the below side of the pet feeder. 
+![image](https://user-images.githubusercontent.com/73388013/202933184-b2cac666-e84c-47bf-8640-e6d5a6d0790d.png)
 
 ## UI Design
 ![image](https://user-images.githubusercontent.com/73387610/127871405-23c5cef0-be45-4f40-a665-a432814ae727.png)
