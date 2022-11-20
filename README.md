@@ -58,7 +58,6 @@ This is a cylindrical shaped food container, which has diveded in to four partit
 ### Design of the food container
 ![image](https://user-images.githubusercontent.com/73388013/202932788-a3fdc792-db71-48e1-9bbe-40faf0fa44a3.png)
 <br/>
-<br/>
 Food container is made from 6 inches width cylinder. The cylinder is divided into four pieces. To divide the cylinder equal for wings and small 1 inch long cylinder is used. (see figure 2.2)
 
 ![image](https://user-images.githubusercontent.com/73388013/202932823-ba4c6f0b-b331-4d2e-bea3-898ee6836ced.png)
@@ -79,7 +78,6 @@ This food container is attached to the pet feeder (See figure 2.5). As in the fi
 ## Design of the pet feeder
 ![image](https://user-images.githubusercontent.com/73388013/202933157-b414da51-bc2c-4d1b-8727-668a13e21146.png)
 
-<br/>
 <br/>
 Food container is attached to the pet feeder using the driving tool. That driving tool is attached to the stepper motor from the below side of the pet feeder. 
 ![image](https://user-images.githubusercontent.com/73388013/202933184-b2cac666-e84c-47bf-8640-e6d5a6d0790d.png)
