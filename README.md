@@ -65,9 +65,11 @@ Food container is made from 6 inches width cylinder. The cylinder is divided int
 ![image](https://user-images.githubusercontent.com/73388013/202932831-49e0fdcf-f340-45da-89ae-73818d968676.png)
 
 <br/>
-<br/>
+
 Using the 1 inches width cylinder and 4 wings in the figure 2.2 the tool in the figure 2.3 is made. That tool is inserted into the 6 inches width cylinder and attached to it. This performs the part of the food container (see figure 2.1).
 
+<br/>
+<br/>
 ![image](https://user-images.githubusercontent.com/73388013/202932866-77ece037-1773-4446-b642-ddd58c1acff5.png)
 <br/>
 <br/>
