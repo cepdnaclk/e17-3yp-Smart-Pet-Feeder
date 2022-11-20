@@ -80,7 +80,9 @@ This food container is attached to the pet feeder (See figure 2.5). As in the fi
 
 <br/>
 Food container is attached to the pet feeder using the driving tool. That driving tool is attached to the stepper motor from the below side of the pet feeder. 
-![image](https://user-images.githubusercontent.com/73388013/202933184-b2cac666-e84c-47bf-8640-e6d5a6d0790d.png)
+
+![image](https://user-images.githubusercontent.com/73388013/202933267-c1cd613f-a52a-4379-9c40-a872a1aa9956.png)
+
 
 ## UI Design
 ![image](https://user-images.githubusercontent.com/73387610/127871405-23c5cef0-be45-4f40-a665-a432814ae727.png)
