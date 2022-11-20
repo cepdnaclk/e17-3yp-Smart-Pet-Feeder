@@ -41,7 +41,7 @@ The main device of our system is the pet feeder. It is connected to the Home Wif
 Initially the user needs to log into the mobile application or web application by entering their email and the password. After logging into the system, they can control the pet feeder in order to feed their pets. Users can get real time visualization of their pets through the camera which is mounted on the pet feeder. To get a clear view of the pets, users can rotate the camera through the UI. If the users are unable to manually feed the pets, they can use the scheduling option. So they can create a scheduling plan in order to feed their pets at a given time. Users can see the status(Remaining feeding times, Battery capacity) of the pet feeder through the UI or inbuilt display.
 # Design
 ---
-### 3D Design Of The Pet Feeder
+## 3D Design Of The Pet Feeder
 * #### pet feeder
 
 ![Pet_feeder](https://user-images.githubusercontent.com/73440714/127187749-621f491e-7f70-4da6-a0af-d3c130a8ccf1.jpg)
@@ -51,7 +51,19 @@ This is the 3D Design of the pet feeder. Mainly it includes a food container and
 
 ![Food_container](https://user-images.githubusercontent.com/73440714/127188367-7809dffb-1f09-4929-b3b9-efee0b81eabb.jpg)
 This is a cylindrical shaped food container, which has diveded in to four partitions and it is rotatable through its axis. Every partition has a opening at the bottom, and there is a path to the food plate from the bottom of the cylinder. To serve foods the relevent partition should be coincided its opening with the path.
-### UI Design
+
+
+## Design of the Pet Feeder
+
+### Design of the food container
+![image](https://user-images.githubusercontent.com/73388013/202932556-c1c39844-9dd4-47eb-ba05-2ff79d3abe2b.png)
+Food container is made from 6 inches width cylinder. The cylinder is divided into four pieces. To divide the cylinder equal for wings and small 1 inch long cylinder is used. 
+
+![image](https://user-images.githubusercontent.com/73388013/202932604-228b8f1b-caad-4f05-85ad-1673348eab13.png)
+![image](https://user-images.githubusercontent.com/73388013/202932609-d223dbca-39fb-4a39-9d2d-0c180423d0c9.png)
+
+
+## UI Design
 ![image](https://user-images.githubusercontent.com/73387610/127871405-23c5cef0-be45-4f40-a665-a432814ae727.png)
 Users can log into the system using the mobile application or web application by entering their email and password. After logging into the system, they can see the current status of the pet feeder. Status information includes remaining feeding times, scheduling plan and the battery capacity. They will be able to feed their pets by selecting the feeding option in the UI. And also they can get a real time visualization of their pets through the UI. To get a clear view, the UI provides another feature to rotate the inbuilt camera. There is a special feature called scheduling which allows users to schedule a feeding plan through the UI to feed their pets at a given time.
 
@@ -61,14 +73,14 @@ Users can log into the system using the mobile application or web application by
 <br/>
 ![web_ui](https://user-images.githubusercontent.com/73388013/202932157-4325c13a-2e96-4898-8a8b-70350006d0f2.png)
 
-### Conceptual Schema
+## Conceptual Schema
 <img width="1680" alt="Screenshot 2021-08-28 at 21 44 05" src="https://user-images.githubusercontent.com/73387610/131224147-86841d8c-320e-4637-a8b5-81d1815ea52a.png">
 
-### Flow Chart
+## Flow Chart
 ![flow chart](https://user-images.githubusercontent.com/73387610/131224308-8d9af3d0-b697-41bc-83c1-2a357731d33b.jpeg)
 
 
-### Data Model
+## Data Model
 ![Data Model](https://user-images.githubusercontent.com/73387610/130924319-dde206a3-c9b7-47cb-9376-334481124472.png)
 For the Back end database MongoDB is used. These are main four collections.Key-Value store schema is used since it gives high scalability and low model complexcity
 # Data Flow
