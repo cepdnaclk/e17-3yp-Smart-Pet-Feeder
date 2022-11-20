@@ -34,7 +34,7 @@ If the master is too busy, even to operate it remotely throgh the mobile app or 
 
 # Solution Architecture
 ---
-![image](https://user-images.githubusercontent.com/73387610/127871559-e89e01b6-c18d-42d1-8f49-2998433af6f4.png)
+![overview](https://user-images.githubusercontent.com/73388013/202932026-1b05476b-a097-495e-b581-be1e318c1747.png)
 
 The main device of our system is the pet feeder. It is connected to the Home Wifi and home Wifi is connected to the AWS server through the internet. In order to communicate with the AWS server there'll be a mobile application as well as a web application.
 
@@ -54,6 +54,10 @@ This is a cylindrical shaped food container, which has diveded in to four partit
 ### UI Design
 ![image](https://user-images.githubusercontent.com/73387610/127871405-23c5cef0-be45-4f40-a665-a432814ae727.png)
 Users can log into the system using the mobile application or web application by entering their email and password. After logging into the system, they can see the current status of the pet feeder. Status information includes remaining feeding times, scheduling plan and the battery capacity. They will be able to feed their pets by selecting the feeding option in the UI. And also they can get a real time visualization of their pets through the UI. To get a clear view, the UI provides another feature to rotate the inbuilt camera. There is a special feature called scheduling which allows users to schedule a feeding plan through the UI to feed their pets at a given time.
+
+
+![mobile_ui](https://user-images.githubusercontent.com/73388013/202932144-df8ef49b-8b72-48c5-8afb-368f945740cd.png)
+![web_ui](https://user-images.githubusercontent.com/73388013/202932157-4325c13a-2e96-4898-8a8b-70350006d0f2.png)
 
 ### Conceptual Schema
 <img width="1680" alt="Screenshot 2021-08-28 at 21 44 05" src="https://user-images.githubusercontent.com/73387610/131224147-86841d8c-320e-4637-a8b5-81d1815ea52a.png">
