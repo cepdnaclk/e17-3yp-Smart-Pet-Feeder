@@ -61,7 +61,7 @@ const SchedulePart = (props) => {
     const feedNowHandler = () => {
         if (schedules.length >= remainingRounds)
             return;
-        dispatch(ScheduleActions.createSchedule("Feed Now", new Date(new Date().getTime() + 120000)));
+        dispatch(ScheduleActions.createSchedule("Feed Now", new Date(new Date().getTime()), true));
         setIsFeedNowDialogShow(false);
 
 

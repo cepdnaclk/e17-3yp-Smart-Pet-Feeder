@@ -15,7 +15,7 @@ const stateReducer = (state = initialState, action) => {
         status: {
           battery: action.status.battery,
           remainingRounds: action.status.remainingRounds,
-          status: action.status,
+          status: action.status.status,
         },
       };
   }

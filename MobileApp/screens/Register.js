@@ -38,7 +38,7 @@ export default function Register(props) {
 
   useEffect(() => {
     if (error) {
-      Alert.alert("Authentication Failed!", "Email already exists", [
+      Alert.alert("Authentication Failed!", "hhihih", [
         { text: "Okay" },
       ]);
     }
@@ -89,13 +89,24 @@ export default function Register(props) {
     reset: resetConfirmPassword,
   } = useInput("", Validators.isConfirmPassword.bind(null, password));
 
+  const {
+    value: petFeederId,
+    isValid: petFeederIdIsValid,
+    hasError: petFeederIdHasError,
+    valueChangeHandler: petFeederIdChangeHandler,
+    inputBlurHandler: petFeederIdBlurHandler,
+    reset: resetPetFeederId,
+  } = useInput("", Validators.isValidPetFeederID);
+
+
   let formIsValid = false;
   if (
     nameIsValid &&
     emailIsValid &&
     mobileNumberIsValid &&
     passwordIsValid &&
-    confirmPasswordIsValid
+    confirmPasswordIsValid &&
+    petFeederIdIsValid
   ) {
     formIsValid = true;
   }
@@ -105,7 +116,7 @@ export default function Register(props) {
     setIsLoading(true);
     try {
       await dispatch(
-        authActions.signup(name, email, mobileNumber, password, confirmPassword)
+        authActions.signup(name, email, mobileNumber, password, confirmPassword, petFeederId)
       );
 
       resetName();
@@ -113,6 +124,7 @@ export default function Register(props) {
       resetMobileNumber()
       resetPassword();
       resetConfirmPassword();
+      resetPetFeederId();
       setIsLoading(false);
       setIsVerifying(true);
 
@@ -308,6 +320,29 @@ export default function Register(props) {
                 * Password does not match{" "}
               </Text>
             </View>
+          )}
+
+          <TextInput
+              label="Pet Feeder ID"
+              mode="flat"
+              style={Styles.AuthInput}
+              onChangeText={petFeederIdChangeHandler}
+              onBlur={petFeederIdBlurHandler}
+              value={petFeederId}
+              theme={{
+                colors: {
+                  primary: ColorsApp.PRIMARY,
+                  underlineColor: "transparent",
+                },
+              }}
+          />
+
+          {petFeederIdHasError && (
+              <View style={styles.Error}>
+                <Text style={styles.ErrorMessage}>
+                  * Pet feeder ID should be length of 10 characters
+                </Text>
+              </View>
           )}
 
           {isLoading ? (
