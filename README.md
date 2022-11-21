@@ -168,7 +168,7 @@ This is the main power supply to the system. This is stored inside in the casing
 
 # Budget
 ---
-![Budget](https://user-images.githubusercontent.com/73440714/131258794-abb39328-8f87-4e3b-9a4e-37d461669921.JPG)
+![image](https://user-images.githubusercontent.com/73388013/202934367-349a3c5b-f617-46d4-be47-1ad8068974de.png)
 
 # Timeline
 ---
