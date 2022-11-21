@@ -60,7 +60,7 @@ const ScheduleForm = (props) => {
     if (schedule) {
       dispatch(ScheduleActions.updateSchedule(schedule._id, title, dateOrTime));
     } else {
-      dispatch(ScheduleActions.createSchedule(title, dateOrTime));
+      dispatch(ScheduleActions.createSchedule(title, dateOrTime, false));
     }
 
     props.hideModal();

@@ -45,7 +45,7 @@ export const fetchSchedules = () => {
     };
 };
 
-export const createSchedule = (title, date_time) => {
+export const createSchedule = (title, date_time, feed_now) => {
     return async (dispatch, getState) => {
         const resData = await userFetchTemplate(
             // fetchStatusFunction.bind(null, dispatch, getState),
@@ -62,6 +62,7 @@ export const createSchedule = (title, date_time) => {
                         title: title,
                         date_time: date_time,
                         status: true,
+                        feed_now: feed_now
                     }),
                 });
             },

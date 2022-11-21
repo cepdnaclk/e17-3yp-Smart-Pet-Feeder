@@ -141,11 +141,11 @@ export default function DrawerContent(props) {
             <List.Item
               titleStyle={Styles.DrawerTitleMenu}
               style={Styles.DrawerMenuItem}
-              title="Video"
+              title="Watch"
               left={(props) => (
                 <Avatar.Icon
                   size={34}
-                  icon="video"
+                  icon="image"
                   backgroundColor={ColorsApp.PRIMARY}
                   style={{ marginRight: 15 }}
                 />

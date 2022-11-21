@@ -3,6 +3,7 @@ module.exports.isPassword = (value) => {
   return !!value.match(password_regex);
 };
 
+
 module.exports.isEmail = (value) => {
   const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return !!value.match(email_regex);
@@ -31,4 +32,9 @@ module.exports.isConfirmPassword = (password, value) => {
 
 module.exports.isValidDateTime = (value) => {
   return value - new Date() > 600000;
+};
+
+
+module.exports.isValidPetFeederID = (value) => {
+  return value.trim().length === 10;
 };

@@ -6,6 +6,18 @@ export const getNumberOfDays = (date) => {
   else return days + " Day";
 };
 
+export const getLastFeedHours = (date) => {
+  const duration = new Date() - new Date(date);
+
+  if(duration < 0)
+    return 0;
+
+  // let minutes = Math.floor((duration / (1000 * 60)) % 60);
+  // return minutes;
+
+  return Math.floor((duration / (1000 * 60 * 60)));
+}
+
 export const getNumberOfHours = (date) => {
   const duration = new Date(date) - new Date();
   let minutes = Math.floor((duration / (1000 * 60)) % 60),

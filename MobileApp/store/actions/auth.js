@@ -48,7 +48,8 @@ export const signup = (
     email,
     mobileNumber,
     password,
-    confirmPassword
+    confirmPassword,
+    petFeederId
 ) => {
     return async (dispatch) => {
         // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCpQbjXMSb_MTPw0_Y7h_A4jqwO-oyUqYg",
@@ -64,6 +65,8 @@ export const signup = (
                 phoneNumber: mobileNumber,
                 password: password,
                 confirmPassword: confirmPassword,
+                petFeederId: petFeederId
+
                 // returnSecureToken: true,
             }),
         });

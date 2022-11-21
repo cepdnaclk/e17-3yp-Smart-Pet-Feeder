@@ -128,7 +128,7 @@ export default function StackNavigation(props) {
         name="Video"
         component={Video}
         options={({ navigation }) => ({
-          title: "Video",
+          title: "Watch",
           headerTransparent: false,
           headerLeft: () => buttonBack(),
         })}
