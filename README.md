@@ -94,6 +94,8 @@ Food container is attached to the pet feeder using the driving tool. That drivin
 
 ## UI Design
 ![image](https://user-images.githubusercontent.com/73387610/127871405-23c5cef0-be45-4f40-a665-a432814ae727.png)
+
+<br/>
 Users can log into the system using the mobile application or web application by entering their email and password. After logging into the system, they can see the current status of the pet feeder. Status information includes remaining feeding times, scheduling plan and the battery capacity. They will be able to feed their pets by selecting the feeding option in the UI. And also they can get a real time visualization of their pets through the UI. To get a clear view, the UI provides another feature to rotate the inbuilt camera. There is a special feature called scheduling which allows users to schedule a feeding plan through the UI to feed their pets at a given time.
 
 
@@ -111,6 +113,8 @@ Users can log into the system using the mobile application or web application by
 
 ## Data Model
 ![Data Model](https://user-images.githubusercontent.com/73387610/130924319-dde206a3-c9b7-47cb-9376-334481124472.png)
+
+<br/>
 For the Back end database MongoDB is used. These are main four collections.Key-Value store schema is used since it gives high scalability and low model complexcity
 # Data Flow
 ---
