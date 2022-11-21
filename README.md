@@ -132,6 +132,31 @@ Visualizing unit is responsible for live streaming. There is a 5MP Omnivision 56
 Stepper motor is concocted to the motor controller. According to the angle given by the motor controller, the stepper motor will rotate. 
 Stepper motor is used to rotate the food container for certain angle. According to the signal given from the motor controller, the stepper motor will rotate until the rotation is stopped by the controller. This will lead to rotate the food container that attached to the stepper motor
 
+## ESP32 Camera Module
+![image](https://user-images.githubusercontent.com/73388013/202933775-3786aa84-472b-4c7a-be80-2d0aa6e3bf79.png)
+<br/>
+The purpose of the cam module is to get the instant image in front of the pet feeder. To do that above cam module is used.
+
+## LCD display
+![image](https://user-images.githubusercontent.com/73388013/202933814-5d6a3f66-70e0-479a-bccd-fe100db0c203.png)
+<br/>
+LCD display is used to to show the current status of the pet feeder. 
+
+## Stepper Motor Controller
+![image](https://user-images.githubusercontent.com/73388013/202933841-5a360c2a-834e-4c00-9049-e80fc4d0b066.png)
+<br/>
+Motor controller is used to control the stepper motor. Direct supply from the battery is used to power up the motor controller. Produced signal will drive the stepper motor.
+
+## Buck converters
+![image](https://user-images.githubusercontent.com/73388013/202933917-5d24daed-2773-4095-b553-03ca3aaf44b6.png)
+<br/>
+Some of the component’s properly and securely operate in different voltages. Therefore, power up the ESP32 from the 12V Voltage supply buck converter is used to get the 5V from that.
+
+## Power Supply
+![image](https://user-images.githubusercontent.com/73388013/202933937-a14fa474-d93c-4884-8fdf-554b08080675.png)
+<br/>
+This is the main power supply to the system. This is stored inside in the casing of the pet feeder. Battery is rechargeable. The cables from the pet feeder can be used to recharge the battery.
+
 # Security Aspects
 ---
 2 factor authentication for login is used as a security mechanism. When user trying to login to the system he will receive OTP to his mobile phone. So If an attacker steals the email and password of a user he cannot login to the system unless he has owner’s mobile phone. Another security mechanism is AWS Web application firewalls. The firewall helps to protect out API from common web attacks and bots. And also Json web token are used to communicate between API and the frontend. After user login to the system API will given a token to the frontend. So UI send request to the API along with the token. So the attackers cannot access our API without the token
