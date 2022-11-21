@@ -34,14 +34,14 @@ If the master is too busy, even to operate it remotely throgh the mobile app or 
 
 # Solution Architecture
 ---
-![image](https://user-images.githubusercontent.com/73387610/127871559-e89e01b6-c18d-42d1-8f49-2998433af6f4.png)
+![overview](https://user-images.githubusercontent.com/73388013/202932026-1b05476b-a097-495e-b581-be1e318c1747.png)
 
 The main device of our system is the pet feeder. It is connected to the Home Wifi and home Wifi is connected to the AWS server through the internet. In order to communicate with the AWS server there'll be a mobile application as well as a web application.
 
 Initially the user needs to log into the mobile application or web application by entering their email and the password. After logging into the system, they can control the pet feeder in order to feed their pets. Users can get real time visualization of their pets through the camera which is mounted on the pet feeder. To get a clear view of the pets, users can rotate the camera through the UI. If the users are unable to manually feed the pets, they can use the scheduling option. So they can create a scheduling plan in order to feed their pets at a given time. Users can see the status(Remaining feeding times, Battery capacity) of the pet feeder through the UI or inbuilt display.
 # Design
 ---
-### 3D Design Of The Pet Feeder
+## 3D Design Of The Pet Feeder
 * #### pet feeder
 
 ![Pet_feeder](https://user-images.githubusercontent.com/73440714/127187749-621f491e-7f70-4da6-a0af-d3c130a8ccf1.jpg)
@@ -51,23 +51,63 @@ This is the 3D Design of the pet feeder. Mainly it includes a food container and
 
 ![Food_container](https://user-images.githubusercontent.com/73440714/127188367-7809dffb-1f09-4929-b3b9-efee0b81eabb.jpg)
 This is a cylindrical shaped food container, which has diveded in to four partitions and it is rotatable through its axis. Every partition has a opening at the bottom, and there is a path to the food plate from the bottom of the cylinder. To serve foods the relevent partition should be coincided its opening with the path.
-### UI Design
+
+
+## Design of the Pet Feeder
+
+### Design of the food container
+![image](https://user-images.githubusercontent.com/73388013/202932788-a3fdc792-db71-48e1-9bbe-40faf0fa44a3.png)
+<br/>
+<br/>
+Food container is made from 6 inches width cylinder. The cylinder is divided into four pieces. To divide the cylinder equal for wings and small 1 inch long cylinder is used. (see figure 2.2)
+
+![image](https://user-images.githubusercontent.com/73388013/202932823-ba4c6f0b-b331-4d2e-bea3-898ee6836ced.png)
+![image](https://user-images.githubusercontent.com/73388013/202932831-49e0fdcf-f340-45da-89ae-73818d968676.png)
+
+<br/>
+
+Using the 1 inches width cylinder and 4 wings in the figure 2.2 the tool in the figure 2.3 is made. That tool is inserted into the 6 inches width cylinder and attached to it. This performs the part of the food container (see figure 2.1).
+
+
+![image](https://user-images.githubusercontent.com/73388013/202932993-94f2e0ec-0be5-4786-92c3-86ba16fc0253.png)
+
+
+<br/>
+Figure 2.4 shows the driving tool of the food container. Upper part of the container (see figure 2.1) is attached to the driving tool (figure 2.4). Driving tool has half cylinder with 4 opens (same size). This half cylinder is attached to the stand via a razor. It can be rotated around its vertical axis. Using this part and the upper part of the food container, food container is made. Food in the container is going through the food path from the driving tool when the relevant rotations is done by the motor.
+This food container is attached to the pet feeder (See figure 2.5). As in the figure 2.5 a stepper motor is attached to the driving tool of the pet feeder.  
+
+## Design of the pet feeder
+![image](https://user-images.githubusercontent.com/73388013/202933157-b414da51-bc2c-4d1b-8727-668a13e21146.png)
+
+
+Food container is attached to the pet feeder using the driving tool. That driving tool is attached to the stepper motor from the below side of the pet feeder. 
+
+![image](https://user-images.githubusercontent.com/73388013/202933267-c1cd613f-a52a-4379-9c40-a872a1aa9956.png)
+
+
+## UI Design
 ![image](https://user-images.githubusercontent.com/73387610/127871405-23c5cef0-be45-4f40-a665-a432814ae727.png)
 Users can log into the system using the mobile application or web application by entering their email and password. After logging into the system, they can see the current status of the pet feeder. Status information includes remaining feeding times, scheduling plan and the battery capacity. They will be able to feed their pets by selecting the feeding option in the UI. And also they can get a real time visualization of their pets through the UI. To get a clear view, the UI provides another feature to rotate the inbuilt camera. There is a special feature called scheduling which allows users to schedule a feeding plan through the UI to feed their pets at a given time.
 
-### Conceptual Schema
+
+![mobile_ui](https://user-images.githubusercontent.com/73388013/202932144-df8ef49b-8b72-48c5-8afb-368f945740cd.png)
+<br/>
+<br/>
+![web_ui](https://user-images.githubusercontent.com/73388013/202932157-4325c13a-2e96-4898-8a8b-70350006d0f2.png)
+
+## Conceptual Schema
 <img width="1680" alt="Screenshot 2021-08-28 at 21 44 05" src="https://user-images.githubusercontent.com/73387610/131224147-86841d8c-320e-4637-a8b5-81d1815ea52a.png">
 
-### Flow Chart
+## Flow Chart
 ![flow chart](https://user-images.githubusercontent.com/73387610/131224308-8d9af3d0-b697-41bc-83c1-2a357731d33b.jpeg)
 
 
-### Data Model
+## Data Model
 ![Data Model](https://user-images.githubusercontent.com/73387610/130924319-dde206a3-c9b7-47cb-9376-334481124472.png)
 For the Back end database MongoDB is used. These are main four collections.Key-Value store schema is used since it gives high scalability and low model complexcity
 # Data Flow
 ---
-![data flow](https://user-images.githubusercontent.com/73387610/131223497-3ff93289-8bf3-4632-8c4a-38b50f87209e.jpeg)
+![data_flow](https://user-images.githubusercontent.com/73388013/202931905-474bd25e-5e22-4e8c-b29b-3cd5919ad2c9.png)
 
 
 The users of the pet feeder can schedule a plan or control it manually using the website or a mobile app. Then From the UI, data will get into the Web server and the microconprocessor in the controller (Rasapberry Pi) receive the data from the server. And also the users of the pet feeder can see their pet using the camera, which is in the feeding machine. Live stream data will be sent to the UI through the AWS cloud.
@@ -85,24 +125,13 @@ Visualizing unit is responsible for live streaming. There is a 5MP Omnivision 56
 
 # Hardware Components
 ---
-### Controller Platform
-![raspberry-pi-3bplus-1](https://user-images.githubusercontent.com/73387610/130919677-5fe25e18-ab1e-4974-a727-1b6ed1310eba.jpg)
 
-As the main Controller Platform Raspberry Pi 3 Model B is used. It comes with pre loaded python programming language. It has 4 x ARM Cortex-A53 CPU which have 1.2GHz processing speed. Has a seperate Camera Serial Interface. Also 40 GPIO pins. Raspberry Pi 3 Model B comes with onboard Wi-Fi network interface which has about 38Mbps bandwith. 
+## Stepper Motor
+![image](https://user-images.githubusercontent.com/73388013/202933720-a3bcb5bf-8756-42dd-a058-7c201a2796f2.png)
+<br/>
+Stepper motor is concocted to the motor controller. According to the angle given by the motor controller, the stepper motor will rotate. 
+Stepper motor is used to rotate the food container for certain angle. According to the signal given from the motor controller, the stepper motor will rotate until the rotation is stopped by the controller. This will lead to rotate the food container that attached to the stepper motor
 
-![othercomponents](https://user-images.githubusercontent.com/73387610/131223561-d6a85053-e4c5-4eb4-9111-32143a79b316.jpeg)
-
-![Hardware2](https://user-images.githubusercontent.com/73440714/131258073-6d634aec-4450-4303-9d2e-db268356d532.jpg)
-
-As the other hardware components,It has included an 5MP Omnivision Camera Module, 0.91 Inch LCD Display, L298N Dual Bridge DC Motor Controllers, 12v Stepper motor, Infrared IR Sensor and 5V Realy Module. When considering the actuators the 12v bipolar junction stepper motor has 200 step per revelution and it is capable of giving a high-torque up to 40 N.cm. Next the raspberry pi camera mocdule will give a Full HD video quality of 1080p with 30fps and if it reduced the quality to 720p the frame rate can be increased to 60fps.
-
-Then the IR Sensor will be used to ste the food container to its initial position and that Sensor shoulbe given a input voltage 3-5V.
-
-Also a motor controller has used to control the speed, direction and rotating angle of the stepper motor. A 5V relay module has used to supply the 5V input to the Raspberry PI from the 12V battery.
-
-
-![image](https://user-images.githubusercontent.com/73387610/127871736-4185829d-020c-4e7f-824a-a3d1b0356e24.png)
-As the power supply component, It has used a 12V Lithium battery of 3000mAh. Its Good capacity, lightweight, and rechargeability are very helpful to reduce the total weight and keep the machine active for a long time using battery current.
 # Security Aspects
 ---
 2 factor authentication for login is used as a security mechanism. When user trying to login to the system he will receive OTP to his mobile phone. So If an attacker steals the email and password of a user he cannot login to the system unless he has owner’s mobile phone. Another security mechanism is AWS Web application firewalls. The firewall helps to protect out API from common web attacks and bots. And also Json web token are used to communicate between API and the frontend. After user login to the system API will given a token to the frontend. So UI send request to the API along with the token. So the attackers cannot access our API without the token
