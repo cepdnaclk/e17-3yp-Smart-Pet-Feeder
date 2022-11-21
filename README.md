@@ -116,6 +116,7 @@ Users can log into the system using the mobile application or web application by
 
 <br/>
 For the Back end database MongoDB is used. These are main four collections.Key-Value store schema is used since it gives high scalability and low model complexcity
+
 # Data Flow
 ---
 ![data_flow](https://user-images.githubusercontent.com/73388013/202931905-474bd25e-5e22-4e8c-b29b-3cd5919ad2c9.png)
