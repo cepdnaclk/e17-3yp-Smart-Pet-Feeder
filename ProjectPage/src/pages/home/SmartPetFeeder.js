@@ -39,7 +39,7 @@ const SmartPetFeeder = () => {
             <About/>
             <Architecture/>
             <DataFlow/>
-            <AwsArchitecture/>
+            {/*<AwsArchitecture/>*/}
             <ThreeDDesign/>
             <UIDescription/>
             <UIDesign

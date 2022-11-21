@@ -13,21 +13,21 @@ const Hardware = () => (
       <div className="row">
         <div>
           <HeadingSection title="Hardware components" tagline="">
-            <h3>Controller Platform</h3>
-            <div className="pb-5">
-              <img src={Core} />
-            </div>
-            <p>CPU: 4 x ARM Cortex-A53 , 1.2GHz</p>
-            <p>OS comes pre-loaded with python programming language</p>
-            <p>End nodes are connected to hardware interfaces.</p>
-            <p>4GB SD card is used as memory</p>
-            <p>5V main power supply</p>
-            As the main Controller Platform Raspberry Pi 3 Model B is used. It
-            comes with pre loaded python programming language. It has 4 x ARM
-            Cortex-A53 CPU which have 1.2GHz processing speed. Has a seperate
-            Camera Serial Interface. Also 40 GPIO pins. Raspberry Pi 3 Model B
-            comes with onboard Wi-Fi network interface which has about 38Mbps
-            bandwith.
+            {/*<h3>Controller Platform</h3>*/}
+            {/*<div className="pb-5">*/}
+            {/*  <img src={Core} />*/}
+            {/*</div>*/}
+            {/*<p>CPU: 4 x ARM Cortex-A53 , 1.2GHz</p>*/}
+            {/*<p>OS comes pre-loaded with python programming language</p>*/}
+            {/*<p>End nodes are connected to hardware interfaces.</p>*/}
+            {/*<p>4GB SD card is used as memory</p>*/}
+            {/*<p>5V main power supply</p>*/}
+            {/*As the main Controller Platform Raspberry Pi 3 Model B is used. It*/}
+            {/*comes with pre loaded python programming language. It has 4 x ARM*/}
+            {/*Cortex-A53 CPU which have 1.2GHz processing speed. Has a seperate*/}
+            {/*Camera Serial Interface. Also 40 GPIO pins. Raspberry Pi 3 Model B*/}
+            {/*comes with onboard Wi-Fi network interface which has about 38Mbps*/}
+            {/*bandwith.*/}
             <div className="pb-5">
               <img src={other} />
               <img src={other2} />
@@ -67,11 +67,11 @@ const Hardware = () => (
           </HeadingSection>
         </div>
         <div>
-          <HeadingSection title="Circuit Diagram" tagline="">
-            <div className="pb-5">
-              <img src={circuit} />
-            </div>
-          </HeadingSection>
+          {/*<HeadingSection title="Circuit Diagram" tagline="">*/}
+          {/*  <div className="pb-5">*/}
+          {/*    <img src={circuit} />*/}
+          {/*  </div>*/}
+          {/*</HeadingSection>*/}
         </div>
       </div>
     </div>

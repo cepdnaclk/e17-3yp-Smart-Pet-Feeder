@@ -6,6 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="4d37057f-ceba-4236-8c9d-75f6f486f88b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/assets/images/architecture/architecture.png" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/assets/images/architecture/architecture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/assets/images/budget/budget.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/assets/images/dataFlow/data_flow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Budget/Budget.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Budget/Budget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/DataFlow/DataFlow.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/DataFlow/DataFlow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Design/ThreeDDesign.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Design/ThreeDDesign.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Hardware/Hardware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/components/Timeline/Timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/components/Timeline/Timeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPage/src/pages/home/SmartPetFeeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/architecture/architecture.png" beforeDir="false" afterPath="$PROJECT_DIR$/WebsiteFrontend/src/assets/images/architecture/architecture.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +45,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Smart Pet Feeder BackEnd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -118,6 +128,7 @@
       <workItem from="1665046084461" duration="729000" />
       <workItem from="1665437608450" duration="44000" />
       <workItem from="1668324792190" duration="7928000" />
+      <workItem from="1668990328603" duration="2575000" />
     </task>
     <servers />
   </component>
