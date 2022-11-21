@@ -179,10 +179,10 @@ const Timeline = () => (
 
             <VerticalTimelineElement
                 date="27th October, 2021"
-                className="vertical-timeline-element--education"
-                contentStyle={{background: "rgb(33, 150, 243)", color: "#fff"}}
+                className="vertical-timeline-element--work"
+                contentStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
                 contentArrowStyle={{borderRight: "7px solid  rgb(33, 150, 243)"}}
-                iconStyle={{background: "rgb(33, 150, 243)", color: "#fff"}}
+                iconStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
             >
                 <h3 className="vertical-timeline-element-title text-white">
                     Progress Review</h3>
@@ -212,40 +212,49 @@ const Timeline = () => (
             </VerticalTimelineElement>
 
             <VerticalTimelineElement
-                className="vertical-timeline-element--education"
-                date="Not Started Yet"
-                iconStyle={{background: "rgb(233, 30, 99)", color: "#fff"}}
+                className="vertical-timeline-element--work"
+                contentStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+                contentArrowStyle={{borderRight: "7px solid  rgb(33, 150, 243)"}}
+                iconStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+
+                date="10th January, 2022"
                 // icon={<SchoolIcon />}
             >
-                <h3 className="vertical-timeline-element-title">
+                <h3 className="vertical-timeline-element-title text-white">
                     Implement Hardware Part
                 </h3>
-                <h4 className="vertical-timeline-element-subtitle"></h4>
-                <p>Design and implement the pet feeder unit</p>
+                <h4 className="vertical-timeline-element-subtitle text-white"></h4>
+                <p className="text-white">Design and implement the pet feeder unit</p>
             </VerticalTimelineElement>
 
             <VerticalTimelineElement
-                className="vertical-timeline-element--education"
-                date="Not Started Yet"
-                iconStyle={{background: "rgb(233, 30, 99)", color: "#fff"}}
+                className="vertical-timeline-element--work"
+                contentStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+                contentArrowStyle={{borderRight: "7px solid  rgb(33, 150, 243)"}}
+                iconStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+
+                date="16th April, 2022"
                 // icon={<SchoolIcon />}
             >
-                <h3 className="vertical-timeline-element-title">
+                <h3 className="vertical-timeline-element-title text-white">
                     Connect Software and Hardware
                 </h3>
-                <h4 className="vertical-timeline-element-subtitle"></h4>
-                <p>Established the connection between pet feeder, cloud and the UI</p>
+                <h4 className="vertical-timeline-element-subtitle text-white"></h4>
+                <p className="text-white">Established the connection between pet feeder, cloud and the UI</p>
             </VerticalTimelineElement>
 
             <VerticalTimelineElement
-                className="vertical-timeline-element--education"
-                date="Not Started Yet"
-                iconStyle={{background: "rgb(233, 30, 99)", color: "#fff"}}
+                className="vertical-timeline-element--work"
+                contentStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+                contentArrowStyle={{borderRight: "7px solid  rgb(33, 150, 243)"}}
+                iconStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+
+                date="25th July, 2022"
                 // icon={<SchoolIcon />}
             >
-                <h3 className="vertical-timeline-element-title">Progress Review</h3>
-                <h4 className="vertical-timeline-element-subtitle">(Milestone 4)</h4>
-                <p>
+                <h3 className="vertical-timeline-element-title text-white">Progress Review</h3>
+                <h4 className="vertical-timeline-element-subtitle text-white">(Milestone 4)</h4>
+                <p className="text-white">
                     Tentative evaluation criteria
                     <br/>
                     <div className="offset-1">
@@ -260,25 +269,31 @@ const Timeline = () => (
             </VerticalTimelineElement>
 
             <VerticalTimelineElement
-                className="vertical-timeline-element--education"
-                date="Not Started Yet"
-                iconStyle={{background: "rgb(233, 30, 99)", color: "#fff"}}
+                className="vertical-timeline-element--work"
+                contentStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+                contentArrowStyle={{borderRight: "7px solid  rgb(33, 150, 243)"}}
+                iconStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+
+                date="10th October, 2022"
                 // icon={<SchoolIcon />}
             >
-                <h3 className="vertical-timeline-element-title">Testing</h3>
-                <h4 className="vertical-timeline-element-subtitle"></h4>
-                <p>Test the smart pet feeder and do relevant updates </p>
+                <h3 className="vertical-timeline-element-title text-white">Testing</h3>
+                <h4 className="vertical-timeline-element-subtitle text-white"></h4>
+                <p className="text-white">Test the smart pet feeder and do relevant updates </p>
             </VerticalTimelineElement>
 
             <VerticalTimelineElement
-                className="vertical-timeline-element--education"
-                date="Not Started Yet"
-                iconStyle={{background: "rgb(233, 30, 99)", color: "#fff"}}
+                className="vertical-timeline-element--work"
+                contentStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+                contentArrowStyle={{borderRight: "7px solid  rgb(33, 150, 243)"}}
+                iconStyle={{background: "rgb(0, 204, 0)", color: "#fff"}}
+
+                date="21th November, 2022"
                 // icon={<SchoolIcon />}
             >
-                <h3 className="vertical-timeline-element-title">Complete product</h3>
-                <h4 className="vertical-timeline-element-subtitle">(Milestone 5)</h4>
-                <p>
+                <h3 className="vertical-timeline-element-title text-white">Complete product</h3>
+                <h4 className="vertical-timeline-element-subtitle text-white">(Milestone 5)</h4>
+                <p className="text-white">
                     Tentative evaluation criteria
                     <br/>
                     <div className="offset-1">

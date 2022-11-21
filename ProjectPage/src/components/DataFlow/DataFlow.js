@@ -1,6 +1,6 @@
 import React from "react";
 import HeadingSection from "../../components/HeadingSection/HeadingSection";
-import data_flow from "../../assets/images/dataFlow/data_flow.jpg";
+import data_flow from "../../assets/images/dataFlow/data_flow.png";
 
 const DataFlow = () => (
   <section id="data_flow" className="dark_bg">
